@@ -1,3 +1,24 @@
+# React Learning Project
+
+## Description
+This project is part of my journey to learn and master **React.js**, a popular JavaScript library for building dynamic user interfaces. It has been bootstrapped with **Create React App** to streamline the setup process and focus on learning key React concepts and features.
+
+## Key Learning Goals
+- **Understanding React Basics**: Components, JSX, props, and state management.
+- **Building Interactive UIs**: Handling user events, conditional rendering, and component lifecycle.
+- **State Management**: Managing local and global state using hooks like `useState` and `useEffect`.
+- **Component Reusability**: Structuring reusable and modular components for efficient development.
+- **Routing**: Implementing navigation with **React Router** for single-page applications.
+- **Handling API Requests**: Using `fetch` or `Axios` to make asynchronous API requests and manage data in the app.
+- **Performance Optimization**: Exploring React’s virtual DOM and optimizing app performance.
+
+## Tools & Technologies
+- **React.js**: Core library for building the app.
+- **Yarn Berry**: Using the latest version of Yarn for package management.
+- **JavaScript (ES6+)**: Leveraging modern JavaScript features.
+- **Create React App**: A boilerplate to start building React apps quickly.
+
+This project serves as a hands-on learning experience while building real-world projects and preparing for more advanced React development concepts.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
