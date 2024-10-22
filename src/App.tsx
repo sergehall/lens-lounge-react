@@ -1,26 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header/Header';
+import { navLinks } from "./config/nav-links"; // Ensure the path is correct based on your file structure
+import { PageTitles } from "./config/titles";
+import Technologies from "./components/Technologies/Technologies";
+import {techLinks} from "./config/technology-links";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+    return (
+        <div>
+            <Header title={PageTitles.HOME} links={navLinks} />
+            <Technologies technologies={techLinks} />
+        </div>
+    );
+};
 
 export default App;
