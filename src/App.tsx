@@ -1,15 +1,25 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import { navLinks } from "./config/nav-links"; // Ensure the path is correct based on your file structure
 import { PageTitles } from "./config/titles";
-import Technologies from "./components/Technologies/Technologies";
+import Technologies from "./components/Content/Technologies";
 import {techLinks} from "./config/technology-links";
+import Nav from "./components/Nav/Nav";
+import {navLinks} from "./config/nav-links";
+import './App.css';
 
 const App: React.FC = () => {
     return (
-        <div>
-            <Header title={PageTitles.HOME} links={navLinks} />
-            <Technologies technologies={techLinks} />
+        <div className="App">
+            <header className="App-header">
+                <Header title={PageTitles.HOME}/>
+            </header>
+            <nav className="App-nav">
+                <Nav links={navLinks}/>
+            </nav>
+            <main className="App-content">
+                <h2>Content</h2>
+                <Technologies technologies={techLinks}/>
+            </main>
         </div>
     );
 };

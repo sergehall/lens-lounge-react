@@ -1,25 +1,18 @@
 import React from 'react';
+import logo from '../../logo.svg';
 
 interface HeaderProps {
     title: string;
-    links: { name: string; url: string }[];
 }
 
-const Header: React.FC<HeaderProps> = ({ title, links }) => {
+const Header: React.FC<HeaderProps> = ({ title }) => {
     return (
-        <header className="header">
-            <h1>{title}</h1>
-            <nav>
-                <ul>
-                    {links.map((link, index) => (
-                        <li key={index}>
-                            <a href={link.url}>{link.name}</a>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+        <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo"/>
+            <h1 className="App-title">{title}</h1>
         </header>
     );
 };
 
 export default Header;
+

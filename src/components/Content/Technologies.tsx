@@ -7,8 +7,8 @@ interface TechnologiesProps {
 
 const Technologies: React.FC<TechnologiesProps> = ({ technologies }) => {
     return (
-        <div className="technologies">
-            <h2>Technologies</h2>
+        <div className="App-content">
+            <h3>Technologies</h3>
             <ul>
                 {technologies.map((tech, index) => (
                     <li key={index}>

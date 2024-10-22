@@ -1,12 +1,14 @@
 import React from 'react';
-import {navLinks} from "../../config/nav-links";
 
+interface NavProps {
+    links: { name: string; url: string }[];
+}
 
-const Nav: React.FC = () => {
+const Nav: React.FC<NavProps> = ({  links }) => {
     return (
-        <nav>
+        <nav className="App-nav">
             <ul>
-                {navLinks.map((link, index) => (
+                {links.map((link, index) => (
                     <li key={index}>
                         <a href={link.url}>{link.name}</a>
                     </li>
