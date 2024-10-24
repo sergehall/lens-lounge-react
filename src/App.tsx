@@ -17,7 +17,6 @@ const App: React.FC = () => {
                 <Nav links={navLinks}/>
             </nav>
             <main className="App-content">
-                <h2>Content</h2>
                 <Technologies technologies={techLinks}/>
             </main>
         </div>
