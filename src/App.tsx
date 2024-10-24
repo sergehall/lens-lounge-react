@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import { PageTitles } from "./config/titles";
+import { PageTitles } from "./config/page-titles";
 import Technologies from "./components/Content/Technologies";
 import {techLinks} from "./config/technology-links";
 import Nav from "./components/Nav/Nav";
