@@ -23,7 +23,7 @@ export enum TechnologyName {
     TAILWIND_CSS = "Tailwind\u00A0CSS", // Utility-first CSS framework
     WEBPACK = "Webpack", // Module bundler
     REACT_TESTING_LIBRARY = "React\u00A0Testing\u00A0Library", // React testing tool
-    JEST = "Jest", // Testing framework
+    JEST = "Jest", // Testing framework Jest
     ESLINT = "ESLint", // Code linting tool
     PRETTIER = "Prettier", // Code formatting tool
     STORYBOOK = "Storybook" // UI component tool
