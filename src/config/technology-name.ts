@@ -1,6 +1,6 @@
 export enum TechnologyName {
     REACTJS = "React.js", // Core library for building the app
-    CSS = "css",
+    CSS = "CSS",
     HTML = "HTML",
     JAVASCRIPT = "JavaScript",
     POSTGRESQL = "PostgreSQL",

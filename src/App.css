@@ -1,93 +1,109 @@
+/* Main container with responsive columns and rows */
 .App {
     display: grid;
-    background-color: #282c34; /* Dark background */
-    height: 100vh; /* Set the height to 100% of the viewport */
-    grid-template-rows: 150px 1fr;
-    grid-template-columns: 2fr 8fr;
+    grid-gap: 5px;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-areas:
-    "App-header App-header"
-    "App-nav App-content"; /* Nav in first column, content in second */
+        "App-header App-header"
+        "App-nav App-content";
 }
 
+/* Header setup with five sections, logo and title in the second */
 .App-header {
     grid-area: App-header;
-    display: grid; /* Use grid for alignment */
-    grid-template-columns: auto 1fr 3fr; /* Two columns: logo and title */
-    align-items: center; /* Center items vertically */
-    height: 150px; /* Fixed height for the header */
-    padding: 0 20px; /* Optional: add horizontal padding */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Divide into 5 equal parts */
+    align-items: center;
+    padding: 5px;
+    background-color: #282c34;
 }
 
+/*!* Placeholder sections for the other header parts *!*/
+/*.App-header > .placeholder {*/
+/*    background-color: #444; !* Example color for visibility *!*/
+/*    height: 100%;*/
+/*}*/
+
+ /*Logo and title container for the second part*/
+.App-logo-title-container {
+    display: flex; /* Allows logo and title to be side-by-side */
+    align-items: center;
+    grid-column: 2 / 3; /* Occupy the second column */
+}
+
+/* Logo styles */
 .App-logo {
-    height: 5vmin; /* Keep your logo height */
-    pointer-events: none; /* Disable pointer events for the logo */
-    margin-right: 10px; /* Space between logo and title */
+    height: 5vmin;
+    font-size: calc(6px + 3vmin);
+    margin-right: 10px;
 }
 
+/* Title styles */
 .App-title {
-    font-size: calc(6px + 3vmin); /* Increased size to be larger than the logo */
     color: #61DAFB;
-    margin: 0; /* Remove default margin for proper alignment */
-    text-align: left; /* Align title to the left */
-    flex-grow: 1; /* Allow title to take up remaining space */
+    margin: 0;
+    text-align: left;
+    white-space: nowrap; /* Keeps both words on the same line */
 }
 
+/* Navigation area setup */
 .App-nav {
     grid-area: App-nav;
     color: #61DAFB;
     background-color: #282c34;
-    grid-template-columns: auto 1fr 3fr;
-    padding: 10px;
+    padding: 5px;
 }
 
-/* Link styles in the navigation */
+/* Navigation link styles */
 .App-nav a:link {
-    color: #61DAFB; /* Color for unvisited links */
-    text-decoration: none; /* Remove underline */
+    color: #61DAFB;
+    text-decoration: none;
 }
 
 .App-nav a:visited {
-    color: #B86FC4; /* Color for visited links (Lavender Purple) */
+    color: #B86FC4;
 }
 
 .App-nav a:hover {
-    color: #FFD700; /* Color when hovered (Gold) */
-    text-decoration: underline; /* Underline on hover */
+    color: #FFD700;
+    text-decoration: underline;
 }
 
 .App-nav a:active {
-    color: #FFA500; /* Color when link is actively clicked (Orange) */
+    color: #FFA500;
 }
 
+/* Content area setup */
 .App-content {
     grid-area: App-content;
     display: grid;
     background-color: #61DAFB;
     color: #282c34;
-    grid-template-columns: auto 1fr 8fr;
-    grid-template-rows: 1fr 8fr;
+    grid-template-columns: 1fr;
     padding: 20px;
 }
 
-/* Link styles in the navigation */
+/* Content link styles */
 .App-content a:link {
-    color: #282c34; /* Color for unvisited links */
-    text-decoration: none; /* Remove underline */
+    color: #282c34;
+    text-decoration: none;
 }
 
 .App-content a:visited {
-    color: #B86FC4; /* Color for visited links (Lavender Purple) */
+    color: #B86FC4;
 }
 
 .App-content a:hover {
-    color: #FFD700; /* Color when hovered (Gold) */
-    text-decoration: underline; /* Underline on hover */
+    color: #FFD700;
+    text-decoration: underline;
 }
 
 .App-content a:active {
-    color: #FFA500; /* Color when link is actively clicked (Orange) */
+    color: #FFA500;
 }
 
+/* Logo animation */
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {
         animation: App-logo-spin infinite 20s linear;
