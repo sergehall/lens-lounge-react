@@ -1,35 +1,23 @@
-/* Main container with responsive columns and rows */
 .App {
     display: grid;
     grid-gap: 5px;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: 1fr 4fr;
+    /*grid-template-rows: 1fr 2fr 2fr; !* Three horizontal fractions *!*/
+    grid-template-columns: repeat(5, 1fr); /* Five vertical fractions */
     grid-template-areas:
-        "App-header App-header"
-        "App-nav App-content";
+        "App-header App-header App-header App-header App-header"
+        "App-nav App-content App-content App-content App-content"
+        "App-nav App-content App-content App-content App-content";
+
 }
 
-/* Header setup with five sections, logo and title in the second */
+/* Header */
 .App-header {
     grid-area: App-header;
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Divide into 5 equal parts */
+    grid-template-columns: repeat(5, 1fr);
     align-items: center;
     padding: 5px;
     background-color: #282c34;
-}
-
-/*!* Placeholder sections for the other header parts *!*/
-/*.App-header > .placeholder {*/
-/*    background-color: #444; !* Example color for visibility *!*/
-/*    height: 100%;*/
-/*}*/
-
- /*Logo and title container for the second part*/
-.App-logo-title-container {
-    display: flex; /* Allows logo and title to be side-by-side */
-    align-items: center;
-    grid-column: 2 / 3; /* Occupy the second column */
 }
 
 /* Logo styles */
@@ -44,66 +32,98 @@
     color: #61DAFB;
     margin: 0;
     text-align: left;
-    white-space: nowrap; /* Keeps both words on the same line */
+    white-space: nowrap;
 }
 
-/* Navigation area setup */
 .App-nav {
     grid-area: App-nav;
     color: #61DAFB;
     background-color: #282c34;
-    padding: 5px;
+    grid-template-columns: 2fr 2fr;
+    padding: 10px;
 }
 
-/* Navigation link styles */
-.App-nav a:link {
+/* Navigation links */
+.App-nav a {
     color: #61DAFB;
     text-decoration: none;
-}
-
-.App-nav a:visited {
-    color: #B86FC4;
+    padding: 10px;
+    margin: 4px;
+    border-radius: 2px;
+    transition: background-color 0.3s;
+    text-align: center;
+    width: 100%;
 }
 
 .App-nav a:hover {
+    background-color: #3A3F47;
     color: #FFD700;
-    text-decoration: underline;
 }
 
 .App-nav a:active {
-    color: #FFA500;
+    color: #FFA500; /* Color when link is actively clicked (Orange) */
 }
 
-/* Content area setup */
+.App-nav a:visited {
+    color: #B86FC4; /* Color for visited links (Lavender Purple) */
+}
+
+/* Content area spanning columns 2-5 in rows 2 and 3 */
 .App-content {
     grid-area: App-content;
     display: grid;
     background-color: #61DAFB;
     color: #282c34;
-    grid-template-columns: 1fr;
     padding: 20px;
 }
 
-/* Content link styles */
 .App-content a:link {
-    color: #282c34;
-    text-decoration: none;
+    color: #282c34; /* Color for unvisited links */
+    text-decoration: none; /* Remove underline */
 }
 
 .App-content a:visited {
-    color: #B86FC4;
+    color: #B86FC4; /* Color for visited links (Lavender Purple) */
 }
 
 .App-content a:hover {
-    color: #FFD700;
-    text-decoration: underline;
+    color: #FFD700; /* Color when hovered (Gold) */
+    text-decoration: underline; /* Underline on hover */
 }
 
 .App-content a:active {
-    color: #FFA500;
+    color: #FFA500; /* Color when link is actively clicked (Orange) */
 }
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .App {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "App-header"
+            "App-nav"
+            "App-content";
+    }
 
-/* Logo animation */
+    .App-nav {
+        align-items: center;
+        padding: 10px;
+        background-color: #282c34;
+    }
+
+    /* Link styles for smaller screens */
+    .App-nav a {
+        color: #FFD700;
+        padding: 8px 16px;
+        text-align: center;
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .App-nav a:hover {
+        background-color: #3A3F47;
+        color: #FFD700;
+    }
+}
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {
         animation: App-logo-spin infinite 20s linear;
