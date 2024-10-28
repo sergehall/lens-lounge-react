@@ -7,24 +7,30 @@
         "App-header App-header App-header App-header App-header"
         "App-nav App-content App-content App-content App-content"
         "App-nav App-content App-content App-content App-content";
-
 }
 
-/* Header */
+/*!* Header *!*/
 .App-header {
     grid-area: App-header;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    align-items: center;
     padding: 5px;
     background-color: #282c34;
+}
+
+/* Header link styling for logo and title */
+.App-header-link {
+    grid-column: 1 / span 2; /* Covers the first two columns for logo and title */
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Remove underline */
 }
 
 /* Logo styles */
 .App-logo {
     height: 5vmin;
     font-size: calc(6px + 3vmin);
-    margin-right: 10px;
+    margin-right: 10px; /* Spacing between logo and title */
 }
 
 /* Title styles */
@@ -32,7 +38,7 @@
     color: #61DAFB;
     margin: 0;
     text-align: left;
-    white-space: nowrap;
+    white-space: nowrap; /* Keeps title on the same line */
 }
 
 .App-nav {
@@ -48,16 +54,11 @@
     color: #61DAFB;
     text-decoration: none;
     padding: 10px;
-    margin: 4px;
-    border-radius: 2px;
+    margin: 6px 0;
+    border-radius: 4px;
     transition: background-color 0.3s;
     text-align: center;
-    width: 100%;
-}
-
-.App-nav a:hover {
-    background-color: #3A3F47;
-    color: #FFD700;
+    line-height: 2em
 }
 
 .App-nav a:active {
@@ -66,6 +67,11 @@
 
 .App-nav a:visited {
     color: #B86FC4; /* Color for visited links (Lavender Purple) */
+}
+
+.App-nav a:hover {
+    background-color: #3A3F47;
+    color: #FFD700;
 }
 
 /* Content area spanning columns 2-5 in rows 2 and 3 */
@@ -113,10 +119,11 @@
     /* Link styles for smaller screens */
     .App-nav a {
         color: #FFD700;
-        padding: 8px 16px;
+        text-decoration: none;
+        padding: 10px;
+        margin: 6px 0;
         text-align: center;
-        width: 100%;
-        max-width: 200px;
+
     }
 
     .App-nav a:hover {

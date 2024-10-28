@@ -8,11 +8,12 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ title }) => {
     return (
         <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo"/>
-            <h1 className="App-title">{title}</h1>
+            <a href="/" className="App-header-link"> {/* Link to the homepage */}
+                <img src={logo} className="App-logo" alt="logo" />
+                <h1 className="App-title">{title}</h1>
+            </a>
         </header>
     );
 };
 
 export default Header;
-
