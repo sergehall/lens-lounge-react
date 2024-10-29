@@ -7,9 +7,9 @@ interface ImageBannerContentProps {
     className: string;
 }
 
-const ImageBanner: React.FC<ImageBannerContentProps> = ({ imageUrl, altText = "Banner Image", className = "" }) => {
+const ImageBanner: React.FC<ImageBannerContentProps> = ({ imageUrl, altText = "Banner Image", className = "Image-banner-content" }) => {
     return (
-            <div className="Image-banner-content">
+            <div className={className}>
                 <img
                     src={imageUrl || ImageBannerContent}
                     alt={altText}

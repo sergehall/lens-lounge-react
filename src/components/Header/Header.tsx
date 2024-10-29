@@ -8,7 +8,7 @@ interface HeaderProps {
     className?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, logoUrl = logo, homeUrl = "/", className = "" }) => {
+const Header: React.FC<HeaderProps> = ({ title, logoUrl = logo, homeUrl = "/", className = "App-header" }) => {
     return (
         <header className={`App-header ${className}`}>
             <a href={homeUrl} className="App-header-link" aria-label="Home">
