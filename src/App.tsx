@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from './components/Header/Header';
+import Header from './components/header/header';
 import { PageTitles } from "./config/page-titles";
-import ImageBanner from './components/Content/ImageBannerContent';
-import Technologies from './components/Content/Technologies';
+import ImageBanner from './components/content/image-banner-content';
+import Technologies from './components/content/technologies';
 import { techLinks } from "./config/technology-links";
-import Sidebar from './components/Sidebar/Sidebar';
 import { navLinks } from './config/nav-links';
-import './App.css';
 import ImageBannerContent from '../src/assets/images/image-banner-content.png';
+import Sidebar from "./components/sidebar/sidebar";
+import './App.css';
 
 const App: React.FC = () => {
     return (

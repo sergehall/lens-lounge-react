@@ -20,7 +20,7 @@
         "App-nav App-content App-content App-content App-content";
 }
 
-/* Header */
+/* header */
 .App-header {
     grid-area: App-header;
     display: grid;
@@ -98,7 +98,7 @@
     color: var(--visited-link-color);
 }
 
-/* Content area */
+/* content area */
 .App-content {
     grid-area: App-content;
     display: grid;
@@ -221,7 +221,7 @@
 /*   control row sizes. The default behavior provides a flexible layout, allowing each row to*/
 /*   size naturally according to its content. *!*/
 
-/*!* Header *!*/
+/*!* header *!*/
 /*.App-header {*/
 /*    grid-area: App-header;*/
 /*    display: grid;*/
@@ -301,7 +301,7 @@
 /*}*/
 
 
-/*!* Content area *!*/
+/*!* content area *!*/
 /*.App-content {*/
 /*    grid-area: App-content;*/
 /*    display: grid;*/
