@@ -19,8 +19,8 @@ const App: React.FC = () => {
                 <Nav links={navLinks} />
             </nav>
             <div className="App-content">
-                <ImageBanner imageUrl={ImageBannerContent} altText="Banner Image" />
-                <Technologies technologies={techLinks} />
+                <ImageBanner imageUrl={ImageBannerContent} className="Image-banner-content" altText="Banner Image" />
+                <Technologies technologies={techLinks}  className="Technologies"/>
             </div>
         </div>
     );

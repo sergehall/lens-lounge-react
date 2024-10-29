@@ -4,7 +4,7 @@ import ImageBannerContent from '../../assets/images/image-banner-content.png';
 interface ImageBannerContentProps {
     imageUrl: string;
     altText: string;
-    className?: string;
+    className: string;
 }
 
 const ImageBanner: React.FC<ImageBannerContentProps> = ({ imageUrl, altText = "Banner Image", className = "" }) => {
