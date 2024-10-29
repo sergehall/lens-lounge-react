@@ -1,64 +1,69 @@
+/* Main container styling */
 .App {
-    display: grid;
-    grid-gap: 5px;
-    /*grid-template-rows: 1fr 2fr 2fr; !* Three horizontal fractions *!*/
-    grid-template-columns: repeat(5, 1fr); /* Five vertical fractions */
-    grid-template-areas:
-        "App-header App-header App-header App-header App-header"
+    display: grid; /* Establishes grid layout for the app */
+    grid-gap: 5px; /* Sets spacing between grid items */
+    grid-template-rows: 0.5fr 2fr 7fr; /* Defines row heights: header, nav, and content */
+    grid-template-columns: repeat(5, 1fr); /* Five equal-width columns */
+    grid-template-areas: /* Sets up named areas for easy placement */ "App-header App-header App-header App-header App-header"
+        "App-nav App-content App-content App-content App-content"
+        "App-nav App-content App-content App-content App-content"
+        "App-nav App-content App-content App-content App-content"
+        "App-nav App-content App-content App-content App-content"
         "App-nav App-content App-content App-content App-content"
         "App-nav App-content App-content App-content App-content";
 }
 
 /*!* Header *!*/
 .App-header {
-    grid-area: App-header;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    padding: 5px;
-    background-color: #282c34;
+    grid-area: App-header; /* Positions header in the 'App-header' area */
+    display: grid; /* Applies grid layout within the header */
+    grid-template-columns: repeat(5, 1fr); /* Five equal-width columns */
+    padding: 5px; /* Adds padding around the header */
+    background-color: #282c34; /* Background color for the header */
 }
 
 /* Header link styling for logo and title */
 .App-header-link {
-    grid-column: 1 / span 2; /* Covers the first two columns for logo and title */
-    display: flex;
-    align-items: center;
-    text-decoration: none; /* Remove underline */
+    grid-column: 1 / span 2; /* Spans the first two columns for logo and title */
+    display: flex; /* Uses flexbox for alignment */
+    align-items: center; /* Vertically centers items within */
+    text-decoration: none; /* Removes underline from links */
 }
 
 /* Logo styles */
 .App-logo {
-    height: 5vmin;
-    font-size: calc(6px + 3vmin);
-    margin-right: 10px; /* Spacing between logo and title */
+    height: 5vmin; /* Sets the height responsive to viewport */
+    font-size: calc(6px + 3vmin); /* Scales font size with viewport */
+    margin-right: 10px; /* Adds space between logo and title */
 }
 
 /* Title styles */
 .App-title {
-    color: #61DAFB;
-    margin: 0;
-    text-align: left;
-    white-space: nowrap; /* Keeps title on the same line */
+    color: #61DAFB; /* Color of the title */
+    margin: 0; /* Removes default margin */
+    text-align: left; /* Aligns text to the left */
+    white-space: nowrap; /* Prevents text from wrapping */
 }
 
+/* Navigation sidebar styling */
 .App-nav {
-    grid-area: App-nav;
-    color: #61DAFB;
-    background-color: #282c34;
-    grid-template-columns: 2fr 2fr;
-    padding: 10px;
+    grid-area: App-nav; /* Positions nav in the 'App-nav' area */
+    color: #61DAFB; /* Text color for nav */
+    background-color: #282c34; /* Background color for nav */
+    grid-template-columns: 2fr 2fr; /* Defines two-column layout within nav */
+    padding: 10px; /* Adds padding around the nav */
 }
 
-/* Navigation links */
+/* Navigation links styling */
 .App-nav a {
-    color: #61DAFB;
-    text-decoration: none;
-    padding: 10px;
-    margin: 6px 0;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-    text-align: center;
-    line-height: 2em
+    color: #61DAFB; /* Initial link color */
+    text-decoration: none; /* Removes underline */
+    padding: 10px; /* Padding around each link */
+    margin: 6px 0; /* Adds vertical spacing between links */
+    border-radius: 4px; /* Rounds link corners */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+    text-align: center; /* Centers text within link */
+    line-height: 2em; /* Sets line height for readability */
 }
 
 .App-nav a:active {
@@ -70,78 +75,82 @@
 }
 
 .App-nav a:hover {
-    background-color: #3A3F47;
-    color: #FFD700;
+    background-color: #3A3F47; /* Changes background on hover */
+    color: #FFD700; /* Changes text color on hover */
 }
 
-/* Content area spanning columns 2-5 in rows 2 and 3 */
+/* Content area styles spanning columns 2-5 in rows 2 and 3 */
 .App-content {
-    grid-area: App-content;
-    display: grid;
-    background-color: #61DAFB;
-    color: #282c34;
-    padding: 20px;
+    grid-area: App-content; /* Positions content in 'App-content' area */
+    display: grid; /* Establishes grid layout for the content area */
+    background-color: #61DAFB; /* Background color for content */
+    color: #282c34; /* Text color within content */
+    padding: 20px; /* Adds padding around the content */
 }
 
+/* Link styling within the content area */
 .App-content a:link {
     color: #282c34; /* Color for unvisited links */
-    text-decoration: none; /* Remove underline */
+    text-decoration: none; /* Removes underline */
 }
 
 .App-content a:visited {
-    color: #B86FC4; /* Color for visited links (Lavender Purple) */
+    color: #B86FC4; /* Color for visited links */
 }
 
 .App-content a:hover {
-    color: #FFD700; /* Color when hovered (Gold) */
-    text-decoration: underline; /* Underline on hover */
+    color: #FFD700; /* Changes color on hover (Gold) */
+    text-decoration: underline; /* Adds underline on hover */
 }
 
 .App-content a:active {
     color: #FFA500; /* Color when link is actively clicked (Orange) */
 }
-/* Responsive adjustments */
+
+/* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
     .App {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Changes to single column layout */
         grid-template-areas:
             "App-header"
             "App-nav"
-            "App-content";
+            "App-content"; /* Adjusts layout for mobile view */
     }
 
     .App-nav {
-        align-items: center;
-        padding: 10px;
-        background-color: #282c34;
+        align-items: center; /* Centers items in the nav */
+        padding: 10px; /* Adjusts padding for smaller screens */
+        background-color: #282c34; /* Keeps background color consistent */
     }
 
     /* Link styles for smaller screens */
     .App-nav a {
-        color: #FFD700;
-        text-decoration: none;
-        padding: 10px;
-        margin: 6px 0;
-        text-align: center;
-
+        color: #FFD700; /* Changes color for mobile view */
+        text-decoration: none; /* No underline */
+        padding: 10px; /* Padding around links */
+        margin: 6px 0; /* Adds vertical spacing */
+        text-align: center; /* Centers text */
     }
 
     .App-nav a:hover {
-        background-color: #3A3F47;
-        color: #FFD700;
-    }
-}
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
+        background-color: #3A3F47; /* Background color on hover */
+        color: #FFD700; /* Text color on hover */
     }
 }
 
+/* Animation preferences for reduced-motion users */
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear; /* Slow infinite spin animation */
+    }
+}
+
+/* Logo spin animation keyframes */
 @keyframes App-logo-spin {
     from {
-        transform: rotate(0deg);
+        transform: rotate(0deg); /* Start position */
     }
     to {
-        transform: rotate(360deg);
+        transform: rotate(360deg); /* End position, completes full spin */
     }
 }
