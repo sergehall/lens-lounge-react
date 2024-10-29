@@ -4,7 +4,7 @@ import { PageTitles } from "./config/page-titles";
 import ImageBanner from './components/Content/ImageBannerContent';
 import Technologies from './components/Content/Technologies';
 import { techLinks } from "./config/technology-links";
-import Nav from './components/Nav/Nav';
+import Sidebar from './components/Sidebar/Sidebar';
 import { navLinks } from './config/nav-links';
 import './App.css';
 import ImageBannerContent from '../src/assets/images/image-banner-content.png';
@@ -16,7 +16,7 @@ const App: React.FC = () => {
                 <Header title={PageTitles.HOME} />
             </header>
             <nav className="App-nav">
-                <Nav links={navLinks} />
+                <Sidebar links={navLinks} className = "App-nav"/>
             </nav>
             <div className="App-content">
                 <ImageBanner imageUrl={ImageBannerContent} className="Image-banner-content" altText="Banner Image" />

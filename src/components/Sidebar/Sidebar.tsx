@@ -2,10 +2,10 @@ import React from 'react';
 
 interface NavProps {
     links: { name: string; url: string }[];
-    className?: string;
+    className: string;
 }
 
-const Nav: React.FC<NavProps> = ({ links, className = "" }) => {
+const Sidebar: React.FC<NavProps> = ({ links, className = "App-nav" }) => {
     return (
         <nav className={`App-nav ${className}`} aria-label="Main Navigation">
             <ul>
@@ -21,4 +21,4 @@ const Nav: React.FC<NavProps> = ({ links, className = "" }) => {
     );
 };
 
-export default Nav;
+export default Sidebar;
