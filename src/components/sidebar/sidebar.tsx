@@ -1,23 +1,25 @@
-import React from 'react';
+// src/components/Sidebar/Sidebar.tsx
 
-interface NavProps {
+import React from 'react';
+import styles from './sidebar.module.css';
+import { SidebarContainer, SidebarLink } from './sidebar.styles';
+
+interface SidebarProps {
     links: { name: string; url: string }[];
-    className: string;
+    className?: string;
 }
 
-const Sidebar: React.FC<NavProps> = ({ links, className = "App-nav" }) => {
+const Sidebar: React.FC<SidebarProps> = ({ links, className }) => {
     return (
-        <nav className={`App-nav ${className}`} aria-label="Main Navigation">
-            <ul>
+        <SidebarContainer className={`${styles.sidebarContainer} ${className}`}>
+            <ul className={styles.sidebarList}>
                 {links.map((link, index) => (
                     <li key={index}>
-                        <a href={link.url} target="_blank" rel="noopener noreferrer">
-                            {link.name}
-                        </a>
+                        <SidebarLink href={link.url}>{link.name}</SidebarLink>
                     </li>
                 ))}
             </ul>
-        </nav>
+        </SidebarContainer>
     );
 };
 

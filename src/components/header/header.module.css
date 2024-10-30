@@ -1,0 +1,15 @@
+/*// src/components/header/header.module.css*/
+
+.appHeader {
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.appHeaderLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}

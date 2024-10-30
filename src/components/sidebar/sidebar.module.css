@@ -1,0 +1,51 @@
+/* src/components/Sidebar/sidebar.module.css */
+
+.sidebarContainer {
+    grid-area: App-nav;
+    background-color: var(--header-nav-bg);
+    color: var(--link-color);
+    padding: 20px;
+    display: grid;
+    gap: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebarLink {
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebarLink:hover {
+    background-color: var(--link-hover-bg);
+    color: var(--link-hover-text);
+}
+
+.sidebarLink:focus {
+    outline: 2px solid var(--link-hover-text);
+}
+
+.sidebarLink:visited {
+    color: var(--visited-link-color);
+}
+
+.sidebarList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Vertical layout by default */
+    gap: 15px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+
+    .sidebarList {
+        flex-direction: row; /* Make links horizontal */
+        gap: 10px;
+    }
+}
