@@ -1,8 +1,7 @@
-/* src/components/Sidebar/sidebar.module.css */
+/* src/components/sidebar/sidebar.module.css */
 
 .sidebarContainer {
     grid-area: App-nav;
-    background-color: var(--header-nav-bg);
     color: var(--link-color);
     padding: 20px;
     display: grid;

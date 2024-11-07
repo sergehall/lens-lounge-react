@@ -9,6 +9,7 @@ export const HeaderContainer = styled.header`
     grid-template-columns: auto 1fr;
     align-items: center;
     padding: 10px 20px;
+    max-width: 1300px;
 `;
 
 export const Logo = styled.img`

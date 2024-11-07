@@ -4,8 +4,8 @@ import React from 'react';
 import styles from './profile.module.css';
 import { ProfileContainer, ProfilePhoto, ProfileDetails, ProfileField, ProfileLabel, ProfileValue } from './profile.styles';
 
-interface ProfileProps {
-    className?: string;
+export interface ProfileProps {
+    className: string;
     firstName: string;
     lastName: string;
     birthday: string;

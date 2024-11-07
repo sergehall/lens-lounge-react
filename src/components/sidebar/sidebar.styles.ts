@@ -1,12 +1,12 @@
-// src/components/Sidebar/sidebar.styles.ts
+// src/components/sidebar/sidebar.styles.ts
 
 import styled from 'styled-components';
 
 export const SidebarContainer = styled.nav`
-    grid-area: App-nav;
     background-color: var(--header-nav-bg);
     color: var(--link-color);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    max-width: 100px;
 `;
 
 export const SidebarLink = styled.a`
