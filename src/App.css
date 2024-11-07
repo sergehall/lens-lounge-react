@@ -2,6 +2,8 @@
 :root {
     --header-nav-bg: #282c34;
     --content-bg: #61DAFB;
+    --profile-bg: #61DAFB;
+    --profile-link-color: #282c34;
     --link-color: #61DAFB;
     --link-hover-bg: #3A3F47;
     --link-hover-text: #FFD700;
@@ -33,7 +35,6 @@
 /* content area */
 .App-content {
     grid-area: App-content;
-    background-color: var(--content-bg);
 }
 
 /* Responsive adjustments for smaller screens */

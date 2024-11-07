@@ -1,4 +1,4 @@
-// src/components/Content/content.styles.ts
+// src/components/content/content.styles.ts
 
 import styled from 'styled-components';
 
@@ -7,7 +7,6 @@ export const ContentContainer = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: var(--content-bg);
     color: var(--header-nav-bg);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

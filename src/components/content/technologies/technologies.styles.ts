@@ -4,9 +4,12 @@ import styled from 'styled-components';
 
 export const TechnologiesContainer = styled.div`
     padding: 20px;
-    background-color: var(--content-bg);
+    //background-color: var(--content-bg);
     color: var(--header-nav-bg);
+    max-width: 985px;
     text-align: start;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 export const TechnologyTitle = styled.h3`

@@ -1,4 +1,4 @@
-// src/components/Content/Content.tsx
+// src/components/content/Content.tsx
 
 import React from 'react';
 import styles from './content.module.css';

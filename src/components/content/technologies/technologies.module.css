@@ -3,7 +3,6 @@
 /* Technologies container styling */
 .Technologies {
     padding: 20px;
-    background-color: var(--content-bg);
     color: var(--header-nav-bg);
     text-align: start;
 }
