@@ -7,15 +7,7 @@ interface HeaderProps {
     title: string;
     logoUrl?: string;
     homeUrl?: string;
-    className?: string;
-}
-
-
-interface HeaderProps {
-    title: string;
-    logoUrl?: string;
-    homeUrl?: string;
-    className?: string;
+    className: string;
 }
 
 const Header: React.FC<HeaderProps> = ({
