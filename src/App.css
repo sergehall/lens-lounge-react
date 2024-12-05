@@ -1,4 +1,3 @@
-/* Color Variables for Consistency */
 :root {
     --header-nav-bg: #282c34;
     --content-bg: #61DAFB;
@@ -15,35 +14,77 @@
 .App {
     display: grid;
     grid-gap: 5px;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 150px 1fr; /* Sidebar is fixed at 150px; content takes the rest */
     grid-template-areas:
-        "App-header App-header App-header App-header App-header "
-        "App-nav App-content App-content App-content App-content"
-        "App-nav App-content App-content App-content App-content";
+        "App-header App-header"
+        "App-nav App-content"
+        "App-nav App-content";
+    max-width: 1300px;
+    max-height: 800px;
+    margin: 0 auto; /* Center the layout horizontally */
+    position: relative;
+    top: 0; /* Keep the header at the top */
+    box-sizing: border-box; /* Ensure padding and borders are included in max-width */
 }
 
 /* Assign each grid item its area */
 .App-header {
-    grid-area: App-header;   /* Matches the "App-header" name in grid-template-areas */
-}
-
-.App-nav {
-    grid-area: App-nav;      /* Matches the "App-nav" name in grid-template-areas */
+    grid-area: App-header;
+    width: 100%; /* Spans across the App-nav and App-content */
+    max-width: 1300px;
     background-color: var(--header-nav-bg);
+    color: white;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Include padding in the width */
 }
 
-/* content area */
+/* Sidebar navigation */
+.App-nav {
+    grid-area: App-nav;
+    width: 150px; /* Matches the grid-template-columns value */
+    max-width: 150px; /* Fixed for larger screens */
+    background-color: var(--header-nav-bg);
+    padding: 10px;
+    border-right: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Content area */
 .App-content {
     grid-area: App-content;
+    background-color: var(--content-bg);
+    max-width: 1150px; /* Matches the remaining space (1300px - 150px) */
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
     .App {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single-column layout */
         grid-template-areas:
             "App-header"
             "App-nav"
             "App-content";
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0;
+        position: static;
+    }
+
+    .App-header,
+    .App-content {
+        max-width: 100%; /* Allow header and content to fill the width */
+        padding: 10px;
+    }
+
+    .App-nav {
+        width: 100%; /* Allow navigation to fill the available space */
+        max-width: 100%; /* Remove fixed width */
+        padding: 10px;
+        border-right: none; /* Remove the border to fit better in the layout */
     }
 }

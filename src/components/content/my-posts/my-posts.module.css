@@ -1,12 +1,12 @@
 .myPostsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
-    padding: 5px;
+    gap: 15px;
 }
 
 .postItem {
     padding: 16px;
+    width: 100%;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
@@ -23,8 +23,7 @@
     .myPostsContainer {
         grid-template-columns: 1fr; /* Single-column layout */
     }
-
     .postItem {
-        width: 100%; /* Ensure posts don't exceed screen width */
+        width: 100%;
     }
 }

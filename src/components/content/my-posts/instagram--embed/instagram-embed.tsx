@@ -12,6 +12,7 @@ const InstagramEmbed: React.FC<InstagramEmbedProps> = ({ url, title }) => {
             style={{
                 border: 'none',
                 overflow: 'hidden',
+                borderRadius: '8px',
                 width: '100%',
                 height: '400px',
             }}

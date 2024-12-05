@@ -7,6 +7,7 @@ export const SidebarContainer = styled.nav`
     color: var(--link-color);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     max-width: 100px;
+    border-radius: 8px;
 `;
 
 export const SidebarLink = styled.a`

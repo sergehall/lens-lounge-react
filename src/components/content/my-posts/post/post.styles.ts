@@ -3,10 +3,11 @@ import styled from 'styled-components';
 export const PostContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 5px;
+    border: 1px solid var(--content-bg);
     border-radius: 8px;
-    background-color: #fff;
+    background-color: var(--content-bg);
+
 `;
 
 export const PostImage = styled.img`

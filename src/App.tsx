@@ -25,7 +25,7 @@ const App: React.FC = () => {
 
             <div className="App-content">
                 <ImageBanner imageUrl={ImageBannerContent} className="Image-banner-content" altText="Banner Image" />
-                <Content title={<DynamicTitle />}></Content>
+                {/*<Content title={<DynamicTitle />}></Content>*/}
                 <ExampleUserProfile />
                 <MyPosts posts={postsDataMock} />
 

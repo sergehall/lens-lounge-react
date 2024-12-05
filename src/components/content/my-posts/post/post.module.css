@@ -1,15 +1,16 @@
-.myPostsContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 16px;
-    padding: 16px;
-}
+/*.myPostsContainer {*/
+/*    display: grid;*/
+/*    width: 100%;*/
+/*    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+/*    gap: 16px;*/
+/*    padding: 16px;*/
+/*}*/
 
-.postItem {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-}
+/*.postItem {*/
+/*    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.2s ease;*/
+/*}*/
 
-.postItem:hover {
-    transform: translateY(-4px);
-}
+/*.postItem:hover {*/
+/*    transform: translateY(-4px);*/
+/*}*/

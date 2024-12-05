@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const ProfileContainer = styled.div`
     display: flex;
     align-items: flex-start;
-    padding: 20px;
-    max-width: 985px;
+    padding: 10px;
+    margin-bottom: 5px;
+    max-width: 100%;
     background-color: var(--profile-bg);
     color: var(--header-nav-bg);
     border-radius: 8px;
