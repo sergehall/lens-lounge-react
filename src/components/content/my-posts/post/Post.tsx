@@ -5,9 +5,9 @@ import InstagramEmbed from "../instagram--embed/instagram-embed";
 interface PostProps {
     id: string;
     title: string;
-    imageUrl?: string;
-    description?: string;
-    className?: string;
+    imageUrl: string;
+    description: string;
+    className: string;
 }
 
 const Post: React.FC<PostProps> = ({ title, imageUrl, description, className }) => {

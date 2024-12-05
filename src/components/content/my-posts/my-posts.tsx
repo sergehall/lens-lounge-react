@@ -16,7 +16,7 @@ interface MyPostsProps {
 }
 
 // Mock data
-export const postsData: PostData[] = [
+export const postsDataMock: PostData[] = [
     {
         id: '1',
         title: 'Post 1',
@@ -37,7 +37,7 @@ export const postsData: PostData[] = [
     },
 ];
 
-const MyPosts: React.FC<MyPostsProps> = ({ posts = postsData, className = styles.myPostsContainer }) => {
+const MyPosts: React.FC<MyPostsProps> = ({ posts = postsDataMock, className = styles.myPostsContainer }) => {
     return (
         <div className={`${styles.myPostsContainer} ${className}`}>
             {posts.map((post) => (

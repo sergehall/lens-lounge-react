@@ -3,7 +3,7 @@ import styles from './content.module.css';
 import {ContentContainer, ContentImage, ContentTitle, ContentDescription} from "./content.style";
 
 interface ContentProps {
-    title: string;
+    title: React.ReactNode;
     imageUrl?: string;
     description?: string;
     className?: string;

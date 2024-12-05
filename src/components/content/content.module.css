@@ -9,6 +9,7 @@
     text-align: center;
 }
 
+
 .contentImage {
     width: 100%;
     max-width: 300px;
@@ -25,4 +26,26 @@
 .contentDescription {
     font-size: 1em;
     color: var(--link-hover-bg);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .contentContainer {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .contentImage {
+        max-width: 100%;
+    }
+
+    .contentTitle {
+        font-size: 1.5em;
+        margin: 10px 0;
+    },
+
+    .contentDescription {
+        font-size: 1.2em;
+        width: 100%;
+    }
 }

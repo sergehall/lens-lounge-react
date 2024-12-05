@@ -1,8 +1,8 @@
 .myPostsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 16px;
-    padding: 16px;
+    gap: 10px;
+    padding: 5px;
 }
 
 .postItem {
@@ -22,5 +22,9 @@
 @media (max-width: 600px) {
     .myPostsContainer {
         grid-template-columns: 1fr; /* Single-column layout */
+    }
+
+    .postItem {
+        width: 100%; /* Ensure posts don't exceed screen width */
     }
 }

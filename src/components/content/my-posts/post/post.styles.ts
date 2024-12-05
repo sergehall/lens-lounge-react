@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const PostContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 16px;
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;

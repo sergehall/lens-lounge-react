@@ -1,5 +1,3 @@
-/* src/components/sidebar/sidebar.module.css */
-
 .sidebarContainer {
     grid-area: App-nav;
     color: var(--link-color);
@@ -37,7 +35,7 @@
     margin: 0;
     display: flex;
     flex-direction: column; /* Vertical layout by default */
-    gap: 15px;
+    gap: 20px;
 }
 
 /* Media query for smaller screens */
@@ -45,6 +43,6 @@
 
     .sidebarList {
         flex-direction: row; /* Make links horizontal */
-        gap: 10px;
+        gap: 8px;
     }
 }

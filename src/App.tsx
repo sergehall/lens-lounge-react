@@ -8,7 +8,11 @@ import Sidebar from "./components/sidebar/Sidebar";
 import ImageBanner from "./components/content/Image-banner-content";
 import Technologies from "./components/content/technologies/Technologies";
 import ExampleUserProfile from "./components/content/profile/example-user-profile";
-import MyPosts, {postsData} from "./components/content/my-posts/my-posts";
+import MyPosts, {postsDataMock} from "./components/content/my-posts/my-posts";
+import Content from "./components/content/Content";
+import {DynamicTitle} from "./components/content/dynamic-title";
+
+
 
 const App: React.FC = () => {
     return (
@@ -21,8 +25,9 @@ const App: React.FC = () => {
 
             <div className="App-content">
                 <ImageBanner imageUrl={ImageBannerContent} className="Image-banner-content" altText="Banner Image" />
+                <Content title={<DynamicTitle />}></Content>
                 <ExampleUserProfile />
-                <MyPosts posts={postsData} />
+                <MyPosts posts={postsDataMock} />
 
                 {/*<Technologies technologies={techLinks} className="Technologies" />*/}
             </div>

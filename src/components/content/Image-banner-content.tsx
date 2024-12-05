@@ -1,23 +1,27 @@
 import React from 'react';
 import ImageBannerContent from '../../assets/images/image-banner-content.png';
+import {ContentImage} from "./content.style";
 
 interface ImageBannerContentProps {
     imageUrl: string;
-    altText: string;
-    className: string;
+    altText?: string;
+    className?: string;
 }
 
-const ImageBanner: React.FC<ImageBannerContentProps> = ({ imageUrl, altText = "Banner Image", className = "Image-banner-content" }) => {
+const ImageBanner: React.FC<ImageBannerContentProps> = ({
+                                                            imageUrl,
+                                                            altText = 'Banner Image',
+                                                            className = '',
+                                                        }) => {
     return (
-            <div className={className}>
-                <img
-                    src={imageUrl || ImageBannerContent}
-                    alt={altText}
-                    onError={(e) => {
-                        e.currentTarget.src = ImageBannerContent;
-                    }}
-                />
-            </div>
+        <ContentImage
+            src={imageUrl || ImageBannerContent}
+            alt={altText}
+            className={className}
+            onError={(e) => {
+                e.currentTarget.src = ImageBannerContent; // Fallback image
+            }}
+        />
     );
 };
 

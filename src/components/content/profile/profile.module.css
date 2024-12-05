@@ -1,5 +1,3 @@
-/* src/components/Profile/profile.module.css */
-
 .profileContainer {
     display: flex;
     align-items: flex-start;
@@ -42,3 +40,4 @@
     color: var(--link-hover-text);
     text-decoration: underline;
 }
+
