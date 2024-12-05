@@ -1,5 +1,3 @@
-// src/App.tsx
-
 import React from "react";
 import { PageTitles } from "./config/page-titles";
 import { techLinks } from "./config/technology-links";
@@ -11,6 +9,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import ImageBanner from "./components/content/Image-banner-content";
 import Technologies from "./components/content/technologies/Technologies";
 import ExampleUserProfile from "./components/content/profile/example-user-profile";
+import MyPosts, {postsData} from "./components/content/my-posts/my-posts";
 
 const App: React.FC = () => {
     return (
@@ -23,11 +22,10 @@ const App: React.FC = () => {
 
             <div className="App-content">
                 <ImageBanner imageUrl={ImageBannerContent} className="Image-banner-content" altText="Banner Image" />
-                {/*<Profile />*/}
-                {/* UserProfile component as a standalone example */}
                 <ExampleUserProfile />
+                <MyPosts posts={postsData} />
 
-                <Technologies technologies={techLinks} className="Technologies" />
+                {/*<Technologies technologies={techLinks} className="Technologies" />*/}
             </div>
         </div>
     );

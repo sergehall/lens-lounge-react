@@ -1,5 +1,3 @@
-// src/components/content/Content.tsx
-
 import React from 'react';
 import styles from './content.module.css';
 import {ContentContainer, ContentImage, ContentTitle, ContentDescription} from "./content.style";

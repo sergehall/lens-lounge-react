@@ -1,5 +1,3 @@
-// src/components/profile/profile.styles.ts
-
 import styled from 'styled-components';
 
 export const ProfileContainer = styled.div`

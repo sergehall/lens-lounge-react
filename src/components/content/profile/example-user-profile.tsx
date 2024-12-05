@@ -1,5 +1,3 @@
-// src/components/content/profile/example-user-profile.tsx
-
 import React from 'react';
 import Profile from './Profile';
 
