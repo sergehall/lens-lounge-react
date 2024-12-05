@@ -1,6 +1,5 @@
 import React from "react";
 import { PageTitles } from "./config/page-titles";
-import { techLinks } from "./config/technology-links";
 import { navLinks } from "./config/nav-links";
 import ImageBannerContent from "./assets/images/image-banner-content.png";
 import "./App.css";

@@ -17,3 +17,10 @@
 .postItem:hover {
     transform: translateY(-4px);
 }
+
+/* Add responsive design for smaller screens */
+@media (max-width: 600px) {
+    .myPostsContainer {
+        grid-template-columns: 1fr; /* Single-column layout */
+    }
+}
