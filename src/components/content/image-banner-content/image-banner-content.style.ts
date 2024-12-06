@@ -36,7 +36,7 @@ export const ImageBannerContentTitle = styled.h2`
     font-size: 1.8em;
     margin: 0 0 10px;
     color: #ffffff; /* White text for better contrast */
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
 
     @media (max-width: 600px) {
         font-size: 1.5em;
@@ -47,7 +47,7 @@ export const ImageBannerContentDescription = styled.p`
     font-size: 1.2em;
     margin: 0;
     color: #ffffff; /* White text for better contrast */
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
 
     @media (max-width: 600px) {
         font-size: 1em;
