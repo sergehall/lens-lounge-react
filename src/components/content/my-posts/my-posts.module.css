@@ -1,6 +1,7 @@
 .myPostsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-bottom: 5px;
     gap: 5px;
 }
 

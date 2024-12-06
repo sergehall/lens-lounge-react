@@ -35,7 +35,7 @@ const App: React.FC = () => {
                 <ExampleUserProfile />
                 <MyPosts posts={postsDataMock} />
                 <Dialogs dialogs={dialogsData} />
-                {/* <Technologies technologies={techLinks} className="Technologies" />*/}
+                 {/*<Technologies technologies={techLinks} className="Technologies" />*/}
             </div>
         </div>
     );

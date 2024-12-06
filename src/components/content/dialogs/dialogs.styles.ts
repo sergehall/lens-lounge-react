@@ -5,9 +5,9 @@ export const DialogsContainer = styled.div`
     flex-direction: column;
     gap: 10px;
     max-width: 800px;
-    margin: 0 auto;
     padding: 20px;
     border-radius: 8px;
+    margin-bottom: 5px;
     background-color: var(--content-bg);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
