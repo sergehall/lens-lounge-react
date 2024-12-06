@@ -26,7 +26,7 @@ const ImageBanner: React.FC<ImageBannerContentProps> = ({
                 alt={altText}
                 className={className}
                 onError={(e) => {
-                    e.currentTarget.src = ImageBannerContent; // Fallback image
+                    e.currentTarget.src = ImageBannerContent;
                 }}
             />
             <ImageBannerTextWrapper>

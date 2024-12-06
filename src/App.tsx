@@ -32,12 +32,10 @@ const App: React.FC = () => {
                     imageUrl="https://avatars.githubusercontent.com/u/87441904?s=200&v=4"
                     description="Summarize description..."
                 />
-                <ExampleUserProfile />
-                <MyPosts posts={postsDataMock} />
-                <Dialogs dialogs={dialogsData} />
-
-                {/* Uncomment if Technologies component is needed */}
-                {/* <Technologies technologies={techLinks} className="Technologies" /> */}
+                {/*<ExampleUserProfile />*/}
+                {/*<MyPosts posts={postsDataMock} />*/}
+                {/*<Dialogs dialogs={dialogsData} />*/}
+                 <Technologies technologies={techLinks} className="Technologies" />
             </div>
         </div>
     );
