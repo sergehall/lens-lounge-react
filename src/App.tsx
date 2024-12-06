@@ -26,7 +26,7 @@ const App: React.FC = () => {
             </nav>
 
             <div className="App-content">
-                <ImageBanner imageUrl={ImageBannerContent} className="Image-banner-content" altText="Banner Image" />
+                <ImageBanner imageUrl={ImageBannerContent} className="Image-banner-content" altText="Image Banner" />
                 <Summarize
                     title={<DynamicTitle />}
                     imageUrl="https://avatars.githubusercontent.com/u/87441904?s=200&v=4"
