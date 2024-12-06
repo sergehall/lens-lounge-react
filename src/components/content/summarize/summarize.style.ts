@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const SummarizeContainer = styled.div`
     display: flex;
     align-items: flex-start; /* Align items to the top */
+    justify-content: flex-start; /* Keep image and text aligned horizontally */
     padding: 10px;
     margin-bottom: 5px;
     max-width: 100%;
@@ -15,6 +16,7 @@ export const SummarizeContainer = styled.div`
     @media (max-width: 600px) {
         flex-direction: row; /* Keep text container on the right */
         align-items: center; /* Vertically align content */
+        justify-content: flex-start; /* Ensure consistent horizontal alignment */
         text-align: left;
     }
 `;
@@ -40,6 +42,8 @@ export const SummarizeTextContainer = styled.div`
     flex-direction: column;
     gap: 10px; /* Add spacing between title and description */
     flex: 1; /* Take up the remaining space next to the image */
+    align-items: flex-start; /* Ensure alignment is consistent with the image */
+    text-align: left;
 
     @media (max-width: 600px) {
         align-items: flex-start; /* Keep alignment consistent with the image */

@@ -10,14 +10,14 @@ import {
 
 interface ImageBannerContentProps {
     imageUrl: string;
-    altText?: string;
-    className?: string;
+    altText: string;
+    className: string;
 }
 
 const ImageBanner: React.FC<ImageBannerContentProps> = ({
                                                             imageUrl,
-                                                            altText = "Banner Image",
-                                                            className = "",
+                                                            altText,
+                                                            className,
                                                         }) => {
     return (
         <ImageBannerContentContainer>

@@ -16,7 +16,6 @@ import {dialogsData} from "./components/content/dialogs/dialogs-data-mock/dialog
 import ImageBanner from "./components/content/image-banner-content/Image-banner-content";
 
 
-
 const App: React.FC = () => {
     return (
         <div className="App">

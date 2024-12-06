@@ -12,17 +12,17 @@ export interface SummarizeProps {
     title: React.ReactNode;
     imageUrl: string;
     description: string;
-    className?: string;
+    className?: string; // Made optional for flexibility
 }
 
 const Summarize: React.FC<SummarizeProps> = ({
                                                  title,
                                                  imageUrl,
                                                  description,
-                                                 className = styles.summarizeContainer,
+                                                 className = "",
                                              }) => {
     return (
-        <SummarizeContainer>
+        <SummarizeContainer className={`${styles.summarizeContainer} ${className}`}>
             <SummarizeImage src={imageUrl} alt="IT-Incubator Logo" />
             <SummarizeTextContainer>
                 <SummarizeTitle>{title}</SummarizeTitle>
