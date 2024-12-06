@@ -1,0 +1,51 @@
+.ImageBannerContentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: var(--header-nav-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.ImageBannerContentImage {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.ImageBannerContentTitle {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.ImageBannerContentDescription {
+    font-size: 1em;
+    color: var(--link-hover-bg);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .ImageBannerContentContainer {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .ImageBannerContentImage {
+        max-width: 100%;
+    }
+
+    .ImageBannerContentTitle {
+        font-size: 1.5em;
+        margin: 10px 0;
+    },
+
+    .ImageBannerContentDescription {
+        font-size: 1.2em;
+        width: 100%;
+}
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 
 interface InstagramEmbedProps {
-    url: string; // Instagram post URL
-    title: string; // Title for accessibility
+    url: string;
+    title: string;
 }
 
 const InstagramEmbed: React.FC<InstagramEmbedProps> = ({ url, title }) => {

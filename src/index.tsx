@@ -5,7 +5,6 @@ import { BrowserRouter } from "react-router";
 
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 // ID for the root DOM node
 const ROOT_ID = 'root';
@@ -26,7 +25,3 @@ function renderApp() {
 }
 
 renderApp();
-
-// Optional performance reporting
-// Uncomment and use if performance metrics are needed
-// reportWebVitals(console.log);
