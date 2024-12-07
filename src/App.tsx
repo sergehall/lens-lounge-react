@@ -8,36 +8,121 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Technologies from "./components/content/technologies/Technologies";
 import {techLinks} from "./config/technology-links";
 import ExampleUserProfile from "./components/content/profile/example-user-profile";
-import MyPosts, {postsDataMock} from "./components/content/my-posts/my-posts";
-import Summarize from "./components/content/summarize/Summarize";
-import {DynamicTitle} from "./components/content/summarize/dynamic-title";
-import Dialogs from "./components/content/dialogs/dialogs";
+import MyPosts, {postsDataMock} from "./components/content/my-posts/My-posts";
+import Dialogs from "./components/content/dialogs/Dialogs";
 import {dialogsData} from "./components/content/dialogs/dialogs-data-mock/dialogs-data-mock";
-import ImageBanner from "./components/content/image-banner-content/Image-banner-content";
-
+import {Route, Routes} from "react-router-dom";
+import {BrowserRouter} from "react-router";
+import PageLayout from "./layouts/pageLayout";
+import Home from "./components/content/home/Home";
+import News from "./components/news/News";
+import About from "./components/about/About";
+import Contact from "./components/content/contact/Contact";
 
 const App: React.FC = () => {
     return (
-        <div className="App">
-            <Header title={PageTitles.HOME} className="App-header" />
+        <BrowserRouter>
+            <div className="App">
+                <Header title={PageTitles.HOME} className="App-header" />
 
-            <nav className="App-nav">
-                <Sidebar links={navLinks} className="Sidebar" />
-            </nav>
+                <nav className="App-nav">
+                    <Sidebar links={navLinks} className="Sidebar" />
+                </nav>
 
-            <div className="App-content">
-                <ImageBanner imageUrl={ImageBannerContent} className="Image-banner-content" altText="Image Banner" />
-                <Summarize
-                    title={<DynamicTitle />}
-                    imageUrl="https://avatars.githubusercontent.com/u/87441904?s=200&v=4"
-                    description="Summarize description..."
-                />
-                <ExampleUserProfile />
-                <MyPosts posts={postsDataMock} />
-                <Dialogs dialogs={dialogsData} />
-                 {/*<Technologies technologies={techLinks} className="Technologies" />*/}
+                <div className="App-content">
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <PageLayout
+                                    bannerImage="/path/to/home-banner.jpg"
+                                    summaryDescription="Welcome to the homepage of our app."
+                                >
+                                    <Home />
+                                </PageLayout>
+                            }
+                        />
+                        <Route
+                            path="/profile"
+                            element={
+                                <PageLayout
+                                    bannerImage={ImageBannerContent}
+                                    summaryDescription="This is the profile page summary."
+                                >
+                                    <ExampleUserProfile />
+                                </PageLayout>
+                            }
+                        />
+                        <Route
+                            path="/messages"
+                            element={
+                                <PageLayout
+                                    bannerImage={ImageBannerContent}
+                                    summaryDescription="Your messages and chats."
+                                >
+                                    <Dialogs dialogs={dialogsData} />
+                                </PageLayout>
+                            }
+                        />
+                        <Route
+                            path="/messages"
+                            element={
+                                <PageLayout
+                                    bannerImage={ImageBannerContent}
+                                    summaryDescription="Explore posts shared by users."
+                                >
+                                    <MyPosts posts={postsDataMock} />
+                                </PageLayout>
+                            }
+                        />
+                        <Route
+                            path="/news"
+                            element={
+                                <PageLayout
+                                    bannerImage="/path/to/news-banner.jpg"
+                                    summaryDescription="Stay updated with the latest news."
+                                >
+                                    <News />
+                                </PageLayout>
+                            }
+                        />
+                        <Route
+                            path="/technologies"
+                            element={
+                                <PageLayout
+                                    bannerImage={ImageBannerContent}
+                                    summaryDescription="Learn about cutting-edge technologies."
+                                >
+                                    <Technologies technologies={techLinks} className="Technologies" />
+                                </PageLayout>
+                            }
+                        />
+                        <Route
+                            path="/about"
+                            element={
+                                <PageLayout
+                                    bannerImage="/path/to/news-banner.jpg"
+                                    summaryDescription="Stay updated with the latest news."
+                                >
+                                    <About />
+                                </PageLayout>
+                            }
+                        />
+                        <Route
+                            path="/contact"
+                            element={
+                                <PageLayout
+                                    bannerImage="/path/to/news-banner.jpg"
+                                    summaryDescription="Stay updated with the latest news."
+                                >
+                                    <Contact />
+                                </PageLayout>
+                            }
+                        />
+                    </Routes>
+                </div>
             </div>
-        </div>
+        </BrowserRouter>
     );
 };
 

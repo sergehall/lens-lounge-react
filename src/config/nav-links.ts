@@ -8,7 +8,7 @@ export const navLinks: NavLink[] = [
     { name: 'Profile', url: '/profile' },
     { name: 'Messages', url: '/messages' },
     { name: 'News', url: '/news' },
-    { name: 'Music', url: '/Music' },
+    { name: 'Technologies', url: '/technologies' },
     { name: 'About', url: '/about' },
     { name: 'Contact', url: '/contact' },
 ];

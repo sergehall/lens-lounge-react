@@ -1,15 +1,58 @@
 :root {
+    /* Navigation and Header */
     --header-nav-bg: #282c34;
+
+    /* Logo */
+    --it-incubator-logo-bg: #FFFFFF;
+
+    /* Content Area */
     --content-bg: #61DAFB;
+
+    /* Profile Section */
     --profile-bg: #61DAFB;
     --profile-link-color: #282c34;
+
+    /* Links */
     --link-color: #61DAFB;
     --link-hover-bg: #3A3F47;
     --link-hover-text: #FFD700;
     --visited-link-color: #B86FC4;
     --active-link-color: #FFA500;
-    --it-incubator-logo-bg: #FFFFFF;
+
+    /* Home */
+    --text-color: #FFFFFF;
+    --background-color: #282c34;
+    --primary-color: #FF4500;
+    --highlight-color: #FFD700;
+
+    /* News */
+    --news-primary-color: #FFFFFF;
+    --news-bg: #FFFFFF;
+    --news-text: #333333;
+    --news-highlight-color: #444444;
+    --news-hover-bg: #282c34;
+    --news-hover-text: #FFFFFF;
+    --news-border-color: rgba(0, 0, 0, 0.1);
+    --article-bg: #61DAFB;
+    --article-hover-bg: #3A3F47;
+    --hover-text-color: #FFFFFF;
+
+    /* About */
+    --about-bg: #F7F7F7; /* Light gray background for About section */
+    --about-text-color: #333333; /* Default text color */
+    --about-highlight-color: #FF4500; /* Highlighted text color for About section */
+    --about-border-color: rgba(0, 0, 0, 0.1); /* Subtle border for About content */
+
+    /* Contact */
+    --contact-primary-color: #FF4500; /* Primary color for Contact section */
+    --contact-bg: #F0F8FF; /* Alice blue background for Contact section */
+    --contact-text-color: #333333; /* Default text color */
+    --contact-border-color: rgba(0, 0, 0, 0.2); /* Border color for input and textarea */
+    --contact-button-bg: #FF4500; /* Button background color */
+    --contact-button-hover-bg: #FFD700; /* Button hover background color */
 }
+
+
 
 /* Main container styling */
 .App {

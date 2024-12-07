@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './my-posts.module.css';
 import { PostData, postsDataMock } from './posts-data-mock/posts-data-mock';
-import Post from './post/post';
+import Post from './post/Post';
 
 interface MyPostsProps {
     posts: PostData[];

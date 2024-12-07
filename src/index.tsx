@@ -1,7 +1,6 @@
 // Entry point for the React application
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from "react-router";
 
 import './index.css';
 import App from './App';
@@ -17,9 +16,7 @@ const root = ReactDOM.createRoot(rootElement);
 function renderApp() {
     root.render(
         <React.StrictMode>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
+            <App />
         </React.StrictMode>
     );
 }

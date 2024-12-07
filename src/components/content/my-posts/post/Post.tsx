@@ -1,6 +1,6 @@
 import React from 'react';
 import { PostContainer, PostTitle, PostDescription } from './post.styles';
-import InstagramEmbed from "../instagram--embed/instagram-embed";
+import InstagramEmbed from "../instagram--embed/Instagram-embed";
 
 interface PostProps {
     id: string;
