@@ -1,9 +1,6 @@
-interface NavLink {
-    name: string;
-    url: string;
-}
+import {NavLinkProps} from "../components/sidebar/Sidebar";
 
-export const navLinks: NavLink[] = [
+export const navLinks: NavLinkProps[] = [
     { name: 'Home', url: '/' },
     { name: 'Profile', url: '/profile' },
     { name: 'Messages', url: '/messages' },

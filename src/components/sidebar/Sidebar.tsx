@@ -1,15 +1,18 @@
 import React from "react";
+import { SidebarContainer } from "./sidebar.styles";
+import { NavLink } from "react-router-dom";
 import styles from "./sidebar.module.css";
-import { SidebarContainer, SidebarLink } from "./sidebar.styles";
 
-interface SidebarLink {
+// Define the structure of each navigation link
+export interface NavLinkProps {
     name: string;
     url: string;
 }
 
+// Define props for the Sidebar component
 interface SidebarProps {
-    links: SidebarLink[];
-    className?: string;
+    links: NavLinkProps[]; // Array of navigation links
+    className: string;    // Optional additional class name for the Sidebar
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ links, className = "" }) => {
@@ -17,10 +20,15 @@ const Sidebar: React.FC<SidebarProps> = ({ links, className = "" }) => {
         <SidebarContainer className={`${styles.sidebarContainer} ${className}`}>
             <ul className={styles.sidebarList}>
                 {links.map((link) => (
-                    <li key={link.url}>
-                        <SidebarLink href={link.url} title={link.name}>
+                    <li key={link.url} className={styles.sidebarItem}>
+                        <NavLink
+                            to={link.url} // Use React Router's NavLink for navigation
+                            className={({ isActive }) =>
+                                `${styles.sidebarLink} ${isActive ? styles.activeLink : ""}`
+                            }
+                        >
                             {link.name}
-                        </SidebarLink>
+                        </NavLink>
                     </li>
                 ))}
             </ul>

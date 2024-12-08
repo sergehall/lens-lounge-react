@@ -1,18 +1,30 @@
 .sidebarContainer {
-    grid-area: App-nav;
-    color: var(--link-color);
-    padding: 20px;
-    display: grid;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: var(--header-nav-bg);
+    border-radius: 8px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 }
 
+.sidebarList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebarItem {
+    display: flex;
+}
+
 .sidebarLink {
-    color: var(--link-color);
     text-decoration: none;
+    color: var(--link-color);
     padding: 10px;
     border-radius: 4px;
-    text-align: center;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -21,28 +33,22 @@
     color: var(--link-hover-text);
 }
 
-.sidebarLink:focus {
-    outline: 2px solid var(--link-hover-text);
+.activeLink {
+    font-weight: bold;
+    background-color: var(--link-active-bg);
+    color: var(--link-active-text);
 }
 
-.sidebarLink:visited {
-    color: var(--visited-link-color);
-}
-
-.sidebarList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column; /* Vertical layout by default */
-    gap: 20px;
-}
-
-/* Media query for smaller screens */
+/* Media Query Adjustments */
 @media (max-width: 600px) {
-
     .sidebarList {
         flex-direction: row; /* Make links horizontal */
-        gap: 8px;
+        gap: 8px; /* Reduced spacing for compact view */
+    }
+
+    .sidebarLink {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+        padding: 8px; /* Reduce padding for smaller screens */
     }
 }
+

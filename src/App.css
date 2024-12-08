@@ -17,10 +17,13 @@
     --link-hover-bg: #3A3F47;
     --link-hover-text: #FFD700;
     --visited-link-color: #B86FC4;
+    --link-hover-color: #B86FC4;
     --active-link-color: #FFA500;
+    --link-active-bg: #444444;
+    --link-active-text: #ffffff;
 
     /* Home */
-    --text-color: #FFFFFF;
+    --text-color: #E0E0E0;
     --background-color: #282c34;
     --primary-color: #FF4500;
     --highlight-color: #FFD700;

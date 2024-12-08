@@ -25,7 +25,7 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-width: 600px;
+    max-width: 400px;
     width: 100%;
     background-color: var(--content-bg);
     padding: 20px;
@@ -49,7 +49,6 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
     font-size: 1rem;
     padding: 10px;
-    border: 1px solid var(--contact-button-bg);
     border-radius: 5px;
     outline: none;
     resize: none; /* Prevent resizing */

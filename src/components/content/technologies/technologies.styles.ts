@@ -1,51 +1,16 @@
-// src/components/Technologies/technologies.styles.ts
+import styled from "styled-components";
 
-import styled from 'styled-components';
-
-export const TechnologiesContainer = styled.div`
+export const TechnologyContainer = styled.div`
     padding: 20px;
     color: var(--header-nav-bg);
-    max-width: 100%;
     text-align: start;
+    background-color: var(--content-bg);
     border-radius: 8px;
-    margin-bottom: 5px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    margin: 0 auto;
 
-export const TechnologyTitle = styled.h3`
-    color: var(--header-nav-bg);
-    margin-top: 0;
-`;
-
-export const TechnologyList = styled.ul`
-    list-style-type: disc;
-    padding: 0;
-    margin: 0;
-    list-style-position: inside;
-`;
-
-export const TechnologyItem = styled.li`
-    margin: 5px 0;
-    color: var(--link-hover-bg);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-`;
-
-export const TechnologyLink = styled.a`
-    color: var(--header-nav-bg);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    &:hover {
-        color: var(--link-hover-text);
-        text-decoration: underline;
-    }
-
-    &:visited {
-        color: var(--visited-link-color);
+    @media (max-width: 600px) {
+        padding: 15px;
     }
 `;

@@ -1,69 +1,21 @@
 /* General description styles */
 .description {
+    color: var(--text-color); /* Text color */
     font-size: 1.2rem;
     line-height: 1.6;
-    color: var(--text-color);
-    margin-top: 15px;
-    text-align: justify;
-}
-
-.description-small {
-    font-size: 1rem;
-    line-height: 1.4; /* Adjusted line-height for smaller text */
-    color: var(--text-color);
-}
-
-/* Highlighted text styles */
-.highlight {
-    color: var(--highlight-color);
-    font-weight: bold;
-    text-decoration: underline;
-    text-transform: capitalize; /* Consistent capitalization */
-    cursor: default; /* Prevent highlighting from looking like a clickable link */
-}
-
-/* Button styles */
-.button-highlight {
-    background-color: var(--highlight-color);
-    color: var(--text-color); /* Ensure text contrast */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Added smooth scaling effect */
-}
-
-.button-highlight:hover {
-    background-color: var(--primary-color); /* Use primary color for hover */
-    color: var(--background-color);
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    margin: 15px 0;
 }
 
 /* Navigation item highlight styles */
-.nav-item-highlight {
-    color: var(--highlight-color);
+.navItemHighlight {
+    color: #FFFFFF; /* Default color for all links */
+    text-decoration: none;
     font-weight: bold;
-    text-decoration: none; /* Ensure no underline by default */
-    transition: color 0.3s ease; /* Smooth color change */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
-.nav-item-highlight:hover {
-    color: var(--link-hover-text); /* Provide a hover effect */
-    text-decoration: underline; /* Optional: underline on hover */
-}
-
-/* Responsive styles */
-@media (max-width: 600px) {
-    .description {
-        font-size: 1rem;
-    }
-
-    .button-highlight {
-        padding: 8px 16px; /* Smaller padding for smaller screens */
-        font-size: 0.9rem; /* Adjust button font size */
-    }
-
-    .highlight {
-        font-size: 1rem; /* Adjust highlight font size for smaller screens */
-    }
+/* Hover effect for links */
+.navItemHighlight:hover {
+    color: var(--highlight-color); /* Highlight color on hover */
+    text-decoration: underline; /* Optional underline for emphasis */
 }
