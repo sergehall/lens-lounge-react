@@ -14,7 +14,7 @@ const Home: React.FC = () => {
                     my skills in both front-end and back-end development. I am proud to be part of a dynamic learning program
                     at{" "}
                     <a
-                        href="https://it-incubator.io"
+                        href="https://it-incubator.io/en"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.navItemHighlight}

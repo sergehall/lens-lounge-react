@@ -2,25 +2,26 @@ import React from "react";
 import Home from "../components/content/home/Home";
 import ExampleUserProfile from "../components/content/profile/example-user-profile";
 import MyPosts, { postsDataMock } from "../components/content/my-posts/My-posts";
-import Dialogs from "../components/content/dialogs/Dialogs";
 import News from "../components/news/News";
 import Technologies from "../components/content/technologies/Technologies";
 import About from "../components/about/About";
 import Contact from "../components/content/contact/Contact";
-import { dialogsData } from "../components/content/dialogs/dialogs-data-mock/dialogs-data-mock";
 import { techLinks } from "./technology-links";
+import {dialogsDataMock} from "../components/content/dialogs/mocks/dialogs-data-mock";
+import Dialogs from "../components/content/dialogs/Dialogs";
+
 
 export interface PageConfig {
     bannerImage: string;
     summaryDescription: string;
-    component: React.ReactNode; // Correct type for JSX components
+    component: React.ReactNode;
 }
 
 export const pageConfig: Record<string, PageConfig> = {
     home: {
         bannerImage: "/path/to/home-banner.jpg",
         summaryDescription: "Welcome to the homepage of our app.",
-        component: <Home />, // Correct JSX usage
+        component: <Home />,
     },
     profile: {
         bannerImage: "/path/to/profile-banner.jpg",
@@ -35,7 +36,7 @@ export const pageConfig: Record<string, PageConfig> = {
 messages: {
     bannerImage: "/path/to/messages-banner.jpg",
         summaryDescription: "Your messages and chats.",
-        component: <Dialogs dialogs={dialogsData} />,
+        component: <Dialogs dialogs={dialogsDataMock} className="Dialogs" />,
 },
 news: {
     bannerImage: "/path/to/news-banner.jpg",

@@ -1,8 +1,9 @@
+/* Container for the entire dialog layout */
 .dialogsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 5fr; /* Left: user list, Right: messages */
+    gap: 20px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 8px;
@@ -10,18 +11,127 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.dialog {
+/* User List Styling */
+.userList {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: #fff;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    gap: 10px;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
 }
 
-.dialog:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+/* Individual User Styling */
+.userItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.userItem:hover {
+    background-color: var(--highlight-color);
+}
+
+.activeUser {
+    background-color:  var(--content-bg);
+}
+
+/* User Avatar */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+/* User Details */
+.userDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.userName {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.userEmail {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* User Status */
+.userStatus {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.userStatus.online {
+    color: #00ff00; /* Bright green for online status */
+}
+
+/* Last Active */
+.lastActive {
+    font-size: 0.8rem; /* Match font size with .userStatus */
+    color: #999;
+}
+
+
+
+/* Messages Section */
+.messagesSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual Message Styling */
+.messageItem {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    word-wrap: break-word;
+}
+
+/* Messages from the User */
+.fromMe {
+    align-self: flex-end;
+    background-color: var(--highlight-color);
+    color: #fff;
+    text-align: right;
+}
+
+/* Messages from the Selected User */
+.fromUser {
+    align-self: flex-start;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Timestamp Styling */
+.messageTimestamp {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+/* No Messages Placeholder */
+.noMessages {
+    text-align: center;
+    color: #888;
+    font-size: 1rem;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
 }
