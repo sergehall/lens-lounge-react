@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-// Container for the entire dialog layout
 export const DialogsContainer = styled.div`
     display: grid;
-    grid-template-columns: 1fr 5fr; /* Left: user list, Right: messages */
+    grid-template-columns: 1fr 5fr;
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -13,7 +12,6 @@ export const DialogsContainer = styled.div`
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
-// User List Styling
 export const UserList = styled.div`
     display: flex;
     flex-direction: column;
@@ -23,7 +21,6 @@ export const UserList = styled.div`
     background-color: #f9f9f9;
 `;
 
-// Individual User Styling
 export const UserItem = styled.div`
     display: flex;
     align-items: center;
@@ -35,16 +32,14 @@ export const UserItem = styled.div`
     transition: background-color 0.3s ease, transform 0.2s ease;
 
     &:hover {
-        background-color: #f0f0f0;
+        background-color: var(--highlight-color);
     }
 
     &.activeUser {
-        background-color: var(--highlight-color);
-        color: #fff;
+        background-color: var(--content-bg);
     }
 `;
 
-// User Avatar
 export const Avatar = styled.img`
     width: 40px;
     height: 40px;
@@ -53,20 +48,17 @@ export const Avatar = styled.img`
     border: 1px solid #ddd;
 `;
 
-// User Details Styling
 export const UserDetails = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2px;
 `;
 
-// User Name
 export const UserName = styled.span`
     font-size: 1rem;
     font-weight: bold;
 `;
 
-// User Status
 export const UserStatus = styled.span`
     font-size: 0.8rem;
     color: #999;
@@ -76,13 +68,11 @@ export const UserStatus = styled.span`
     }
 `;
 
-// Last Active
 export const LastActive = styled.span`
-    font-size: 0.8rem; /* Match font size with .userStatus */
+    font-size: 0.8rem;
     color: #999;
 `;
 
-// Messages Section
 export const MessagesSection = styled.div`
     display: flex;
     flex-direction: column;
@@ -93,8 +83,9 @@ export const MessagesSection = styled.div`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
-// Individual Message Styling
 export const MessageItem = styled.div`
+    display: flex;
+    flex-direction: column;
     max-width: 70%;
     padding: 10px 15px;
     border-radius: 10px;
@@ -104,7 +95,6 @@ export const MessageItem = styled.div`
         align-self: flex-end;
         background-color: var(--highlight-color);
         color: #fff;
-        text-align: right;
     }
 
     &.fromUser {
@@ -114,14 +104,15 @@ export const MessageItem = styled.div`
     }
 `;
 
-// Timestamp Styling
-export const MessageTimestamp = styled.span`
-    font-size: 0.8rem;
+export const MessageTimestamp = styled.div`
+    font-size: 0.7rem;
     color: #999;
     margin-bottom: 5px;
+    align-self: flex-start; /* Aligns timestamp correctly */
 `;
 
-// No Messages Placeholder
+
+
 export const NoMessages = styled.div`
     text-align: center;
     color: #888;

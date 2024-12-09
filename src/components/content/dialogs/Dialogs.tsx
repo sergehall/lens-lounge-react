@@ -1,5 +1,17 @@
 import React, { useState } from "react";
-import styles from "./dialogs.module.css";
+import {
+    DialogsContainer,
+    UserList,
+    UserItem,
+    Avatar,
+    UserDetails,
+    UserName,
+    UserStatus,
+    MessagesSection,
+    MessageItem,
+    MessageTimestamp,
+    NoMessages,
+} from "./ dialogs.styles";
 import {DialogData} from "./mocks/dialogs-data-mock";
 
 interface DialogsProps {
@@ -16,63 +28,57 @@ const Dialogs: React.FC<DialogsProps> = ({ dialogs, className }) => {
         setSelectedUserId(id);
     };
 
-    const selectedDialog = dialogs.find((dialog) => dialog.user.id === selectedUserId);
+    const selectedDialog = dialogs.find(
+        (dialog) => dialog.user.id === selectedUserId
+    );
 
     return (
-        <div className={`${styles.dialogsContainer} ${className}`}>
-            <div className={styles.userList}>
+        <DialogsContainer className={className}>
+            {/* User List */}
+            <UserList>
                 {dialogs.map((dialog) => (
-                    <div
+                    <UserItem
                         key={dialog.user.id}
-                        className={`${styles.userItem} ${
-                            selectedUserId === dialog.user.id ? styles.activeUser : ""
-                        }`}
                         onClick={() => handleUserSelect(dialog.user.id)}
+                        className={selectedUserId === dialog.user.id ? "activeUser" : ""}
                     >
-                        <img
+                        <Avatar
                             src={dialog.user.avatar || "/default-avatar.png"}
                             alt={`${dialog.user.name}'s avatar`}
-                            className={styles.avatar}
                         />
-                        <div className={styles.userDetails}>
-                            <span className={styles.userName}>{dialog.user.name}</span>
+                        <UserDetails>
+                            <UserName>{dialog.user.name}</UserName>
                             {dialog.user.isOnline ? (
-                                <span className={`${styles.userStatus} ${styles.online}`}>
-                                    Online
-                                </span>
+                                <UserStatus className="online">Online</UserStatus>
                             ) : (
-                                <span className={styles.lastActive}>
-                                    Last active:{" "}
-                                    {dialog.user.lastActive
-                                        ? new Date(dialog.user.lastActive).toLocaleString()
-                                        : "Unknown"}
-                                </span>
+                                <UserStatus>
+                                    {new Date(dialog.user.lastActive).toLocaleString()}
+                                </UserStatus>
                             )}
-                        </div>
-                    </div>
+                        </UserDetails>
+                    </UserItem>
                 ))}
-            </div>
+            </UserList>
 
-            <div className={styles.messagesSection}>
+            {/* Messages Section */}
+            <MessagesSection>
                 {selectedDialog ? (
                     selectedDialog.messages.map((message) => (
-                        <div
+                        <MessageItem
                             key={message.id}
-                            className={`${styles.messageItem} ${
-                                message.fromMe ? styles.fromMe : styles.fromUser
-                            }`}
+                            className={message.fromMe ? "fromMe" : "fromUser"}
                         >
-                            <div className={styles.messageTimestamp}>
+                            <MessageTimestamp>
                                 {new Date(message.timestamp).toLocaleTimeString()}
-                            </div>
+                            </MessageTimestamp>
                             <div>{message.text}</div>
-                        </div>
+                        </MessageItem>
                     ))
                 ) : (
-                    <div className={styles.noMessages}>Select a user to view messages</div>
+                    <NoMessages>Select a user to view messages</NoMessages>
                 )}
-            </div>
-        </div>
+            </MessagesSection>
+        </DialogsContainer>
     );
 };
 
