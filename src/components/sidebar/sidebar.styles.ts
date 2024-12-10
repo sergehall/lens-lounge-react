@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const SidebarContainer = styled.nav`
     background-color: var(--header-nav-bg);
     color: var(--link-color);
-    box-shadow: 2px 0 5px var( --transparent-border);
+    box-shadow: 2px 0 5px var( --transparent-border-one);
     max-width: 120px;
     border-radius: 8px;
     display: flex;

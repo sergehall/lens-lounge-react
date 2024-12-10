@@ -7,7 +7,7 @@ export const ImageBannerContentContainer = styled.div`
     border-radius: 8px;
     margin-bottom: 5px;
     overflow: hidden;
-    box-shadow: 0 4px 8px var( --transparent-border);
+    box-shadow: 0 4px 8px var( --transparent-border-one);
 `;
 
 export const ImageBannerContentImage = styled.img`

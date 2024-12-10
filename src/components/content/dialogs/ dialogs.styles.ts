@@ -9,7 +9,7 @@ export const DialogsContainer = styled.div`
     padding: 20px;
     border-radius: 8px;
     background-color: var(--content-bg);
-    box-shadow: 0 4px 8px var(--transparent-border);
+    box-shadow: 0 4px 8px var(--transparent-border-one);
 `;
 
 export const UserList = styled.div`
@@ -32,7 +32,7 @@ export const UserItem = styled.div`
     transition: background-color 0.3s ease, transform 0.2s ease;
 
     &:hover {
-        background-color: var(--highlight-color);
+        background-color: var(--highlight-color-yellow);
     }
 
     &.activeUser {
@@ -93,7 +93,7 @@ export const MessageItem = styled.div`
 
     &.fromMe {
         align-self: flex-end;
-        background-color: var(--highlight-color);
+        background-color: var(--highlight-color-yellow);
         color: #fff;
     }
 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
     background-color: var(--header-nav-bg);
-    box-shadow: 0 2px 5px var( --transparent-border);
+    box-shadow: 0 2px 5px var( --transparent-border-one);
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
