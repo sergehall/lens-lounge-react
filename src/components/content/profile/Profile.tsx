@@ -1,31 +1,37 @@
-// src/components/Profile/Profile.tsx
+import React from "react";
+import {
+    ProfileContainer,
+    ProfilePhoto,
+    ProfileDetails,
+    ProfileField,
+    ProfileLabel,
+    ProfileValue,
+} from "./profile.styles";
 
-import React from 'react';
-import styles from './profile.module.css';
-import { ProfileContainer, ProfilePhoto, ProfileDetails, ProfileField, ProfileLabel, ProfileValue } from './profile.styles';
-
-export interface ProfileProps {
-    className: string;
+interface ProfileProps {
+    photoUrl: string;
     firstName: string;
     lastName: string;
     birthday: string;
     education: string;
     website: string;
-    photoUrl: string;
 }
 
-const Profile: React.FC<ProfileProps> = ({ className, firstName, lastName, birthday, education, website, photoUrl }) => {
+const Profile: React.FC<ProfileProps> = ({
+                                             photoUrl,
+                                             firstName,
+                                             lastName,
+                                             birthday,
+                                             education,
+                                             website,
+                                         }) => {
     return (
-        <ProfileContainer className={`${styles.profileContainer} ${className}`}>
+        <ProfileContainer>
             <ProfilePhoto src={photoUrl} alt={`${firstName} ${lastName}'s profile`} />
             <ProfileDetails>
                 <ProfileField>
-                    <ProfileLabel>First Name:</ProfileLabel>
-                    <ProfileValue>{firstName}</ProfileValue>
-                </ProfileField>
-                <ProfileField>
-                    <ProfileLabel>Last Name:</ProfileLabel>
-                    <ProfileValue>{lastName}</ProfileValue>
+                    <ProfileLabel>Name:</ProfileLabel>
+                    <ProfileValue>{`${firstName} ${lastName}`}</ProfileValue>
                 </ProfileField>
                 <ProfileField>
                     <ProfileLabel>Birthday:</ProfileLabel>
@@ -37,7 +43,11 @@ const Profile: React.FC<ProfileProps> = ({ className, firstName, lastName, birth
                 </ProfileField>
                 <ProfileField>
                     <ProfileLabel>Website:</ProfileLabel>
-                    <ProfileValue><a href={website} target="_blank" rel="noopener noreferrer">{website}</a></ProfileValue>
+                    <ProfileValue>
+                        <a href={website} target="_blank" rel="noopener noreferrer">
+                            {website}
+                        </a>
+                    </ProfileValue>
                 </ProfileField>
             </ProfileDetails>
         </ProfileContainer>

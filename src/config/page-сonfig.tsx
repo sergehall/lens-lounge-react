@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "../components/content/home/Home";
-import ExampleUserProfile from "../components/content/profile/example-user-profile";
+import ExampleUserProfile from "../components/content/profile/mocks/example-user-profile";
 import MyPosts, { postsDataMock } from "../components/content/my-posts/My-posts";
 import News from "../components/news/News";
 import Technologies from "../components/content/technologies/Technologies";

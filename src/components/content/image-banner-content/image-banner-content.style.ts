@@ -5,6 +5,7 @@ export const ImageBannerContentContainer = styled.div`
     width: 100%;
     max-width: 100%;
     border-radius: 8px;
+    margin-bottom: 5px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;

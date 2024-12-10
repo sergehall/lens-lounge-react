@@ -28,7 +28,7 @@ export const users = [
     {
         id: 3,
         name: "Charlie",
-        avatar: "https://it-incubator.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FviktorLitvinImage.9153d6de.webp&w=3840&q=75",
+        avatar: "https://thumbs.dreamstime.com/b/belarus-city-gomil-september-holiday-slavic-man-national-dress-young-ukrainian-belarusian-guy-embroidered-shirt-187379288.jpg",
         email: "charlie@example.com",
         isOnline: true,
         lastActive: new Date(),
@@ -68,7 +68,7 @@ export const users = [
     {
         id: 8,
         name: "Hannah",
-        avatar: "https://it-incubator.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.62ba1cb6.webp&w=3840&q=75",
+        avatar: "https://preview.redd.it/regular-day-of-a-belarusian-man-v0-izkc3fdjc5cc1.jpg?width=1024&format=pjpg&auto=webp&s=0ada9fdbd8628217b9ca6885c9f25e5190aa1f0d",
         email: "hannah@example.com",
         isOnline: false,
         lastActive: new Date("2023-12-01T10:15:00"),

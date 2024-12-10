@@ -1,10 +1,9 @@
-import React from 'react';
-import Profile from './Profile';
+import React from "react";
+import Profile from "../Profile";
 
 const ExampleUserProfile: React.FC = () => {
     return (
         <Profile
-            className="Profile"
             firstName="Serge"
             lastName="Hall"
             birthday="January 1, 1990"
