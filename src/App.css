@@ -1,145 +1,103 @@
 :root {
     /* Global Colors */
-    --transparent-border-one: rgba(0, 0, 0, 0.1);
-    --transparent-border-two: rgba(0, 0, 0, 0.2);
-
-    /*Image Banner*/
-    --transparent-text-shadow: rgba(0, 0, 0, 0.5);
+    --transparent-border: rgba(0, 0, 0, 0.1); /* Combined similar transparent borders */
+    --semi-transparent-border: rgba(0, 0, 0, 0.2);
 
     /* Navigation and Header */
     --header-nav-bg: #282c34;
 
-    /* Logo */
-    --it-incubator-logo-bg: #FFFFFF;
-
     /* Content Area */
     --content-bg: #61DAFB;
 
-    /* Profile Section */
-    --profile-bg: #61DAFB;
-    --profile-link-color: #282c34;
-
     /* Links */
     --link-color: #61DAFB;
-    --link-hover-bg: #3A3F47;
     --link-hover-text: #FFD700;
-    --visited-link-color: #B86FC4;
-    --link-hover-color: #B86FC4;
     --active-link-color: #FFA500;
-    --link-active-bg: #444444;
-    --link-active-text: #ffffff;
 
     /* Home */
     --text-color: #E0E0E0;
     --background-color: #282c34;
     --primary-color: #FF4500;
+
+    /* Highlights */
     --highlight-color-yellow: #FFD700;
     --highlight-color-white: #ffffff;
 
-    /* News */
-    --news-primary-color: #FFFFFF;
-    --news-bg: #FFFFFF;
-    --news-text: #333333;
-    --news-highlight-color: #444444;
-    --news-hover-bg: #282c34;
-    --news-hover-text: #FFFFFF;
-    --news-border-color: var(--transparent-border-one);
-    --article-bg: #61DAFB;
-    --article-hover-bg: #3A3F47;
-    --hover-text-color: #FFFFFF;
+    /* About Section */
+    --about-bg: #F7F7F7;
+    --about-text-color: #333333;
+    --about-highlight-color: #FF4500;
 
-    /* About */
-    --about-bg: #F7F7F7; /* Light gray background for About section */
-    --about-text-color: #333333; /* Default text color */
-    --about-highlight-color: #FF4500; /* Highlighted text color for About section */
-    --about-border-color: var(--transparent-border-one); /* Subtle border for About content */
-
-    /* Contact */
-    --contact-primary-color: #FF4500; /* Primary color for Contact section */
-    --contact-bg: #F0F8FF; /* Alice blue background for Contact section */
-    --contact-text-color: #333333; /* Default text color */
-    --contact-border-color: var(--transparent-border-two); /* Border color for input and textarea */
-    --contact-button-bg: #FF4500; /* Button background color */
-    --contact-button-hover-bg: #FFD700; /* Button hover background color */
+    /* Contact Section */
+    --contact-primary-color: #FF4500;
+    --contact-bg: #F0F8FF;
+    --contact-text-color: #333333;
+    --contact-border-color: var(--semi-transparent-border);
 }
-
 
 
 /* Main container styling */
 .App {
     display: grid;
     grid-gap: 5px;
-    grid-template-columns: 150px 1fr; /* Sidebar is fixed at 150px; content takes the rest */
+    grid-template-columns: 150px 1fr; /* Sidebar is fixed at 150px */
     grid-template-areas:
         "App-header App-header"
         "App-nav App-content"
         "App-nav App-content";
     max-width: 1300px;
     max-height: 800px;
-    margin: 0 auto; /* Center the layout horizontally */
-    position: relative;
-    top: 0; /* Keep the header at the top */
-    box-sizing: border-box; /* Ensure padding and borders are included in max-width */
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 /* Assign each grid item its area */
 .App-header {
     grid-area: App-header;
-    width: 100%; /* Spans across the App-nav and App-content */
     max-width: 1300px;
     background-color: var(--header-nav-bg);
-    color: white;
     padding: 20px;
-    box-shadow: 0 4px 8px var(--transparent-border-one);
-    box-sizing: border-box; /* Include padding in the width */
+    box-shadow: 0 4px 8px var(--transparent-border);
 }
 
 /* Sidebar navigation */
 .App-nav {
     grid-area: App-nav;
-    width: 150px; /* Matches the grid-template-columns value */
-    max-width: 150px; /* Fixed for larger screens */
+    width: 150px;
     background-color: var(--header-nav-bg);
     padding: 10px;
-    border-right: 1px solid #ccc;
-    box-shadow: 0 4px 8px var(--transparent-border-one);
-    box-sizing: border-box;
+    border-right: 1px solid var(--semi-transparent-border);
+    box-shadow: 0 4px 8px var(--transparent-border);
 }
 
 /* Content area */
 .App-content {
     grid-area: App-content;
     background-color: var(--content-bg);
-    max-width: 1150px; /* Matches the remaining space (1300px - 150px) */
     padding: 20px;
-    box-shadow: 0 4px 8px var(--transparent-border-one);
-    box-sizing: border-box;
+    box-shadow: 0 4px 8px var(--transparent-border);
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
     .App {
-        grid-template-columns: 1fr; /* Single-column layout */
+        grid-template-columns: 1fr;
         grid-template-areas:
             "App-header"
             "App-nav"
             "App-content";
         max-width: 100%;
-        max-height: 100%;
         margin: 0;
-        position: static;
     }
 
     .App-header,
-    .App-content {
-        max-width: 100%; /* Allow header and content to fill the width */
+    .App-content,
+    .App-nav {
+        max-width: 100%;
         padding: 10px;
     }
 
     .App-nav {
-        width: 100%; /* Allow navigation to fill the available space */
-        max-width: 100%; /* Remove fixed width */
-        padding: 10px;
-        border-right: none; /* Remove the border to fit better in the layout */
+        border-right: none;
     }
 }

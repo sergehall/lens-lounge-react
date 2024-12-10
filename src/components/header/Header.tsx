@@ -1,27 +1,19 @@
-import React from 'react';
-import styles from './header.module.css';
-import logo from '../../logo.svg';
-import {HeaderContainer, Logo, Title} from "./header.styles";
+import React from "react";
+import { HeaderContainer, Logo, Title, HeaderLink } from "./header.styles";
 
 interface HeaderProps {
     title: string;
-    logoUrl?: string;
-    homeUrl?: string;
-    className: string;
+    logoUrl: string;
+    homeUrl: string;
 }
 
-const Header: React.FC<HeaderProps> = ({
-                                           title,
-                                           logoUrl = logo,
-                                           homeUrl = "/",
-                                           className = styles.appHeader
-                                       }) => {
+const Header: React.FC<HeaderProps> = ({ title, logoUrl, homeUrl }) => {
     return (
-        <HeaderContainer className={`${styles.appHeader} ${className}`}>
-            <a href={homeUrl} className={styles.appHeaderLink} aria-label="Home">
+        <HeaderContainer>
+            <HeaderLink href={homeUrl} aria-label="Home">
                 <Logo src={logoUrl} alt="Site logo" />
                 <Title>{title}</Title>
-            </a>
+            </HeaderLink>
         </HeaderContainer>
     );
 };

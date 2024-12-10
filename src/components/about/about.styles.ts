@@ -39,7 +39,7 @@ export const Paragraph = styled.p`
 
 // Highlighted text styling
 export const Highlight = styled.span`
-    color: var(--highlight-color-yellow);
+    color: var(--highlight-color-white);
     font-weight: bold;
     transition: color 0.3s ease;
 

@@ -1,13 +1,8 @@
-// src/components/button/button.tsx
-
 import React from 'react';
-import styles from './button.module.css';
+import { PrimaryButton } from "./button.styles";
 
-const Button: React.FC = () => {
-    return <button className={styles.primaryButton}>Click Me</button>;
+const Button: React.FC<{ primary?: boolean }> = ({ primary = false }) => {
+    return <PrimaryButton primary={primary}>Click Me</PrimaryButton>;
 };
 
 export default Button;
-
-// Add this line if there is no export in the file yet
-export {};  // Ensures TypeScript treats this as a module

@@ -1,18 +1,18 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
+// Header container styling
 export const HeaderContainer = styled.header`
     background-color: var(--header-nav-bg);
-    box-shadow: 0 2px 5px var( --transparent-border-one);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Vertically center items */
     padding: 10px 20px;
     max-width: 1300px;
 `;
 
+// Logo styling
 export const Logo = styled.img`
-    height: 5vmin;
-    margin-right: 10px;
+    height: 50px; /* Fixed height for consistency */
+    margin-right: 20px; /* Spacing between logo and title */
     animation: appLogoSpin infinite 10s linear;
 
     @keyframes appLogoSpin {
@@ -25,9 +25,19 @@ export const Logo = styled.img`
     }
 `;
 
+// Title styling
 export const Title = styled.h1`
     color: var(--link-color);
     margin: 0;
-    white-space: nowrap;
+    font-size: 40px; /* Ensures title size is consistent */
+    white-space: nowrap; /* Prevents wrapping of the title */
     text-align: left;
+`;
+
+// Anchor link styling
+export const HeaderLink = styled.a`
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Prevent underline by default */
+    color: inherit; /* Inherit color from parent container */
 `;
