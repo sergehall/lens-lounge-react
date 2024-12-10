@@ -60,7 +60,7 @@ export const UserName = styled.span`
 export const UserStatus = styled.span<{ isOnline: boolean }>`
     font-size: 0.8rem;
     color: ${({ isOnline, theme }) =>
-            isOnline ? theme.highlights.white : theme.global.transparentBorder};
+            isOnline ? theme.highlights.brightGreen : theme.global.transparentTextShadow};
 `;
 
 export const MessagesSection = styled.div`
@@ -87,7 +87,7 @@ export const MessageItem = styled.div<{ fromMe: boolean }>`
 
 export const MessageTimestamp = styled.div`
     font-size: 0.8rem;
-    color: ${({ theme }) => theme.global.textColor};
+    color: ${({ theme }) => theme.global.transparentTextShadow};
     margin-bottom: 5px;
 `;
 

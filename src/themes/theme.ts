@@ -34,6 +34,7 @@ const theme = {
         yellow: '#FFD700',
         orange: '#FFA500',
         white: '#FFFFFF',
+        brightGreen: '#00ff00',
     },
     content: {
         bg: '#61DAFB',
