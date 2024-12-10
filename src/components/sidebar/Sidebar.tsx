@@ -21,7 +21,6 @@ const Sidebar: React.FC<SidebarProps> = ({ links, className = "" }) => {
                         <NavLink
                             to={link.url}
                             style={{ textDecoration: "none" }}
-                            className={({ isActive }) => ""}
                         >
                             {({ isActive }) => (
                                 <SidebarLink isActive={isActive}>
