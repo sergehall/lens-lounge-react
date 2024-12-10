@@ -6,18 +6,18 @@ export const ProfileContainer = styled.div`
     align-items: flex-start;
     gap: 20px;
     padding: 5px;
-    background-color: var(--content-bg);
-    margin-bottom: 5px;
-    color: var(--header-nav-bg);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px var(--transparent-border);
+    background-color: ${({ theme }) => theme.profile.containerBg};
+    margin-bottom: ${({ theme }) => theme.spacing.default};
+    color: ${({ theme }) => theme.profile.textColor};
+    border-radius: ${({ theme }) => theme.global.borderRadius};
+    box-shadow: 0 4px 8px ${({ theme }) => theme.global.transparentBorder};
 `;
 
 // Profile photo styling
 export const ProfilePhoto = styled.img`
-    width: 120px;
-    height: 120px;
-    border-radius: 8px;
+    width: ${({ theme }) => theme.profile.photoSize};
+    height: ${({ theme }) => theme.profile.photoSize};
+    border-radius: ${({ theme }) => theme.global.borderRadius};
     object-fit: cover;
 `;
 
@@ -25,13 +25,13 @@ export const ProfilePhoto = styled.img`
 export const ProfileDetails = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: ${({ theme }) => theme.profile.detailsGap};
 `;
 
 // Profile field container
 export const ProfileField = styled.div`
     display: flex;
-    gap: 5px;
+    gap: ${({ theme }) => theme.profile.fieldGap};
 `;
 
 // Profile label styling
@@ -42,11 +42,11 @@ export const ProfileLabel = styled.span`
 // Profile value styling
 export const ProfileValue = styled.span`
     a {
-        color: var(--header-nav-bg);
+        color: ${({ theme }) => theme.header.navBg};
         text-decoration: none;
 
         &:hover {
-            color: var(--link-hover-text);
+            color: ${({ theme }) => theme.links.hoverText};
             text-decoration: underline;
         }
     }

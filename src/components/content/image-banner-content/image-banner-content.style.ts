@@ -4,17 +4,17 @@ export const ImageBannerContentContainer = styled.div`
     position: relative;
     width: 100%;
     max-width: 100%;
-    border-radius: 8px;
     margin-bottom: 5px;
+    border-radius: ${({ theme }) => theme.imageBanner.containerBorderRadius};
     overflow: hidden;
-    box-shadow: 0 4px 8px var( --transparent-border);
+    box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;
 
 export const ImageBannerContentImage = styled.img`
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px;
+    border-radius: ${({ theme }) => theme.imageBanner.containerBorderRadius};
 `;
 
 export const ImageBannerTextWrapper = styled.div`
@@ -26,31 +26,31 @@ export const ImageBannerTextWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: var(--header-nav-bg);
+    color: ${({ theme }) => theme.imageBanner.textWrapperColor};
     text-align: center;
-    padding: 20px;
+    padding: ${({ theme }) => theme.imageBanner.textWrapperPadding};
     z-index: 2; /* Ensure text is on top of the image */
     pointer-events: none; /* Allow interactions to pass through to the image */
 `;
 
 export const ImageBannerContentTitle = styled.h2`
-    font-size: 1.8em;
+    font-size: ${({ theme }) => theme.imageBanner.titleFontSize};
     margin: 0 0 10px;
-    color: #ffffff; /* White text for better contrast */
-    text-shadow: 0 2px 4px var(--transparent-text-shadow); /* Add shadow for better readability */
+    color: ${({ theme }) => theme.imageBanner.titleColor};
+    text-shadow: ${({ theme }) => theme.imageBanner.textShadow};
 
     @media (max-width: 600px) {
-        font-size: 1.5em;
+        font-size: ${({ theme }) => theme.imageBanner.titleFontSizeMobile};
     }
 `;
 
 export const ImageBannerContentDescription = styled.p`
-    font-size: 1.2em;
+    font-size: ${({ theme }) => theme.imageBanner.descriptionFontSize};
     margin: 0;
-    color: #ffffff; /* White text for better contrast */
-    text-shadow: 0 2px 4px var(--transparent-text-shadow); /* Add shadow for better readability */
+    color: ${({ theme }) => theme.imageBanner.descriptionColor};
+    text-shadow: ${({ theme }) => theme.imageBanner.textShadow};
 
     @media (max-width: 600px) {
-        font-size: 1em;
+        font-size: ${({ theme }) => theme.imageBanner.descriptionFontSizeMobile};
     }
 `;

@@ -26,6 +26,16 @@ export enum TechnologyName {
     JEST = "Jest", // Testing framework Jest
     ESLINT = "ESLint", // Code linting tool
     PRETTIER = "Prettier", // Code formatting tool
-    STORYBOOK = "Storybook" // UI component tool
+    STORYBOOK = "Storybook", // UI component tool
+    NODEJS = "Node.js", // Backend runtime environment
+    EXPRESS = "Express", // Web framework for Node.js
+    MICROSERVICES = "Microservices", // Architectural pattern
+    RABBITMQ = "RabbitMQ", // Message broker
+    WEBSOCKET = "WebSocket", // Communication protocol
+    DOCKER = "Docker", // Containerization tool
+    KUBERNETES = "Kubernetes", // Container orchestration
+    JENKINS = "Jenkins", // Continuous integration tool
+    SOLID = "SOLID", // Design principles
+    HEXAGONAL_ARCHITECTURE = "Hexagonal\u00A0Architecture", // Software design pattern
+    SAGA = "SAGA", // Distributed transaction pattern
 }
-

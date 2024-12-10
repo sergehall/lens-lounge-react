@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from './my-posts.module.css';
-import { PostData, postsDataMock } from './posts-data-mock/posts-data-mock';
-import Post from './post/Post';
+import { MyPostsContainer } from './my-posts.style';
+import {postsDataMock } from './posts-data-mock/posts-data-mock';
+import Post, {PostProps} from './post/Post';
 
 interface MyPostsProps {
-    posts: PostData[];
+    posts: PostProps[];
     className?: string;
 }
 
-const MyPosts: React.FC<MyPostsProps> = ({ posts = postsDataMock, className = styles.myPostsContainer }) => {
+const MyPosts: React.FC<MyPostsProps> = ({ posts = postsDataMock, className }) => {
     return (
-        <div className={`${styles.myPostsContainer} ${className}`}>
+        <MyPostsContainer className={className}>
             {posts.map((post) => (
                 <Post
                     key={post.id}
@@ -18,12 +18,11 @@ const MyPosts: React.FC<MyPostsProps> = ({ posts = postsDataMock, className = st
                     title={post.title}
                     imageUrl={post.imageUrl}
                     description={post.description}
-                    className={styles.postItem}
+                    className=""
                 />
             ))}
-        </div>
+        </MyPostsContainer>
     );
 };
 
-export { postsDataMock }; // Re-export if needed
 export default MyPosts;

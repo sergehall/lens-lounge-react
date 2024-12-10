@@ -1,12 +1,6 @@
-export interface PostData {
-    id: string;
-    title: string;
-    imageUrl: string;
-    description: string;
-    className?: string;
-}
+import {PostProps} from "../post/Post";
 
-export const postsDataMock: PostData[] = [
+export const postsDataMock: PostProps[] = [
     {
         id: '1',
         title: 'Post 1',
@@ -26,3 +20,5 @@ export const postsDataMock: PostData[] = [
         description: 'This is the description for Post 3.',
     },
 ];
+
+

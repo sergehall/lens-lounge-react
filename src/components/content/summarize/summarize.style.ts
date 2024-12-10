@@ -1,74 +1,72 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SummarizeContainer = styled.div`
     display: flex;
-    align-items: flex-start; /* Align items to the top */
-    justify-content: flex-start; /* Keep image and text aligned horizontally */
+    align-items: flex-start;
+    justify-content: flex-start;
     padding: 10px;
     margin-bottom: 5px;
     max-width: 100%;
-    background-color: var(--content-bg);
-    color: var(--header-nav-bg);
-    border-radius: 8px;
-    box-shadow: 0 8px 16px var(--semi-transparent-border), 0 4px 8px var(--transparent-border);
+    background-color: ${({ theme }) => theme.summarize.containerBg};
+    color: ${({ theme }) => theme.summarize.containerTextColor};
+    border-radius: ${({ theme }) => theme.global.borderRadius};
+    box-shadow: ${({ theme }) => theme.summarize.boxShadow};
     box-sizing: border-box;
 
     @media (max-width: 600px) {
-        flex-direction: row; /* Keep text container on the right */
-        align-items: center; /* Vertically align content */
-        justify-content: flex-start; /* Ensure consistent horizontal alignment */
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
         text-align: left;
     }
 `;
 
 export const SummarizeImage = styled.img`
-    width: 80px; /* Fixed size for all screen sizes */
+    width: 80px;
     height: 80px;
-    border-radius: 8px;
+    border-radius: ${({ theme }) => theme.global.borderRadius};
     object-fit: cover;
-    background-color: var(--it-incubator-logo-bg);
-    margin-right: 15px; /* Add space between the image and text content */
-    box-shadow: 0 8px 16px var(--semi-transparent-border), 0 4px 8px var(--transparent-border);
+    background-color: ${({ theme }) => theme.summarize.imageBg};
+    margin-right: 15px;
+    box-shadow: ${({ theme }) => theme.summarize.boxShadow};
 
     @media (max-width: 600px) {
-        width: 80px; /* Keep the same size on smaller screens */
-        height: 80px;
-        margin-right: 10px; /* Ensure consistent spacing */
+        margin-right: 10px;
     }
 `;
 
 export const SummarizeTextContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Add spacing between title and description */
-    flex: 1; /* Take up the remaining space next to the image */
-    align-items: flex-start; /* Ensure alignment is consistent with the image */
+    gap: ${({ theme }) => theme.summarize.textGap};
+    flex: 1;
+    align-items: flex-start;
     text-align: left;
 
     @media (max-width: 600px) {
-        align-items: flex-start; /* Keep alignment consistent with the image */
+        align-items: flex-start;
         text-align: left;
     }
 `;
 
 export const SummarizeTitle = styled.h2`
-    font-size: 1.5em;
+    font-size: ${({ theme }) => theme.summarize.titleFontSize};
     margin: 0;
-    color: var(--header-nav-bg);
+    color: ${({ theme }) => theme.summarize.titleColor};
     text-align: left;
 
     @media (max-width: 600px) {
-        font-size: 1.2em; /* Adjust font size for smaller screens */
+        font-size: ${({ theme }) => theme.summarize.titleFontSizeMobile};
     }
 `;
 
 export const SummarizeDescription = styled.p`
-    font-size: 1em;
-    color: var(--link-hover-bg);
+    font-size: ${({ theme }) => theme.summarize.descriptionFontSize};
+    color: ${({ theme }) => theme.summarize.descriptionColor};
     margin: 0;
     text-align: left;
 
     @media (max-width: 600px) {
-        font-size: 0.9em; /* Adjust font size for smaller screens */
+        font-size: ${({ theme }) => theme.summarize.descriptionFontSizeMobile};
     }
 `;

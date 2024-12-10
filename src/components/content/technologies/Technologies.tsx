@@ -1,31 +1,35 @@
 import React from "react";
-import { TechnologyContainer } from "./technologies.styles";
-import styles from "./technologies.module.css";
-import {TechnologyLink} from "../../../config/technology-links";
+import {
+    TechnologyContainer,
+    Title,
+    TechnologyList,
+    TechnologyItem,
+    TechnologyLink,
+} from "./technologies.styles";
+import { TechnologyLink as TechnologyLinkType } from "../../../config/technology-links";
 
 interface TechnologiesProps {
-    links: TechnologyLink[]; // Array of technology links
-    className: string;
+    links: TechnologyLinkType[]; // Array of technology links
+    className?: string; // Optional className for styling flexibility
 }
 
 const Technologies: React.FC<TechnologiesProps> = ({ links, className = "" }) => {
     return (
-        <TechnologyContainer className={`${styles.Technologies} ${className}`}>
-            <h3>Technologies</h3>
-            <ul>
+        <TechnologyContainer className={className}>
+            <Title>Technologies</Title>
+            <TechnologyList>
                 {links.map((link) => (
-                    <li key={link.url} className={styles.technologyItem}>
-                        <a
-                            href={link.url} // External link
-                            target="_blank" // Open in a new tab
-                            rel="noopener noreferrer" // Security for external links
-                            className={styles.link}
+                    <TechnologyItem key={link.url}>
+                        <TechnologyLink
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
                             {link.name}
-                        </a>
-                    </li>
+                        </TechnologyLink>
+                    </TechnologyItem>
                 ))}
-            </ul>
+            </TechnologyList>
         </TechnologyContainer>
     );
 };

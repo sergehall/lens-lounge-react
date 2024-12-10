@@ -5,58 +5,58 @@ export const AboutContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    background-color: var(--background-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px var(--transparent-border);
+    padding: ${({ theme }) => theme.spacing.large40};
+    background-color: ${({ theme }) => theme.about.containerBg};
+    border-radius: ${({ theme }) => theme.global.borderRadius};
+    box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;
 
 // Title styling
 export const Title = styled.h1`
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+    font-size: ${({ theme }) => theme.about.titleFontSize};
+    color: ${({ theme }) => theme.about.titleColor};
+    margin-bottom: ${({ theme }) => theme.spacing.default};
     text-align: center;
-
+    
     @media (max-width: 600px) {
-        font-size: 1.5rem;
+        font-size: ${({ theme }) => theme.about.titleFontSizeMobile};
     }
 `;
 
 // Paragraph styling
 export const Paragraph = styled.p`
-    font-size: 1.2rem;
-    color: var(--text-color);
+    font-size: ${({ theme }) => theme.about.paragraphFontSize};
+    color: ${({ theme }) => theme.about.paragraphColor};
     line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: ${({ theme }) => theme.spacing.default};
     text-align: justify;
     max-width: 800px;
 
     @media (max-width: 600px) {
-        font-size: 1rem;
+        font-size: ${({ theme }) => theme.about.paragraphFontSizeMobile};
     }
 `;
 
 // Highlighted text styling
 export const Highlight = styled.span`
-    color: var(--highlight-color-white);
+    color: ${({ theme }) => theme.about.highlightColor};
     font-weight: bold;
     transition: color 0.3s ease;
 
     &:hover {
-        color: var(--link-hover-text);
+        color: ${({ theme }) => theme.about.highlightHoverColor};
     }
 `;
 
 // Link styling
 export const Link = styled.a`
-  color: var(--link-color);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+    color: ${({ theme }) => theme.about.linkColor};
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 
-  &:hover {
-    color: var(--link-hover-text);
-    text-decoration: underline;
-  }
+    &:hover {
+        color: ${({ theme }) => theme.about.linkHoverColor};
+        text-decoration: underline;
+    }
 `;

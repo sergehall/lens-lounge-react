@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./summarize.module.css";
 import {
     SummarizeContainer,
     SummarizeDescription,
@@ -12,7 +11,8 @@ export interface SummarizeProps {
     title: React.ReactNode;
     imageUrl: string;
     description: string;
-    className?: string; // Made optional for flexibility
+    className?: string;
+    altText?: string;
 }
 
 const Summarize: React.FC<SummarizeProps> = ({
@@ -20,10 +20,11 @@ const Summarize: React.FC<SummarizeProps> = ({
                                                  imageUrl,
                                                  description,
                                                  className = "",
+                                                 altText = "Summarize Image", // Default alt text
                                              }) => {
     return (
-        <SummarizeContainer className={`${styles.summarizeContainer} ${className}`}>
-            <SummarizeImage src={imageUrl} alt="IT-Incubator Logo" />
+        <SummarizeContainer className={className}>
+            <SummarizeImage src={imageUrl} alt={altText} />
             <SummarizeTextContainer>
                 <SummarizeTitle>{title}</SummarizeTitle>
                 <SummarizeDescription>{description}</SummarizeDescription>

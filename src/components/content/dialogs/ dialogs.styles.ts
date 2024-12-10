@@ -8,17 +8,17 @@ export const DialogsContainer = styled.div`
     margin: 0 auto;
     padding: 20px;
     border-radius: 8px;
-    background-color: var(--content-bg);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: ${({ theme }) => theme.dialogs.containerBg};
+    box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;
 
 export const UserList = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border-right: 1px solid #ddd;
+    border-right: 1px solid ${({ theme }) => theme.dialogs.userListBorderColor};
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: ${({ theme }) => theme.dialogs.userListBg};
 `;
 
 export const UserItem = styled.div<{ isActive: boolean }>`
@@ -27,13 +27,15 @@ export const UserItem = styled.div<{ isActive: boolean }>`
     gap: 10px;
     padding: 10px;
     border-radius: 6px;
-    background-color: ${({ isActive }) => (isActive ? "var(--highlight-color)" : "#fff")};
-    color: ${({ isActive }) => (isActive ? "#fff" : "#000")};
+    background-color: ${({ isActive, theme }) =>
+            isActive ? theme.dialogs.userItemActiveBg : '#fff'};
+    color: ${({ isActive, theme }) =>
+            isActive ? theme.dialogs.userItemActiveColor : theme.dialogs.userItemInactiveColor};
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 
     &:hover {
-        background-color: #f0f0f0;
+        background-color: ${({ theme }) => theme.dialogs.userItemHoverBg};
     }
 `;
 
@@ -42,7 +44,7 @@ export const Avatar = styled.img`
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 1px solid #ddd;
+    border: 1px solid ${({ theme }) => theme.dialogs.avatarBorderColor};
 `;
 
 export const UserDetails = styled.div`
@@ -57,7 +59,8 @@ export const UserName = styled.span`
 
 export const UserStatus = styled.span<{ isOnline: boolean }>`
     font-size: 0.8rem;
-    color: ${({ isOnline }) => (isOnline ? "#00ff00" : "#999")};
+    color: ${({ isOnline, theme }) =>
+            isOnline ? theme.highlights.white : theme.global.transparentBorder};
 `;
 
 export const MessagesSection = styled.div`
@@ -67,7 +70,7 @@ export const MessagesSection = styled.div`
     padding: 10px;
     background-color: #fff;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;
 
 export const MessageItem = styled.div<{ fromMe: boolean }>`
@@ -75,22 +78,24 @@ export const MessageItem = styled.div<{ fromMe: boolean }>`
     padding: 10px 15px;
     border-radius: 10px;
     align-self: ${({ fromMe }) => (fromMe ? "flex-end" : "flex-start")};
-    background-color: ${({ fromMe }) => (fromMe ? "var(--highlight-color)" : "#f0f0f0")};
-    color: ${({ fromMe }) => (fromMe ? "#fff" : "#333")};
+    background-color: ${({ fromMe, theme }) =>
+    fromMe ? theme.dialogs.messageFromMeBg : theme.dialogs.messageFromOtherBg};
+    color: ${({ fromMe, theme }) =>
+    fromMe ? theme.dialogs.messageFromMeColor : theme.dialogs.messageFromOtherColor};
     word-wrap: break-word;
 `;
 
 export const MessageTimestamp = styled.div`
     font-size: 0.8rem;
-    color: #999;
+    color: ${({ theme }) => theme.global.textColor};
     margin-bottom: 5px;
 `;
 
 export const NoMessages = styled.div`
     text-align: center;
-    color: #888;
+    color: ${({ theme }) => theme.dialogs.noMessagesColor};
     font-size: 1rem;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: ${({ theme }) => theme.dialogs.noMessagesBg};
     border-radius: 6px;
 `;

@@ -1,15 +1,22 @@
 import React from "react";
-import styles from "./contact.module.css"; // Modular CSS
-import { ContactContainer, Title, Form, Input, TextArea, Button } from "./contact.styles"; // Styled-components
+import {
+    ContactContainer,
+    Title,
+    Form,
+    Input,
+    TextArea,
+    Button,
+    Description,
+} from "./contact.styles";
 
 const Contact: React.FC = () => {
     return (
         <ContactContainer>
             <Title>Contact Me</Title>
-            <p className={styles.description}>
+            <Description>
                 Have a project idea, a question, or just want to say hi? Feel free to reach out! I’d love to connect and
                 explore opportunities to work together.
-            </p>
+            </Description>
             <Form action="https://formsubmit.co/example-email" method="POST">
                 <Input type="text" name="name" placeholder="Your Name" required />
                 <Input type="email" name="email" placeholder="Your Email" required />

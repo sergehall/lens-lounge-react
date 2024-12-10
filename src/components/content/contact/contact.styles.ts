@@ -1,23 +1,24 @@
 import styled from "styled-components";
 
+// Main container for the Contact section
 export const ContactContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px;
-    border-radius: 8px;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    padding: ${({ theme }) => theme.spacing.large40};
+    border-radius: ${({ theme }) => theme.global.borderRadius};
+    background-color: ${({ theme }) => theme.contact.containerBg};
+    color: ${({ theme }) => theme.contact.textColor};
 `;
 
 export const Title = styled.h1`
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+    font-size: ${({ theme }) => theme.contact.titleFontSize};
+    color: ${({ theme }) => theme.contact.titleColor};
+    margin-bottom: ${({ theme }) => theme.spacing.default};
     text-align: center;
 
     @media (max-width: 600px) {
-        font-size: 2rem;
+        font-size: ${({ theme }) => theme.contact.titleFontSizeMobile};
     }
 `;
 
@@ -25,43 +26,44 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-width: 400px;
+    max-width: 600px;
     width: 100%;
-    background-color: var(--content-bg);
+    background-color: ${({ theme }) => theme.contact.formBg};
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px var(--transparent-border);
+    border-radius: ${({ theme }) => theme.global.borderRadius};
+    box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;
 
 export const Input = styled.input`
     font-size: 1rem;
     padding: 10px;
-    border: 1px solid var(--contact-border-color);
+    border: 1px solid ${({ theme }) => theme.contact.inputBorderColor};
     border-radius: 5px;
     outline: none;
     transition: border-color 0.3s ease;
 
     &:focus {
-        border-color: var(--contact-primary-color);
+        border-color: ${({ theme }) => theme.contact.inputFocusBorderColor};
     }
 `;
 
 export const TextArea = styled.textarea`
     font-size: 1rem;
     padding: 10px;
+    border: 1px solid ${({ theme }) => theme.contact.inputBorderColor};
     border-radius: 5px;
     outline: none;
     resize: none; /* Prevent resizing */
     transition: border-color 0.3s ease;
 
     &:focus {
-        border-color: var(--primary-color);
+        border-color: ${({ theme }) => theme.contact.inputFocusBorderColor};
     }
 `;
 
 export const Button = styled.button`
-    background-color: var(--primary-color);
-    color: var(--text-color);
+    background-color: ${({ theme }) => theme.contact.buttonBg};
+    color: ${({ theme }) => theme.contact.textColor};
     border: none;
     padding: 10px 20px;
     font-size: 1rem;
@@ -70,6 +72,14 @@ export const Button = styled.button`
     transition: background-color 0.3s ease;
 
     &:hover {
-        background-color: var(--contact-button-hover-bg);
+        background-color: ${({ theme }) => theme.contact.buttonHoverBg};
     }
+`;
+
+export const Description = styled.p`
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: ${({ theme }) => theme.contact.textColor};
+    margin-bottom: 20px;
+    text-align: center;
 `;
