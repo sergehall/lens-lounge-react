@@ -12,7 +12,7 @@
 .articleItem {
     border-radius: 8px;
     overflow: hidden; /* Ensures content doesn't spill outside rounded corners */
-    box-shadow: 0 2px 4px var(--transparent-border-one);
+    box-shadow: 0 2px 4px var(--transparent-border);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     background-color: var(--content-bg); /* Default background */
 }
@@ -20,7 +20,7 @@
 /* Hover Effects for Article */
 .articleItem:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px var(--transparent-border-two);
+    box-shadow: 0 4px 8px var(--semi-transparent-border);
     background-color: var(--link-hover-bg); /* Dark background on hover */
 }
 

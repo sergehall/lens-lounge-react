@@ -1,38 +1,69 @@
 :root {
     /* Global Colors */
-    --transparent-border: rgba(0, 0, 0, 0.1); /* Combined similar transparent borders */
+    --transparent-border: rgba(0, 0, 0, 0.1);
     --semi-transparent-border: rgba(0, 0, 0, 0.2);
+
+    /*Image Banner*/
+    --transparent-text-shadow: rgba(0, 0, 0, 0.5);
 
     /* Navigation and Header */
     --header-nav-bg: #282c34;
 
+    /* Logo */
+    --it-incubator-logo-bg: #FFFFFF;
+
+    /* Highlight */
+    --highlight-color: #FFD700;
+
     /* Content Area */
     --content-bg: #61DAFB;
 
+    /* Profile Section */
+    --profile-bg: #61DAFB;
+    --profile-link-color: #282c34;
+
     /* Links */
     --link-color: #61DAFB;
+    --link-hover-bg: #3A3F47;
     --link-hover-text: #FFD700;
+    --visited-link-color: #B86FC4;
+    --link-hover-color: #B86FC4;
     --active-link-color: #FFA500;
+    --link-active-bg: #444444;
+    --link-active-text: #ffffff;
 
     /* Home */
     --text-color: #E0E0E0;
     --background-color: #282c34;
     --primary-color: #FF4500;
-
-    /* Highlights */
     --highlight-color-yellow: #FFD700;
     --highlight-color-white: #ffffff;
 
-    /* About Section */
-    --about-bg: #F7F7F7;
-    --about-text-color: #333333;
-    --about-highlight-color: #FF4500;
+    /* News */
+    --news-primary-color: #FFFFFF;
+    --news-bg: #FFFFFF;
+    --news-text: #333333;
+    --news-highlight-color: #444444;
+    --news-hover-bg: #282c34;
+    --news-hover-text: #FFFFFF;
+    --news-border-color: var(--transparent-border);
+    --article-bg: #61DAFB;
+    --article-hover-bg: #3A3F47;
+    --hover-text-color: #FFFFFF;
 
-    /* Contact Section */
-    --contact-primary-color: #FF4500;
-    --contact-bg: #F0F8FF;
-    --contact-text-color: #333333;
-    --contact-border-color: var(--semi-transparent-border);
+    /* About */
+    --about-bg: #F7F7F7; /* Light gray background for About section */
+    --about-text-color: #333333; /* Default text color */
+    --about-highlight-color: #FF4500; /* Highlighted text color for About section */
+    --about-border-color: var(--transparent-border); /* Subtle border for About content */
+
+    /* Contact */
+    --contact-primary-color: #FF4500; /* Primary color for Contact section */
+    --contact-bg: #F0F8FF; /* Alice blue background for Contact section */
+    --contact-text-color: #333333; /* Default text color */
+    --contact-border-color: var(--semi-transparent-border); /* Border color for input and textarea */
+    --contact-button-bg: #FF4500; /* Button background color */
+    --contact-button-hover-bg: #FFD700; /* Button hover background color */
 }
 
 
@@ -91,13 +122,9 @@
     }
 
     .App-header,
-    .App-content,
-    .App-nav {
-        max-width: 100%;
-        padding: 10px;
-    }
-
-    .App-nav {
-        border-right: none;
+    .App-nav
+    .App-content {
+        padding: 5px;
     }
 }
+

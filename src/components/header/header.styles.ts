@@ -11,7 +11,7 @@ export const HeaderContainer = styled.header`
 
 // Logo styling
 export const Logo = styled.img`
-    height: 50px; /* Fixed height for consistency */
+    height: 50px; 
     margin-right: 20px; /* Spacing between logo and title */
     animation: appLogoSpin infinite 10s linear;
 
@@ -29,7 +29,7 @@ export const Logo = styled.img`
 export const Title = styled.h1`
     color: var(--link-color);
     margin: 0;
-    font-size: 40px; /* Ensures title size is consistent */
+    font-size: 35px; /* Ensures title size is consistent */
     white-space: nowrap; /* Prevents wrapping of the title */
     text-align: left;
 `;

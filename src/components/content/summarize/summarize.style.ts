@@ -10,7 +10,7 @@ export const SummarizeContainer = styled.div`
     background-color: var(--content-bg);
     color: var(--header-nav-bg);
     border-radius: 8px;
-    box-shadow: 0 8px 16px var(--transparent-border-two), 0 4px 8px var(--transparent-border-one);
+    box-shadow: 0 8px 16px var(--semi-transparent-border), 0 4px 8px var(--transparent-border);
     box-sizing: border-box;
 
     @media (max-width: 600px) {
@@ -28,7 +28,7 @@ export const SummarizeImage = styled.img`
     object-fit: cover;
     background-color: var(--it-incubator-logo-bg);
     margin-right: 15px; /* Add space between the image and text content */
-    box-shadow: 0 8px 16px var(--transparent-border-two), 0 4px 8px var(--transparent-border-one);
+    box-shadow: 0 8px 16px var(--semi-transparent-border), 0 4px 8px var(--transparent-border);
 
     @media (max-width: 600px) {
         width: 80px; /* Keep the same size on smaller screens */

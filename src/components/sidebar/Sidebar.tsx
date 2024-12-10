@@ -1,37 +1,37 @@
 import React from "react";
-import { SidebarContainer } from "./sidebar.styles";
+import {
+    SidebarContainer,
+    SidebarList,
+    SidebarItem,
+    SidebarLink,
+} from "./sidebar.styles";
 import { NavLink } from "react-router-dom";
-import styles from "./sidebar.module.css";
 
-// Define the structure of each navigation link
-export interface NavLinkProps {
-    name: string;
-    url: string;
-}
-
-// Define props for the Sidebar component
 interface SidebarProps {
-    links: NavLinkProps[]; // Array of navigation links
-    className: string;    // Optional additional class name for the Sidebar
+    links: { name: string; url: string }[];
+    className?: string;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ links, className = "" }) => {
     return (
-        <SidebarContainer className={`${styles.sidebarContainer} ${className}`}>
-            <ul className={styles.sidebarList}>
+        <SidebarContainer className={className}>
+            <SidebarList>
                 {links.map((link) => (
-                    <li key={link.url} className={styles.sidebarItem}>
+                    <SidebarItem key={link.url}>
                         <NavLink
-                            to={link.url} // Use React Router's NavLink for navigation
-                            className={({ isActive }) =>
-                                `${styles.sidebarLink} ${isActive ? styles.activeLink : ""}`
-                            }
+                            to={link.url}
+                            style={{ textDecoration: "none" }}
+                            className={({ isActive }) => ""}
                         >
-                            {link.name}
+                            {({ isActive }) => (
+                                <SidebarLink isActive={isActive}>
+                                    {link.name}
+                                </SidebarLink>
+                            )}
                         </NavLink>
-                    </li>
+                    </SidebarItem>
                 ))}
-            </ul>
+            </SidebarList>
         </SidebarContainer>
     );
 };

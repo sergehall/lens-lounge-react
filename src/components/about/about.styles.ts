@@ -8,7 +8,7 @@ export const AboutContainer = styled.div`
     padding: 20px;
     background-color: var(--background-color);
     border-radius: 8px;
-    box-shadow: 0 4px 8px var(--transparent-border-one);
+    box-shadow: 0 4px 8px var(--transparent-border);
 `;
 
 // Title styling

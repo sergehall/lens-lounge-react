@@ -1,4 +1,7 @@
-import {NavLinkProps} from "../components/sidebar/Sidebar";
+export interface NavLinkProps {
+    name: string;
+    url: string;
+}
 
 export const navLinks: NavLinkProps[] = [
     { name: 'Home', url: '/' },

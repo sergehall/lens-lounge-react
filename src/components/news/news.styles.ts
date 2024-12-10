@@ -4,7 +4,7 @@ export const NewsContainer = styled.div`
     padding: 20px;
     background-color: var(--background-color);
     border-radius: 10px;
-    box-shadow: 0 4px 6px var(--transparent-border-one);
+    box-shadow: 0 4px 6px var(--transparent-border);
     max-width: 100%;
     margin: 0 auto; /* Center the container */
 `;
@@ -25,11 +25,11 @@ export const Article = styled.div`
     border-radius: 8px;
     background-color: var(--article-bg); /* Light background by default */
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
-    box-shadow: 0 2px 4px var(--transparent-border-one);
+    box-shadow: 0 2px 4px var(--transparent-border);
 
     &:hover {
         background-color: var(--article-hover-bg); /* Darker background on hover */
-        box-shadow: 0 4px 8px var(--transparent-border-two);
+        box-shadow: 0 4px 8px var(--semi-transparent-border);
     }
 
     h3 {

@@ -9,7 +9,7 @@ export const HomeContainer = styled.div`
     padding: 20px 20px 40px;
     background-color: var(--background-color);
     border-radius: 10px;
-    box-shadow: 0 4px 6px var( --transparent-border-one);
+    box-shadow: 0 4px 6px var( --transparent-border);
     margin: 0 auto;
 `;
 

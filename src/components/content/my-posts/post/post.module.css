@@ -1,5 +1,5 @@
 .postItem {
-    box-shadow: 0 4px 6px var(--transparent-border-one);
+    box-shadow: 0 4px 6px var(--transparent-border);
     transition: transform 0.2s ease;
 }
 
