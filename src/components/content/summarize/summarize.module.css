@@ -4,7 +4,7 @@
     justify-content: flex-start; /* Align image and text horizontally */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--transparent-border-one);
     background-color: var(--content-bg);
     color: var(--header-nav-bg);
     text-align: left;
@@ -17,7 +17,7 @@
     height: 80px;
     border-radius: 8px;
     object-fit: cover;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px var(--transparent-border-two), 0 4px 8px var(--transparent-border-one);
     background-color: var(--it-incubator-logo-bg);
     margin-right: 15px; /* Space between image and text container */
 }

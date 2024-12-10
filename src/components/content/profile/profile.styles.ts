@@ -10,7 +10,7 @@ export const ProfileContainer = styled.div`
     margin-bottom: 5px;
     color: var(--header-nav-bg);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--transparent-border-one);
 `;
 
 // Profile photo styling

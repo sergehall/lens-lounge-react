@@ -28,19 +28,19 @@ const Home: React.FC = () => {
                     </NavItemHighlight>, where I am building a comprehensive foundation in modern web technologies.
                 </Description>
                 <Description>
-                    &emsp;My journey in the technology industry is in its early stages, but I have already gained valuable
+                    My journey in the technology industry is in its early stages, but I have already gained valuable
                     hands-on experience working on projects from scratch, applying the knowledge and best practices taught
                     by seasoned professionals.
                 </Description>
                 <Description>
-                    &emsp;I am actively broadening my expertise in technologies such as <strong>React, Node.js, Express,
+                    I am actively broadening my expertise in technologies such as <strong>React, Node.js, Express,
                     NestJS, MongoDB, PostgreSQL,</strong> and modern architectural patterns like <strong>SOLID, Hexagonal
                     Architecture,</strong> and <strong>SAGA.</strong> My ongoing learning includes{" "}
                     <strong>Microservices, RabbitMQ, WebSocket,</strong> and <strong>DevOps fundamentals,</strong>
                     including Docker, Kubernetes, and Jenkins.
                 </Description>
                 <Description>
-                    &emsp;You can explore my work on{" "}
+                    You can explore my work on{" "}
                     <NavItemHighlight
                         href="https://github.com/sergehall"
                         target="_blank"
@@ -57,7 +57,7 @@ const Home: React.FC = () => {
                     </NavItemHighlight>.
                 </Description>
                 <Description>
-                    &emsp;As a professional photographer, I bring creativity and attention to detail to all aspects of
+                    As a professional photographer, I bring creativity and attention to detail to all aspects of
                     my work. You can view my photography portfolio at{" "}
                     <NavItemHighlight
                         href="https://www.sergioartg.com"
@@ -75,7 +75,7 @@ const Home: React.FC = () => {
                     </NavItemHighlight>.
                 </Description>
                 <Description>
-                    &emsp;I am enthusiastic about contributing to impactful real-world projects, whether by joining a
+                    I am enthusiastic about contributing to impactful real-world projects, whether by joining a
                     professional team or collaborating with driven and like-minded developers. My ultimate goal is to
                     grow continuously as a developer, leveraging the power of teamwork and innovation to deliver
                     meaningful and lasting solutions.

@@ -6,7 +6,7 @@ export const TechnologyContainer = styled.div`
     text-align: start;
     background-color: var(--content-bg);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var( --transparent-border);
     max-width: 100%;
     margin: 0 auto;
 

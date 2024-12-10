@@ -9,7 +9,7 @@ export const DialogsContainer = styled.div`
     padding: 20px;
     border-radius: 8px;
     background-color: var(--content-bg);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--transparent-border);
 `;
 
 export const UserList = styled.div`
@@ -80,7 +80,7 @@ export const MessagesSection = styled.div`
     padding: 10px;
     background-color: #fff;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--transparent-border-one);
 `;
 
 export const MessageItem = styled.div`

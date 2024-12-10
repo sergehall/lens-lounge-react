@@ -4,7 +4,7 @@
     padding: 10px;
     background-color: var(--header-nav-bg);
     border-radius: 8px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 0 5px var(--transparent-border-two);
 }
 
 .sidebarList {

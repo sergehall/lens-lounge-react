@@ -9,7 +9,7 @@ export const HomeContainer = styled.div`
     padding: 20px 20px 40px;
     background-color: var(--background-color);
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var( --transparent-border-one);
     margin: 0 auto;
 `;
 
@@ -28,7 +28,7 @@ export const WelcomeText = styled.h1`
 
 // Highlighted text styling
 export const Highlight = styled.span`
-    color: var(--highlight-color);
+    color: var(--highlight-color-yellow);
     font-weight: bold;
     text-transform: capitalize;
     transition: color 0.3s ease;
@@ -61,13 +61,13 @@ export const Description = styled.p`
 
 // Navigation item highlight (link) styling
 export const NavItemHighlight = styled.a`
-    color: #ffffff;
+    color: var(--highlight-color-white);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 
     &:hover {
-        color: var(--highlight-color);
+        color: var(--highlight-color-yellow);
         text-decoration: underline;
     }
 `;
