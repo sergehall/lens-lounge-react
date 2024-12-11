@@ -43,21 +43,22 @@ export const Header = styled.header`
 export const SidebarNav = styled.nav`
     grid-area: App-nav;
     width: 150px;
-    background-color: ${theme.header.navBg};
-    padding: 10px;
-    border-right: 1px solid ${theme.global.semiTransparentBorder};
-    box-shadow: 0 4px 8px ${theme.global.transparentBorder};
+    padding: 0; 
+    background-color: ${({ theme }) => theme.header.navBg};
+    border-right: 1px solid ${({ theme }) => theme.global.semiTransparentBorder};
+    box-sizing: border-box; 
 
     @media (max-width: 600px) {
         width: 100%;
-        padding: ${theme.spacing.default};
+        padding: 0; 
+        box-sizing: border-box; 
     }
 `;
 
 export const ContentArea = styled.main`
     grid-area: App-content;
     background-color: ${theme.content.bg};
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 4px 8px ${theme.global.transparentBorder};
 
     @media (max-width: 600px) {

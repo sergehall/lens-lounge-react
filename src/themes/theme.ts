@@ -57,6 +57,7 @@ const theme = {
         photoSize: '120px',
         fieldGap: '5px',
         detailsGap: '10px',
+        detailsPadding: '15px',
     },
     news: {
         titleFontSize: '2.5rem',
@@ -89,7 +90,7 @@ const theme = {
     imageBanner: {
         containerBorderRadius: '8px',
         textWrapperPadding: '20px',
-        textWrapperColor: '#282c34', // Same as header.navBg
+        textWrapperColor: '#282c34',
         titleFontSize: '1.8em',
         titleFontSizeMobile: '1.5em',
         titleColor: '#ffffff',

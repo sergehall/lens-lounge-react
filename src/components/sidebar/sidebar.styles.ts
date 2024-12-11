@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
-export const SidebarContainer = styled.nav`
+export const SidebarContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    width: 100%;
+    padding: 10px; /* Padding applied inside the container */
     background-color: ${({ theme }) => theme.header.navBg};
-    border-radius: 8px;
-    box-shadow: 2px 0 5px ${({ theme }) => theme.global.semiTransparentBorder};
+    //box-shadow: 0 0 5px 2px rgba(97, 218, 251, 0.7);
+    border-radius: 8px; /* Optional for rounded corners */
+    box-sizing: border-box; /* Includes padding and border in the element’s dimensions */
 `;
 
 export const SidebarList = styled.ul`
     list-style: none;
-    padding: 0;
+    padding: 10px;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -20,6 +22,7 @@ export const SidebarList = styled.ul`
     @media (max-width: 600px) {
         flex-direction: row;
         gap: 8px;
+        width: 100%;
     }
 `;
 
@@ -40,11 +43,12 @@ export const SidebarLink = styled.div<{ isActive: boolean }>`
     &:hover {
         background-color: ${({ theme }) => theme.links.hoverBg};
         color: ${({ theme }) => theme.links.hoverText};
-        transform: scale(1.05); 
+        box-shadow: 0 0 5px 2px rgba(97, 218, 251, 0.7);
+        transform: scale(1.05);
     }
 
     @media (max-width: 600px) {
         font-size: 0.9rem;
-        padding: 8px;
+        padding: 8px; /* Adjust padding for smaller screens */
     }
 `;

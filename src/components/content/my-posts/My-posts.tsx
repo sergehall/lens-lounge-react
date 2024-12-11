@@ -1,6 +1,6 @@
 import React from 'react';
 import { MyPostsContainer } from './my-posts.style';
-import {postsDataMock } from './posts-data-mock/posts-data-mock';
+import {postsDataMock } from './mocks/posts-data-mock';
 import Post, {PostProps} from './post/Post';
 
 interface MyPostsProps {

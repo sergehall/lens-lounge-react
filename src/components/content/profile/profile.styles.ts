@@ -10,7 +10,7 @@ export const ProfileContainer = styled.div`
     margin-bottom: ${({ theme }) => theme.spacing.default};
     color: ${({ theme }) => theme.profile.textColor};
     border-radius: ${({ theme }) => theme.global.borderRadius};
-    box-shadow: 0 4px 8px ${({ theme }) => theme.global.transparentBorder};
+    box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;
 
 // Profile photo styling
@@ -18,15 +18,27 @@ export const ProfilePhoto = styled.img`
     width: ${({ theme }) => theme.profile.photoSize};
     height: ${({ theme }) => theme.profile.photoSize};
     border-radius: ${({ theme }) => theme.global.borderRadius};
+    box-shadow: ${({ theme }) => theme.global.boxShadow};
     object-fit: cover;
 `;
 
-// Profile details container
 export const ProfileDetails = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: stretch; 
+    justify-content: space-between; /* Distributes space evenly if needed */
     gap: ${({ theme }) => theme.profile.detailsGap};
+    padding: ${({ theme }) => theme.profile.detailsPadding};
+    box-sizing: border-box;
 `;
+
+// // Profile details container
+// export const ProfileDetails = styled.div`
+//     display: flex;
+//     padding: 15px;
+//     flex-direction: column;
+//     gap: ${({ theme }) => theme.profile.detailsGap};
+// `;
 
 // Profile field container
 export const ProfileField = styled.div`

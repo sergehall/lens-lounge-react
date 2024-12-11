@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultImageBanner from "../../../assets/images/image-banner-content.png";
+import defaultImageBanner from "../../../assets/images/default-image-banner.png";
 import {
     ImageBannerContentContainer,
     ImageBannerContentImage,
@@ -9,14 +9,14 @@ import {
 } from "./image-banner-content.style";
 
 interface ImageBannerContentProps {
-    imageUrl?: string;
-    altText?: string;
-    className?: string;
+    imageUrl: string;
+    altText: string;
+    className: string;
 }
 
 const ImageBanner: React.FC<ImageBannerContentProps> = ({
-                                                            imageUrl = DefaultImageBanner, // Default fallback image
-                                                            altText = "Default banner image", // Default alt text
+                                                            imageUrl = defaultImageBanner,
+                                                            altText = "Default banner image",
                                                             className,
                                                         }) => {
     return (
@@ -25,7 +25,7 @@ const ImageBanner: React.FC<ImageBannerContentProps> = ({
                 src={imageUrl}
                 alt={altText}
                 onError={(e) => {
-                    e.currentTarget.src = DefaultImageBanner; // Fallback to default image
+                    e.currentTarget.src = defaultImageBanner; // Fallback to default image
                 }}
             />
             <ImageBannerTextWrapper>

@@ -2,26 +2,43 @@ import styled from "styled-components";
 
 // Header container styling
 export const HeaderContainer = styled.header`
-    background-color: ${({ theme }) => theme.header.navBg}; /* Use theme variable */
+    background-color: ${({theme}) => theme.header.navBg}; /* Use theme variable */
     display: flex;
     align-items: center;
     justify-content: space-between; /* Ensures proper spacing */
     padding: 10px 20px;
     max-width: 1300px;
     margin: 0 auto; /* Center the header */
+    box-sizing: border-box;
 `;
 
 // Logo styling
 export const Logo = styled.img`
-    height: 50px;
-    margin-right: 20px; /* Spacing between logo and title */
-    animation: appLogoSpin infinite 10s linear;
+    /* Base styling */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    cursor: pointer;
 
+    ///* Animation */
+    animation: appLogoSpin infinite 10s linear;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Hover effect */
+    &:hover {
+        box-shadow:
+                0 0 20px rgba(97, 218, 251, 0.9),
+                0 0 40px rgba(97, 218, 251, 0.7),
+                0 0 60px rgba(97, 218, 251, 0.5);
+    }
+
+    /* Keyframes for rotation animation */
     @keyframes appLogoSpin {
-        from {
+        0% {
             transform: rotate(0deg);
         }
-        to {
+        100% {
             transform: rotate(360deg);
         }
     }
@@ -29,14 +46,14 @@ export const Logo = styled.img`
 
 // Title styling
 export const Title = styled.h1`
-    color: ${({ theme }) => theme.links.color}; /* Use theme for title color */
+    color: ${({theme}) => theme.links.color}; /* Use theme for title color */
     margin: 0;
-    font-size: 2.2rem; /* Consistent sizing */
+    font-size: 2.6rem; /* Consistent sizing */
     white-space: nowrap; /* Prevents wrapping of the title */
     text-align: left;
 
     @media (max-width: 600px) {
-        font-size: 1.8rem; /* Adjust size for smaller screens */
+        font-size: 2.2rem; /* Adjust size for smaller screens */
     }
 `;
 

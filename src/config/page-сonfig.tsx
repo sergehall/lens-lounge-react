@@ -6,11 +6,10 @@ import News from "../components/news/News";
 import Technologies from "../components/content/technologies/Technologies";
 import About from "../components/about/About";
 import Contact from "../components/content/contact/Contact";
-import {techLinks} from "./technology-links";
-import {dialogsDataMock} from "../components/content/dialogs/mocks/dialogs-data-mock";
+import { techLinks } from "./technology-links";
+import { dialogsDataMock } from "../components/content/dialogs/mocks/dialogs-data-mock";
+import { postsDataMock } from "../components/content/my-posts/mocks/posts-data-mock";
 import Dialogs from "../components/content/dialogs/Dialogs";
-import {postsDataMock} from "../components/content/my-posts/posts-data-mock/posts-data-mock";
-
 
 export interface PageConfig {
     bannerImage: string;
@@ -18,45 +17,46 @@ export interface PageConfig {
     component: React.ReactNode;
 }
 
+// Object to configure pages dynamically
 export const pageConfig: Record<string, PageConfig> = {
     home: {
-        bannerImage: "/path/to/home-banner.jpg",
+        bannerImage: "../../../assets/images/default-image-banner.png",
         summaryDescription: "Welcome to the homepage of our app.",
-        component: <Home/>,
+        component: <Home />,
     },
     profile: {
-        bannerImage: "/path/to/profile-banner.jpg",
-        summaryDescription: "This is the profile page summary. Explore posts shared by users.",
+        bannerImage: "../../../assets/images/default-image-banner.png",
+        summaryDescription: "Explore your profile and shared posts.",
         component: (
             <>
-                <ExampleUserProfile/>
-                <MyPosts posts={postsDataMock}/>
+                <ExampleUserProfile />
+                <MyPosts posts={postsDataMock} />
             </>
         ),
     },
     messages: {
-        bannerImage: "/path/to/messages-banner.jpg",
+        bannerImage: "../../../assets/images/default-image-banner.png",
         summaryDescription: "Your messages and chats.",
         component: <Dialogs dialogs={dialogsDataMock} className="Dialogs"/>,
     },
     news: {
-        bannerImage: "/path/to/news-banner.jpg",
+        bannerImage: "../../../assets/images/default-image-banner.png",
         summaryDescription: "Stay updated with the latest news.",
-        component: <News/>,
+        component: <News />,
     },
     technologies: {
-        bannerImage: "/path/to/technologies-banner.jpg",
+        bannerImage: "../../../assets/images/default-image-banner.png",
         summaryDescription: "Learn about cutting-edge technologies.",
-        component: <Technologies links={techLinks} className="Technologies"/>
+        component: <Technologies links={techLinks} className="Technologies" />,
     },
     about: {
-        bannerImage: "/path/to/about-banner.jpg",
+        bannerImage: "../../../assets/images/default-image-banner.png",
         summaryDescription: "Learn more about our mission and values.",
-        component: <About/>,
+        component: <About />,
     },
     contact: {
-        bannerImage: "/path/to/contact-banner.jpg",
+        bannerImage: "../../../assets/images/default-image-banner.png",
         summaryDescription: "Get in touch with us.",
-        component: <Contact/>,
+        component: <Contact />,
     },
 };
