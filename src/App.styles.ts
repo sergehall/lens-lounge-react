@@ -12,7 +12,6 @@ export const AppContainer = styled.div`
     'App-nav App-content'
     'App-nav App-content';
     max-width: 1300px;
-    max-height: 800px;
     margin: 0 auto;
     box-sizing: border-box;
 
@@ -31,11 +30,11 @@ export const Header = styled.header`
     grid-area: App-header;
     max-width: 1300px;
     background-color: ${theme.header.navBg};
-    padding: 20px;
+    padding: ${theme.spacing.medium20};
     box-shadow: 0 4px 8px ${theme.global.transparentBorder};
 
     @media (max-width: 600px) {
-        margin-bottom: ${theme.spacing.responsive};
+        margin-bottom: ${theme.spacing.default};
         padding: ${theme.spacing.default};
     }
 `;

@@ -1,36 +1,53 @@
 import styled from "styled-components";
 
-// Header container styling
-export const HeaderContainer = styled.header`
-    background-color: ${({theme}) => theme.header.navBg}; /* Use theme variable */
+export const HeaderContainer = styled.div`
+    position: relative;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; /* Ensures proper spacing */
-    padding: 10px 20px;
+    padding: 16px;
+    color: white;
     max-width: 1300px;
-    margin: 0 auto; /* Center the header */
-    box-sizing: border-box;
 `;
 
-// Logo styling
-export const Logo = styled.img`
-    /* Base styling */
+export const LogoContainer = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin-right: 20px;
-    cursor: pointer;
+    margin-right: 30px;
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.9),
+    0 0 40px rgba(97, 218, 251, 0.7),
+    0 0 60px rgba(97, 218, 251, 0.5);
 
-    ///* Animation */
-    animation: appLogoSpin infinite 10s linear;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    /* Hover effect */
     &:hover {
-        box-shadow:
-                0 0 20px rgba(97, 218, 251, 0.9),
-                0 0 40px rgba(97, 218, 251, 0.7),
-                0 0 60px rgba(97, 218, 251, 0.5);
+        background: ${({ theme }) => theme.stance.logoBackgroundB4B};
+    }
+
+    /* Responsive resizing */
+    @media (max-width: 1000px) {
+        width: 80px;
+        height: 80px;
+    }
+
+    @media (max-width: 600px) {
+        width: 60px;
+        height: 60px;
+    }
+`;
+
+export const Logo = styled.img`
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    animation: appLogoSpin infinite 10s linear;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1); /* Slight zoom on hover */
     }
 
     /* Keyframes for rotation animation */
@@ -48,12 +65,16 @@ export const Logo = styled.img`
 export const Title = styled.h1`
     color: ${({theme}) => theme.links.color}; /* Use theme for title color */
     margin: 0;
-    font-size: 2.6rem; /* Consistent sizing */
+    font-size: 2.5rem; /* Default size */
     white-space: nowrap; /* Prevents wrapping of the title */
     text-align: left;
 
+    @media (max-width: 1000px) {
+        font-size: 2.2rem; /* Adjust size for smaller widths */
+    }
+
     @media (max-width: 600px) {
-        font-size: 2.2rem; /* Adjust size for smaller screens */
+        font-size: 2rem; /* Shrink further for very small screens */
     }
 `;
 

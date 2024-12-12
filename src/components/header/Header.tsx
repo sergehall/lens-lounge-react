@@ -1,5 +1,6 @@
 import React from "react";
-import { HeaderContainer, Logo, Title, HeaderLink } from "./header.styles";
+import {HeaderContainer, HeaderLink, Logo, LogoContainer, Title} from "./header.styles";
+import Authorization from "./authorization/Authorization";
 
 interface HeaderProps {
     title: string;
@@ -7,13 +8,16 @@ interface HeaderProps {
     homeUrl: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, logoUrl, homeUrl }) => {
+const Header: React.FC<HeaderProps> = ({title, logoUrl, homeUrl}) => {
     return (
         <HeaderContainer>
             <HeaderLink href={homeUrl} aria-label="Home">
-                <Logo src={logoUrl} alt="Site logo" />
+                <LogoContainer>
+                    <Logo src={logoUrl} alt="Site logo"/>
+                </LogoContainer>
                 <Title>{title}</Title>
             </HeaderLink>
+            <Authorization/>
         </HeaderContainer>
     );
 };

@@ -27,6 +27,7 @@ const theme = {
         navBg: '#282c34',
         textColor: '#FFFFFF',
     },
+    authorization: {},
     branding: {
         logoBg: '#FFFFFF',
     },
@@ -170,9 +171,20 @@ const theme = {
     },
     spacing: {
         default: '5px',
-        responsive: '5px',
+        medium20: '20px',
         large40: '40px',
         large60: '60px'
+    },
+    stance: {
+        logoBackgroundB4B: `linear-gradient(
+            180deg,
+            #FFFFFF 0%,
+            #FFFFFF 25%,
+            #FF4500 40%,
+            #FF4500 60%,
+            #FFFFFF 75%,
+            #FFFFFF 100%
+        )`,
     },
 };
 
