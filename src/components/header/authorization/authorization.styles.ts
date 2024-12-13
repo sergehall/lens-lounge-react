@@ -6,7 +6,7 @@ interface AuthButtonProps {
 
 export const AuthButton = styled.button<AuthButtonProps>`
     background: transparent;
-    color: ${({ isActive, theme }) => (isActive ? theme.links.hoverColor : theme.links.color)};
+    color: ${({ isActive, theme }) => (isActive ? theme.links.activeText : theme.links.color)};
     border: 2px solid #61DAFB; 
     border-radius: 5px;
     padding: 10px 30px; 
@@ -129,7 +129,7 @@ export const ContinueWithFacebookButton = styled(DropdownButton)`
 `;
 
 export const InputField = styled.input`
-    width: calc(100% - 16px); /* Account for padding in DropdownContainer */
+    width: calc(100% - 0px); /* Account for padding in DropdownContainer */
     padding: 8px;
     font-size: 16px;
     margin-top: 10px;

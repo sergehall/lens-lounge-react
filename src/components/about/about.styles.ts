@@ -1,127 +1,73 @@
 import styled from "styled-components";
 
-// Main container for the About section
+// Main container for the Home component
 export const AboutContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: ${({ theme }) => theme.spacing.large40};
-    background-color: ${({ theme }) => theme.about.containerBg};
+    justify-content: flex-start;
+    padding: 20px 20px 40px;
+    background-color: ${({ theme }) => theme.global.backgroundColor};
     border-radius: ${({ theme }) => theme.global.borderRadius};
-    box-shadow: ${({ theme }) => theme.global.boxShadow};
-    width: 100%; /* Ensures container fits within parent */
-    max-width: 100%; /* Prevents container from exceeding parent's width */
-    margin: 0 auto; /* Centers container in parent */
-
-    @media (max-width: 600px) {
-        padding: ${({ theme }) => theme.spacing.default}; /* Reduce padding for mobile */
-    }
+    box-shadow: ${({ theme }) => theme.global.transparentBorder};
+    margin: 0 auto;
 `;
 
-// export const AboutContainer = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     padding: ${({ theme }) => theme.spacing.large40};
-//     background-color: ${({ theme }) => theme.about.containerBg};
-//     border-radius: ${({ theme }) => theme.global.borderRadius};
-//     box-shadow: ${({ theme }) => theme.global.boxShadow};
-//     width: 100%; /* Constrain container width */
-//     max-width: 800px; /* Optional: Prevent it from stretching too wide */
-//     margin: 0 auto; /* Center the container horizontally */
-//
-//     @media (max-width: 600px) {
-//         padding: ${({ theme }) => theme.spacing.default}; /* Reduce padding for mobile */
-//     }
-// `;
-// export const AboutContainer = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     padding: ${({ theme }) => theme.spacing.large40};
-//     background-color: ${({ theme }) => theme.about.containerBg};
-//     border-radius: ${({ theme }) => theme.global.borderRadius};
-//     box-shadow: ${({ theme }) => theme.global.boxShadow};
-// `;
-
-
-
-// Title styling
+// Welcome text styling
 export const Title = styled.h1`
-    font-size: ${({ theme }) => theme.about.titleFontSize};
-    color: ${({ theme }) => theme.about.titleColor};
-    margin-bottom: ${({ theme }) => theme.spacing.default};
+    font-size: ${({ theme }) => theme.textFontSize.title};
+    color: ${({ theme }) => theme.colors.title};
+    margin: 10px 0;
     text-align: center;
-    
-    @media (max-width: 600px) {
-        font-size: ${({ theme }) => theme.about.titleFontSizeMobile};
-    }
-`;
-
-// Paragraph styling
-export const Paragraph = styled.p`
-    font-size: ${({ theme }) => theme.about.paragraphFontSize};
-    color: ${({ theme }) => theme.about.paragraphColor};
-    line-height: 1.6;
-    margin-bottom: ${({ theme }) => theme.spacing.default};
-    text-align: justify;
-    max-width: 100%; /* Ensures it fits within the container */
-    padding: 0 ${({ theme }) => theme.spacing.medium20}; /* Add horizontal padding */
+    line-height: 1.4;
 
     @media (max-width: 600px) {
-        font-size: ${({ theme }) => theme.about.paragraphFontSizeMobile};
-        padding: 0 ${({ theme }) => theme.spacing.medium20}; /* Adjust padding for mobile */
+        font-size: ${({ theme }) => theme.textFontSize.mobile };
     }
 `;
-
-// export const Paragraph = styled.p`
-//     font-size: ${({ theme }) => theme.about.paragraphFontSize};
-//     color: ${({ theme }) => theme.about.paragraphColor};
-//     line-height: 1.6;
-//     margin-bottom: ${({ theme }) => theme.spacing.default}; /* Space between paragraphs */
-//     text-align: justify;
-//     max-width: 100%; /* Ensure it uses available container space */
-//     padding: 0 ${({ theme }) => theme.spacing.medium20}; /* Add horizontal padding for distance from edges */
-//
-//     @media (max-width: 600px) {
-//         font-size: ${({ theme }) => theme.about.paragraphFontSizeMobile};
-//         padding: 0 ${({ theme }) => theme.spacing.medium20};
-//     }
-// `;
-
-// export const Paragraph = styled.p`
-//     font-size: ${({ theme }) => theme.about.paragraphFontSize};
-//     color: ${({ theme }) => theme.about.paragraphColor};
-//     line-height: 1.6;
-//     margin-bottom: ${({ theme }) => theme.spacing.default};
-//     text-align: justify;
-//     max-width: 800px;
-//
-//     @media (max-width: 600px) {
-//         font-size: ${({ theme }) => theme.about.paragraphFontSizeMobile};
-//     }
-// `;
 
 // Highlighted text styling
 export const Highlight = styled.span`
-    color: ${({ theme }) => theme.about.highlightColor};
+    color: ${({ theme }) => theme.links.color};
     font-weight: bold;
+    text-transform: capitalize;
     transition: color 0.3s ease;
 
-    &:hover {
-        color: ${({ theme }) => theme.about.highlightHoverColor};
+    // &:hover {
+    //     color: ${({ theme }) => theme.highlights.yellow || theme.links.hoverColor};
+    // }
+`;
+
+// Bottom section container for descriptions
+export const BottomSection = styled.div`
+    max-width: ${({ theme }) => theme.about.aboutSectionMaxWidth};
+    text-align: left;
+    margin-top: 20px;
+    padding: 0 ${({ theme }) => theme.about.aboutSectionPadding};
+
+    @media (max-width: 600px) {
+        margin-top: 15px;
+        padding: 0 ${({ theme }) => theme.about.aboutSectionPaddingMobile};
     }
 `;
 
-// Link styling
+// General description text styling
+export const Paragraph = styled.p`
+    color: ${({ theme }) => theme.global.textColor};
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 15px 0;
+`;
+
+// Navigation item highlight (link) styling
 export const Link = styled.a`
-    color: ${({ theme }) => theme.about.linkColor};
+    color: ${({ theme }) => theme.links.color};
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 
     &:hover {
-        color: ${({ theme }) => theme.about.linkHoverColor};
+        color: ${({ theme }) => theme.highlights.yellow};
         text-decoration: underline;
     }
 `;

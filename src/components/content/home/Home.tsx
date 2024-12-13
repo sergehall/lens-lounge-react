@@ -64,7 +64,7 @@ const Home: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <strong>sergioartg.com</strong>
+                        <strong>https://sergioartg.com</strong>
                     </NavItemHighlight> or follow my creative journey on Instagram at{" "}
                     <NavItemHighlight
                         href="https://www.instagram.com/sergioartg"

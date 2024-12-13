@@ -74,7 +74,8 @@ export const Title = styled(HeaderLink)`
     white-space: nowrap; /* Prevents wrapping of the title */
     text-align: left;
     color: ${({ theme }) => theme.links.color};
-
+    font-family: 'Didot', 'Baskerville', 'Georgia', serif;
+    
     &:hover {
         color: ${({ theme }) => theme.links.color}; /* Optional hover effect for title */
     }

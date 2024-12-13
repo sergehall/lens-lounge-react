@@ -22,7 +22,7 @@ export const WelcomeText = styled.h1`
     line-height: 1.4;
 
     @media (max-width: 600px) {
-        font-size: ${({ theme }) => theme.home.welcomeTextFontSizeMobile };
+        font-size: ${({ theme }) => theme.textFontSize.mobile };
     }
 `;
 
@@ -40,14 +40,14 @@ export const Highlight = styled.span`
 
 // Bottom section container for descriptions
 export const BottomSection = styled.div`
-    max-width: ${({ theme }) => theme.home.bottomSectionMaxWidth || '800px'};
+    max-width: ${({ theme }) => theme.home.bottomSectionMaxWidth};
     text-align: left;
     margin-top: 20px;
-    padding: 0 ${({ theme }) => theme.home.bottomSectionPadding || '20px'};
+    padding: 0 ${({ theme }) => theme.home.bottomSectionPadding};
 
     @media (max-width: 600px) {
         margin-top: 15px;
-        padding: 0 ${({ theme }) => theme.home.bottomSectionPaddingMobile || '15px'};
+        padding: 0 ${({ theme }) => theme.home.bottomSectionPaddingMobile};
     }
 `;
 
@@ -61,7 +61,7 @@ export const Description = styled.p`
 
 // Navigation item highlight (link) styling
 export const NavItemHighlight = styled.a`
-    color: ${({ theme }) => theme.highlights.white};
+    color: ${({ theme }) => theme.links.color};
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;

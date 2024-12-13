@@ -1,18 +1,22 @@
 import React from "react";
-import { AboutContainer, Title, Paragraph, Highlight, Link } from "./about.styles";
+import {AboutContainer, Title, Paragraph, Highlight, Link, BottomSection} from "./about.styles";
 
 const About: React.FC = () => {
     return (
         <AboutContainer>
             <Title>About Me</Title>s
-            <div>
+            <BottomSection>
                 <Paragraph>
                     &emsp;Hi, I’m <Highlight><strong>Serge Hall</strong></Highlight>, a passionate developer with a creative edge. My journey
                     in the tech world started with a deep interest in solving problems and building impactful solutions.
                 </Paragraph>
                 <Paragraph>
-                    I am currently honing my skills in <Highlight><strong>React, Node.js, Express,</strong></Highlight> and various
-                    backend technologies like <Highlight><strong>MongoDB</strong></Highlight>,<Highlight> <strong>PostgreSQL</strong>,</Highlight> and microservices.
+                    I am currently honing my skills in <Highlight><strong>React</strong></Highlight>,
+                    <Highlight><strong>Node.js</strong></Highlight>,
+                    <Highlight><strong>Express</strong></Highlight>, and various
+                    backend technologies like <Highlight><strong>MongoDB</strong></Highlight>,
+                    <Highlight><strong>PostgreSQL</strong></Highlight>, and microservices.
+
                 </Paragraph>
                 <Paragraph>
                     Beyond coding, I am also a <Highlight>professional photographer</Highlight> who loves capturing
@@ -30,7 +34,7 @@ const About: React.FC = () => {
                     </Link>
                     !
                 </Paragraph>
-            </div>
+            </BottomSection>
         </AboutContainer>
     );
 };

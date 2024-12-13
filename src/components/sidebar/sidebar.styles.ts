@@ -6,7 +6,7 @@ export const SidebarContainer = styled.div`
     width: 100%;
     padding: 10px; /* Padding applied inside the container */
     background-color: ${({ theme }) => theme.header.navBg};
-    box-shadow: 0 0 5px 2px rgba(97, 218, 251, 0.7);
+    //box-shadow: 0 0 5px 2px rgba(97, 218, 251, 0.7);
     border-radius: 8px; /* Optional for rounded corners */
     box-sizing: border-box; /* Includes padding and border in the element’s dimensions */
 `;
@@ -34,8 +34,11 @@ export const SidebarLink = styled.div<{ isActive: boolean }>`
     text-decoration: none;
     color: ${({ theme, isActive }) =>
     isActive ? theme.links.activeText : theme.links.color};
-    padding: 10px;
+    padding: 6px 10px; 
     border-radius: 4px;
+    font-size: 0.95rem; 
+    display: inline-block; 
+    width: 100%;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     background-color: ${({ theme, isActive }) =>
     isActive ? theme.links.activeBg : "transparent"};
@@ -44,11 +47,13 @@ export const SidebarLink = styled.div<{ isActive: boolean }>`
         background-color: ${({ theme }) => theme.links.hoverBg};
         color: ${({ theme }) => theme.links.hoverColor};
         box-shadow: 0 0 5px 2px rgba(97, 218, 251, 0.7);
-        transform: scale(1.05);
+        transform: scale(1.05); /* Slight zoom effect */
     }
 
     @media (max-width: 600px) {
         font-size: 0.9rem;
-        padding: 8px; /* Adjust padding for smaller screens */
+        padding: 5px 8px; 
     }
 `;
+
+

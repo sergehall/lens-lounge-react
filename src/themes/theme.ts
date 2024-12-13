@@ -11,6 +11,9 @@ const theme = {
         borderRadius: '8px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
     },
+    colors: {
+        title: '#FF4500',
+    },
     contact: {
         containerBg: '#282c34',
         titleFontSize: '2.5rem',
@@ -88,8 +91,10 @@ const theme = {
         paragraphColor: '#E0E0E0',
         highlightColor: '#FFFFFF',
         highlightHoverColor: '#FFD700',
-        linkColor: '#61DAFB',
         linkHoverColor: '#FFD700',
+        aboutSectionMaxWidth: '800px',
+        aboutSectionPadding: '20px',
+        aboutSectionPaddingMobile: '15px',
     },
     imageBanner: {
         containerBorderRadius: '8px',
@@ -103,11 +108,15 @@ const theme = {
         descriptionColor: '#ffffff',
         textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)',
     },
+    textFontSize: {
+        default: '1.2rem',
+        title: '2rem',
+        mobile: '1.5rem',
+    },
     home: {
         containerBg: '#282c34',
         welcomeTextColor: '#FF4500',
         welcomeTextFontSize: '2rem',
-        welcomeTextFontSizeMobile: '1.5rem',
         bottomSectionMaxWidth: '800px',
         bottomSectionPadding: '20px',
         bottomSectionPaddingMobile: '15px',
