@@ -6,7 +6,7 @@ export const SidebarContainer = styled.div`
     width: 100%;
     padding: 10px; /* Padding applied inside the container */
     background-color: ${({ theme }) => theme.header.navBg};
-    //box-shadow: 0 0 5px 2px rgba(97, 218, 251, 0.7);
+    box-shadow: 0 0 5px 2px rgba(97, 218, 251, 0.7);
     border-radius: 8px; /* Optional for rounded corners */
     box-sizing: border-box; /* Includes padding and border in the element’s dimensions */
 `;

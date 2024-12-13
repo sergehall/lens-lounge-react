@@ -10,52 +10,113 @@ import logo from './logo.svg';
 import { AppContainer, Header as StyledHeader, SidebarNav, ContentArea } from "./App.styles";
 import Dialogs from "./components/content/dialogs/Dialogs";
 import { dialogsDataMock } from "./components/content/dialogs/mocks/dialogs-data-mock";
+import GlobalStyles from "./global-styles";
 
 const App: React.FC = () => {
     return (
-        <AppContainer>
-            {/* Header */}
-            <StyledHeader>
-                <Header
-                    title={PageTitles.HOME}
-                    logoUrl={logo}
-                    homeUrl="/"
-                />
-            </StyledHeader>
+        <>
+            <GlobalStyles /> {/* Global styles applied here */}
+            <AppContainer>
+                {/* Header */}
+                <StyledHeader>
+                    <Header
+                        title={PageTitles.HOME}
+                        logoUrl={logo}
+                        homeUrl="/"
+                    />
+                </StyledHeader>
 
-            {/* Sidebar */}
-            <SidebarNav>
-                <Sidebar links={navLinks} className="Sidebar" />
-            </SidebarNav>
+                {/* Sidebar */}
+                <SidebarNav>
+                    <Sidebar links={navLinks} className="Sidebar" />
+                </SidebarNav>
 
-            {/* Content */}
-            <ContentArea>
-                <Routes>
-                    {Object.entries(pageConfig).map(([key, { bannerImage, summaryDescription, component }]) => (
-                        <Route
-                            key={key}
-                            path={key === "home" ? "/" : `/${key}`}
-                            element={
-                                <PageLayout bannerImage={bannerImage} summaryDescription={summaryDescription}>
-                                    {component}
-                                </PageLayout>
-                            }
-                        >
-                            {/* Nested Route for Dialogs */}
-                            {key === "messages" && (
+                {/* Content */}
+                <ContentArea>
+                    <Routes>
+                        {Object.entries(pageConfig).map(
+                            ([key, { bannerImage, summaryDescription, component }]) => (
                                 <Route
-                                    path=":userId"
+                                    key={key}
+                                    path={key === "home" ? "/" : `/${key}`}
                                     element={
-                                        <Dialogs dialogs={dialogsDataMock} className="Dialogs" />
+                                        <PageLayout
+                                            bannerImage={bannerImage}
+                                            summaryDescription={summaryDescription}
+                                        >
+                                            {component}
+                                        </PageLayout>
                                     }
-                                />
-                            )}
-                        </Route>
-                    ))}
-                </Routes>
-            </ContentArea>
-        </AppContainer>
+                                >
+                                    {/* Nested Route for Dialogs */}
+                                    {key === "messages" && (
+                                        <Route
+                                            path=":userId"
+                                            element={
+                                                <Dialogs
+                                                    dialogs={dialogsDataMock}
+                                                    className="Dialogs"
+                                                />
+                                            }
+                                        />
+                                    )}
+                                </Route>
+                            )
+                        )}
+                    </Routes>
+                </ContentArea>
+            </AppContainer>
+        </>
     );
 };
 
 export default App;
+
+// const App: React.FC = () => {
+//     return (
+//         <AppContainer>
+//             {/* Header */}
+//             <StyledHeader>
+//                 <Header
+//                     title={PageTitles.HOME}
+//                     logoUrl={logo}
+//                     homeUrl="/"
+//                 />
+//             </StyledHeader>
+//
+//             {/* Sidebar */}
+//             <SidebarNav>
+//                 <Sidebar links={navLinks} className="Sidebar" />
+//             </SidebarNav>
+//
+//             {/* Content */}
+//             <ContentArea>
+//                 <Routes>
+//                     {Object.entries(pageConfig).map(([key, { bannerImage, summaryDescription, component }]) => (
+//                         <Route
+//                             key={key}
+//                             path={key === "home" ? "/" : `/${key}`}
+//                             element={
+//                                 <PageLayout bannerImage={bannerImage} summaryDescription={summaryDescription}>
+//                                     {component}
+//                                 </PageLayout>
+//                             }
+//                         >
+//                             {/* Nested Route for Dialogs */}
+//                             {key === "messages" && (
+//                                 <Route
+//                                     path=":userId"
+//                                     element={
+//                                         <Dialogs dialogs={dialogsDataMock} className="Dialogs" />
+//                                     }
+//                                 />
+//                             )}
+//                         </Route>
+//                     ))}
+//                 </Routes>
+//             </ContentArea>
+//         </AppContainer>
+//     );
+// };
+//
+// export default App;

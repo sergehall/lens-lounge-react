@@ -28,7 +28,9 @@ const theme = {
         textColor: '#FFFFFF',
         logoBoxShadow: '0 0 20px rgba(97, 218, 251, 0.9),\n    0 0 40px rgba(97, 218, 251, 0.7),\n    0 0 60px rgba(97, 218, 251, 0.5);',
     },
-    authorization: {},
+    authorization: {
+        boxShadow: '0 0 10px #61DAFB, 0 0 20px #61DAFB'
+    },
     branding: {
         logoBg: '#FFFFFF',
     },
@@ -172,6 +174,7 @@ const theme = {
     },
     spacing: {
         default: '5px',
+        small10: '10px',
         medium20: '20px',
         large40: '40px',
         large60: '60px'

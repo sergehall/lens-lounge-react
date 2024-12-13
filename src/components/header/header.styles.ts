@@ -87,3 +87,4 @@ export const Title = styled(HeaderLink)`
         font-size: 2rem; /* Shrink further for very small screens */
     }
 `;
+

@@ -13,12 +13,12 @@ export const AuthButton = styled.button<AuthButtonProps>`
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: ${({ isActive }) =>
-            isActive ? "0 0 10px #61DAFB, 0 0 20px #61DAFB" : "none"}; 
+    box-shadow: ${({ isActive, theme }) =>
+            isActive ? theme.authorization.boxShadow : "none"}; 
 
     &:hover {
-        box-shadow: 0 0 10px #61DAFB, 0 0 20px #61DAFB; /* Glow on hover */
-        color: #61DAFB;
+        box-shadow: ${({ theme }) => theme.authorization.boxShadow};
+        ${({ theme }) => theme.links.hoverColor};
     }
 
     &:active {
