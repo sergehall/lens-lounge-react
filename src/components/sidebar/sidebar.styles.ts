@@ -42,7 +42,7 @@ export const SidebarLink = styled.div<{ isActive: boolean }>`
 
     &:hover {
         background-color: ${({ theme }) => theme.links.hoverBg};
-        color: ${({ theme }) => theme.links.hoverText};
+        color: ${({ theme }) => theme.links.hoverColor};
         box-shadow: 0 0 5px 2px rgba(97, 218, 251, 0.7);
         transform: scale(1.05);
     }

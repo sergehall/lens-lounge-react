@@ -58,7 +58,7 @@ export const ProfileValue = styled.span`
         text-decoration: none;
 
         &:hover {
-            color: ${({ theme }) => theme.links.hoverText};
+            color: ${({ theme }) => theme.links.hoverColor};
             text-decoration: underline;
         }
     }

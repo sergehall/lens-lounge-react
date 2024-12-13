@@ -26,6 +26,7 @@ const theme = {
     header: {
         navBg: '#282c34',
         textColor: '#FFFFFF',
+        logoBoxShadow: '0 0 20px rgba(97, 218, 251, 0.9),\n    0 0 40px rgba(97, 218, 251, 0.7),\n    0 0 60px rgba(97, 218, 251, 0.5);',
     },
     authorization: {},
     branding: {
@@ -44,7 +45,7 @@ const theme = {
     links: {
         color: '#61DAFB',
         hoverBg: '#3A3F47',
-        hoverText: '#FFD700',
+        hoverColor: '#FFD700',
         visitedColor: '#B86FC4',
         activeColor: '#FFA500',
         activeBg: '#444444',
@@ -185,6 +186,13 @@ const theme = {
             #FFFFFF 75%,
             #FFFFFF 100%
         )`,
+        logoBackgroundCircle: `radial-gradient(
+            circle,
+                #282c34 0%, 
+                #282c34 20%, 
+                #61DAFB 60%, 
+                #61DAFB 100%  
+            )`,
     },
 };
 

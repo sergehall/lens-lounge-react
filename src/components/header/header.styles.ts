@@ -10,20 +10,27 @@ export const HeaderContainer = styled.div`
     max-width: 1300px;
 `;
 
-export const LogoContainer = styled.div`
-    position: relative;
+// Generic link styling for both Logo and Title
+export const HeaderLink = styled.a`
     display: flex;
-    justify-content: center;
     align-items: center;
+    text-decoration: none; /* Prevent underline */
+    color: inherit; 
+    transition: transform 0.3s ease, color 0.3s ease;
+`;
+
+// Logo-specific styling
+export const LogoContainer = styled(HeaderLink)`
+    position: relative;
+    justify-content: center;
     width: 100px;
     height: 100px;
     border-radius: 50%;
     margin-right: 30px;
-    box-shadow: 0 0 20px rgba(97, 218, 251, 0.9),
-    0 0 40px rgba(97, 218, 251, 0.7),
-    0 0 60px rgba(97, 218, 251, 0.5);
+    box-shadow: ${({ theme }) => theme.header.logoBoxShadow};
 
     &:hover {
+        transform: scale(1.05);
         background: ${({ theme }) => theme.stance.logoBackgroundB4B};
     }
 
@@ -61,13 +68,16 @@ export const Logo = styled.img`
     }
 `;
 
-// Title styling
-export const Title = styled.h1`
-    color: ${({theme}) => theme.links.color}; /* Use theme for title color */
-    margin: 0;
+// Title-specific styling
+export const Title = styled(HeaderLink)`
     font-size: 2.5rem; /* Default size */
     white-space: nowrap; /* Prevents wrapping of the title */
     text-align: left;
+    color: ${({ theme }) => theme.links.color};
+
+    &:hover {
+        color: ${({ theme }) => theme.links.color}; /* Optional hover effect for title */
+    }
 
     @media (max-width: 1000px) {
         font-size: 2.2rem; /* Adjust size for smaller widths */
@@ -75,18 +85,5 @@ export const Title = styled.h1`
 
     @media (max-width: 600px) {
         font-size: 2rem; /* Shrink further for very small screens */
-    }
-`;
-
-// Anchor link styling
-export const HeaderLink = styled.a`
-    display: flex;
-    align-items: center;
-    text-decoration: none; /* Prevent underline by default */
-    color: inherit; /* Inherit color from parent container */
-    transition: transform 0.3s ease;
-
-    &:hover {
-        transform: scale(1.05); /* Slight zoom effect on hover */
     }
 `;

@@ -34,7 +34,7 @@ export const Highlight = styled.span`
     transition: color 0.3s ease;
 
     &:hover {
-        color: ${({ theme }) => theme.highlights.yellow || theme.links.hoverText};
+        color: ${({ theme }) => theme.highlights.yellow || theme.links.hoverColor};
     }
 `;
 

@@ -1,41 +1,28 @@
 import styled from "styled-components";
-import {AuthButtonProps} from "./Authorization";
+
+interface AuthButtonProps {
+    isActive: boolean;
+}
 
 export const AuthButton = styled.button<AuthButtonProps>`
-    text-decoration: none;
-    color: ${({ theme, isActive }) =>
-    isActive ? theme.links.activeText : theme.links.color};
-    padding: 10px 70px; /* Default padding */
-    border-radius: 8px;
-    font-size: 1rem; /* Default font size */
-    box-shadow: 0 0 5px 2px rgba(97, 218, 251, 0.7); /* Default box shadow */
-    background-color: ${({ theme, isActive }) =>
-    isActive ? theme.links.activeBg : "transparent"};
+    background: transparent;
+    color: ${({ isActive, theme }) => (isActive ? theme.links.hoverColor : theme.links.color)};
+    border: 2px solid #61DAFB; 
+    border-radius: 5px;
+    padding: 10px 30px; 
+    font-size: 1rem;
     cursor: pointer;
-    transition: 
-        background-color 0.3s ease, 
-        color 0.3s ease, 
-        transform 0.3s ease, 
-        box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: ${({ isActive }) =>
+            isActive ? "0 0 10px #61DAFB, 0 0 20px #61DAFB" : "none"}; 
 
     &:hover {
-        background-color: ${({ theme }) => theme.links.hoverBg};
-        color: ${({ theme }) => theme.links.hoverText};
-        box-shadow: 0 0 8px 2px rgba(97, 218, 251, 0.7); /* Hover effect */
-        transform: scale(1.05);
+        box-shadow: 0 0 10px #61DAFB, 0 0 20px #61DAFB; /* Glow on hover */
+        color: #61DAFB;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 1000px) {
-        padding: 8px 60px; /* Adjust padding for mid-sized screens */
-        font-size: 0.95rem; /* Slightly reduce font size */
-        box-shadow: 0 0 4px 2px rgba(97, 218, 251, 0.6); /* Subtler shadow */
-    }
-
-    @media (max-width: 700px) {
-        padding: 8px 40px; /* Further reduce padding */
-        font-size: 0.9rem; /* Shrink font size for small screens */
-        box-shadow: 0 0 3px 1px rgba(97, 218, 251, 0.5); /* Minimal shadow */
+    &:active {
+        transform: scale(0.95); /* Slight press effect */
     }
 `;
 
@@ -101,7 +88,7 @@ export const DropdownButton = styled.button`
 
     &:hover {
         background-color: ${({ theme }) => theme.links.hoverBg};
-        color: ${({ theme }) => theme.links.hoverText};
+        color: ${({ theme }) => theme.links.hoverColor};
         box-shadow: 0 0 5px 2px rgba(97, 218, 251, 0.7);
         transform: scale(1.05);
     }
@@ -181,7 +168,7 @@ export const ForgotPasswordLink = styled.a`
     transition: color 0.3s ease;
 
     &:hover {
-        color: ${({ theme }) => theme.links.hoverText};
+        color: ${({ theme }) => theme.links.hoverColor};
         text-decoration: underline;
     }
 `;
