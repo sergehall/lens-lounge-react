@@ -58,7 +58,7 @@ export const UserName = styled.span`
 `;
 
 export const UserStatus = styled.span<{ isOnline: boolean }>`
-    font-size: 0.8rem;
+    font-size: ${({ isOnline }) => (isOnline ? "1rem" : "0.7rem")};
     color: ${({ isOnline, theme }) =>
             isOnline ? theme.highlights.brightGreen : theme.global.transparentTextShadow};
 `;
