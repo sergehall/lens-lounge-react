@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const ProfileContainer = styled.div`
     display: flex;
     align-items: flex-start;
-    gap: 20px;
+    gap: 10px;
     padding: 5px;
     background-color: ${({ theme }) => theme.profile.containerBg};
     margin-bottom: ${({ theme }) => theme.spacing.default};
@@ -25,20 +25,12 @@ export const ProfilePhoto = styled.img`
 export const ProfileDetails = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: stretch; 
-    justify-content: space-between; /* Distributes space evenly if needed */
+    align-items: stretch;
+    justify-content: space-between; 
     gap: ${({ theme }) => theme.profile.detailsGap};
     padding: ${({ theme }) => theme.profile.detailsPadding};
     box-sizing: border-box;
 `;
-
-// // Profile details container
-// export const ProfileDetails = styled.div`
-//     display: flex;
-//     padding: 15px;
-//     flex-direction: column;
-//     gap: ${({ theme }) => theme.profile.detailsGap};
-// `;
 
 // Profile field container
 export const ProfileField = styled.div`

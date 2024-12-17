@@ -61,9 +61,9 @@ const theme = {
         linkColor: '#282c34',
         containerBg: '#61DAFB',
         textColor: '#282c34',
-        photoSize: '120px',
+        photoSize: '140px',
         fieldGap: '5px',
-        detailsGap: '10px',
+        detailsGap: '5px',
         detailsPadding: '15px',
     },
     news: {
