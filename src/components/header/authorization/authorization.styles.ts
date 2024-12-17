@@ -7,14 +7,14 @@ interface AuthButtonProps {
 export const AuthButton = styled.button<AuthButtonProps>`
     background: transparent;
     color: ${({ isActive, theme }) => (isActive ? theme.links.activeText : theme.links.color)};
-    border: 2px solid #61DAFB; 
+    border: 2px solid #61DAFB;
     border-radius: 5px;
-    padding: 10px 30px; 
+    padding: 10px 40px;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: ${({ isActive, theme }) =>
-            isActive ? theme.authorization.boxShadow : "none"}; 
+    isActive ? theme.authorization.boxShadow : "none"};
 
     &:hover {
         box-shadow: ${({ theme }) => theme.authorization.boxShadow};
@@ -22,14 +22,13 @@ export const AuthButton = styled.button<AuthButtonProps>`
     }
 
     &:active {
-        transform: scale(0.95); /* Slight press effect */
+        transform: scale(0.95);
     }
 `;
 
-
 export const DropdownContainer = styled.div`
     position: absolute;
-    top: 100%; /* Aligns the top of the dropdown with the bottom of the AuthButton */
+    top: 100%;
     left: 0;
     background-color: #282c34;
     border: 1px solid ${({ theme }) => theme.global.secondaryColor};
@@ -50,36 +49,50 @@ export const DropdownContainer = styled.div`
     }
 `;
 
-export const DropdownTitle = styled.div`
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 8px 0; /* Reduce vertical spacing */
+export const SignInInstruction = styled.p`
+    font-size: 0.7rem;
+    margin-bottom: 8px;
     text-align: center;
+    align-items: center;
+    color: ${({ theme }) => theme.global.textColor};
+`;
+
+export const DropdownTitle = styled.div`
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: 8px 0;
+    text-align: center;
+    align-items: center;
 
     @media (max-width: 600px) {
-        font-size: 0.8rem;
-        margin: 6px 0; /* Adjust spacing for smaller screens */
+        font-size: 0.7rem;
+        margin: 6px 0;
     }
 `;
 
-export const SignInInstruction = styled.p`
-    font-size: 0.7rem;
-    color: ${({ theme }) => theme.global.textColor};
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: 500;
-    @media (max-width: 600px) {
-        padding: 8px;
-    }
+export const SignInWithUsernameContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+`;
+
+export const SignInWithSocialContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px; /* Consistent spacing between buttons */
 `;
 
 export const DropdownButton = styled.button`
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     margin: 8px 0;
     font-size: 16px;
     border: none;
-    background-color: #282c34; /* Default background color */
+    background-color: #282c34;
     color: ${({ theme }) => theme.links.color};
     box-shadow: 0 0 3px 1px rgba(97, 218, 251, 0.7);
     cursor: pointer;
@@ -89,20 +102,18 @@ export const DropdownButton = styled.button`
     &:hover {
         background-color: ${({ theme }) => theme.links.hoverBg};
         color: ${({ theme }) => theme.links.hoverColor};
-        box-shadow: 0 0 5px 2px rgba(97, 218, 251, 0.7);
         transform: scale(1.05);
     }
 
     @media (max-width: 600px) {
         font-size: 0.9rem;
-        padding: 8px; /* Adjust padding for smaller screens */
+        padding: 10px;
     }
 `;
 
 export const SignInWithAppleButton = styled(DropdownButton)`
     background-color: black;
     color: white;
-    marginBottom: "8px";
 
     &:hover {
         background-color: #1a1a1a;
@@ -112,7 +123,6 @@ export const SignInWithAppleButton = styled(DropdownButton)`
 export const SignInWithGoogleButton = styled(DropdownButton)`
     background-color: #4285F4;
     color: white;
-    marginBottom: "8px";
 
     &:hover {
         background-color: #357ae8;
@@ -129,43 +139,27 @@ export const ContinueWithFacebookButton = styled(DropdownButton)`
 `;
 
 export const InputField = styled.input`
-    width: calc(100% - 0px); /* Account for padding in DropdownContainer */
+    width: 100%;
     padding: 8px;
     font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
-    outline: none; /* Removes default focus outline */
+    outline: none;
     transition: border-color 0.3s ease;
 
     &:focus {
-        border-color: #007bff; /* Highlighted border on focus */
+        border-color: #007bff;
     }
-`;
-
-export const SignInContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-`;
-
-export const SocialLoginContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
 `;
 
 export const ForgotPasswordLink = styled.a`
     display: block;
     margin-top: 10px;
+    font-size: 0.7rem;
     text-align: center;
     text-decoration: none;
     color: ${({ theme }) => theme.global.textColor};
-    font-size: 0.8rem;
-    transition: color 0.3s ease;
 
     &:hover {
         color: ${({ theme }) => theme.links.hoverColor};
@@ -173,27 +167,25 @@ export const ForgotPasswordLink = styled.a`
     }
 `;
 
-export const Divider = styled.div`
-    width: 100%;
+export const WhiteDivider = styled.div`
+    display: flex;
+    align-items: center;
     text-align: center;
-    margin: 15px 0;
+    margin: 8px 0;
     position: relative;
 
     &:before,
     &:after {
         content: "";
-        position: absolute;
+        flex: 1;
         height: 1px;
-        background: #ccc;
-        width: 40%;
-        top: 50%;
+        background-color: #ccc;
+        margin: 0 8px;
     }
 
-    &:before {
-        left: 0;
-    }
-
-    &:after {
-        right: 0;
+    span {
+        font-size: 0.8rem;
+        color: #666;
+        white-space: nowrap;
     }
 `;

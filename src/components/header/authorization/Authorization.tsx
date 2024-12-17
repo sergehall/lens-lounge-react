@@ -1,16 +1,18 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, {Dispatch, SetStateAction} from "react";
 import {
     AuthButton,
     DropdownContainer,
     DropdownTitle,
+    InputField,
+    DropdownButton,
+    ForgotPasswordLink,
+    WhiteDivider,
+    SignInWithUsernameContainer,
+    SignInInstruction,
+    SignInWithSocialContainer,
     SignInWithAppleButton,
     SignInWithGoogleButton,
     ContinueWithFacebookButton,
-    InputField,
-    SignInContainer,
-    SocialLoginContainer,
-    Divider,
-    DropdownButton, ForgotPasswordLink, SignInInstruction,
 } from "./authorization.styles";
 
 export interface AuthorizationProps {
@@ -31,17 +33,23 @@ const Authorization: React.FC<AuthorizationProps> = ({
 
     return (
         <div
-            style={{ position: "relative" }}
+            style={{position: "relative"}}
             onMouseEnter={() => setIsDropdownVisible(true)}
             onMouseLeave={() => setIsDropdownVisible(false)}
         >
+            {/* Authorization Button */}
             <AuthButton isActive={isDropdownVisible}>Authorization</AuthButton>
+
+            {/* Dropdown Content */}
             {isDropdownVisible && (
                 <DropdownContainer>
+                    {/* Conditional Rendering for Username Sign-In */}
                     {!showSignInField ? (
                         <>
                             <DropdownTitle>
-                                SIGN IN<Divider>or</Divider>CREATE ACCOUNT
+                                SIGN IN
+                                <WhiteDivider>or</WhiteDivider>
+                                CREATE ACCOUNT
                             </DropdownTitle>
                             <DropdownButton onClick={handleSignInClick}>
                                 SIGN IN
@@ -51,9 +59,10 @@ const Authorization: React.FC<AuthorizationProps> = ({
                             </DropdownButton>
                         </>
                     ) : (
-                        <SignInContainer>
-                            <DropdownTitle>SIGN IN</DropdownTitle>
-                            <div style={{ textAlign: "left", width: "100%" }}>
+                        <>
+                            {/* Sign In via Username or Login */}
+                            <SignInWithUsernameContainer>
+                                <DropdownTitle>SIGN IN</DropdownTitle>
                                 <SignInInstruction>
                                     USE YOUR EMAIL ADDRESS OR PHONE NUMBER
                                 </SignInInstruction>
@@ -71,9 +80,14 @@ const Authorization: React.FC<AuthorizationProps> = ({
                                 <ForgotPasswordLink href="#">
                                     FORGOT PASSWORD?
                                 </ForgotPasswordLink>
-                            </div>
-                            <Divider>OR</Divider>
-                            <SocialLoginContainer>
+                            </SignInWithUsernameContainer>
+
+
+                            {/* Divider */}
+                            <WhiteDivider>or</WhiteDivider>
+
+                            {/* Sign In via Social Media */}
+                            <SignInWithSocialContainer>
                                 <SignInWithAppleButton>
                                     Continue with Apple
                                 </SignInWithAppleButton>
@@ -83,8 +97,8 @@ const Authorization: React.FC<AuthorizationProps> = ({
                                 <ContinueWithFacebookButton>
                                     Continue with Facebook
                                 </ContinueWithFacebookButton>
-                            </SocialLoginContainer>
-                        </SignInContainer>
+                            </SignInWithSocialContainer>
+                        </>
                     )}
                 </DropdownContainer>
             )}
@@ -93,3 +107,4 @@ const Authorization: React.FC<AuthorizationProps> = ({
 };
 
 export default Authorization;
+
