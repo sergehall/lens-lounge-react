@@ -4,7 +4,7 @@ import {AboutContainer, Title, Paragraph, Highlight, Link, BottomSection} from "
 const About: React.FC = () => {
     return (
         <AboutContainer>
-            <Title>About Me</Title>s
+            <Title>About Me</Title>
             <BottomSection>
                 <Paragraph>
                     &emsp;Hi, I’m <Highlight><strong>Serge Hall</strong></Highlight>, a passionate developer with a creative edge. My journey

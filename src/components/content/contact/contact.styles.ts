@@ -5,21 +5,32 @@ export const ContactContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: ${({ theme }) => theme.spacing.large40};
+    padding: 20px 20px 40px;
     border-radius: ${({ theme }) => theme.global.borderRadius};
     background-color: ${({ theme }) => theme.contact.containerBg};
     color: ${({ theme }) => theme.contact.textColor};
 `;
 
+// Welcome text styling
 export const Title = styled.h1`
-    font-size: ${({ theme }) => theme.contact.titleFontSize};
-    color: ${({ theme }) => theme.contact.titleColor};
-    margin-bottom: ${({ theme }) => theme.spacing.default};
+    font-size: ${({ theme }) => theme.textFontSize.title};
+    color: ${({ theme }) => theme.colors.title};
+    margin: 10;
     text-align: center;
+    line-height: 1.4;
 
     @media (max-width: 600px) {
-        font-size: ${({ theme }) => theme.contact.titleFontSizeMobile};
+        font-size: ${({ theme }) => theme.textFontSize.mobile };
     }
+`;
+
+export const Description = styled.p`
+    font-size: 1.2rem;
+    line-height: ${({ theme }) => theme.text.lineHeight};
+    color: ${({ theme }) => theme.contact.textColor};
+    margin-bottom: 20px;
+    max-width: 650px;
+    text-align: center;
 `;
 
 export const Form = styled.form`
@@ -76,10 +87,3 @@ export const Button = styled.button`
     }
 `;
 
-export const Description = styled.p`
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: ${({ theme }) => theme.contact.textColor};
-    margin-bottom: 20px;
-    text-align: center;
-`;

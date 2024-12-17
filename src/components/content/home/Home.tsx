@@ -2,18 +2,18 @@ import React from "react";
 import {
     Highlight,
     HomeContainer,
-    WelcomeText,
     BottomSection,
     Description,
-    NavItemHighlight
+    NavItemHighlight,
+    Title
 } from "./home.styles";
 
 const Home: React.FC = () => {
     return (
         <HomeContainer>
-            <WelcomeText>
+            <Title>
                 Welcome to <Highlight>Serge Hall's Portfolio</Highlight>
-            </WelcomeText>
+            </Title>
             <BottomSection>
                 <Description>
                     &emsp;Hello, I am <strong>Serge</strong>, a passionate and dedicated student developer currently honing

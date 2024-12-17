@@ -14,12 +14,12 @@ export const HomeContainer = styled.div`
 `;
 
 // Welcome text styling
-export const WelcomeText = styled.h1`
-    font-size: ${({ theme }) => theme.home.welcomeTextFontSize};
-    color: ${({ theme }) => theme.home.welcomeTextColor};
-    margin: 10px 0;
+export const Title = styled.h1`
+    font-size: ${({ theme }) => theme.textFontSize.title};
+    color: ${({ theme }) => theme.colors.title};
+    margin: 10;
     text-align: center;
-    line-height: 1.4;
+    line-height: ${({ theme }) => theme.text.lineHeight};;
 
     @media (max-width: 600px) {
         font-size: ${({ theme }) => theme.textFontSize.mobile };
@@ -42,7 +42,6 @@ export const Highlight = styled.span`
 export const BottomSection = styled.div`
     max-width: ${({ theme }) => theme.home.bottomSectionMaxWidth};
     text-align: left;
-    margin-top: 20px;
     padding: 0 ${({ theme }) => theme.home.bottomSectionPadding};
 
     @media (max-width: 600px) {
@@ -55,7 +54,7 @@ export const BottomSection = styled.div`
 export const Description = styled.p`
     color: ${({ theme }) => theme.global.textColor};
     font-size: 1.2rem;
-    line-height: 1.6;
+    line-height: ${({ theme }) => theme.text.lineHeight};;
     margin: 15px 0;
 `;
 

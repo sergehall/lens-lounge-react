@@ -14,9 +14,11 @@ const theme = {
     colors: {
         title: '#FF4500',
     },
+    text: {
+        lineHeight: '1.6',
+    },
     contact: {
         containerBg: '#282c34',
-        titleFontSize: '2.5rem',
         titleColor: '#FF4500',
         formBg: '#61DAFB',
         inputBorderColor: 'rgba(0, 0, 0, 0.2)',
@@ -64,7 +66,7 @@ const theme = {
         photoSize: '140px',
         fieldGap: '5px',
         detailsGap: '5px',
-        detailsPadding: '15px',
+        detailsPadding: '10px',
     },
     news: {
         titleFontSize: '2.5rem',

@@ -28,7 +28,7 @@ export const ProfileDetails = styled.div`
     align-items: stretch;
     justify-content: space-between; 
     gap: ${({ theme }) => theme.profile.detailsGap};
-    padding: ${({ theme }) => theme.profile.detailsPadding};
+    padding-top: ${({ theme }) => theme.profile.detailsPadding};
     box-sizing: border-box;
 `;
 
