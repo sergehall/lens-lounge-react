@@ -8,7 +8,7 @@ export const SummarizeContainer = styled.div`
     margin-bottom: 5px;
     max-width: 100%;
     background-color: ${({ theme }) => theme.summarize.containerBg};
-    color: ${({ theme }) => theme.summarize.containerTextColor};
+    color: ${({ theme }) => theme.global.textColorDark};
     border-radius: ${({ theme }) => theme.global.borderRadius};
     box-shadow: ${({ theme }) => theme.summarize.boxShadow};
     box-sizing: border-box;

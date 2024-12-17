@@ -5,29 +5,32 @@ export const ContactContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     padding: 20px 20px 40px;
-    border-radius: ${({ theme }) => theme.global.borderRadius};
-    background-color: ${({ theme }) => theme.contact.containerBg};
-    color: ${({ theme }) => theme.contact.textColor};
+    border-radius: ${({theme}) => theme.global.borderRadius};
+    background-color: ${({theme}) => theme.contact.containerBg};
+    color: ${({theme}) => theme.contact.textColor};
+    box-shadow: ${({theme}) => theme.global.transparentBorder};
+    margin: 0 auto;
 `;
 
 // Welcome text styling
 export const Title = styled.h1`
-    font-size: ${({ theme }) => theme.textFontSize.title};
-    color: ${({ theme }) => theme.colors.title};
+    font-size: ${({theme}) => theme.textFontSize.title};
+    color: ${({theme}) => theme.colors.title};
     margin: 10;
     text-align: center;
-    line-height: 1.4;
+    line-height: ${({ theme }) => theme.text.lineHeight};
 
     @media (max-width: 600px) {
-        font-size: ${({ theme }) => theme.textFontSize.mobile };
+        font-size: ${({theme}) => theme.textFontSize.mobile};
     }
 `;
 
 export const Description = styled.p`
     font-size: 1.2rem;
-    line-height: ${({ theme }) => theme.text.lineHeight};
-    color: ${({ theme }) => theme.contact.textColor};
+    line-height: ${({theme}) => theme.text.lineHeight};
+    color: ${({theme}) => theme.contact.textColor};
     margin-bottom: 20px;
     max-width: 650px;
     text-align: center;
@@ -39,42 +42,42 @@ export const Form = styled.form`
     gap: 15px;
     max-width: 600px;
     width: 100%;
-    background-color: ${({ theme }) => theme.contact.formBg};
+    background-color: ${({theme}) => theme.contact.formBg};
     padding: 20px;
-    border-radius: ${({ theme }) => theme.global.borderRadius};
-    box-shadow: ${({ theme }) => theme.global.boxShadow};
+    border-radius: ${({theme}) => theme.global.borderRadius};
+    box-shadow: ${({theme}) => theme.global.boxShadow};
 `;
 
 export const Input = styled.input`
     font-size: 1rem;
     padding: 10px;
-    border: 1px solid ${({ theme }) => theme.contact.inputBorderColor};
+    border: 1px solid ${({theme}) => theme.contact.inputBorderColor};
     border-radius: 5px;
     outline: none;
     transition: border-color 0.3s ease;
 
     &:focus {
-        border-color: ${({ theme }) => theme.contact.inputFocusBorderColor};
+        border-color: ${({theme}) => theme.contact.inputFocusBorderColor};
     }
 `;
 
 export const TextArea = styled.textarea`
     font-size: 1rem;
     padding: 10px;
-    border: 1px solid ${({ theme }) => theme.contact.inputBorderColor};
+    border: 1px solid ${({theme}) => theme.contact.inputBorderColor};
     border-radius: 5px;
     outline: none;
     resize: none; /* Prevent resizing */
     transition: border-color 0.3s ease;
 
     &:focus {
-        border-color: ${({ theme }) => theme.contact.inputFocusBorderColor};
+        border-color: ${({theme}) => theme.contact.inputFocusBorderColor};
     }
 `;
 
 export const Button = styled.button`
-    background-color: ${({ theme }) => theme.contact.buttonBg};
-    color: ${({ theme }) => theme.contact.textColor};
+    background-color: ${({theme}) => theme.contact.buttonBg};
+    color: ${({theme}) => theme.contact.textColor};
     border: none;
     padding: 10px 20px;
     font-size: 1rem;
@@ -83,7 +86,7 @@ export const Button = styled.button`
     transition: background-color 0.3s ease;
 
     &:hover {
-        background-color: ${({ theme }) => theme.contact.buttonHoverBg};
+        background-color: ${({theme}) => theme.contact.buttonHoverBg};
     }
 `;
 

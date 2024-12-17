@@ -54,7 +54,7 @@ export const SignInInstruction = styled.p`
     margin-bottom: 8px;
     text-align: center;
     align-items: center;
-    color: ${({ theme }) => theme.global.textColor};
+    color: ${({ theme }) => theme.global.textColorWhite};
 `;
 
 export const DropdownTitle = styled.div`
@@ -159,7 +159,7 @@ export const ForgotPasswordLink = styled.a`
     font-size: 0.7rem;
     text-align: center;
     text-decoration: none;
-    color: ${({ theme }) => theme.global.textColor};
+    color: ${({ theme }) => theme.global.textColorWhite};
 
     &:hover {
         color: ${({ theme }) => theme.links.hoverColor};

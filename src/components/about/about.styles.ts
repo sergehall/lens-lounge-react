@@ -7,9 +7,10 @@ export const AboutContainer = styled.div`
     align-items: center;
     justify-content: flex-start;
     padding: 20px 20px 40px;
-    background-color: ${({ theme }) => theme.global.backgroundColor};
-    border-radius: ${({ theme }) => theme.global.borderRadius};
-    box-shadow: ${({ theme }) => theme.global.transparentBorder};
+    border-radius: ${({theme}) => theme.global.borderRadius};
+    background-color: ${({theme}) => theme.contact.containerBg};
+    color: ${({theme}) => theme.contact.textColor};
+    box-shadow: ${({theme}) => theme.global.transparentBorder};
     margin: 0 auto;
 `;
 
@@ -19,7 +20,7 @@ export const Title = styled.h1`
     color: ${({ theme }) => theme.colors.title};
     margin: 10;
     text-align: center;
-    line-height: ${({ theme }) => theme.text.lineHeight};;
+    line-height: ${({ theme }) => theme.text.lineHeight};
 
     @media (max-width: 600px) {
         font-size: ${({ theme }) => theme.textFontSize.mobile };
@@ -48,7 +49,7 @@ export const BottomSection = styled.div`
 
 // General description text styling
 export const Paragraph = styled.p`
-    color: ${({ theme }) => theme.global.textColor};
+    color: ${({ theme }) => theme.global.textColorWhite};
     font-size: 1.2rem;
     line-height: ${({ theme }) => theme.text.lineHeight};;
     margin: 15px 0;
