@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DialogsContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 5fr;
-    gap: 20px;
+    gap: 5px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 5px;
@@ -19,7 +19,8 @@ export const UserList = styled.div`
     border-radius: 8px;
     border-right: 1px solid ${({theme}) => theme.dialogs.userListBorderColor};
     padding: 10px;
-    background-color: ${({theme}) => theme.dialogs.userListBg};
+    background-color: ${({theme}) => theme.dialogs.containerBg};
+    box-shadow: ${({theme}) => theme.global.boxShadowNeon};
 `;
 
 export const UserItem = styled.div<{ isActive: boolean }>`
@@ -35,7 +36,6 @@ export const UserItem = styled.div<{ isActive: boolean }>`
             isActive ? theme.dialogs.userItemActiveColor : theme.dialogs.userItemInactiveColor};
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-
     &:hover {
         background-color: ${({theme}) => theme.dialogs.userItemHoverBg};
     }
@@ -60,31 +60,58 @@ export const UserName = styled.span`
 `;
 
 export const UserStatus = styled.span<{ isOnline: boolean }>`
-    font-size: ${({isOnline}) => (isOnline ? "1rem" : "0.7rem")};
-    color: ${({isOnline, theme}) =>
-            isOnline ? theme.highlights.brightGreen : theme.global.transparentTextShadow};
+    font-size: ${({ isOnline }) => (isOnline ? "1rem" : "0.7rem")};
+    color: ${({ isOnline, theme }) =>
+    isOnline ? theme.highlights.brightGreen : theme.global.transparentTextShadow};
+    line-height: 1rem; 
+    white-space: nowrap; /* Prevents wrapping to a new line */
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 `;
-
 export const MessagesSection = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 10px;
-    background-color: #fff;
+    background-color: ${({theme}) => theme.dialogs.containerBg};
     border-radius: 6px;
-    box-shadow: ${({theme}) => theme.global.boxShadow};
+    box-shadow: ${({theme}) => theme.global.boxShadowNeon};
 `;
 
 export const MessageItem = styled.div<{ fromMe: boolean }>`
     max-width: 70%;
     padding: 10px 15px;
-    border-radius: 10px;
-    align-self: ${({fromMe}) => (fromMe ? "flex-end" : "flex-start")};
-    background-color: ${({fromMe, theme}) =>
-            fromMe ? theme.dialogs.messageFromMeBg : theme.dialogs.messageFromOtherBg};
-    color: ${({fromMe, theme}) =>
-            fromMe ? theme.dialogs.messageFromMeColor : theme.dialogs.messageFromOtherColor};
+    border-radius: 12px;
+    align-self: ${({ fromMe }) => (fromMe ? "flex-end" : "flex-start")};
+    background-color: ${({ fromMe, theme }) =>
+            fromMe ? theme.dialogs.userItemActiveBg : theme.dialogs.messageFromOtherBg};
+    color: ${({ theme }) => theme.dialogs.messageColor};
     word-wrap: break-word;
+    position: relative;
+
+    /* Tail with a smooth wave effect */
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 20px;
+        height: 20px;
+        background-color: ${({ fromMe, theme }) =>
+                fromMe ? theme.dialogs.userItemActiveBg : theme.dialogs.messageFromOtherBg};
+        border-radius: ${({ fromMe }) =>
+                fromMe ? "0 0 12px 0" : "0 0 0 12px"};
+        ${({ fromMe }) =>
+                fromMe
+                        ? `
+                    right: -10px;
+                    clip-path: polygon(100% 0, 0 0, 0 100%);
+                `
+                        : `
+                    left: -10px;
+                    clip-path: polygon(0 0, 100% 0, 100% 100%);
+                `}
+    }
+    
 `;
 
 export const MessageTimestamp = styled.div`

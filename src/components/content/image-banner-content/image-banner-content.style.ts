@@ -35,7 +35,8 @@ export const ImageBannerTextWrapper = styled.div`
 
 export const ImageBannerContentTitle = styled.h2`
     font-size: ${({ theme }) => theme.imageBanner.titleFontSize};
-    margin: 0 0 10px;
+    //margin: 0 0 10px;
+    margin: 0;
     color: ${({ theme }) => theme.imageBanner.titleColor};
     text-shadow: ${({ theme }) => theme.imageBanner.textShadow};
 

@@ -16,14 +16,15 @@ export const NewsContainer = styled.div`
 
 // News Title
 export const Title = styled.h1`
-    font-size: ${({ theme }) => theme.textFontSize.title};
-    color: ${({ theme }) => theme.colors.title};
+    font-size: ${({theme}) => theme.textFontSize.title};
+    color: ${({theme}) => theme.colors.title};
     margin: 10;
     text-align: center;
-    line-height: ${({ theme }) => theme.text.lineHeight};;
+    padding-bottom: 20px;
+    line-height: ${({theme}) => theme.text.lineHeight};
 
     @media (max-width: 600px) {
-        font-size: ${({ theme }) => theme.textFontSize.mobile };
+        font-size: ${({theme}) => theme.textFontSize.mobile};
     }
 `;
 
@@ -40,10 +41,10 @@ export const ArticleList = styled.ul`
 
 // Individual Article Item
 export const ArticleItem = styled.li`
-    width: 100%; /* Ensures responsiveness */
-    max-width: 800px; /* Centered and constrained to 800px */
+    width: 100%;
+    max-width: 800px;
     border-radius: 8px;
-    overflow: hidden; /* Ensures content doesn't spill outside rounded corners */
+    overflow: hidden;
     box-shadow:  ${({ theme }) => theme.news.boxShadow};
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     background-color: ${({ theme }) => theme.content.bg}; /* Default background */
@@ -64,7 +65,7 @@ export const ArticleLink = styled.a`
     transition: color 0.3s ease;
 
     ${ArticleItem}:hover & {
-        color: ${({ theme }) => theme.news.hoverTextColor}; /* White text on hover */
+        color: ${({theme}) => theme.news.hoverTextColor}; /* White text on hover */
     }
 `;
 
@@ -72,11 +73,11 @@ export const ArticleLink = styled.a`
 export const ArticleTitle = styled.h3`
     font-size: 1.5rem;
     margin: 0 0 10px 0;
-    color: ${({ theme }) => theme.news.highlightColor}; /* Default title color */
+    color: ${({theme}) => theme.news.highlightColor}; /* Default title color */
     transition: color 0.3s ease;
 
     ${ArticleItem}:hover & {
-        color: ${({ theme }) => theme.news.hoverTextColor}; /* White title on hover */
+        color: ${({theme}) => theme.news.hoverTextColor}; /* White title on hover */
     }
 
     @media (max-width: 600px) {
@@ -98,4 +99,11 @@ export const ArticleText = styled.p`
     @media (max-width: 600px) {
         font-size: 0.9rem;
     }
+
+    /* Restrict to two lines with ellipsis */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;

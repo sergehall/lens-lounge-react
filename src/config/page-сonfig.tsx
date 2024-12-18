@@ -7,9 +7,9 @@ import Technologies from "../components/content/technologies/Technologies";
 import About from "../components/about/About";
 import Contact from "../components/content/contact/Contact";
 import { techLinks } from "./technology-links";
-import { dialogsDataMock } from "../components/content/dialogs/mocks/dialogs-data-mock";
 import { postsDataMock } from "../components/content/my-posts/mocks/posts-data-mock";
 import Dialogs from "../components/content/dialogs/Dialogs";
+import {dialogData} from "../components/content/dialogs/dialog-data";
 
 export interface PageConfig {
     bannerImage: string;
@@ -37,7 +37,7 @@ export const pageConfig: Record<string, PageConfig> = {
     messages: {
         bannerImage: "../../../assets/images/default-image-banner.png",
         summaryDescription: "Your messages and chats.",
-        component: <Dialogs dialogs={dialogsDataMock} className="Dialogs"/>,
+        component: <Dialogs dialogs={dialogData} className="Dialogs"/>,
     },
     news: {
         bannerImage: "../../../assets/images/default-image-banner.png",

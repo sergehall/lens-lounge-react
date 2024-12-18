@@ -9,8 +9,8 @@ import Header from "./components/header/Header";
 import logo from './logo.svg';
 import { AppContainer, Header as StyledHeader, SidebarNav, ContentArea } from "./App.styles";
 import Dialogs from "./components/content/dialogs/Dialogs";
-import { dialogsDataMock } from "./components/content/dialogs/mocks/dialogs-data-mock";
 import GlobalStyles from "./global-styles";
+import {dialogData} from "./components/content/dialogs/dialog-data";
 
 const App: React.FC = () => {
     return (
@@ -54,7 +54,7 @@ const App: React.FC = () => {
                                             path=":userId"
                                             element={
                                                 <Dialogs
-                                                    dialogs={dialogsDataMock}
+                                                    dialogs={dialogData}
                                                     className="Dialogs"
                                                 />
                                             }

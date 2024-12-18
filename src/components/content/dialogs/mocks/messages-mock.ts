@@ -12,7 +12,7 @@ export interface Message {
     banReason: string | null;
 }
 
-export const allMessages: Message[] = [
+export const allMessagesMock: Message[] = [
     // Messages with Emmy
     {
         id: 1,

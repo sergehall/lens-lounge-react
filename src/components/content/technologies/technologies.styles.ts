@@ -1,3 +1,5 @@
+
+
 import styled from "styled-components";
 
 export const TechnologyContainer = styled.div`
@@ -14,6 +16,7 @@ export const TechnologyContainer = styled.div`
         padding: ${({ theme }) => theme.technologies.responsivePadding};
     }
 `;
+
 
 export const Title = styled.h3`
     color: ${({ theme }) => theme.technologies.containerColor};
@@ -51,4 +54,58 @@ export const TechnologyLink = styled.a`
         color: ${({ theme }) => theme.technologies.linkHoverColor};
         text-decoration: underline;
     }
+`;
+
+
+export const PopupWindow = styled.div`
+    position: absolute;
+    width: 650px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 1rem;
+    font-size: 0.9rem;
+
+    h4 {
+        margin: 0 0 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    p {
+        margin: 0 0 0.5rem;
+    }
+
+    iframe {
+        border-radius: 4px;
+        overflow: hidden;
+        width: 100%;
+        height: 200px;
+    }
+
+    /* For screens smaller than 1000px */
+    @media (max-width: 1000px) {
+        width: 320px; /* Fixed width for smaller screens */
+        left: 5%; /* Slightly center */
+        top: 10%; /* Position slightly from the top */
+        padding: 0.5rem; /* Adjust padding for smaller screens */
+        font-size: 0.8rem;
+
+        iframe {
+            height: 150px; /* Reduce iframe height for smaller screens */
+        }
+
+        h4 {
+            font-size: 1rem; /* Reduce title size for better fit */
+        }
+    }
+`;
+
+export const StyledIframe = styled.iframe`
+    border: none;
+    width: 100%;
+    height: 200px;
+    border-radius: 4px;
+    overflow: hidden;
 `;
