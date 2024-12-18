@@ -25,7 +25,7 @@ export const AppContainer = styled.div`
     }
 `;
 
-export const Header = styled.header`
+export const AppHeader = styled.header`
     grid-area: App-header;
     width: 100%; /* Use full width of the grid container */
     max-width: 1300px; /* Match AppContainer's max-width */
@@ -39,7 +39,7 @@ export const Header = styled.header`
     }
 `;
 
-export const SidebarNav = styled.nav`
+export const AppSidebar = styled.nav`
     grid-area: App-nav;
     width: 100%; /* Ensure it fits within the grid */
     max-width: 1300px; /* Match AppContainer's max-width */
@@ -56,7 +56,7 @@ export const SidebarNav = styled.nav`
     }
 `;
 
-export const ContentArea = styled.main`
+export const AppContent = styled.main`
     grid-area: App-content;
     width: 100%; /* Use full width of the grid container */
     max-width: 1300px; /* Match AppContainer's max-width */

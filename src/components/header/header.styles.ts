@@ -28,10 +28,12 @@ export const LogoContainer = styled(HeaderLink)`
     border-radius: 50%;
     margin-right: 30px;
     box-shadow: ${({ theme }) => theme.header.logoBoxShadow};
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
         transform: scale(1.05);
         background: ${({ theme }) => theme.stance.logoBackgroundB4B};
+        box-shadow: none; 
     }
 
     /* Responsive resizing */

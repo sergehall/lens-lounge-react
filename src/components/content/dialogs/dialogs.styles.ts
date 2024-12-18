@@ -23,19 +23,20 @@ export const UserList = styled.div`
     box-shadow: ${({theme}) => theme.global.boxShadowNeon};
 `;
 
-export const UserItem = styled.div<{ isActive: boolean }>`
+export const UserItem = styled.div<{ isActive: boolean}>`
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px;
     border-radius: 6px;
-    box-shadow: ${({ theme }) => theme.global.boxShadowNeonShort};
+    box-shadow: ${({theme}) => theme.global.boxShadowNeonShort};
     background-color: ${({isActive, theme,}) =>
             isActive ? theme.dialogs.userItemActiveBg : theme.dialogs.userItemActiveBg};
     color: ${({isActive, theme}) =>
             isActive ? theme.dialogs.userItemActiveColor : theme.dialogs.userItemInactiveColor};
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+
     &:hover {
         background-color: ${({theme}) => theme.dialogs.userItemHoverBg};
     }
@@ -60,14 +61,15 @@ export const UserName = styled.span`
 `;
 
 export const UserStatus = styled.span<{ isOnline: boolean }>`
-    font-size: ${({ isOnline }) => (isOnline ? "1rem" : "0.7rem")};
-    color: ${({ isOnline, theme }) =>
-    isOnline ? theme.highlights.brightGreen : theme.global.transparentTextShadow};
-    line-height: 1rem; 
-    white-space: nowrap; /* Prevents wrapping to a new line */
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    font-size: ${({isOnline}) => (isOnline ? "1rem" : "0.7rem")};
+    color: ${({isOnline, theme}) =>
+            isOnline ? theme.highlights.white : theme.global.transparentTextShadow};
+    line-height: 1rem;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
+
 export const MessagesSection = styled.div`
     display: flex;
     flex-direction: column;
@@ -82,25 +84,26 @@ export const MessageItem = styled.div<{ fromMe: boolean }>`
     max-width: 70%;
     padding: 10px 15px;
     border-radius: 12px;
-    align-self: ${({ fromMe }) => (fromMe ? "flex-end" : "flex-start")};
-    background-color: ${({ fromMe, theme }) =>
+    align-self: ${({fromMe}) => (fromMe ? "flex-end" : "flex-start")};
+    background-color: ${({fromMe, theme}) =>
             fromMe ? theme.dialogs.userItemActiveBg : theme.dialogs.messageFromOtherBg};
-    color: ${({ theme }) => theme.dialogs.messageColor};
+    color: ${({theme}) => theme.dialogs.messageColor};
     word-wrap: break-word;
     position: relative;
 
     /* Tail with a smooth wave effect */
+
     &::after {
         content: "";
         position: absolute;
         bottom: 0;
         width: 20px;
         height: 20px;
-        background-color: ${({ fromMe, theme }) =>
+        background-color: ${({fromMe, theme}) =>
                 fromMe ? theme.dialogs.userItemActiveBg : theme.dialogs.messageFromOtherBg};
-        border-radius: ${({ fromMe }) =>
+        border-radius: ${({fromMe}) =>
                 fromMe ? "0 0 12px 0" : "0 0 0 12px"};
-        ${({ fromMe }) =>
+        ${({fromMe}) =>
                 fromMe
                         ? `
                     right: -10px;
@@ -111,7 +114,7 @@ export const MessageItem = styled.div<{ fromMe: boolean }>`
                     clip-path: polygon(0 0, 100% 0, 100% 100%);
                 `}
     }
-    
+
 `;
 
 export const MessageTimestamp = styled.div`

@@ -9,10 +9,10 @@ import { NavLink } from "react-router-dom";
 
 interface SidebarProps {
     links: { name: string; url: string }[];
-    className?: string;
+    className: string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ links, className = "" }) => {
+const Sidebar: React.FC<SidebarProps> = ({ links, className }) => {
     return (
         <SidebarContainer className={className}>
             <SidebarList>
