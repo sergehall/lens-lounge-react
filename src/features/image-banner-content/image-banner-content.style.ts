@@ -26,7 +26,7 @@ export const ImageBannerTextWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: ${({ theme }) => theme.imageBanner.textWrapperColor};
+    color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
     text-align: center;
     padding: ${({ theme }) => theme.imageBanner.textWrapperPadding};
     z-index: 2; /* Ensure text is on top of the image */
@@ -37,7 +37,7 @@ export const ImageBannerContentTitle = styled.h2`
     font-size: ${({ theme }) => theme.imageBanner.titleFontSize};
     //margin: 0 0 10px;
     margin: 0;
-    color: ${({ theme }) => theme.imageBanner.titleColor};
+    color: ${({ theme }) => theme.highlights.white};
     text-shadow: ${({ theme }) => theme.imageBanner.textShadow};
 
     @media (max-width: 600px) {
@@ -48,7 +48,7 @@ export const ImageBannerContentTitle = styled.h2`
 export const ImageBannerContentDescription = styled.p`
     font-size: ${({ theme }) => theme.imageBanner.descriptionFontSize};
     margin: 0;
-    color: ${({ theme }) => theme.imageBanner.descriptionColor};
+    color: ${({ theme }) => theme.highlights.white};
     text-shadow: ${({ theme }) => theme.imageBanner.textShadow};
 
     @media (max-width: 600px) {

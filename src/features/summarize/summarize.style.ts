@@ -7,8 +7,8 @@ export const SummarizeContainer = styled.div`
     padding: 10px;
     margin-bottom: 5px;
     max-width: 100%;
-    background-color: ${({ theme }) => theme.summarize.containerBg};
-    color: ${({ theme }) => theme.global.textColorDark};
+    background-color: ${({ theme }) => theme.global.secondaryColor};
+    color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
     border-radius: ${({ theme }) => theme.global.borderRadius};
     box-shadow: ${({ theme }) => theme.summarize.boxShadow};
     box-sizing: border-box;
@@ -26,7 +26,7 @@ export const SummarizeImage = styled.img`
     height: 80px;
     border-radius: ${({ theme }) => theme.global.borderRadius};
     object-fit: cover;
-    background-color: ${({ theme }) => theme.summarize.imageBg};
+    background-color: ${({ theme }) => theme.highlights.white};
     margin-right: 15px;
     box-shadow: ${({ theme }) => theme.summarize.boxShadow};
 
@@ -52,7 +52,7 @@ export const SummarizeTextContainer = styled.div`
 export const SummarizeTitle = styled.h2`
     font-size: ${({ theme }) => theme.summarize.titleFontSize};
     margin: 0;
-    color: ${({ theme }) => theme.summarize.titleColor};
+    color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
     text-align: left;
 
     @media (max-width: 600px) {
@@ -62,7 +62,7 @@ export const SummarizeTitle = styled.h2`
 
 export const SummarizeDescription = styled.p`
     font-size: ${({ theme }) => theme.summarize.descriptionFontSize};
-    color: ${({ theme }) => theme.summarize.descriptionColor};
+    color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
     margin: 0;
     text-align: left;
 

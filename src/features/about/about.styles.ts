@@ -8,7 +8,7 @@ export const AboutContainer = styled.div`
     justify-content: flex-start;
     padding: 20px 20px 40px;
     border-radius: ${({theme}) => theme.global.borderRadius};
-    background-color: ${({theme}) => theme.contact.containerBg};
+    background-color: ${({theme}) => theme.global.backgroundColor};
     color: ${({theme}) => theme.contact.textColor};
     box-shadow: ${({theme}) => theme.global.transparentBorder};
     margin: 0 auto;
@@ -16,14 +16,14 @@ export const AboutContainer = styled.div`
 
 // Welcome text styling
 export const Title = styled.h1`
-    font-size: ${({ theme }) => theme.textFontSize.title};
-    color: ${({ theme }) => theme.colors.title};
+    font-size: ${({ theme }) => theme.text.fontSizeTitle};
+    color: ${({ theme }) => theme.highlights.orangeRed};
     margin: 10;
     text-align: center;
     line-height: ${({ theme }) => theme.text.lineHeight};
 
     @media (max-width: 600px) {
-        font-size: ${({ theme }) => theme.textFontSize.mobile };
+        font-size: ${({ theme }) => theme.text.fontSizeMobile };
     }
 `;
 
@@ -49,7 +49,7 @@ export const BottomSection = styled.div`
 
 // General description text styling
 export const Paragraph = styled.p`
-    color: ${({ theme }) => theme.global.textColorWhite};
+    color: ${({ theme }) => theme.text.colorWhite};
     font-size: 1.2rem;
     line-height: ${({ theme }) => theme.text.lineHeight};;
     margin: 15px 0;

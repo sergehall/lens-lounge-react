@@ -6,7 +6,7 @@ import {
     TechnologyItem,
     TechnologyLink, PopupWindow, StyledIframe,
 } from "./technologies.styles";
-import { TechnologyLinkType } from "../../../config/technology-links";
+import { TechnologyLinkType } from "../../config/technology-links";
 
 interface TechnologiesProps {
     links: TechnologyLinkType[];

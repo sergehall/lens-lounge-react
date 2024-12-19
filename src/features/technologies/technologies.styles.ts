@@ -4,9 +4,9 @@ import styled from "styled-components";
 
 export const TechnologyContainer = styled.div`
     padding: 20px;
-    color: ${({ theme }) => theme.technologies.containerColor};
+    color: ${({ theme }) => theme.global.backgroundColor};
     text-align: start;
-    background-color: ${({ theme }) => theme.technologies.containerBg};
+    background-color: ${({ theme }) => theme.global.secondaryColor};
     border-radius: ${({ theme }) => theme.global.borderRadius};
     box-shadow: ${({ theme }) => theme.global.boxShadow};
     max-width: 100%;
@@ -19,7 +19,7 @@ export const TechnologyContainer = styled.div`
 
 
 export const Title = styled.h3`
-    color: ${({ theme }) => theme.technologies.containerColor};
+    color: ${({ theme }) => theme.global.backgroundColor};
     margin-top: 0;
 `;
 
@@ -43,7 +43,7 @@ export const TechnologyItem = styled.li`
 `;
 
 export const TechnologyLink = styled.a`
-    color: ${({ theme }) => theme.technologies.linkColor};
+    color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
     text-decoration: none;
     transition: color 0.3s ease;
     white-space: nowrap;
@@ -51,7 +51,7 @@ export const TechnologyLink = styled.a`
     text-overflow: ellipsis;
 
     &:hover {
-        color: ${({ theme }) => theme.technologies.linkHoverColor};
+        color: ${({ theme }) => theme.highlights.yellow};
         text-decoration: underline;
     }
 `;

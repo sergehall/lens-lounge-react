@@ -6,9 +6,9 @@ export const ProfileContainer = styled.div`
     align-items: flex-start;
     gap: 10px;
     padding: 5px;
-    background-color: ${({ theme }) => theme.profile.containerBg};
+    background-color: ${({ theme }) => theme.global.secondaryColor};
     margin-bottom: ${({ theme }) => theme.spacing.default};
-    color: ${({ theme }) => theme.profile.textColor};
+    color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
     border-radius: ${({ theme }) => theme.global.borderRadius};
     box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;

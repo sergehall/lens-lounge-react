@@ -8,7 +8,7 @@ export const DialogsContainer = styled.div`
     margin: 0 auto;
     padding: 5px;
     border-radius: 8px;
-    background-color: ${({theme}) => theme.dialogs.containerBg};
+    background-color: ${({theme}) => theme.global.backgroundColor};
     box-shadow: ${({theme}) => theme.global.boxShadow};
 `;
 
@@ -19,11 +19,11 @@ export const UserList = styled.div`
     border-radius: 8px;
     border-right: 1px solid ${({theme}) => theme.dialogs.userListBorderColor};
     padding: 10px;
-    background-color: ${({theme}) => theme.dialogs.containerBg};
+    background-color: ${({theme}) => theme.global.backgroundColor};
     box-shadow: ${({theme}) => theme.global.boxShadowNeon};
 `;
 
-export const UserItem = styled.div<{ isActive: boolean}>`
+export const UserItem = styled.div<{ isActive: boolean }>`
     display: flex;
     align-items: center;
     gap: 10px;
@@ -31,14 +31,14 @@ export const UserItem = styled.div<{ isActive: boolean}>`
     border-radius: 6px;
     box-shadow: ${({theme}) => theme.global.boxShadowNeonShort};
     background-color: ${({isActive, theme,}) =>
-            isActive ? theme.dialogs.userItemActiveBg : theme.dialogs.userItemActiveBg};
+            isActive ? theme.global.secondaryColor : theme.global.secondaryColor};
     color: ${({isActive, theme}) =>
             isActive ? theme.dialogs.userItemActiveColor : theme.dialogs.userItemInactiveColor};
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 
     &:hover {
-        background-color: ${({theme}) => theme.dialogs.userItemHoverBg};
+        background-color: ${({theme}) => theme.highlights.yellow};
     }
 `;
 
@@ -47,7 +47,7 @@ export const Avatar = styled.img`
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 1px solid ${({theme}) => theme.dialogs.avatarBorderColor};
+    border: 1px solid ${({theme}) => theme.global.semiTransparentBorder};
 `;
 
 export const UserDetails = styled.div`
@@ -65,7 +65,7 @@ export const UserStatus = styled.span<{ isOnline: boolean }>`
     color: ${({isOnline, theme}) =>
             isOnline ? theme.highlights.white : theme.global.transparentTextShadow};
     line-height: 1rem;
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 `;
@@ -75,7 +75,7 @@ export const MessagesSection = styled.div`
     flex-direction: column;
     gap: 10px;
     padding: 10px;
-    background-color: ${({theme}) => theme.dialogs.containerBg};
+    background-color: ${({theme}) => theme.global.backgroundColor};
     border-radius: 6px;
     box-shadow: ${({theme}) => theme.global.boxShadowNeon};
 `;
@@ -86,8 +86,8 @@ export const MessageItem = styled.div<{ fromMe: boolean }>`
     border-radius: 12px;
     align-self: ${({fromMe}) => (fromMe ? "flex-end" : "flex-start")};
     background-color: ${({fromMe, theme}) =>
-            fromMe ? theme.dialogs.userItemActiveBg : theme.dialogs.messageFromOtherBg};
-    color: ${({theme}) => theme.dialogs.messageColor};
+            fromMe ? theme.global.secondaryColor : theme.dialogs.messageFromOtherBg};
+    color: ${({theme}) => theme.text.colorDarkGray};
     word-wrap: break-word;
     position: relative;
 
@@ -100,7 +100,7 @@ export const MessageItem = styled.div<{ fromMe: boolean }>`
         width: 20px;
         height: 20px;
         background-color: ${({fromMe, theme}) =>
-                fromMe ? theme.dialogs.userItemActiveBg : theme.dialogs.messageFromOtherBg};
+                fromMe ? theme.global.secondaryColor : theme.dialogs.messageFromOtherBg};
         border-radius: ${({fromMe}) =>
                 fromMe ? "0 0 12px 0" : "0 0 0 12px"};
         ${({fromMe}) =>

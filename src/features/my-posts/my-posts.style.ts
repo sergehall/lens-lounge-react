@@ -13,9 +13,9 @@ export const MyPostsContainer = styled.div`
 
 export const PostItem = styled.div`
     padding: ${({ theme }) => theme.myPosts.postPadding};
-    border: 1px solid ${({ theme }) => theme.myPosts.postBorderColor};
+    border: 1px solid ${({ theme }) => theme.highlights.lightGray};
     border-radius: ${({ theme }) => theme.myPosts.postBorderRadius};
-    background-color: ${({ theme }) => theme.myPosts.postBgColor};
+    background-color: ${({ theme }) => theme.highlights.white};
     box-shadow: ${({ theme }) => theme.global.boxShadow};
     transition: transform 0.2s ease;
 

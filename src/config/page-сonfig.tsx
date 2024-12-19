@@ -1,15 +1,15 @@
 import React from "react";
-import Home from "../components/content/home/Home";
-import ExampleUserProfile from "../components/content/profile/mocks/example-user-profile";
-import MyPosts from "../components/content/my-posts/My-posts";
-import News from "../components/news/News";
-import Technologies from "../components/content/technologies/Technologies";
-import About from "../components/about/About";
-import Contact from "../components/content/contact/Contact";
+import Home from "../features/home/Home";
+import ExampleUserProfile from "../features/profile/mocks/example-user-profile";
+import MyPosts from "../features/my-posts/My-posts";
+import News from "../features/news/News";
+import Technologies from "../features/technologies/Technologies";
+import About from "../features/about/About";
+import Contact from "../features/contact/Contact";
 import { techLinks } from "./technology-links";
-import { postsDataMock } from "../components/content/my-posts/mocks/posts-data-mock";
-import Dialogs from "../components/content/dialogs/Dialogs";
-import {dialogData} from "../components/content/dialogs/dialog-data";
+import { postsDataMock } from "../features/my-posts/mocks/posts-data-mock";
+import Dialogs from "../features/dialogs/Dialogs";
+import {dialogData} from "../features/dialogs/dialog-data";
 
 export interface PageConfig {
     bannerImage: string;
@@ -21,7 +21,7 @@ export interface PageConfig {
 export const pageConfig: Record<string, PageConfig> = {
     home: {
         bannerImage: "../../../assets/images/default-image-banner.png",
-        summaryDescription: "Welcome to the homepage of our app.",
+        summaryDescription: "Welcome to the homepage of Lens Lounge.",
         component: <Home />,
     },
     profile: {

@@ -61,7 +61,7 @@ export const AppContent = styled.main`
     width: 100%; /* Use full width of the grid container */
     max-width: 1300px; /* Match AppContainer's max-width */
     margin: 0 auto; /* Center the content within the grid */
-    background-color: ${theme.content.bg};
+    background-color: ${theme.global.secondaryColor};
     padding: 10px;
     box-shadow: 0 4px 8px ${theme.global.transparentBorder};
     //overflow-x: hidden; 

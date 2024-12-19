@@ -15,7 +15,7 @@ export const HeaderLink = styled.a`
     display: flex;
     align-items: center;
     text-decoration: none; /* Prevent underline */
-    color: inherit; 
+    color: inherit;
     transition: transform 0.3s ease, color 0.3s ease;
 `;
 

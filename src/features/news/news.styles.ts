@@ -8,7 +8,7 @@ export const NewsContainer = styled.div`
     justify-content: flex-start;
     padding: 20px 20px 40px;
     border-radius: ${({theme}) => theme.global.borderRadius};
-    background-color: ${({theme}) => theme.contact.containerBg};
+    background-color: ${({theme}) => theme.global.backgroundColor};
     color: ${({theme}) => theme.contact.textColor};
     box-shadow: ${({theme}) => theme.global.transparentBorder};
     margin: 0 auto;
@@ -16,15 +16,15 @@ export const NewsContainer = styled.div`
 
 // News Title
 export const Title = styled.h1`
-    font-size: ${({theme}) => theme.textFontSize.title};
-    color: ${({theme}) => theme.colors.title};
+    font-size: ${({theme}) => theme.text.fontSizeTitle};
+    color: ${({theme}) => theme.highlights.orangeRed};
     margin: 10;
     text-align: center;
     padding-bottom: 20px;
     line-height: ${({theme}) => theme.text.lineHeight};
 
     @media (max-width: 600px) {
-        font-size: ${({theme}) => theme.textFontSize.mobile};
+        font-size: ${({theme}) => theme.text.fontSizeMobile};
     }
 `;
 
@@ -47,7 +47,7 @@ export const ArticleItem = styled.li`
     overflow: hidden;
     box-shadow:  ${({ theme }) => theme.news.boxShadow};
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-    background-color: ${({ theme }) => theme.content.bg}; /* Default background */
+    background-color: ${({ theme }) => theme.global.secondaryColor}; 
 
     &:hover {
         transform: translateY(-5px);
@@ -89,7 +89,7 @@ export const ArticleTitle = styled.h3`
 export const ArticleText = styled.p`
     font-size: 1rem;
     line-height: 1.6;
-    color: ${({ theme }) => theme.news.textColor}; /* Default text color */
+    color: ${({ theme }) => theme.text.colorDarkGray}; 
     transition: color 0.3s ease;
 
     ${ArticleItem}:hover & {

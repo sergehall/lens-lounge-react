@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import {pageConfig} from "./config/page-сonfig";
-import PageLayout from "./layouts/page-layout";
-import Dialogs from "./components/content/dialogs/Dialogs";
-import {dialogData} from "./components/content/dialogs/dialog-data";
+import {pageConfig} from "../config/page-сonfig";
+import PageLayout from "../layouts/page-layout";
+import Dialogs from "../features/dialogs/Dialogs";
+import {dialogData} from "../features/dialogs/dialog-data";
 
 
 const AppRoutes: React.FC = () => {

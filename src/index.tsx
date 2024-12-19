@@ -7,6 +7,7 @@ import './index.css';
 import App from './App';
 import {ThemeProvider} from "styled-components";
 import theme from "./themes/theme";
+import {AuthProvider} from "./contexts/AuthContext";
 
 // ID for the root DOM node
 const ROOT_ID = 'root';
@@ -19,11 +20,13 @@ const root = ReactDOM.createRoot(rootElement);
 function renderApp() {
     root.render(
         <React.StrictMode>
-            <ThemeProvider theme={theme}>
-                <BrowserRouter>
-                    <App/>
-                </BrowserRouter>
-            </ThemeProvider>
+            <AuthProvider>
+                <ThemeProvider theme={theme}>
+                    <BrowserRouter>
+                        <App/>
+                    </BrowserRouter>
+                </ThemeProvider>
+            </AuthProvider>,
         </React.StrictMode>
     );
 }

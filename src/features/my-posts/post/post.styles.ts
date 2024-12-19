@@ -4,9 +4,9 @@ export const PostContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 5px;
-    border: 1px solid ${({ theme }) => theme.post.borderColor};
+    border: 1px solid ${({ theme }) => theme.global.secondaryColor};
     border-radius: ${({ theme }) => theme.global.borderRadius};
-    background-color: ${({ theme }) => theme.post.containerBg};
+    background-color: ${({ theme }) => theme.global.secondaryColor};
     box-shadow: ${({ theme }) => theme.global.boxShadow};
     transition: ${({ theme }) => theme.post.transition};
 
@@ -24,11 +24,11 @@ export const PostImage = styled.img`
 export const PostTitle = styled.h2`
     margin: 16px 0;
     font-size: 1.5rem;
-    color: ${({ theme }) => theme.post.titleColor};
+    color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
 `;
 
 export const PostDescription = styled.p`
     font-size: 1rem;
-    color: ${({ theme }) => theme.post.descriptionColor};
+    color: ${({ theme }) => theme.text.colorDarkGray};
     line-height: 1.5;
 `;

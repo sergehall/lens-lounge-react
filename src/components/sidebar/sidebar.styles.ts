@@ -36,7 +36,8 @@ export const SidebarLink = styled.div<{ isActive: boolean }>`
     isActive ? theme.links.activeText : theme.links.color};
     padding: 6px 10px; 
     border-radius: 4px;
-    font-size: 0.95rem; 
+    font-size: 0.95rem;
+    line-height: 1.8;
     display: inline-block; 
     width: 100%;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
