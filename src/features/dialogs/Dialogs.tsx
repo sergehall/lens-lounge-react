@@ -14,10 +14,11 @@ import {
     NoMessages,
 } from "./dialogs.styles";
 import { DialogData } from "./dialog-data";
+import {RoutePaths} from "../../config/nav-links";
 
 interface DialogsProps {
     dialogs: DialogData[];
-    className?: string;
+    className: string;
 }
 
 // Helper Component: User List
@@ -83,14 +84,14 @@ const Dialogs: React.FC<DialogsProps> = ({ dialogs, className = "" }) => {
 
     // Determine the selected user ID
     const selectedUserId = useMemo(
-        () => (userId ? parseInt(userId, 10) : dialogs[0]?.user.userId),
+        () => (userId ? parseInt(userId, 10) : dialogs[0].user.userId),
         [userId, dialogs]
     );
 
     // Redirect to first dialog if no userId
     useEffect(() => {
         if (!userId && dialogs.length > 0) {
-            navigate(`/messages/${dialogs[0].user.userId}`);
+            navigate(`${RoutePaths.dialogs}/${dialogs[0].user.userId}`);
         }
     }, [userId, dialogs, navigate]);
 
@@ -102,7 +103,7 @@ const Dialogs: React.FC<DialogsProps> = ({ dialogs, className = "" }) => {
 
     // Handle user selection
     const handleUserSelect = (id: number) => {
-        navigate(`/messages/${id}`);
+        navigate(`${RoutePaths.dialogs}/${id}`);
     };
 
     // Handle empty dialogs case

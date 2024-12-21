@@ -1,14 +1,25 @@
+export const RoutePaths = {
+    home: '/',
+    profile: '/profile',
+    dialogs: '/dialogs',
+    news: '/news',
+    technologies: '/technologies',
+    about: '/about',
+    contact: '/contact',
+} as const;
+
+
 export interface NavLinkProps {
     name: string;
-    url: string;
+    url: typeof RoutePaths[keyof typeof RoutePaths];
 }
 
 export const navLinks: NavLinkProps[] = [
-    { name: 'Home', url: '/' },
-    { name: 'Profile', url: '/profile' },
-    { name: 'Messages', url: '/messages' },
-    { name: 'News', url: '/news' },
-    { name: 'Technologies', url: '/technologies' },
-    { name: 'About', url: '/about' },
-    { name: 'Contact', url: '/contact' },
+    { name: 'Home', url: RoutePaths.home },
+    { name: 'Profile', url: RoutePaths.profile },
+    { name: 'Dialogs', url: RoutePaths.dialogs },
+    { name: 'News', url: RoutePaths.news },
+    { name: 'Technologies', url: RoutePaths.technologies },
+    { name: 'About', url: RoutePaths.about },
+    { name: 'Contact', url: RoutePaths.contact },
 ];

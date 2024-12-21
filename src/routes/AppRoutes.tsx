@@ -24,7 +24,7 @@ const AppRoutes: React.FC = () => {
                         }
                     >
                         {/* Nested Route for Dialogs */}
-                        {key === "messages" && (
+                        {key === "dialogs" && (
                             <Route
                                 path=":userId"
                                 element={
