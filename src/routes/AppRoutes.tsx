@@ -1,12 +1,15 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import {pageConfig} from "../config/page-сonfig";
+import { pageConfig } from "../config/page-сonfig";
 import PageLayout from "../layouts/page-layout";
 import Dialogs from "../features/dialogs/Dialogs";
-import {dialogData} from "../features/dialogs/dialog-data";
+import { RootState } from "../app/store";
 
+interface AppRoutesProps {
+    state: RootState;
+}
 
-const AppRoutes: React.FC = () => {
+const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
     return (
         <Routes>
             {Object.entries(pageConfig).map(
@@ -19,7 +22,7 @@ const AppRoutes: React.FC = () => {
                                 bannerImage={bannerImage}
                                 summaryDescription={summaryDescription}
                             >
-                                {component}
+                                {component(state) }
                             </PageLayout>
                         }
                     >
@@ -29,8 +32,8 @@ const AppRoutes: React.FC = () => {
                                 path=":userId"
                                 element={
                                     <Dialogs
-                                        dialogs={dialogData}
-                                        className="Dialogs"
+                                        dialogs={state.dialogsPage.dialogs}
+                                        className={state.dialogsPage.className}
                                     />
                                 }
                             />

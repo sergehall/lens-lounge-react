@@ -8,27 +8,47 @@ import App from './App';
 import {ThemeProvider} from "styled-components";
 import theme from "./themes/theme";
 import {AuthProvider} from "./contexts/AuthContext";
+import {RootState} from "./app/store";
+import {dialogData} from "./features/dialogs/dialog-data";
+import {postsDataMock} from "./features/my-posts/mocks/posts-data-mock";
 
 // ID for the root DOM node
 const ROOT_ID = 'root';
 
 // Initialize the root React application
-const rootElement = document.getElementById(ROOT_ID) as HTMLElement;
+const rootElement = document.getElementById(ROOT_ID);
+if (!rootElement) {
+    throw new Error(`No element found with ID ${ROOT_ID}`);
+}
 const root = ReactDOM.createRoot(rootElement);
 
+// Define the rootState (or import it if defined elsewhere)
+export const rootState: RootState = {
+    homePage: {},
+    profilePage: {
+        profile: {},
+        posts: postsDataMock
+    },
+    dialogsPage: {
+        dialogs: dialogData,
+        className: "Dialogs",
+    }
+};
+
 // Render the application
-function renderApp() {
+function renderApp(rootState: RootState) {
     root.render(
         <React.StrictMode>
             <AuthProvider>
                 <ThemeProvider theme={theme}>
                     <BrowserRouter>
-                        <App/>
+                        <App state={rootState}/>
                     </BrowserRouter>
                 </ThemeProvider>
-            </AuthProvider>,
+            </AuthProvider>
         </React.StrictMode>
     );
 }
 
-renderApp();
+// Initial rendering with the state
+renderApp(rootState);

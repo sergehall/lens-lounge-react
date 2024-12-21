@@ -7,9 +7,13 @@ import logo from './assets/images/logo.svg';
 import {AppContainer, AppHeader, AppSidebar, AppContent} from "./app.styles";
 import GlobalStyles from "./global-styles";
 import AppRoutes from "./routes/AppRoutes";
+import {RootState} from "./app/store";
 
+interface AppProps {
+    state: RootState;
+}
 
-const App: React.FC = () => {
+const App: React.FC<AppProps> = ({ state }) => {
     return (
         <>
             <GlobalStyles/>
@@ -30,7 +34,7 @@ const App: React.FC = () => {
 
                 {/* Content */}
                 <AppContent>
-                    <AppRoutes/>
+                    <AppRoutes state={state} />
                 </AppContent>
             </AppContainer>
         </>

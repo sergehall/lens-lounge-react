@@ -7,14 +7,13 @@ import Technologies from "../features/technologies/Technologies";
 import About from "../features/about/About";
 import Contact from "../features/contact/Contact";
 import Dialogs from "../features/dialogs/Dialogs";
-import {techLinks} from "./technology-links";
-import {postsDataMock} from "../features/my-posts/mocks/posts-data-mock";
-import {dialogData} from "../features/dialogs/dialog-data";
+import { techLinks } from "./technology-links";
+import { RootState } from "../app/store";
 
 export interface PageConfig {
     bannerImage: string;
     summaryDescription: string;
-    component: React.ReactNode;
+    component: (state: RootState) => React.ReactNode;
 }
 
 // Object to configure pages dynamically
@@ -22,41 +21,48 @@ export const pageConfig: Record<string, PageConfig> = {
     home: {
         bannerImage: "./../assets/images/default-image-banner.png",
         summaryDescription: "Welcome to the homepage of Lens Lounge.",
-        component: <Home/>,
+        component: () => <Home />,
     },
     profile: {
         bannerImage: "./..assets/images/default-image-banner.png",
         summaryDescription: "Explore your profile and shared posts.",
-        component: (
+        component: (state: RootState) => (
             <>
-                <ExampleUserProfile/>
-                <MyPosts posts={postsDataMock}/>
+                <ExampleUserProfile />
+                <MyPosts posts={state.profilePage.posts} />
             </>
         ),
     },
     dialogs: {
         bannerImage: "./..assets/images/default-image-banner.png",
         summaryDescription: "Your messages and chats.",
-        component: <Dialogs dialogs={dialogData} className="Dialogs"/>,
+        component: (state: RootState) => (
+            <Dialogs
+                dialogs={state.dialogsPage.dialogs}
+                className={state.dialogsPage.className}
+            />
+        ),
     },
     news: {
         bannerImage: "./../assets/images/default-image-banner.png",
         summaryDescription: "Stay updated with the latest news.",
-        component: <News/>,
+        component: () => <News />,
     },
     technologies: {
         bannerImage: "./../assets/images/default-image-banner.png",
         summaryDescription: "Learn about cutting-edge technologies.",
-        component: <Technologies links={techLinks} className="Technologies"/>,
+        component: () => (
+            <Technologies links={techLinks} className="Technologies" />
+        ),
     },
     about: {
         bannerImage: "./../assets/images/default-image-banner.png",
         summaryDescription: "Learn more about our mission and values.",
-        component: <About/>,
+        component: () => <About />,
     },
     contact: {
         bannerImage: "./../assets/images/default-image-banner.png",
         summaryDescription: "Get in touch with us.",
-        component: <Contact/>,
+        component: () => <Contact />,
     },
 };
