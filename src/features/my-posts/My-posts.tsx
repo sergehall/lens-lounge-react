@@ -1,14 +1,13 @@
 import React from 'react';
 import { MyPostsContainer } from './my-posts.style';
-import {postsDataMock } from './mocks/posts-data-mock';
 import Post, {PostProps} from './post/Post';
 
 interface MyPostsProps {
     posts: PostProps[];
-    className?: string;
+    className: string;
 }
 
-const MyPosts: React.FC<MyPostsProps> = ({ posts = postsDataMock, className }) => {
+const MyPosts: React.FC<MyPostsProps> = ({ posts, className }) => {
     return (
         <MyPostsContainer className={className}>
             {posts.map((post) => (
@@ -18,7 +17,6 @@ const MyPosts: React.FC<MyPostsProps> = ({ posts = postsDataMock, className }) =
                     title={post.title}
                     imageUrl={post.imageUrl}
                     description={post.description}
-                    className=""
                 />
             ))}
         </MyPostsContainer>

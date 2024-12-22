@@ -33,7 +33,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
                                 element={
                                     <Dialogs
                                         dialogs={state.dialogsPage.dialogs}
-                                        className={state.dialogsPage.className}
+                                        className='Dialogs'
                                     />
                                 }
                             />

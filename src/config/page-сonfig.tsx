@@ -29,7 +29,7 @@ export const pageConfig: Record<string, PageConfig> = {
         component: (state: RootState) => (
             <>
                 <ExampleUserProfile />
-                <MyPosts posts={state.profilePage.posts} />
+                <MyPosts posts={state.profilePage.posts} className="MyPosts"/>
             </>
         ),
     },
@@ -39,7 +39,7 @@ export const pageConfig: Record<string, PageConfig> = {
         component: (state: RootState) => (
             <Dialogs
                 dialogs={state.dialogsPage.dialogs}
-                className={state.dialogsPage.className}
+                className='Dialogs'
             />
         ),
     },

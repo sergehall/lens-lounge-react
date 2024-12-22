@@ -31,7 +31,7 @@ export const rootState: RootState = {
     },
     dialogsPage: {
         dialogs: dialogData,
-        className: "Dialogs",
+        posts: postsDataMock,
     }
 };
 

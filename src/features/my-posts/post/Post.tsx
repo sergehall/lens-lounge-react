@@ -9,13 +9,12 @@ export interface PostProps {
     title: string;
     imageUrl: string;
     description: string;
-    className?: string;
 }
 
 
-const Post: React.FC<PostProps> = ({ title, imageUrl, description, className = '' }) => {
+const Post: React.FC<PostProps> = ({ title, imageUrl, description }) => {
     return (
-        <PostContainer className={className}>
+        <PostContainer>
             {imageUrl && <InstagramEmbed url={imageUrl} title={title} />}
             <PostTitle>{title}</PostTitle>
             {description && <PostDescription>{description}</PostDescription>}
