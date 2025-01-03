@@ -36,7 +36,7 @@ const Home: React.FC = () => {
                     I am actively broadening my expertise in technologies such as <strong>React, Node.js, Express,
                     NestJS, MongoDB, PostgreSQL,</strong> and modern architectural patterns like <strong>SOLID, Hexagonal
                     Architecture,</strong> and <strong>SAGA.</strong> My ongoing learning includes{" "}
-                    <strong>Microservices, RabbitMQ, WebSocket,</strong> and <strong>DevOps fundamentals,</strong>
+                    <strong>Microservices, RabbitMQ, WebSocket,</strong> and <strong>DevOps fundamentals, </strong>
                     including Docker, Kubernetes, and Jenkins.
                 </Description>
                 <Description>

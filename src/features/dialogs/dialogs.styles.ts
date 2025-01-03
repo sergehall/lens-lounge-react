@@ -31,14 +31,14 @@ export const UserItem = styled.div<{ isActive: boolean }>`
     border-radius: 6px;
     box-shadow: ${({theme}) => theme.global.boxShadowNeonShort};
     background-color: ${({isActive, theme,}) =>
-            isActive ? theme.global.secondaryColor : theme.global.secondaryColor};
+            isActive ? theme.dialogs.userBgActiveColor : theme.global.secondaryColor};
     color: ${({isActive, theme}) =>
             isActive ? theme.dialogs.userItemActiveColor : theme.dialogs.userItemInactiveColor};
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 
     &:hover {
-        background-color: ${({theme}) => theme.highlights.yellow};
+        background-color: ${({theme}) => theme.dialogs.userBgActiveColor};
     }
 `;
 
@@ -90,6 +90,10 @@ export const MessageItem = styled.div<{ fromMe: boolean }>`
     color: ${({theme}) => theme.text.colorDarkGray};
     word-wrap: break-word;
     position: relative;
+    box-shadow: ${({fromMe, theme}) =>
+            fromMe
+                    ? theme.dialogs.boxShadowNeonShortWhite
+                    : theme.dialogs.boxShadowNeonShortBlue};
 
     /* Tail with a smooth wave effect */
 

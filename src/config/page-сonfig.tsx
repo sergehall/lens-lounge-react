@@ -9,6 +9,8 @@ import Contact from "../features/contact/Contact";
 import Dialogs from "../features/dialogs/Dialogs";
 import { techLinks } from "./technology-links";
 import { RootState } from "../app/store";
+import {ClassNames} from "./class-names.enum";
+import Contacts from "../features/dialogs/contacts/Contacts";
 
 export interface PageConfig {
     bannerImage: string;
@@ -29,7 +31,7 @@ export const pageConfig: Record<string, PageConfig> = {
         component: (state: RootState) => (
             <>
                 <ExampleUserProfile />
-                <MyPosts posts={state.profilePage.posts} className="MyPosts"/>
+                <MyPosts posts={state.content.profilePage.posts} className={ClassNames.MY_POSTS}/>
             </>
         ),
     },
@@ -38,8 +40,18 @@ export const pageConfig: Record<string, PageConfig> = {
         summaryDescription: "Your messages and chats.",
         component: (state: RootState) => (
             <Dialogs
-                dialogs={state.dialogsPage.dialogs}
-                className='Dialogs'
+                dialogs={state.content.dialogsPage.dialogs}
+                className={ClassNames.DIALOGS}
+            />
+        ),
+    },
+    dialogsContacts: {
+        bannerImage: "./..assets/images/default-image-banner.png",
+        summaryDescription: "Your Contacts.",
+        component: (state: RootState) => (
+            <Contacts
+                contacts={state.content.dialogsPage.contacts}
+                className={ClassNames.CONTACTS}
             />
         ),
     },
@@ -52,7 +64,7 @@ export const pageConfig: Record<string, PageConfig> = {
         bannerImage: "./../assets/images/default-image-banner.png",
         summaryDescription: "Learn about cutting-edge technologies.",
         component: () => (
-            <Technologies links={techLinks} className="Technologies" />
+            <Technologies links={techLinks} className={ClassNames.TECHNOLOGIES} />
         ),
     },
     about: {

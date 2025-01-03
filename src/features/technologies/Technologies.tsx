@@ -7,17 +7,14 @@ import {
     TechnologyLink, PopupWindow, StyledIframe,
 } from "./technologies.styles";
 import { TechnologyLinkType } from "../../config/technology-links";
+import {ClassNames} from "../../config/class-names.enum";
 
 interface TechnologiesProps {
     links: TechnologyLinkType[];
-    className: string;
-}
-interface TechnologiesProps {
-    links: TechnologyLinkType[];
-    className: string;
+    className: ClassNames.TECHNOLOGIES;
 }
 
-const Technologies: React.FC<TechnologiesProps> = ({ links, className = "" }) => {
+const Technologies: React.FC<TechnologiesProps> = ({ links, className }) => {
     const [hoveredLink, setHoveredLink] = useState<TechnologyLinkType | null>(null);
     const [popupPosition, setPopupPosition] = useState<{ top: number; left: number }>({
         top: 0,

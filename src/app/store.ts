@@ -1,15 +1,28 @@
 import {DialogData} from "../features/dialogs/dialog-data";
 import {PostProps} from "../features/my-posts/post/Post";
+import {ContactData} from "../features/dialogs/mocks/users-mock";
 
 
 export interface RootState {
-    homePage: HomePageState;
-    profilePage: ProfilePageState;
-    dialogsPage: DialogsPageState;
+    header: HeaderState;
+    sidebar: SidebarState;
+    content: ContentState;
 }
 
 
-export interface HomePageState {
+export interface HeaderState {
+}
+
+export interface HomeState {
+}
+
+export interface SidebarState {
+}
+
+export interface ContentState {
+    homePage: HomeState;
+    profilePage: ProfilePageState;
+    dialogsPage: DialogsPageState;
 }
 
 export interface ProfilePageState {
@@ -20,5 +33,6 @@ export interface ProfilePageState {
 export interface DialogsPageState {
     dialogs: DialogData[];
     posts: PostProps[];
+    contacts: ContactData[];
 }
 

@@ -1,7 +1,3 @@
-import { v4 } from 'uuid';
-import {OrgIdEnums} from "../../users/enums/org-id";
-import {UserRolesEnums} from "../../users/enums/user-roles";
-
 export interface User {
     userId: number;
     username: string;
@@ -23,6 +19,96 @@ export interface User {
     expirationDate: Date;
     isConfirmed: boolean;
 }
+// The type of phone number
+export enum PhoneType {
+    MOBILE = "mobile",
+    LANDLINE = "landline",
+    VOIP = "VOIP",
+    UNKNOWN = "unknown"
+}
+
+export interface CellPhoneData {
+    id: number;
+    userId: number;
+    number: string; // The full phone number, including country code
+    countryCode: string; // The country dialing code (e.g., +1, +44)
+    nationalNumber: string; // The local phone number without country code
+    region: string;
+    type: PhoneType;
+    isValid: boolean;
+    displayToOthers: true,
+}
+
+export interface AddressData {
+    id: number;
+    userId: number;
+    street: string; // Street address, including house number
+    city: string; // City or locality
+    state: string; // State, province, or region (optional for countries without states)
+    postalCode: string; // Postal or ZIP code
+    country: string;
+    additionalInfo?: string;
+    coordinates?: {
+        latitude: number; // Latitude for geolocation
+        longitude: number; // Longitude for geolocation
+    };
+    isResidential: boolean;
+}
+
+export interface ContactData {
+    id: number;
+    userId: number;
+    avatar: string;
+    username: string;
+    firstName: string;
+    lastName: string;
+    phoneNumber: CellPhoneData;
+    addresses: AddressData;
+    email: string;
+    about: string;
+    isFavorite: boolean;
+    isBlocked: boolean;
+    isPinned: boolean;
+    isArchived: boolean;
+    isDeleted: boolean;
+    isOnline: boolean;
+}
+
+export const combineContactData = (): ContactData[] => {
+    return users.map(user => {
+        const phoneNumber = cellPhoneDataMock.find(phone => phone.userId === user.userId);
+        if (!phoneNumber) {
+            throw new Error(`Phone number not found for userId: ${user.userId}`);
+        }
+        const address = addressDataMock.find(addr => addr.userId === user.userId);
+        if (!address) {
+            throw new Error(`Address not found for userId: ${user.userId}`);
+        }
+
+
+        return {
+            id: user.userId,
+            userId: user.userId,
+            avatar: user.avatar,
+            username: user.username,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            phoneNumber: phoneNumber,
+            addresses: address,
+            email: user.email,
+            about: `About ${user.firstName} ${user.lastName}`,
+            isFavorite: false,
+            isBlocked: false,
+            isPinned: false,
+            isArchived: false,
+            isDeleted: false,
+            isOnline: user.isOnline,
+        };
+    });
+};
+
+export const contactDataMock:ContactData[] = combineContactData();
+
 
 export const users: User[] = [
     {
@@ -34,15 +120,15 @@ export const users: User[] = [
         lastActive: new Date(),
         firstName: "Emmy",
         lastName: "Noether",
-        login: "emmymax@example.com".toLowerCase(),
+        login: "emmymax@example.com",
         passwordHash: "hashedPassword1",
         createdAt: new Date(),
-        orgId: OrgIdEnums.IT_INCUBATOR,
-        roles: [UserRolesEnums.USER],
+        orgId: "IT_INCUBATOR",
+        roles: ["USER"],
         isBanned: false,
         banDate: null,
         banReason: null,
-        confirmationCode: v4(),
+        confirmationCode: "code1",
         expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
         isConfirmed: false,
     },
@@ -55,15 +141,15 @@ export const users: User[] = [
         lastActive: new Date("2023-12-01T14:30:00"),
         firstName: "Bob",
         lastName: "Kuzyuberdin",
-        login: "bobkuzyuberdin@example.com".toLowerCase(),
+        login: "bobkuzyuberdin@example.com",
         passwordHash: "hashedPassword2",
         createdAt: new Date(),
-        orgId: OrgIdEnums.IT_INCUBATOR,
-        roles: [UserRolesEnums.USER],
+        orgId: "IT_INCUBATOR",
+        roles: ["USER"],
         isBanned: false,
         banDate: null,
         banReason: null,
-        confirmationCode: v4(),
+        confirmationCode: "code2",
         expirationDate: new Date(),
         isConfirmed: false,
     },
@@ -76,121 +162,93 @@ export const users: User[] = [
         lastActive: new Date("2023-11-01T10:15:00"),
         firstName: "Pierre",
         lastName: "DeFermat",
-        login: "pierrdefermat@example.com".toLowerCase(),
+        login: "pierrdefermat@example.com",
         passwordHash: "hashedPassword3",
         createdAt: new Date(),
-        orgId: OrgIdEnums.IT_INCUBATOR,
-        roles: [UserRolesEnums.USER],
+        orgId: "IT_INCUBATOR",
+        roles: ["USER"],
         isBanned: false,
         banDate: null,
         banReason: null,
-        confirmationCode: v4(),
-        expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-        isConfirmed: false,
-    },
-    {
-        userId: 4,
-        username: "Lovelace",
-        avatar: "https://camo.githubusercontent.com/d05e80bf07249ed858dcd65c362524dbcbe72093973c35421de936560ef7a7af/68747470733a2f2f626c6f672e6765656b68756e7465722e636f6d2e62722f77702d636f6e74656e742f75706c6f6164732f323032322f30312f6164612d6c6f76656c6163652d322e6a7067",
-        email: "lovelace@example.com",
-        isOnline: false,
-        lastActive: new Date("2023-01-20T14:00:00"),
-        firstName: "Ada",
-        lastName: "Lovelace",
-        login: "lovelace@example.com".toLowerCase(),
-        passwordHash: "hashedPassword4",
-        createdAt: new Date(),
-        orgId: OrgIdEnums.IT_INCUBATOR,
-        roles: [UserRolesEnums.USER],
-        isBanned: false,
-        banDate: null,
-        banReason: null,
-        confirmationCode: v4(),
-        expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-        isConfirmed: false,
-    },
-    {
-        userId: 5,
-        username: "Riemann",
-        avatar: "https://production-it-incubator.s3.eu-central-1.amazonaws.com/it-kamasutra/Image/c959a045-0eb3-4b46-af08-851e1052e40a_blob",
-        email: "riemann@example.com",
-        isOnline: true,
-        lastActive: new Date("2023-01-24T12:15:00"),
-        firstName: "Bernhard",
-        lastName: "Riemann",
-        login: "riemann@example.com".toLowerCase(),
-        passwordHash: "hashedPassword5",
-        createdAt: new Date(),
-        orgId: OrgIdEnums.IT_INCUBATOR,
-        roles: [UserRolesEnums.USER],
-        isBanned: false,
-        banDate: null,
-        banReason: null,
-        confirmationCode: v4(),
-        expirationDate: new Date(Date.now() + 8 * 24 * 60 * 60 * 1000),
-        isConfirmed: false,
-    },
-    {
-        userId: 6,
-        username: "SofiaPrixBordin",
-        avatar: "https://production-it-incubator.s3.eu-central-1.amazonaws.com/it-kamasutra/Image/5d35280f-5521-489a-a372-45efacaf084e_4d2ee26774cf11eeaead5696910b1137_upscaled.jpg",
-        email: "kovalevskaya@example.com",
-        isOnline: false,
-        lastActive: new Date("2023-11-01T10:12:00"),
-        firstName: "Sofia",
-        lastName: "Kovalevskaya",
-        login: "kovalevskaya@example.com".toLowerCase(),
-        passwordHash: "hashedPassword6",
-        createdAt: new Date(),
-        orgId: OrgIdEnums.IT_INCUBATOR,
-        roles: [UserRolesEnums.USER],
-        isBanned: false,
-        banDate: null,
-        banReason: null,
-        confirmationCode: v4(),
-        expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-        isConfirmed: false,
-    },
-    {
-        userId: 7,
-        username: "Ramanujan1729",
-        avatar: "https://production-it-incubator.s3.eu-central-1.amazonaws.com/it-kamasutra/Image/18da458e-2abf-433f-9517-2403c0072655_blob",
-        email: "george@example.com",
-        isOnline: true,
-        lastActive: new Date(),
-        firstName: "Ramanujan",
-        lastName: "Srinivasa",
-        login: "george@example.com".toLowerCase(),
-        passwordHash: "hashedPassword7",
-        createdAt: new Date(),
-        orgId: OrgIdEnums.IT_INCUBATOR,
-        roles: [UserRolesEnums.USER],
-        isBanned: false,
-        banDate: null,
-        banReason: null,
-        confirmationCode: v4(),
-        expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-        isConfirmed: false,
-    },
-    {
-        userId: 8,
-        username: "Gauss",
-        avatar: "https://preview.redd.it/regular-day-of-a-belarusian-man-v0-izkc3fdjc5cc1.jpg?width=1024&format=pjpg&auto=webp&s=0ada9fdbd8628217b9ca6885c9f25e5190aa1f0d",
-        email: "gauss@example.com",
-        isOnline: false,
-        lastActive: new Date("2023-12-01T10:15:00"),
-        firstName: "Carl",
-        lastName: "Friedrich Gauss",
-        login: "gauss@example.com".toLowerCase(),
-        passwordHash: "hashedPassword8",
-        createdAt: new Date(),
-        orgId: OrgIdEnums.IT_INCUBATOR,
-        roles: [UserRolesEnums.USER],
-        isBanned: false,
-        banDate: null,
-        banReason: null,
-        confirmationCode: v4(),
+        confirmationCode: "code3",
         expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
         isConfirmed: false,
     },
 ];
+
+
+export const addressDataMock: AddressData[] = [
+    {
+        id: 201,
+        userId: 1,
+        street: "Algebra Alley 42",
+        city: "Erlangen",
+        state: "Bavaria",
+        postalCode: "91054",
+        country: "Germany",
+        additionalInfo: "Close to the university library",
+        coordinates: { latitude: 49.589674, longitude: 11.004835 },
+        isResidential: true,
+    },
+    {
+        id: 202,
+        userId: 2,
+        street: "Silicon Valley Blvd 7",
+        city: "San Jose",
+        state: "California",
+        postalCode: "95112",
+        country: "USA",
+        additionalInfo: "Suite 101, next to the coffee shop",
+        coordinates: { latitude: 37.7749, longitude: -122.4194 },
+        isResidential: false,
+    },
+    {
+        id: 203,
+        userId: 3,
+        street: "Mathematics Street 123",
+        city: "Toulouse",
+        state: "Occitanie",
+        postalCode: "31000",
+        country: "France",
+        additionalInfo: "Next to the Fermat Museum",
+        coordinates: { latitude: 43.604652, longitude: 1.444209 },
+        isResidential: true,
+    },
+];
+
+export const cellPhoneDataMock: CellPhoneData[] = [
+    {
+        id: 101,
+        userId: 1,
+        number: "+491751234567",
+        countryCode: "+49",
+        nationalNumber: "1751234567",
+        region: "Bavaria",
+        type: PhoneType.MOBILE,
+        isValid: true,
+        displayToOthers: true,
+    },
+    {
+        id: 102,
+        userId: 2,
+        number: "+18004561234",
+        countryCode: "+1",
+        nationalNumber: "8004561234",
+        region: "California",
+        type: PhoneType.LANDLINE,
+        isValid: true,
+        displayToOthers: true,
+    },
+    {
+        id: 103,
+        userId: 3,
+        number: "+33678912345",
+        countryCode: "+33",
+        nationalNumber: "678912345",
+        region: "Occitanie",
+        type: PhoneType.MOBILE,
+        isValid: true,
+        displayToOthers: true,
+    },
+];
+

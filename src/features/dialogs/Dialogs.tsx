@@ -15,10 +15,11 @@ import {
 } from "./dialogs.styles";
 import { DialogData } from "./dialog-data";
 import {RoutePaths} from "../../config/nav-links";
+import {ClassNames} from "../../config/class-names.enum";
 
 interface DialogsProps {
     dialogs: DialogData[];
-    className: string;
+    className: ClassNames.DIALOGS;
 }
 
 // Helper Component: User List

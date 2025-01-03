@@ -11,6 +11,7 @@ import {AuthProvider} from "./contexts/AuthContext";
 import {RootState} from "./app/store";
 import {dialogData} from "./features/dialogs/dialog-data";
 import {postsDataMock} from "./features/my-posts/mocks/posts-data-mock";
+import {contactDataMock} from "./features/dialogs/mocks/users-mock";
 
 // ID for the root DOM node
 const ROOT_ID = 'root';
@@ -22,16 +23,21 @@ if (!rootElement) {
 }
 const root = ReactDOM.createRoot(rootElement);
 
-// Define the rootState (or import it if defined elsewhere)
-export const rootState: RootState = {
-    homePage: {},
-    profilePage: {
-        profile: {},
-        posts: postsDataMock
-    },
-    dialogsPage: {
-        dialogs: dialogData,
-        posts: postsDataMock,
+// Define the rootState object
+const rootState: RootState = {
+    header: {},
+    sidebar: {},
+    content: {
+        homePage: {},
+        profilePage: {
+            profile: {},
+            posts: postsDataMock
+        },
+        dialogsPage: {
+            dialogs: dialogData,
+            posts: postsDataMock,
+            contacts: contactDataMock
+        }
     }
 };
 

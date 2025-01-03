@@ -4,6 +4,7 @@ import { pageConfig } from "../config/page-сonfig";
 import PageLayout from "../layouts/page-layout";
 import Dialogs from "../features/dialogs/Dialogs";
 import { RootState } from "../app/store";
+import {ClassNames} from "../config/class-names.enum";
 
 interface AppRoutesProps {
     state: RootState;
@@ -32,8 +33,8 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
                                 path=":userId"
                                 element={
                                     <Dialogs
-                                        dialogs={state.dialogsPage.dialogs}
-                                        className='Dialogs'
+                                        dialogs={state.content.dialogsPage.dialogs}
+                                        className={ClassNames.DIALOGS}
                                     />
                                 }
                             />

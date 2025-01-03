@@ -1,10 +1,11 @@
 import React from 'react';
 import { MyPostsContainer } from './my-posts.style';
 import Post, {PostProps} from './post/Post';
+import {ClassNames} from "../../config/class-names.enum";
 
 interface MyPostsProps {
     posts: PostProps[];
-    className: string;
+    className: ClassNames.MY_POSTS;
 }
 
 const MyPosts: React.FC<MyPostsProps> = ({ posts, className }) => {

@@ -1,4 +1,3 @@
-// Define global variables
 const theme = {
     global: {
         transparentBorder: 'rgba(0, 0, 0, 0.1)',
@@ -96,12 +95,15 @@ const theme = {
     },
     dialogs: {
         userListBorderColor: 'rgba(255, 255, 255, 0.1)',
+        userBgActiveColor: '#1C6F99',
         userItemActiveColor: '#282c34',
         userItemInactiveColor: '#000000',
         messageFromOtherBg: '#f0f0f0',
         noMessagesBg: '#f9f9f9',
         noMessagesColor: '#888888',
         transparentBg: 'transparent',
+        boxShadowNeonShortWhite: '0 0 2px 1px rgba(255, 255, 255, 1), 0 0 8px 4px rgba(220, 240, 255, 0.7)',
+        boxShadowNeonShortBlue: '0 0 4px 2px rgba(28, 111, 153, 1), 0 0 10px 5px rgba(28, 111, 153, 0.8)'
     },
     technologies: {
         listStyleType: 'disc',
