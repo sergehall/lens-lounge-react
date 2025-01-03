@@ -17,7 +17,6 @@ const theme = {
         orange: '#FFA500',
         white: '#FFFFFF',
         brightGreen: '#00ff00',
-
         orangeRed: '#FF4500',
         lightGray: '#dddddd',
     },
@@ -25,8 +24,11 @@ const theme = {
         colorWhite: '#E0E0E0',
         colorDarkCharcoalBlue: '#282c34',
         colorDarkGray: '#333333',
+        cyanBlue: '#61DAFB',
+        colorLightGray: "#f0f0f0",
         lineHeight: '1.6',
         fontSizeDefault: '1.2rem',
+        fontSizeContacts: '1rem',
         fontSizeTitle: '2rem',
         fontSizeMobile: '1.5rem',
     },
@@ -104,6 +106,14 @@ const theme = {
         transparentBg: 'transparent',
         boxShadowNeonShortWhite: '0 0 2px 1px rgba(255, 255, 255, 1), 0 0 8px 4px rgba(220, 240, 255, 0.7)',
         boxShadowNeonShortBlue: '0 0 4px 2px rgba(28, 111, 153, 1), 0 0 10px 5px rgba(28, 111, 153, 0.8)'
+    },
+    contacts: {
+        userListBorderColor: 'rgba(255, 255, 255, 0.1)',
+        userBgActiveColor: '#1C6F99',
+        userItemActiveColor: '#282c34',
+        userItemInactiveColor: '#000000',
+        noContactsColor: 'Red',
+        noContactsBg: 'Yellow',
     },
     technologies: {
         listStyleType: 'disc',

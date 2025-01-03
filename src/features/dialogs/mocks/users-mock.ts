@@ -1,3 +1,7 @@
+import { v4 } from 'uuid';
+import {OrgIdEnums} from "../../users/enums/org-id";
+import {UserRolesEnums} from "../../users/enums/user-roles";
+
 export interface User {
     userId: number;
     username: string;
@@ -55,61 +59,6 @@ export interface AddressData {
     isResidential: boolean;
 }
 
-export interface ContactData {
-    id: number;
-    userId: number;
-    avatar: string;
-    username: string;
-    firstName: string;
-    lastName: string;
-    phoneNumber: CellPhoneData;
-    addresses: AddressData;
-    email: string;
-    about: string;
-    isFavorite: boolean;
-    isBlocked: boolean;
-    isPinned: boolean;
-    isArchived: boolean;
-    isDeleted: boolean;
-    isOnline: boolean;
-}
-
-export const combineContactData = (): ContactData[] => {
-    return users.map(user => {
-        const phoneNumber = cellPhoneDataMock.find(phone => phone.userId === user.userId);
-        if (!phoneNumber) {
-            throw new Error(`Phone number not found for userId: ${user.userId}`);
-        }
-        const address = addressDataMock.find(addr => addr.userId === user.userId);
-        if (!address) {
-            throw new Error(`Address not found for userId: ${user.userId}`);
-        }
-
-
-        return {
-            id: user.userId,
-            userId: user.userId,
-            avatar: user.avatar,
-            username: user.username,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            phoneNumber: phoneNumber,
-            addresses: address,
-            email: user.email,
-            about: `About ${user.firstName} ${user.lastName}`,
-            isFavorite: false,
-            isBlocked: false,
-            isPinned: false,
-            isArchived: false,
-            isDeleted: false,
-            isOnline: user.isOnline,
-        };
-    });
-};
-
-export const contactDataMock:ContactData[] = combineContactData();
-
-
 export const users: User[] = [
     {
         userId: 1,
@@ -120,15 +69,15 @@ export const users: User[] = [
         lastActive: new Date(),
         firstName: "Emmy",
         lastName: "Noether",
-        login: "emmymax@example.com",
+        login: "emmymax@example.com".toLowerCase(),
         passwordHash: "hashedPassword1",
         createdAt: new Date(),
-        orgId: "IT_INCUBATOR",
-        roles: ["USER"],
+        orgId: OrgIdEnums.IT_INCUBATOR,
+        roles: [UserRolesEnums.USER],
         isBanned: false,
         banDate: null,
         banReason: null,
-        confirmationCode: "code1",
+        confirmationCode: v4(),
         expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
         isConfirmed: false,
     },
@@ -141,15 +90,15 @@ export const users: User[] = [
         lastActive: new Date("2023-12-01T14:30:00"),
         firstName: "Bob",
         lastName: "Kuzyuberdin",
-        login: "bobkuzyuberdin@example.com",
+        login: "bobkuzyuberdin@example.com".toLowerCase(),
         passwordHash: "hashedPassword2",
         createdAt: new Date(),
-        orgId: "IT_INCUBATOR",
-        roles: ["USER"],
+        orgId: OrgIdEnums.IT_INCUBATOR,
+        roles: [UserRolesEnums.USER],
         isBanned: false,
         banDate: null,
         banReason: null,
-        confirmationCode: "code2",
+        confirmationCode: v4(),
         expirationDate: new Date(),
         isConfirmed: false,
     },
@@ -162,15 +111,120 @@ export const users: User[] = [
         lastActive: new Date("2023-11-01T10:15:00"),
         firstName: "Pierre",
         lastName: "DeFermat",
-        login: "pierrdefermat@example.com",
+        login: "pierrdefermat@example.com".toLowerCase(),
         passwordHash: "hashedPassword3",
         createdAt: new Date(),
-        orgId: "IT_INCUBATOR",
-        roles: ["USER"],
+        orgId: OrgIdEnums.IT_INCUBATOR,
+        roles: [UserRolesEnums.USER],
         isBanned: false,
         banDate: null,
         banReason: null,
-        confirmationCode: "code3",
+        confirmationCode: v4(),
+        expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        isConfirmed: false,
+    },
+    {
+        userId: 4,
+        username: "Lovelace",
+        avatar: "https://camo.githubusercontent.com/d05e80bf07249ed858dcd65c362524dbcbe72093973c35421de936560ef7a7af/68747470733a2f2f626c6f672e6765656b68756e7465722e636f6d2e62722f77702d636f6e74656e742f75706c6f6164732f323032322f30312f6164612d6c6f76656c6163652d322e6a7067",
+        email: "lovelace@example.com",
+        isOnline: false,
+        lastActive: new Date("2023-01-20T14:00:00"),
+        firstName: "Ada",
+        lastName: "Lovelace",
+        login: "lovelace@example.com".toLowerCase(),
+        passwordHash: "hashedPassword4",
+        createdAt: new Date(),
+        orgId: OrgIdEnums.IT_INCUBATOR,
+        roles: [UserRolesEnums.USER],
+        isBanned: false,
+        banDate: null,
+        banReason: null,
+        confirmationCode: v4(),
+        expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        isConfirmed: false,
+    },
+    {
+        userId: 5,
+        username: "Riemann",
+        avatar: "https://production-it-incubator.s3.eu-central-1.amazonaws.com/it-kamasutra/Image/c959a045-0eb3-4b46-af08-851e1052e40a_blob",
+        email: "riemann@example.com",
+        isOnline: true,
+        lastActive: new Date("2023-01-24T12:15:00"),
+        firstName: "Bernhard",
+        lastName: "Riemann",
+        login: "riemann@example.com".toLowerCase(),
+        passwordHash: "hashedPassword5",
+        createdAt: new Date(),
+        orgId: OrgIdEnums.IT_INCUBATOR,
+        roles: [UserRolesEnums.USER],
+        isBanned: false,
+        banDate: null,
+        banReason: null,
+        confirmationCode: v4(),
+        expirationDate: new Date(Date.now() + 8 * 24 * 60 * 60 * 1000),
+        isConfirmed: false,
+    },
+    {
+        userId: 6,
+        username: "SofiaPrixBordin",
+        avatar: "https://production-it-incubator.s3.eu-central-1.amazonaws.com/it-kamasutra/Image/5d35280f-5521-489a-a372-45efacaf084e_4d2ee26774cf11eeaead5696910b1137_upscaled.jpg",
+        email: "kovalevskaya@example.com",
+        isOnline: false,
+        lastActive: new Date("2023-11-01T10:12:00"),
+        firstName: "Sofia",
+        lastName: "Kovalevskaya",
+        login: "kovalevskaya@example.com".toLowerCase(),
+        passwordHash: "hashedPassword6",
+        createdAt: new Date(),
+        orgId: OrgIdEnums.IT_INCUBATOR,
+        roles: [UserRolesEnums.USER],
+        isBanned: false,
+        banDate: null,
+        banReason: null,
+        confirmationCode: v4(),
+        expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        isConfirmed: false,
+    },
+    {
+        userId: 7,
+        username: "Ramanujan1729",
+        avatar: "https://production-it-incubator.s3.eu-central-1.amazonaws.com/it-kamasutra/Image/18da458e-2abf-433f-9517-2403c0072655_blob",
+        email: "george@example.com",
+        isOnline: true,
+        lastActive: new Date(),
+        firstName: "Ramanujan",
+        lastName: "Srinivasa",
+        login: "george@example.com".toLowerCase(),
+        passwordHash: "hashedPassword7",
+        createdAt: new Date(),
+        orgId: OrgIdEnums.IT_INCUBATOR,
+        roles: [UserRolesEnums.USER],
+        isBanned: false,
+        banDate: null,
+        banReason: null,
+        confirmationCode: v4(),
+        expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        isConfirmed: false,
+    },
+    {
+        userId: 8,
+        username: "Gauss",
+        avatar: "https://preview.redd.it/regular-day-of-a-belarusian-man-v0-izkc3fdjc5cc1.jpg?width=1024&format=pjpg&auto=webp&s=0ada9fdbd8628217b9ca6885c9f25e5190aa1f0d",
+        email: "gauss@example.com",
+        isOnline: false,
+        lastActive: new Date("2023-12-01T10:15:00"),
+        firstName: "Carl",
+        lastName: "Friedrich Gauss",
+        login: "gauss@example.com".toLowerCase(),
+        passwordHash: "hashedPassword8",
+        createdAt: new Date(),
+        orgId: OrgIdEnums.IT_INCUBATOR,
+        roles: [UserRolesEnums.USER],
+        isBanned: false,
+        banDate: null,
+        banReason: null,
+        confirmationCode: v4(),
         expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
         isConfirmed: false,
     },
@@ -214,7 +268,68 @@ export const addressDataMock: AddressData[] = [
         coordinates: { latitude: 43.604652, longitude: 1.444209 },
         isResidential: true,
     },
+    {
+        id: 204,
+        userId: 4,
+        street: "Ada Avenue 256",
+        city: "London",
+        state: "Greater London",
+        postalCode: "SW1A 1AA",
+        country: "UK",
+        additionalInfo: "Near Ada Lovelace Park",
+        coordinates: { latitude: 51.5074, longitude: -0.1278 },
+        isResidential: true,
+    },
+    {
+        id: 205,
+        userId: 5,
+        street: "Riemann Road 88",
+        city: "Hanover",
+        state: "Lower Saxony",
+        postalCode: "30159",
+        country: "Germany",
+        additionalInfo: "Adjacent to Riemann Plaza",
+        coordinates: { latitude: 52.3759, longitude: 9.73201 },
+        isResidential: true,
+    },
+    {
+        id: 206,
+        userId: 6,
+        street: "Kovalevskaya Lane 101",
+        city: "Stockholm",
+        state: "Stockholm County",
+        postalCode: "10041",
+        country: "Sweden",
+        additionalInfo: "Near Sofia Kovalevskaya Square",
+        coordinates: { latitude: 59.3293, longitude: 18.0686 },
+        isResidential: false,
+    },
+    {
+        id: 207,
+        userId: 7,
+        street: "Infinity Circle 1729",
+        city: "Madras",
+        state: "Tamil Nadu",
+        postalCode: "600003",
+        country: "India",
+        additionalInfo: "Opposite Ramanujan Museum",
+        coordinates: { latitude: 13.0827, longitude: 80.2707 },
+        isResidential: true,
+    },
+    {
+        id: 208,
+        userId: 8,
+        street: "Gaussian Drive 1",
+        city: "Braunschweig",
+        state: "Lower Saxony",
+        postalCode: "38100",
+        country: "Germany",
+        additionalInfo: "Near Carl Friedrich Gauss Institute",
+        coordinates: { latitude: 52.2692, longitude: 10.5211 },
+        isResidential: true,
+    },
 ];
+
 
 export const cellPhoneDataMock: CellPhoneData[] = [
     {
@@ -250,5 +365,61 @@ export const cellPhoneDataMock: CellPhoneData[] = [
         isValid: true,
         displayToOthers: true,
     },
+    {
+        id: 104,
+        userId: 4,
+        number: "+442079876543",
+        countryCode: "+44",
+        nationalNumber: "2079876543",
+        region: "Greater London",
+        type: PhoneType.LANDLINE,
+        isValid: true,
+        displayToOthers: true,
+    },
+    {
+        id: 105,
+        userId: 5,
+        number: "+491761234567",
+        countryCode: "+49",
+        nationalNumber: "1761234567",
+        region: "Lower Saxony",
+        type: PhoneType.MOBILE,
+        isValid: true,
+        displayToOthers: true,
+    },
+    {
+        id: 106,
+        userId: 6,
+        number: "+46701234567",
+        countryCode: "+46",
+        nationalNumber: "701234567",
+        region: "Stockholm County",
+        type: PhoneType.MOBILE,
+        isValid: true,
+        displayToOthers: true,
+    },
+    {
+        id: 107,
+        userId: 7,
+        number: "+919876543210",
+        countryCode: "+91",
+        nationalNumber: "9876543210",
+        region: "Tamil Nadu",
+        type: PhoneType.MOBILE,
+        isValid: true,
+        displayToOthers: true,
+    },
+    {
+        id: 108,
+        userId: 8,
+        number: "+495312345678",
+        countryCode: "+49",
+        nationalNumber: "5312345678",
+        region: "Lower Saxony",
+        type: PhoneType.VOIP,
+        isValid: true,
+        displayToOthers: true,
+    },
 ];
+
 

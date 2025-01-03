@@ -11,7 +11,7 @@ import {AuthProvider} from "./contexts/AuthContext";
 import {RootState} from "./app/store";
 import {dialogData} from "./features/dialogs/dialog-data";
 import {postsDataMock} from "./features/my-posts/mocks/posts-data-mock";
-import {contactDataMock} from "./features/dialogs/mocks/users-mock";
+import {contactData} from "./features/dialogs/contacts/contacts-data";
 
 // ID for the root DOM node
 const ROOT_ID = 'root';
@@ -36,7 +36,7 @@ const rootState: RootState = {
         dialogsPage: {
             dialogs: dialogData,
             posts: postsDataMock,
-            contacts: contactDataMock
+            contacts: contactData
         }
     }
 };

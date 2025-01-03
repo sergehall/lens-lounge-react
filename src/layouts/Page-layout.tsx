@@ -6,7 +6,7 @@ import {DynamicTitle} from "../features/summarize/dynamic-title";
 interface PageLayoutProps {
     bannerImage: string;
     summaryDescription: string;
-    children: React.ReactNode; // Specific route content
+    children: React.ReactNode;
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({ bannerImage, summaryDescription, children }) => {

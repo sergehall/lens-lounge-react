@@ -58,6 +58,7 @@ export const UserDetails = styled.div`
 export const UserName = styled.span`
     font-size: 1rem;
     font-weight: bold;
+    margin-top: 5px;
 `;
 
 export const UserStatus = styled.span<{ isOnline: boolean }>`

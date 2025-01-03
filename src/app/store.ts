@@ -1,6 +1,6 @@
 import {DialogData} from "../features/dialogs/dialog-data";
 import {PostProps} from "../features/my-posts/post/Post";
-import {ContactData} from "../features/dialogs/mocks/users-mock";
+import {ContactsData} from "../features/dialogs/contacts/contacts-data";
 
 
 export interface RootState {
@@ -33,6 +33,6 @@ export interface ProfilePageState {
 export interface DialogsPageState {
     dialogs: DialogData[];
     posts: PostProps[];
-    contacts: ContactData[];
+    contacts: ContactsData[];
 }
 
