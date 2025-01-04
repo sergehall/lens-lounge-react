@@ -65,7 +65,7 @@ export const MessageItem = styled.div<{ fromMe: boolean }>`
 
     .timestamp {
         font-size: 12px;
-        color: ${({theme}) => "#6c757d"};
+        color: ${({theme}) => theme.text.timestampSlateGray};
         margin-bottom: 4px;
     }
 

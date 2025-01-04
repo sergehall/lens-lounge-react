@@ -31,6 +31,7 @@ const theme = {
         fontSizeContacts: '1rem',
         fontSizeTitle: '2rem',
         fontSizeMobile: '1.5rem',
+        timestampSlateGray: '#6c757d',
     },
     contact: {
         inputBorderColor: 'rgba(0, 0, 0, 0.2)',
