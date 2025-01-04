@@ -1,99 +1,73 @@
-import React, { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import {
-    DialogsContainer,
-    UserList,
-    UserItem,
-    Avatar,
-    UserDetails,
-    UserName,
-    UserStatus,
-    MessagesSection,
-    MessageItem,
-    MessageTimestamp,
-    NoMessages,
-} from "./dialogs.styles";
-import { DialogData } from "./dialog-data";
-import { RoutePaths } from "../../config/nav-links";
-import { ClassNames } from "../../config/class-names.enum";
+import React, {useEffect, useState} from "react";
+import {useNavigate, useParams} from "react-router-dom";
+import {ChatSection} from "./dialogs.styles";
+import DialogList from "./Dialog-list";
+import DialogMessages from "./Dialog-messages";
+import {DialogData} from "./dialog-data";
+import {DialogsContainer, InputSection, NoContacts, UserListWrapper} from "./shared-layout.styles";
+import NavigationButtons from "./Navigation-buttons";
 
 interface DialogsProps {
     dialogs: DialogData[];
-    className: ClassNames.DIALOGS;
 }
 
-const Dialogs: React.FC<DialogsProps> = ({ dialogs, className }) => {
+const Dialogs: React.FC<DialogsProps> = ({dialogs}) => {
     const navigate = useNavigate();
-    const { userId } = useParams<{ userId?: string }>();
-
-    const selectedUserId = userId ? parseInt(userId, 10) : dialogs[0]?.user.userId;
+    const {userId} = useParams<{ userId?: string }>();
+    const [selectedDialog, setSelectedDialog] = useState<DialogData | null>(null);
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
-        if (!userId && dialogs.length > 0) {
-            navigate(`${RoutePaths.dialogsChats}/${dialogs[0]?.user.userId}`);
+        if (userId) {
+            const dialog = dialogs.find((d) => d.user.userId === Number(userId));
+            setSelectedDialog(dialog || null);
         }
-    }, [userId, dialogs, navigate]);
+    }, [userId, dialogs]);
 
-    const selectedDialog = dialogs.find(dialog => dialog.user.userId === selectedUserId);
-
-    const handleUserSelect = (id: number) => {
-        if (!id) return;
-        navigate(`${RoutePaths.dialogsChats}/${id}`);
+    const handleDialogSelect = (id: number) => {
+        navigate(`/dialogs/chats/${id}`);
     };
 
-    if (!dialogs.length) {
-        return (
-            <DialogsContainer className={className}>
-                <NoMessages>No dialogs available</NoMessages>
-            </DialogsContainer>
-        );
-    }
+    const handleSendMessage = () => {
+        if (message.trim()) {
+            console.log("Message sent:", message);
+            setMessage("");
+        }
+    };
+
+    const handleUploadFile = () => {
+        console.log("File upload triggered");
+    };
 
     return (
-        <DialogsContainer className={className}>
-            <UserList>
-                {dialogs.map(dialog => (
-                    <UserItem
-                        key={dialog.user.userId}
-                        onClick={() => handleUserSelect(dialog.user.userId)}
-                        isActive={selectedUserId === dialog.user.userId}
-                    >
-                        <Avatar src={dialog.user.avatar || "/default-avatar.png"} alt={`${dialog.user.username}'s avatar`} />
-                        <UserDetails>
-                            <UserName>{dialog.user.username}</UserName>
-                            <UserStatus isOnline={dialog.user.isOnline}>
-                                {dialog.user.isOnline
-                                    ? "Online"
-                                    : `${new Date(dialog.user.lastActive).toLocaleString([], {
-                                        year: "numeric",
-                                        month: "2-digit",
-                                        day: "2-digit",
-                                        hour: "2-digit",
-                                        minute: "2-digit",
-                                    })}`}
-                            </UserStatus>
-                        </UserDetails>
-                    </UserItem>
-                ))}
-            </UserList>
-            {selectedDialog ? (
-                <MessagesSection>
-                    {selectedDialog.messages.length ? (
-                        selectedDialog.messages.map(message => (
-                            <MessageItem key={message.id} fromMe={message.fromMe}>
-                                <MessageTimestamp>
-                                    {new Date(message.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-                                </MessageTimestamp>
-                                <div>{message.message}</div>
-                            </MessageItem>
-                        ))
-                    ) : (
-                        <NoMessages>No messages available</NoMessages>
-                    )}
-                </MessagesSection>
-            ) : (
-                <NoMessages>Select a user to view messages</NoMessages>
-            )}
+        <DialogsContainer>
+            <UserListWrapper>
+                <DialogList
+                    dialogs={dialogs}
+                    selectedUserId={selectedDialog?.user.userId || null}
+                    onDialogSelect={handleDialogSelect}
+                />
+                <NavigationButtons/>
+            </UserListWrapper>
+            <ChatSection>
+                {selectedDialog ? (
+                    <>
+                        <DialogMessages messages={selectedDialog.messages}/>
+                        <InputSection>
+                            <input
+                                type="text"
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                                placeholder="Type your message"
+                            />
+                            <button onClick={handleSendMessage}>Send</button>
+                            <button onClick={handleUploadFile}>📁</button>
+                        </InputSection>
+                    </>
+                ) : (
+                    <NoContacts>Select a chat to view messages</NoContacts>
+                )}
+            </ChatSection>
         </DialogsContainer>
     );
 };

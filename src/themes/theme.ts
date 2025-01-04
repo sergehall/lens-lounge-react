@@ -105,7 +105,9 @@ const theme = {
         noMessagesColor: '#888888',
         transparentBg: 'transparent',
         boxShadowNeonShortWhite: '0 0 2px 1px rgba(255, 255, 255, 1), 0 0 8px 4px rgba(220, 240, 255, 0.7)',
-        boxShadowNeonShortBlue: '0 0 4px 2px rgba(28, 111, 153, 1), 0 0 10px 5px rgba(28, 111, 153, 0.8)'
+        boxShadowNeonShortWhiteSmall: '0 0 1px 0.5px rgba(255, 255, 255, 1), 0 0 4px 2px rgba(220, 240, 255, 0.7)',
+        boxShadowNeonShortBlue: '0 0 4px 2px rgba(28, 111, 153, 1), 0 0 10px 5px rgba(28, 111, 153, 0.8)',
+        boxShadowNeonShortBlueSmall: '0 0 2px 1px rgba(28, 111, 153, 1), 0 0 5px 2.5px rgba(28, 111, 153, 0.8)',
     },
     contacts: {
         userListBorderColor: 'rgba(255, 255, 255, 0.1)',
@@ -113,7 +115,7 @@ const theme = {
         userItemActiveColor: '#282c34',
         userItemInactiveColor: '#000000',
         noContactsColor: 'Red',
-        noContactsBg: 'Yellow',
+        noContactsBg: '#61DAFB',
     },
     technologies: {
         listStyleType: 'disc',

@@ -1,29 +1,26 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 import Dialogs from "../features/dialogs/Dialogs";
 import Contacts from "../features/dialogs/contacts/Contacts";
-import { RootState } from "../app/store";
-import { ClassNames } from "../config/class-names.enum";
-import { LayoutWrapper } from "../layouts/Layout-wrapper";
+import {RootState} from "../app/store";
+import {LayoutWrapper} from "../layouts/Layout-wrapper";
 import {pageConfig} from "../config/Page-сonfig";
 
 interface AppRoutesProps {
     state: RootState;
 }
 
-const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
+const AppRoutes: React.FC<AppRoutesProps> = ({state}) => {
     // Helper Components for specific routes
     const DialogsComponent: React.FC = () => (
         <Dialogs
             dialogs={state.content.dialogsPage.dialogs}
-            className={ClassNames.DIALOGS}
         />
     );
 
     const ContactsComponent: React.FC = () => (
         <Contacts
             contacts={state.content.dialogsPage.contacts}
-            className={ClassNames.CONTACTS}
         />
     );
 
@@ -44,14 +41,14 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
 
             {/* Dialogs Routes */}
             <Route path="/dialogs">
-                <Route index element={<Navigate to="chats" replace />} />
+                <Route index element={<Navigate to="chats" replace/>}/>
 
                 {/* Chats Route */}
                 <Route
                     path="chats"
                     element={
                         <LayoutWrapper layoutConfig={pageConfig.dialogsChats}>
-                            <DialogsComponent />
+                            <DialogsComponent/>
                         </LayoutWrapper>
                     }
                 />
@@ -60,7 +57,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
                     path="chats/:userId"
                     element={
                         <LayoutWrapper layoutConfig={pageConfig.dialogsChats}>
-                            <DialogsComponent />
+                            <DialogsComponent/>
                         </LayoutWrapper>
                     }
                 />
@@ -70,7 +67,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
                     path="contacts"
                     element={
                         <LayoutWrapper layoutConfig={pageConfig.dialogsContacts}>
-                            <ContactsComponent />
+                            <ContactsComponent/>
                         </LayoutWrapper>
                     }
                 />
@@ -79,7 +76,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
                     path="contacts/:userId"
                     element={
                         <LayoutWrapper layoutConfig={pageConfig.dialogsContacts}>
-                            <ContactsComponent />
+                            <ContactsComponent/>
                         </LayoutWrapper>
                     }
                 />
