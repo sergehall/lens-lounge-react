@@ -4,8 +4,7 @@ import {ContactsData} from "./contacts-data";
 import ContactsList from "./Contacts-list";
 import NavigationButtons from "../Navigation-buttons";
 import ContactDetails from "./Contact-details";
-import {DialogsContainer, NoContacts, UserListWrapper} from "../shared-layout.styles";
-import {ContactsInfoSection} from "./contacts.styles";
+import {ChatsOrContactsInfoSection, DialogsContainer, NoContacts, UserListWrapper} from "../shared-layout.styles";
 
 
 interface ContactsProps {
@@ -38,13 +37,13 @@ const Contacts: React.FC<ContactsProps> = ({contacts}) => {
                 />
                 <NavigationButtons/>
             </UserListWrapper>
-            <ContactsInfoSection>
+            <ChatsOrContactsInfoSection>
                 {selectedContact ? (
                     <ContactDetails contact={selectedContact}/>
                 ) : (
                     <NoContacts>Select a contact to view details</NoContacts>
                 )}
-            </ContactsInfoSection>
+            </ChatsOrContactsInfoSection>
         </DialogsContainer>
     );
 };

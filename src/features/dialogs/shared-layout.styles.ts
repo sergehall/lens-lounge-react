@@ -3,14 +3,19 @@ import styled from "styled-components";
 
 export const DialogsContainer = styled.div`
     display: flex;
-    flex-direction: row;
-    height: 100vh; 
-    margin: 0 auto;
-    max-width: 1200px;
     padding: 5px;
     border-radius: 8px;
     background-color: ${({theme}) => theme.global.backgroundColor};
     box-shadow: ${({theme}) => theme.global.boxShadow};
+`;
+
+export const ChatsOrContactsInfoSection = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    background-color: ${({theme}) => theme.global.backgroundColor};
+    border-radius: 8px;
 `;
 
 export const Avatar = styled.img<{ large?: boolean }>`
@@ -58,7 +63,7 @@ export const UserList = styled.div`
     border-right: 1px solid ${({ theme }) => theme.contacts.userListBorderColor};
     padding: 10px;
     background-color: ${({ theme }) => theme.global.backgroundColor};
-    box-shadow: ${({ theme }) => theme.global.boxShadowNeon};
+    box-shadow: ${({ theme }) => theme.global.boxShadowNeonShort};
 `;
 
 export const UserItem = styled.div<{ isActive: boolean }>`
@@ -88,3 +93,4 @@ export const NoContacts = styled.div`
     background-color: ${({ theme }) => theme.global.secondaryColor};
     border-radius: 6px;
 `;
+

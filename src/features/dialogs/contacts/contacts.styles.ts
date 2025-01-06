@@ -1,17 +1,5 @@
 import styled from "styled-components";
 
-
-export const ContactsInfoSection = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    background-color: ${({theme}) => theme.global.backgroundColor};
-    border-radius: 8px;
-    box-shadow: ${({theme}) => theme.global.boxShadowNeon};
-`;
-
 export const InfoSection = styled.div`
     padding: 20px; 
     background-color: ${({theme}) => theme.global.secondaryColor};

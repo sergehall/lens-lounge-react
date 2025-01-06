@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ChatSection } from "./dialogs.styles";
 import DialogList from "./Dialog-list";
 import DialogMessages from "./Dialog-messages";
 import { DialogData } from "./dialog-data";
-import { DialogsContainer, NoContacts, UserListWrapper } from "../shared-layout.styles";
+import {ChatsOrContactsInfoSection, DialogsContainer, NoContacts, UserListWrapper} from "../shared-layout.styles";
 import NavigationButtons from "../Navigation-buttons";
 import InputSection from "./ Input-section";
 
@@ -51,7 +50,7 @@ const Dialogs: React.FC<DialogsProps> = ({ dialogs }) => {
                 />
                 <NavigationButtons />
             </UserListWrapper>
-            <ChatSection>
+            <ChatsOrContactsInfoSection>
                 {selectedDialog ? (
                     <>
                         <DialogMessages messages={selectedDialog.messages} />
@@ -65,7 +64,7 @@ const Dialogs: React.FC<DialogsProps> = ({ dialogs }) => {
                 ) : (
                     <NoContacts>Select a chat to view messages</NoContacts>
                 )}
-            </ChatSection>
+            </ChatsOrContactsInfoSection>
         </DialogsContainer>
     );
 };
