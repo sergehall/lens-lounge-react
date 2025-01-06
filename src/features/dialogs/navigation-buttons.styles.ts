@@ -31,7 +31,6 @@ export const ButtonSegment = styled.div`
             background-color: ${({theme}) => theme.contacts.userBgActiveColor};
             color: ${({theme}) => theme.text.colorWhite};
             font-weight: bold;
-            //border: 2px solid #003f7f;
         }
 
         /* Responsive Design for Mobile Screens */
