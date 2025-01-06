@@ -1,6 +1,7 @@
 export const RoutePaths = {
     home: '/',
     profile: '/profile',
+    dialogs: '/dialogs',
     dialogsChats: '/dialogs/chats',
     dialogsContacts: '/dialogs/contacts',
     news: '/news',
@@ -18,7 +19,7 @@ export interface NavLinkProps {
 export const navLinks: NavLinkProps[] = [
     { name: 'Home', url: RoutePaths.home },
     { name: 'Profile', url: RoutePaths.profile },
-    { name: 'Dialogs', url: RoutePaths.dialogsChats },
+    { name: 'Dialogs', url: RoutePaths.dialogs },
     { name: 'News', url: RoutePaths.news },
     { name: 'Technologies', url: RoutePaths.technologies },
     { name: 'About', url: RoutePaths.about },
