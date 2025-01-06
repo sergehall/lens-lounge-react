@@ -1,4 +1,4 @@
-import {DialogData} from "../features/dialogs/dialog-data";
+import {DialogData} from "../features/dialogs/chats/dialog-data";
 import {PostProps} from "../features/my-posts/post/Post";
 import {ContactsData} from "../features/dialogs/contacts/contacts-data";
 

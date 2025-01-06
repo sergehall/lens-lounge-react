@@ -1,19 +1,21 @@
-import React, {useEffect, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
-import {ChatSection} from "./dialogs.styles";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { ChatSection } from "./dialogs.styles";
 import DialogList from "./Dialog-list";
 import DialogMessages from "./Dialog-messages";
-import {DialogData} from "./dialog-data";
-import {DialogsContainer, InputSection, NoContacts, UserListWrapper} from "./shared-layout.styles";
-import NavigationButtons from "./Navigation-buttons";
+import { DialogData } from "./dialog-data";
+import { DialogsContainer, NoContacts, UserListWrapper } from "../shared-layout.styles";
+import NavigationButtons from "../Navigation-buttons";
+import InputSection from "./ Input-section";
+
 
 interface DialogsProps {
     dialogs: DialogData[];
 }
 
-const Dialogs: React.FC<DialogsProps> = ({dialogs}) => {
+const Dialogs: React.FC<DialogsProps> = ({ dialogs }) => {
     const navigate = useNavigate();
-    const {userId} = useParams<{ userId?: string }>();
+    const { userId } = useParams<{ userId?: string }>();
     const [selectedDialog, setSelectedDialog] = useState<DialogData | null>(null);
     const [message, setMessage] = useState("");
 
@@ -47,22 +49,18 @@ const Dialogs: React.FC<DialogsProps> = ({dialogs}) => {
                     selectedUserId={selectedDialog?.user.userId || null}
                     onDialogSelect={handleDialogSelect}
                 />
-                <NavigationButtons/>
+                <NavigationButtons />
             </UserListWrapper>
             <ChatSection>
                 {selectedDialog ? (
                     <>
-                        <DialogMessages messages={selectedDialog.messages}/>
-                        <InputSection>
-                            <input
-                                type="text"
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
-                                placeholder="Type your message"
-                            />
-                            <button onClick={handleSendMessage}>Send</button>
-                            <button onClick={handleUploadFile}>📁</button>
-                        </InputSection>
+                        <DialogMessages messages={selectedDialog.messages} />
+                        <InputSection
+                            message={message}
+                            setMessage={setMessage}
+                            handleSendMessage={handleSendMessage}
+                            handleUploadFile={handleUploadFile}
+                        />
                     </>
                 ) : (
                     <NoContacts>Select a chat to view messages</NoContacts>

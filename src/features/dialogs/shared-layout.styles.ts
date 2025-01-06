@@ -80,39 +80,6 @@ export const UserItem = styled.div<{ isActive: boolean }>`
     }
 `;
 
-export const InputSection = styled.div`
-    display: flex;
-    align-items: center;
-    padding: 8px;
-    border-top: 1px solid #ddd;
-    background-color: #fff;
-
-    position: sticky; /* Keeps the input section at the bottom */
-    bottom: 0;
-
-    input[type="text"] {
-        flex: 1;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-right: 8px;
-    }
-
-    button {
-        padding: 8px 12px;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: white;
-        font-size: 14px;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #0056b3;
-        }
-    }
-`;
-
 export const NoContacts = styled.div`
     text-align: center;
     font-size: 1rem;

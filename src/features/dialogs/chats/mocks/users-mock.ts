@@ -1,6 +1,6 @@
 import { v4 } from 'uuid';
-import {OrgIdEnums} from "../../users/enums/org-id";
-import {UserRolesEnums} from "../../users/enums/user-roles";
+import {OrgIdEnums} from "../../../users/enums/org-id";
+import {UserRolesEnums} from "../../../users/enums/user-roles";
 
 export interface User {
     userId: number;

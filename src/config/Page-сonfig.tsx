@@ -7,7 +7,7 @@ import News from "../features/news/News";
 import Technologies from "../features/technologies/Technologies";
 import About from "../features/about/About";
 import Contact from "../features/contact/Contact";
-import Dialogs from "../features/dialogs/Dialogs";
+import Dialogs from "../features/dialogs/chats/Dialogs";
 import {techLinks} from "./technology-links";
 import {RootState} from "../app/store";
 import {ClassNames} from "./class-names.enum";

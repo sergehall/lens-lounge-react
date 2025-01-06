@@ -8,7 +8,7 @@ import {ThemeProvider} from "styled-components";
 import theme from "./themes/theme";
 import {AuthProvider} from "./contexts/AuthContext";
 import {RootState} from "./app/store";
-import {dialogData} from "./features/dialogs/dialog-data";
+import {dialogData} from "./features/dialogs/chats/dialog-data";
 import {postsDataMock} from "./features/my-posts/mocks/posts-data-mock";
 import {contactData} from "./features/dialogs/contacts/contacts-data";
 

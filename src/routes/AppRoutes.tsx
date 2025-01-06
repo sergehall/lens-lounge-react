@@ -1,6 +1,6 @@
 import React from "react";
 import {Routes, Route, Navigate} from "react-router-dom";
-import Dialogs from "../features/dialogs/Dialogs";
+import Dialogs from "../features/dialogs/chats/Dialogs";
 import Contacts from "../features/dialogs/contacts/Contacts";
 import {RootState} from "../app/store";
 import {LayoutWrapper} from "../layouts/Layout-wrapper";

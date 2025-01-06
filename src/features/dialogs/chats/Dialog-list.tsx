@@ -1,6 +1,6 @@
 import React from "react";
 import {DialogData} from "./dialog-data";
-import {Avatar, UserDetails, UserItem, UserList, UserName, UserStatus} from "./shared-layout.styles";
+import {Avatar, UserDetails, UserItem, UserList, UserName, UserStatus} from "../shared-layout.styles";
 
 interface DialogListProps {
     dialogs: DialogData[];
