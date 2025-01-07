@@ -1,6 +1,7 @@
 import {DialogData} from "../features/dialogs/chats/dialog-data";
 import {PostProps} from "../features/my-posts/post/Post";
 import {ContactsData} from "../features/dialogs/contacts/contacts-data";
+import {NavLinkProps} from "../config/nav-links";
 
 
 export interface RootState {
@@ -9,20 +10,20 @@ export interface RootState {
     content: ContentState;
 }
 
-
 export interface HeaderState {
 }
 
-export interface HomeState {
-}
-
 export interface SidebarState {
+    links: NavLinkProps[];
 }
 
 export interface ContentState {
     homePage: HomeState;
     profilePage: ProfilePageState;
     dialogsPage: DialogsPageState;
+}
+
+export interface HomeState {
 }
 
 export interface ProfilePageState {
@@ -35,4 +36,5 @@ export interface DialogsPageState {
     posts: PostProps[];
     contacts: ContactsData[];
 }
+
 

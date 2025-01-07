@@ -1,6 +1,5 @@
 import React from "react";
 import {PageTitles} from "./config/page-titles";
-import {navLinks} from "./config/nav-links";
 import Sidebar from "./components/sidebar/Sidebar";
 import Header from "./components/header/Header";
 import logo from './assets/images/logo.svg';
@@ -29,7 +28,7 @@ const App: React.FC<AppProps> = ({ state }) => {
 
                 {/* Sidebar */}
                 <AppSidebar>
-                    <Sidebar links={navLinks} className="Sidebar"/>
+                    <Sidebar links={state.sidebar.links}/>
                 </AppSidebar>
 
                 {/* Content */}

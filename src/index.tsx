@@ -11,6 +11,7 @@ import {RootState} from "./app/store";
 import {dialogData} from "./features/dialogs/chats/dialog-data";
 import {postsDataMock} from "./features/my-posts/mocks/posts-data-mock";
 import {contactData} from "./features/dialogs/contacts/contacts-data";
+import {navLinks} from "./config/nav-links";
 
 // ID for the root DOM node
 const ROOT_ID = 'root';
@@ -25,7 +26,9 @@ const root = ReactDOM.createRoot(rootElement);
 // Define the rootState object
 const rootState: RootState = {
     header: {},
-    sidebar: {},
+    sidebar: {
+        links: navLinks
+    },
     content: {
         homePage: {},
         profilePage: {
