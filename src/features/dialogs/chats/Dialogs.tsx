@@ -42,7 +42,7 @@ const Dialogs: React.FC<DialogsProps> = ({ dialogs }) => {
 
     return (
         <DialogsContainer>
-            <UserListWrapper>
+            <UserListWrapper> n
                 <DialogList
                     dialogs={dialogs}
                     selectedUserId={selectedDialog?.user.userId || null}

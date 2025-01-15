@@ -1,8 +1,29 @@
-import {DialogData} from "../features/dialogs/chats/dialog-data";
+import {dialogData, DialogData} from "../features/dialogs/chats/dialog-data";
 import {PostProps} from "../features/my-posts/post/Post";
-import {ContactsData} from "../features/dialogs/contacts/contacts-data";
-import {NavLinkProps} from "../config/nav-links";
+import {contactData, ContactsData} from "../features/dialogs/contacts/contacts-data";
+import {NavLinkProps, navLinks} from "../config/nav-links";
+import {postsDataMock} from "../features/my-posts/mocks/posts-data-mock";
 
+
+// Define the rootState object
+export const rootState: RootState = {
+    header: {},
+    sidebar: {
+        links: navLinks
+    },
+    content: {
+        homePage: {},
+        profilePage: {
+            profile: {},
+            posts: postsDataMock
+        },
+        dialogsPage: {
+            dialogs: dialogData,
+            posts: postsDataMock,
+            contacts: contactData
+        }
+    }
+};
 
 export interface RootState {
     header: HeaderState;

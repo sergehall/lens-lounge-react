@@ -7,11 +7,7 @@ import App from './App';
 import {ThemeProvider} from "styled-components";
 import theme from "./themes/theme";
 import {AuthProvider} from "./contexts/AuthContext";
-import {RootState} from "./app/store";
-import {dialogData} from "./features/dialogs/chats/dialog-data";
-import {postsDataMock} from "./features/my-posts/mocks/posts-data-mock";
-import {contactData} from "./features/dialogs/contacts/contacts-data";
-import {navLinks} from "./config/nav-links";
+import {rootState, RootState} from "./app/store";
 
 // ID for the root DOM node
 const ROOT_ID = 'root';
@@ -23,25 +19,6 @@ if (!rootElement) {
 }
 const root = ReactDOM.createRoot(rootElement);
 
-// Define the rootState object
-const rootState: RootState = {
-    header: {},
-    sidebar: {
-        links: navLinks
-    },
-    content: {
-        homePage: {},
-        profilePage: {
-            profile: {},
-            posts: postsDataMock
-        },
-        dialogsPage: {
-            dialogs: dialogData,
-            posts: postsDataMock,
-            contacts: contactData
-        }
-    }
-};
 
 // Render the application
 function renderApp(rootState: RootState) {
@@ -58,5 +35,5 @@ function renderApp(rootState: RootState) {
     );
 }
 
-// Initial rendering with the state
+// Initial rendering with the rootState
 renderApp(rootState);
