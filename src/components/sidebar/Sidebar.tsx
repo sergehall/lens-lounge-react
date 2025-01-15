@@ -6,10 +6,12 @@ import {
     SidebarLink,
 } from "./sidebar.styles";
 import {NavLink} from "react-router-dom";
-import {RoutePaths} from "../../config/nav-links";
+import {RouteManager} from "../../utils/routeManager";
+
+const SidebarPaths = RouteManager.getSidebarPaths();
 
 interface SidebarProps {
-    links: { name: string; url: typeof RoutePaths[keyof typeof RoutePaths]; }[];
+    links: { name: string; url: typeof SidebarPaths[keyof typeof SidebarPaths]; }[];
 }
 
 

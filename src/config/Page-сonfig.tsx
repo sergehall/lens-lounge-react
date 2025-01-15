@@ -6,11 +6,11 @@ import News from "../features/news/News";
 import Technologies from "../features/technologies/Technologies";
 import About from "../features/about/About";
 import Contact from "../features/contact/Contact";
-import Dialogs from "../features/dialogs/chats/Dialogs";
 import Contacts from "../features/dialogs/contacts/Contacts";
 import {techLinks} from "./technology-links";
 import {RootState} from "../app/store";
 import {ClassNames} from "./class-names.enum";
+import Chats from "../features/dialogs/chats/Chats";
 
 export interface PageConfig {
     bannerImage: string;
@@ -25,31 +25,31 @@ export const pageConfig: Record<string, PageConfig> = {
         summaryDescription: "Welcome to the homepage of Lens Lounge.",
         component: () => <Home/>,
     },
-    profile: {
+    showcase: {
         bannerImage: "./..assets/images/default-image-banner.png",
         summaryDescription: "Explore your profile and shared posts.",
         component: (state: RootState) => (
             <>
                 <ExampleUserProfile/>
-                <MyPosts posts={state.content.profilePage.posts} className={ClassNames.MY_POSTS}/>
+                <MyPosts posts={state.content.whisperPage.posts} className={ClassNames.MY_POSTS}/>
             </>
         ),
     },
-    dialogsChats: {
+    whisperDialogs: {
         bannerImage: "./..assets/images/default-image-banner.png",
         summaryDescription: "Your messages and chats.",
         component: (state: RootState) => (
-            <Dialogs
-                dialogs={state.content.dialogsPage.dialogs}
+            <Chats
+                chats={state.content.whisperPage.chats}
             />
         ),
     },
-    dialogsContacts: {
+    whisperContacts: {
         bannerImage: "./..assets/images/default-image-banner.png",
         summaryDescription: "Your contacts and friends.",
         component: (state: RootState) => (
             <Contacts
-                contacts={state.content.dialogsPage.contacts}
+                contacts={state.content.whisperPage.contacts}
             />
         ),
     },

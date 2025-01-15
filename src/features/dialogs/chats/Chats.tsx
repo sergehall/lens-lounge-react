@@ -1,32 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import DialogList from "./Dialog-list";
-import DialogMessages from "./Dialog-messages";
-import { DialogData } from "./dialog-data";
-import {ChatsOrContactsInfoSection, DialogsContainer, NoContacts, UserListWrapper} from "../shared-layout.styles";
+import ChatsList from "./Chats-list";
+import ChatMessages from "./Chat-messages";
+import {ChatsOrContactsInfoSection, WhisperContainer, NoContacts, UserListWrapper} from "../shared-layout.styles";
 import NavigationButtons from "../Navigation-buttons";
 import InputSection from "./ Input-section";
+import {ChatsData} from "./chats-data";
+import {RouteManager} from "../../../utils/routeManager";
 
 
-interface DialogsProps {
-    dialogs: DialogData[];
+interface ChatsProps {
+    chats: ChatsData[];
 }
 
-const Dialogs: React.FC<DialogsProps> = ({ dialogs }) => {
+const Chats: React.FC<ChatsProps> = ({ chats }) => {
     const navigate = useNavigate();
-    const { userId } = useParams<{ userId?: string }>();
-    const [selectedDialog, setSelectedDialog] = useState<DialogData | null>(null);
+    const { userId } = useParams<{ userId: string }>();
+    const [selectedDialog, setSelectedDialog] = useState<ChatsData | null>(null);
     const [message, setMessage] = useState("");
 
     useEffect(() => {
         if (userId) {
-            const dialog = dialogs.find((d) => d.user.userId === Number(userId));
-            setSelectedDialog(dialog || null);
+            const chat = chats.find((d) => d.user.userId === Number(userId));
+            setSelectedDialog(chat || null);
         }
-    }, [userId, dialogs]);
+    }, [userId, chats]);
 
-    const handleDialogSelect = (id: number) => {
-        navigate(`/dialogs/chats/${id}`);
+    const handleDialogSelect = (userId: number) => {
+        navigate(`${RouteManager.getSidebarPaths().whisper}/${RouteManager.getNestedPaths().chats}/${userId}`);
     };
 
     const handleSendMessage = () => {
@@ -41,10 +42,10 @@ const Dialogs: React.FC<DialogsProps> = ({ dialogs }) => {
     };
 
     return (
-        <DialogsContainer>
-            <UserListWrapper> n
-                <DialogList
-                    dialogs={dialogs}
+        <WhisperContainer>
+            <UserListWrapper>
+                <ChatsList
+                    chats={chats}
                     selectedUserId={selectedDialog?.user.userId || null}
                     onDialogSelect={handleDialogSelect}
                 />
@@ -53,7 +54,7 @@ const Dialogs: React.FC<DialogsProps> = ({ dialogs }) => {
             <ChatsOrContactsInfoSection>
                 {selectedDialog ? (
                     <>
-                        <DialogMessages messages={selectedDialog.messages} />
+                        <ChatMessages messages={selectedDialog.messages} />
                         <InputSection
                             message={message}
                             setMessage={setMessage}
@@ -65,8 +66,8 @@ const Dialogs: React.FC<DialogsProps> = ({ dialogs }) => {
                     <NoContacts>Select a chat to view messages</NoContacts>
                 )}
             </ChatsOrContactsInfoSection>
-        </DialogsContainer>
+        </WhisperContainer>
     );
 };
 
-export default Dialogs;
+export default Chats;

@@ -1,27 +1,24 @@
 import React from "react";
-import {Routes, Route, Navigate} from "react-router-dom";
-import Dialogs from "../features/dialogs/chats/Dialogs";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Dialogs from "../features/dialogs/chats/Chats";
 import Contacts from "../features/dialogs/contacts/Contacts";
-import {RootState} from "../app/store";
-import {LayoutWrapper} from "../layouts/Layout-wrapper";
-import {pageConfig} from "../config/Page-сonfig";
+import { RootState } from "../app/store";
+import { LayoutWrapper } from "../layouts/Layout-wrapper";
+import { pageConfig } from "../config/Page-сonfig";
+import {RouteManager} from "../utils/routeManager";
 
 interface AppRoutesProps {
     state: RootState;
 }
 
-const AppRoutes: React.FC<AppRoutesProps> = ({state}) => {
+const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
     // Helper Components for specific routes
     const DialogsComponent: React.FC = () => (
-        <Dialogs
-            dialogs={state.content.dialogsPage.dialogs}
-        />
+        <Dialogs chats={state.content.whisperPage.chats} />
     );
 
     const ContactsComponent: React.FC = () => (
-        <Contacts
-            contacts={state.content.dialogsPage.contacts}
-        />
+        <Contacts contacts={state.content.whisperPage.contacts} />
     );
 
     return (
@@ -39,44 +36,50 @@ const AppRoutes: React.FC<AppRoutesProps> = ({state}) => {
                 />
             ))}
 
-            {/* Dialogs Routes */}
-            <Route path="/dialogs">
-                <Route index element={<Navigate to="chats" replace/>}/>
-
-                {/* Chats Route */}
+            {/* Whisper Parent Route */}
+            <Route path={RouteManager.getSidebarPaths().whisper}>
+                {/* Default Redirect */}
                 <Route
-                    path="chats"
+                    index
+                    element={<Navigate to={RouteManager.getNestedPaths().chats} replace />}
+                />
+
+                {/* Dialogs Route */}
+                <Route
+                    path={RouteManager.getNestedPaths().chats}
                     element={
-                        <LayoutWrapper layoutConfig={pageConfig.dialogsChats}>
-                            <DialogsComponent/>
+                        <LayoutWrapper layoutConfig={pageConfig.whisperDialogs}>
+                            <DialogsComponent />
                         </LayoutWrapper>
                     }
                 />
 
+                {/* Dialogs with User ID */}
                 <Route
-                    path="chats/:userId"
+                    path={RouteManager.getNestedPaths().chatsUserId}
                     element={
-                        <LayoutWrapper layoutConfig={pageConfig.dialogsChats}>
-                            <DialogsComponent/>
+                        <LayoutWrapper layoutConfig={pageConfig.whisperDialogs}>
+                            <DialogsComponent />
                         </LayoutWrapper>
                     }
                 />
 
                 {/* Contacts Route */}
                 <Route
-                    path="contacts"
+                    path={RouteManager.getNestedPaths().contacts}
                     element={
-                        <LayoutWrapper layoutConfig={pageConfig.dialogsContacts}>
-                            <ContactsComponent/>
+                        <LayoutWrapper layoutConfig={pageConfig.whisperContacts}>
+                            <ContactsComponent />
                         </LayoutWrapper>
                     }
                 />
 
+                {/* Contacts with User ID */}
                 <Route
-                    path="contacts/:userId"
+                    path={RouteManager.getNestedPaths().contactsUserId}
                     element={
-                        <LayoutWrapper layoutConfig={pageConfig.dialogsContacts}>
-                            <ContactsComponent/>
+                        <LayoutWrapper layoutConfig={pageConfig.whisperContacts}>
+                            <ContactsComponent />
                         </LayoutWrapper>
                     }
                 />

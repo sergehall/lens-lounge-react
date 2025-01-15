@@ -1,13 +1,13 @@
 import React from "react";
 import {Message} from "./mocks/messages-mock";
-import {MessageItem, MessagesContainer} from "./dialogs.styles";
+import {MessageItem, MessagesContainer} from "./chats.styles";
 
 
-interface DialogMessagesProps {
+interface ChatMessagesProps {
     messages: Message[];
 }
 
-const DialogMessages: React.FC<DialogMessagesProps> = ({ messages }) => {
+const ChatMessages: React.FC<ChatMessagesProps> = ({ messages }) => {
     if (messages.length === 0) {
         return <p>No messages to display</p>;
     }
@@ -26,4 +26,4 @@ const DialogMessages: React.FC<DialogMessagesProps> = ({ messages }) => {
     );
 };
 
-export default DialogMessages;
+export default ChatMessages;

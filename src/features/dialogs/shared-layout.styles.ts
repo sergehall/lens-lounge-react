@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const DialogsContainer = styled.div`
+export const WhisperContainer = styled.div`
     display: flex;
     padding: 5px;
     border-radius: 8px;

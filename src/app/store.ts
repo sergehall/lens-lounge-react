@@ -1,4 +1,4 @@
-import {dialogData, DialogData} from "../features/dialogs/chats/dialog-data";
+import {chatsData, ChatsData} from "../features/dialogs/chats/chats-data";
 import {PostProps} from "../features/my-posts/post/Post";
 import {contactData, ContactsData} from "../features/dialogs/contacts/contacts-data";
 import {NavLinkProps, navLinks} from "../config/nav-links";
@@ -13,16 +13,16 @@ export const rootState: RootState = {
     },
     content: {
         homePage: {},
-        profilePage: {
+        showcasePage: {
             profile: {},
             posts: postsDataMock
         },
-        dialogsPage: {
-            dialogs: dialogData,
+        whisperPage: {
+            chats: chatsData,
             posts: postsDataMock,
             contacts: contactData
         }
-    }
+    },
 };
 
 export interface RootState {
@@ -40,20 +40,20 @@ export interface SidebarState {
 
 export interface ContentState {
     homePage: HomeState;
-    profilePage: ProfilePageState;
-    dialogsPage: DialogsPageState;
+    showcasePage: ShowcasePageState;
+    whisperPage: WhisperPageState;
 }
 
 export interface HomeState {
 }
 
-export interface ProfilePageState {
+export interface ShowcasePageState {
     profile: {}
     posts: PostProps[];
 }
 
-export interface DialogsPageState {
-    dialogs: DialogData[];
+export interface WhisperPageState {
+    chats: ChatsData[];
     posts: PostProps[];
     contacts: ContactsData[];
 }

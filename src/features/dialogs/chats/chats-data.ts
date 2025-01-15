@@ -1,13 +1,13 @@
 import {allMessagesMock, fetchMessagesByUserIds, Message} from "./mocks/messages-mock";
 import {User, users} from "./mocks/users-mock";
 
-export interface DialogData {
+export interface ChatsData {
     user: User;
     messages: Message[];
     unreadCount?: number;
 }
 
-export const dialogData: DialogData[] = users.map((user) => ({
+export const chatsData: ChatsData[] = users.map((user) => ({
     user,
     messages: fetchMessagesByUserIds(0, user.userId, allMessagesMock),
 }));

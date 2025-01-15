@@ -1,6 +1,6 @@
 // InputSection.tsx
 import React from 'react';
-import { InputSectionChat } from "./dialogs.styles";
+import { InputSectionChat } from "./chats.styles";
 
 // Button components
 interface ButtonProps {

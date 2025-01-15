@@ -4,7 +4,8 @@ import {ContactsData} from "./contacts-data";
 import ContactsList from "./Contacts-list";
 import NavigationButtons from "../Navigation-buttons";
 import ContactDetails from "./Contact-details";
-import {ChatsOrContactsInfoSection, DialogsContainer, NoContacts, UserListWrapper} from "../shared-layout.styles";
+import {ChatsOrContactsInfoSection, NoContacts, UserListWrapper, WhisperContainer} from "../shared-layout.styles";
+import {RouteManager} from "../../../utils/routeManager";
 
 
 interface ContactsProps {
@@ -13,7 +14,7 @@ interface ContactsProps {
 
 const Contacts: React.FC<ContactsProps> = ({contacts}) => {
     const navigate = useNavigate();
-    const {userId} = useParams<{ userId?: string }>();
+    const {userId} = useParams<{ userId: string }>();
     const [selectedContact, setSelectedContact] = useState<ContactsData | null>(null);
 
     useEffect(() => {
@@ -23,12 +24,12 @@ const Contacts: React.FC<ContactsProps> = ({contacts}) => {
         }
     }, [userId, contacts]);
 
-    const handleContactSelect = (id: number) => {
-        navigate(`/dialogs/contacts/${id}`);
+    const handleContactSelect = (userId: number) => {
+        navigate(`${RouteManager.getSidebarPaths().whisper}/${RouteManager.getNestedPaths().contacts}/${userId}`);
     };
 
     return (
-        <DialogsContainer>
+        <WhisperContainer>
             <UserListWrapper>
                 <ContactsList
                     contacts={contacts}
@@ -44,7 +45,7 @@ const Contacts: React.FC<ContactsProps> = ({contacts}) => {
                     <NoContacts>Select a contact to view details</NoContacts>
                 )}
             </ChatsOrContactsInfoSection>
-        </DialogsContainer>
+        </WhisperContainer>
     );
 };
 
