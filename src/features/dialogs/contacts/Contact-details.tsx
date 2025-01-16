@@ -19,7 +19,8 @@ const ContactDetails: React.FC<ContactDetailsProps> = ({contact}) => {
             <Avatar
                 src={contact.avatar || "/default-avatar.png"}
                 alt={`${contact.username}'s avatar`}
-                large
+                isActive={true}
+                large={true}
             />
             <UserName>{contact.username}</UserName>
             <UserStatus isOnline={contact.isOnline}>

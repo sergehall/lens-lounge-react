@@ -18,40 +18,10 @@ export const ChatsOrContactsInfoSection = styled.div`
     border-radius: 8px;
 `;
 
-export const Avatar = styled.img<{ large?: boolean }>`
-    width: ${({ large }) => (large ? "100px" : "40px")};
-    height: ${({ large }) => (large ? "100px" : "40px")};
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid ${({ theme }) => theme.global.semiTransparentBorder};
-`;
-
 export const UserListWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding-right: 5px;
-`;
-
-export const UserDetails = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
-
-export const UserName = styled.span`
-    font-size: 1rem;
-    font-weight: bold;
-    margin-top: 5px;
-`;
-
-
-export const UserStatus = styled.span<{ isOnline: boolean }>`
-    font-size: ${({isOnline}) => (isOnline ? "1rem" : "0.7rem")};
-    color: ${({isOnline, theme}) =>
-    isOnline ? theme.highlights.white : theme.global.transparentTextShadow};
-    line-height: 1rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 `;
 
 export const UserList = styled.div`
@@ -83,6 +53,37 @@ export const UserItem = styled.div<{ isActive: boolean }>`
     &:hover {
         background-color: ${({ theme }) => theme.contacts.userBgActiveColor};
     }
+`;
+
+export const Avatar = styled.img<{ isActive: boolean, large: boolean }>`
+    width: ${({ large }) => (large ? "100px" : "40px")};
+    height: ${({ large }) => (large ? "100px" : "40px")};
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid
+    ${({ theme, isActive }) =>
+            isActive ? theme.highlights.white : theme.global.semiTransparentBorder};
+`;
+
+export const UserDetails = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const UserName = styled.span`
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 5px;
+`;
+
+export const UserStatus = styled.span<{ isOnline: boolean }>`
+    font-size: ${({isOnline}) => (isOnline ? "1rem" : "0.7rem")};
+    color: ${({isOnline, theme}) =>
+    isOnline ? theme.highlights.white : theme.global.transparentTextShadow};
+    line-height: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 export const NoContacts = styled.div`

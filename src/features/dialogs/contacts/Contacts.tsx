@@ -25,7 +25,8 @@ const Contacts: React.FC<ContactsProps> = ({contacts}) => {
     }, [userId, contacts]);
 
     const handleContactSelect = (userId: number) => {
-        navigate(`${RouteManager.getSidebarPaths().whisper}/${RouteManager.getNestedPaths().contacts}/${userId}`);
+        const path = `${RouteManager.getSidebarPaths().whisper}/${RouteManager.getNestedPaths().contacts}/${userId}`;
+        navigate(path);
     };
 
     return (

@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ChatsList from "./Chats-list";
 import ChatMessages from "./Chat-messages";
-import {ChatsOrContactsInfoSection, WhisperContainer, NoContacts, UserListWrapper} from "../shared-layout.styles";
+import {
+    ChatsOrContactsInfoSection,
+    WhisperContainer,
+    NoContacts,
+    UserListWrapper,
+} from "../shared-layout.styles";
 import NavigationButtons from "../Navigation-buttons";
+import { ChatsData } from "./chats-data";
+import { RouteManager } from "../../../utils/routeManager";
 import InputSection from "./ Input-section";
-import {ChatsData} from "./chats-data";
-import {RouteManager} from "../../../utils/routeManager";
-
 
 interface ChatsProps {
     chats: ChatsData[];
@@ -21,13 +25,14 @@ const Chats: React.FC<ChatsProps> = ({ chats }) => {
 
     useEffect(() => {
         if (userId) {
-            const chat = chats.find((d) => d.user.userId === Number(userId));
+            const chat = chats.find((chat) => chat.user.userId === Number(userId));
             setSelectedDialog(chat || null);
         }
     }, [userId, chats]);
 
     const handleDialogSelect = (userId: number) => {
-        navigate(`${RouteManager.getSidebarPaths().whisper}/${RouteManager.getNestedPaths().chats}/${userId}`);
+        const path = `${RouteManager.getSidebarPaths().whisper}/${RouteManager.getNestedPaths().chats}/${userId}`;
+        navigate(path);
     };
 
     const handleSendMessage = () => {

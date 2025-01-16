@@ -8,7 +8,11 @@ interface ContactsListProps {
     onContactSelect: (userId: number) => void;
 }
 
-const ContactsList: React.FC<ContactsListProps> = ({contacts, selectedUserId, onContactSelect}) => {
+const ContactsList: React.FC<ContactsListProps> = ({
+                                                       contacts,
+                                                       selectedUserId,
+                                                       onContactSelect,
+                                                   }) => {
     return (
         <UserList>
             {contacts.map((contact) => (
@@ -20,6 +24,8 @@ const ContactsList: React.FC<ContactsListProps> = ({contacts, selectedUserId, on
                     <Avatar
                         src={contact.avatar || "/default-avatar.png"}
                         alt={`${contact.username}'s avatar`}
+                        isActive={selectedUserId === contact.userId}
+                        large={false}
                     />
                     <UserDetails>
                         <UserName>{contact.username}</UserName>
