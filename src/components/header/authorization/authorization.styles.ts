@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-interface AuthButtonProps {
-    isActive: boolean;
-}
-
 export const AuthButton = styled.button< {$isActive: boolean}>`
     background: transparent;
     color: ${({ $isActive, theme }) => ($isActive ? theme.links.activeText : theme.links.color)};
