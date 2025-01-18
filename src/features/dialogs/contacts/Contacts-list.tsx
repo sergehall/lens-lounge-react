@@ -19,17 +19,17 @@ const ContactsList: React.FC<ContactsListProps> = ({
                 <UserItem
                     key={contact.userId}
                     onClick={() => onContactSelect(contact.userId)}
-                    isActive={selectedUserId === contact.userId}
+                    $isActive={selectedUserId === contact.userId}
                 >
                     <Avatar
                         src={contact.avatar || "/default-avatar.png"}
                         alt={`${contact.username}'s avatar`}
-                        isActive={selectedUserId === contact.userId}
-                        large={false}
+                        $isActive={selectedUserId === contact.userId}
+                        $large={false}
                     />
                     <UserDetails>
                         <UserName>{contact.username}</UserName>
-                        <UserStatus isOnline={contact.isOnline}>
+                        <UserStatus $isOnline={contact.isOnline}>
                             {contact.isOnline ? "Online" : "Offline"}
                         </UserStatus>
                     </UserDetails>

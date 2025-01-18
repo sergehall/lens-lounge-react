@@ -26,7 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({links}) => {
                             style={{textDecoration: "none"}}
                         >
                             {({isActive}) => (
-                                <SidebarLink isActive={isActive}>
+                                <SidebarLink $isActive={isActive}>
                                     {link.name}
                                 </SidebarLink>
                             )}

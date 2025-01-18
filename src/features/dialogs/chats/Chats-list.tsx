@@ -1,6 +1,6 @@
 import React from "react";
-import {Avatar, UserDetails, UserItem, UserList, UserName, UserStatus} from "../shared-layout.styles";
-import {ChatsData} from "./chats-data";
+import { Avatar, UserDetails, UserItem, UserList, UserName, UserStatus } from "../shared-layout.styles";
+import { ChatsData } from "./chats-data";
 
 interface ChatsListProps {
     chats: ChatsData[];
@@ -15,17 +15,17 @@ const ChatsList: React.FC<ChatsListProps> = ({ chats, selectedUserId, onDialogSe
                 <UserItem
                     key={chat.user.userId}
                     onClick={() => onDialogSelect(chat.user.userId)}
-                    isActive={selectedUserId === chat.user.userId}
+                    $isActive={selectedUserId === chat.user.userId}
                 >
                     <Avatar
                         src={chat.user.avatar || "/default-avatar.png"}
                         alt={`${chat.user.username}'s avatar`}
-                        isActive={selectedUserId === chat.user.userId}
-                        large={false}
+                        $isActive={selectedUserId === chat.user.userId}
+                        $large={false}
                     />
                     <UserDetails>
                         <UserName>{chat.user.username}</UserName>
-                        <UserStatus isOnline={chat.user.isOnline}>
+                        <UserStatus $isOnline={chat.user.isOnline}>
                             {chat.user.isOnline ? "Online" : "Offline"}
                         </UserStatus>
                     </UserDetails>

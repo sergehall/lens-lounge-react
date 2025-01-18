@@ -25,9 +25,23 @@ const Profile: React.FC<ProfileProps> = ({
                                              education,
                                              website,
                                          }) => {
+    const renderWebsite = () => {
+        if (!website) {
+            return <span>Not available</span>;
+        }
+        return (
+            <a href={website} target="_blank" rel="noopener noreferrer">
+                {website}
+            </a>
+        );
+    };
+
     return (
         <ProfileContainer>
+            {/* Profile Photo */}
             <ProfilePhoto src={photoUrl} alt={`${firstName} ${lastName}'s profile`} />
+
+            {/* Profile Details */}
             <ProfileDetails>
                 <ProfileField>
                     <ProfileLabel>Name:</ProfileLabel>
@@ -43,11 +57,7 @@ const Profile: React.FC<ProfileProps> = ({
                 </ProfileField>
                 <ProfileField>
                     <ProfileLabel>Website:</ProfileLabel>
-                    <ProfileValue>
-                        <a href={website} target="_blank" rel="noopener noreferrer">
-                            {website}
-                        </a>
-                    </ProfileValue>
+                    <ProfileValue>{renderWebsite()}</ProfileValue>
                 </ProfileField>
             </ProfileDetails>
         </ProfileContainer>

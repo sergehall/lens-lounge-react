@@ -3,6 +3,7 @@ import {PostProps} from "../features/my-posts/post/Post";
 import {contactData, ContactsData} from "../features/dialogs/contacts/contacts-data";
 import {NavLinkProps, navLinks} from "../config/nav-links";
 import {postsDataMock} from "../features/my-posts/mocks/posts-data-mock";
+import {NewArticles, newArticlesMock} from "../features/news/news-articles-mock";
 
 
 // Define the rootState object
@@ -21,7 +22,10 @@ export const rootState: RootState = {
             chats: chatsData,
             posts: postsDataMock,
             contacts: contactData
-        }
+        },
+        newsPage: {
+            news: newArticlesMock,
+        },
     },
 };
 
@@ -42,6 +46,7 @@ export interface ContentState {
     homePage: HomeState;
     showcasePage: ShowcasePageState;
     whisperPage: WhisperPageState;
+    newsPage: NewsPageState;
 }
 
 export interface HomeState {
@@ -59,3 +64,6 @@ export interface WhisperPageState {
 }
 
 
+export interface NewsPageState {
+    news: NewArticles[]
+}

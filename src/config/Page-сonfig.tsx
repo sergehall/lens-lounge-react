@@ -56,7 +56,7 @@ export const pageConfig: Record<string, PageConfig> = {
     news: {
         bannerImage: "./../assets/images/default-image-banner.png",
         summaryDescription: "Stay updated with the latest news.",
-        component: () => <News/>,
+        component: (state: RootState) => <News newArticles={state.content.newsPage.news}/>,
     },
     technologies: {
         bannerImage: "./../assets/images/default-image-banner.png",

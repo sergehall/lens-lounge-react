@@ -15,8 +15,8 @@ const InstagramEmbed: React.FC<InstagramEmbedProps> = ({ url, title }) => {
                 borderRadius: '8px',
                 width: '100%',
                 height: '400px',
+                backgroundColor: 'transparent',
             }}
-            allowTransparency={true}
             title={title}
         ></iframe>
     );

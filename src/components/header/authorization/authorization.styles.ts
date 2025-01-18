@@ -4,17 +4,17 @@ interface AuthButtonProps {
     isActive: boolean;
 }
 
-export const AuthButton = styled.button<AuthButtonProps>`
+export const AuthButton = styled.button< {$isActive: boolean}>`
     background: transparent;
-    color: ${({ isActive, theme }) => (isActive ? theme.links.activeText : theme.links.color)};
-    border: 2px solid #61DAFB;
+    color: ${({ $isActive, theme }) => ($isActive ? theme.links.activeText : theme.links.color)};
+    border: 2px solid #61dafb;
     border-radius: 5px;
     padding: 10px 40px;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: ${({ isActive, theme }) =>
-    isActive ? theme.authorization.boxShadow : "none"};
+    box-shadow: ${({ $isActive, theme }) =>
+            $isActive ? theme.authorization.boxShadow : "none"};
 
     &:hover {
         box-shadow: ${({ theme }) => theme.authorization.boxShadow};

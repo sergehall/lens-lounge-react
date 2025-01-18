@@ -38,7 +38,7 @@ const Authorization: React.FC<AuthorizationProps> = ({
             onMouseLeave={() => setIsDropdownVisible(false)}
         >
             {/* Authorization Button */}
-            <AuthButton isActive={isDropdownVisible}>Authorization</AuthButton>
+            <AuthButton $isActive={isDropdownVisible}>Authorization</AuthButton>
 
             {/* Dropdown Content */}
             {isDropdownVisible && (

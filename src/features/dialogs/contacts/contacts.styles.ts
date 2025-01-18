@@ -14,10 +14,10 @@ export const UserName = styled.span`
     padding-left: 10px;
 `;
 
-export const UserStatus = styled.span<{ isOnline: boolean }>`
-    font-size: ${({isOnline}) => (isOnline ? "1rem" : "0.7rem")};
-    color: ${({isOnline, theme}) =>
-            isOnline ? theme.highlights.white : theme.global.transparentTextShadow};
+export const UserStatus = styled.span<{ $isOnline: boolean }>`
+    font-size: ${({$isOnline}) => ($isOnline ? "1rem" : "0.7rem")};
+    color: ${({$isOnline, theme}) =>
+            $isOnline ? theme.highlights.white : theme.global.transparentTextShadow};
     line-height: 1rem;
     white-space: nowrap;
     overflow: hidden;
