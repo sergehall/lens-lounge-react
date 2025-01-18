@@ -9,6 +9,7 @@ import theme from "./themes/theme";
 import {AuthProvider} from "./contexts/AuthContext";
 import {rootState, RootState} from "./app/store";
 
+
 // ID for the root DOM node
 const ROOT_ID = 'root';
 

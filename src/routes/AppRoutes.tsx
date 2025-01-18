@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Dialogs from "../features/dialogs/chats/Chats";
 import Contacts from "../features/dialogs/contacts/Contacts";
 import { RootState } from "../app/store";
 import { LayoutWrapper } from "../layouts/Layout-wrapper";
 import { pageConfig } from "../config/Page-сonfig";
 import {RouteManager} from "../utils/routeManager";
+import Chats from "../features/dialogs/chats/Chats";
 
 interface AppRoutesProps {
     state: RootState;
@@ -14,7 +14,7 @@ interface AppRoutesProps {
 const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
     // Helper Components for specific routes
     const DialogsComponent: React.FC = () => (
-        <Dialogs chats={state.content.whisperPage.chats} />
+        <Chats chats={state.content.whisperPage.chats} />
     );
 
     const ContactsComponent: React.FC = () => (
