@@ -2,9 +2,9 @@ import {RouteManager} from "../utils/routeManager";
 
 const SidebarPaths = RouteManager.getSidebarPaths();
 
-export interface NavLinkProps {
+export interface NavLinks {
     name: string;
     url: typeof SidebarPaths[keyof typeof SidebarPaths];
 }
 
-export const navLinks: NavLinkProps[] = RouteManager.getNavLinks()
+export const navLinks: NavLinks[] = RouteManager.getNavLinks()

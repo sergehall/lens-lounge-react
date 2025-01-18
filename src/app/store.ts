@@ -1,7 +1,7 @@
 import {chatsData, ChatsData} from "../features/dialogs/chats/chats-data";
 import {PostProps} from "../features/my-posts/post/Post";
 import {contactData, ContactsData} from "../features/dialogs/contacts/contacts-data";
-import {NavLinkProps, navLinks} from "../config/nav-links";
+import {NavLinks, navLinks} from "../config/nav-links";
 import {postsDataMock} from "../features/my-posts/mocks/posts-data-mock";
 import {NewArticles, newArticlesMock} from "../features/news/news-articles-mock";
 
@@ -39,7 +39,7 @@ export interface HeaderState {
 }
 
 export interface SidebarState {
-    links: NavLinkProps[];
+    links: NavLinks[];
 }
 
 export interface ContentState {

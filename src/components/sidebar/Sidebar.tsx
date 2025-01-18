@@ -6,26 +6,25 @@ import {
     SidebarLink,
 } from "./sidebar.styles";
 import {NavLink} from "react-router-dom";
-import {RouteManager} from "../../utils/routeManager";
+import {NavLinks} from "../../config/nav-links";
 
-const SidebarPaths = RouteManager.getSidebarPaths();
 
 interface SidebarProps {
-    links: { name: string; url: typeof SidebarPaths[keyof typeof SidebarPaths]; }[];
+    links: NavLinks[];
 }
 
 
-const Sidebar: React.FC<SidebarProps> = ({links}) => {
+const Sidebar: React.FC<SidebarProps> = ({ links }) => {
     return (
-        <SidebarContainer>
+        <SidebarContainer role="navigation" aria-label="Sidebar Navigation">
             <SidebarList>
                 {links.map((link) => (
                     <SidebarItem key={link.url}>
                         <NavLink
                             to={link.url}
-                            style={{textDecoration: "none"}}
+                            style={{ textDecoration: "none" }}
                         >
-                            {({isActive}) => (
+                            {({ isActive }: { isActive: boolean }) => ( // Explicitly type isActive
                                 <SidebarLink $isActive={isActive}>
                                     {link.name}
                                 </SidebarLink>

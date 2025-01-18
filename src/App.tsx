@@ -12,18 +12,14 @@ interface AppProps {
     state: RootState;
 }
 
-const App: React.FC<AppProps> = ({ state }) => {
+const App: React.FC<AppProps> = ({state}) => {
     return (
         <>
             <GlobalStyles/>
             <AppContainer>
                 {/* Header */}
                 <AppHeader>
-                    <Header
-                        title={PageTitles.HOME}
-                        logoUrl={logo}
-                        homeUrl="/"
-                    />
+                    <Header title={PageTitles.HOME} logoUrl={logo} homeUrl="/"/>
                 </AppHeader>
 
                 {/* Sidebar */}
@@ -33,7 +29,7 @@ const App: React.FC<AppProps> = ({ state }) => {
 
                 {/* Content */}
                 <AppContent>
-                    <AppRoutes state={state} />
+                    <AppRoutes state={state}/>
                 </AppContent>
             </AppContainer>
         </>

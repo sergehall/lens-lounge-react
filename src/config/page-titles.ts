@@ -1,6 +1,9 @@
 export enum PageTitles {
     HOME = "Lens Lounge",
-    CONTENT = "Content",
-    ABOUT = "About Us",
-    CONTACT = "Contact Us",
+    SHOWCASE = "Showcase",
+    WHISPER = "Whisper",
+    NEWS = "News",
+    TECHNOLOGIES = "Technologies",
+    ABOUT = "About",
+    CONTACT = "Contact",
 }

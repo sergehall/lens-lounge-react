@@ -1,4 +1,5 @@
-import {NavLinkProps} from "../config/nav-links";
+import {NavLinks} from "../config/nav-links";
+
 
 export class RouteManager {
     // Private Sidebar paths (static routes)
@@ -36,7 +37,7 @@ export class RouteManager {
      * Generates navigation links for sidebar based on SidebarPaths.
      * @returns Array of navigation links with name and URL.
      */
-    public static getNavLinks(): NavLinkProps[] {
+    public static getNavLinks(): NavLinks[] {
         return Object.entries(this.SidebarPaths).map(([key, url]) => ({
             name: key.charAt(0).toUpperCase() + key.slice(1), // Capitalize the first letter
             url,
