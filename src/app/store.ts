@@ -1,6 +1,6 @@
-import {chatsData, ChatsData} from "../features/dialogs/chats/chats-data";
+import {chatsData, ChatsData} from "../features/whisper/chats/chats-data";
 import {PostProps} from "../features/my-posts/post/Post";
-import {contactData, ContactsData} from "../features/dialogs/contacts/contacts-data";
+import {contactData, ContactsData} from "../features/whisper/contacts/contacts-data";
 import {NavLinks, navLinks} from "../config/nav-links";
 import {postsDataMock} from "../features/my-posts/mocks/posts-data-mock";
 import {NewArticles, newArticlesMock} from "../features/news/news-articles-mock";

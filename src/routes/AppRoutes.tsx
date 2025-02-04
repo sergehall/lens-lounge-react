@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Contacts from "../features/dialogs/contacts/Contacts";
+import Contacts from "../features/whisper/contacts/Contacts";
 import { RootState } from "../app/store";
 import { LayoutWrapper } from "../layouts/Layout-wrapper";
 import { pageConfig } from "../config/Page-сonfig";
 import {RouteManager} from "../utils/routeManager";
-import Chats from "../features/dialogs/chats/Chats";
+import Chats from "../features/whisper/chats/Chats";
 
 interface AppRoutesProps {
     state: RootState;

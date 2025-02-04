@@ -63,14 +63,14 @@ export const MessageItem = styled.div<{ $fromMe: boolean }>` // Transient prop: 
 //     border-radius: 12px;
 //     align-self: ${({fromMe}) => (fromMe ? "flex-end" : "flex-start")};
 //     background-color: ${({fromMe, theme}) =>
-//             fromMe ? theme.global.secondaryColor : theme.dialogs.messageFromOtherBg};
+//             fromMe ? theme.global.secondaryColor : theme.whisper.messageFromOtherBg};
 //     color: ${({theme}) => theme.text.colorDarkGray};
 //     word-wrap: break-word;
 //     position: relative;
 //     box-shadow: ${({fromMe, theme}) =>
 //             fromMe
-//                     ? theme.dialogs.boxShadowNeonShortWhiteSmall
-//                     : theme.dialogs.boxShadowNeonShortBlue};
+//                     ? theme.whisper.boxShadowNeonShortWhiteSmall
+//                     : theme.whisper.boxShadowNeonShortBlue};
 //
 //     /* Tail with a smooth wave effect */
 //
@@ -81,7 +81,7 @@ export const MessageItem = styled.div<{ $fromMe: boolean }>` // Transient prop: 
 //         width: 20px;
 //         height: 20px;
 //         background-color: ${({fromMe, theme}) =>
-//                 fromMe ? theme.global.secondaryColor : theme.dialogs.messageFromOtherBg};
+//                 fromMe ? theme.global.secondaryColor : theme.whisper.messageFromOtherBg};
 //         border-radius: ${({fromMe}) =>
 //                 fromMe ? "0 0 12px 0" : "0 0 0 12px"};
 //         ${({fromMe}) =>

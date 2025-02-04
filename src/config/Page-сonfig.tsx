@@ -6,11 +6,11 @@ import News from "../features/news/News";
 import Technologies from "../features/technologies/Technologies";
 import About from "../features/about/About";
 import Contact from "../features/contact/Contact";
-import Contacts from "../features/dialogs/contacts/Contacts";
+import Contacts from "../features/whisper/contacts/Contacts";
 import {techLinks} from "./technology-links";
 import {RootState} from "../app/store";
 import {ClassNames} from "./class-names.enum";
-import Chats from "../features/dialogs/chats/Chats";
+import Chats from "../features/whisper/chats/Chats";
 
 export interface PageConfig {
     bannerImage: string;
