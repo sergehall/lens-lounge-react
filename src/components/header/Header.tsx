@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 import {
     HeaderContainer,
     HeaderLink,
@@ -8,18 +10,12 @@ import {
 } from "./header.styles";
 import Authorization from "./authorization/Authorization";
 
-interface HeaderProps {
-    title: string;
-    logoUrl: string;
-    homeUrl: string;
-}
-
-const Header: React.FC<HeaderProps> = ({ title, logoUrl, homeUrl }) => {
+const Header: React.FC = () => {
+    const { title, logoUrl, homeUrl } = useSelector((state: RootState) => state.header);
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
     return (
         <HeaderContainer>
-            {/* Group the LogoContainer and Title inside HeaderLink */}
             <HeaderLink href={homeUrl} aria-label="Home">
                 <LogoContainer>
                     <Logo src={logoUrl} alt="Site logo" />

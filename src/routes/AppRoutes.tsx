@@ -1,24 +1,24 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Contacts from "../features/whisper/contacts/Contacts";
+import { useSelector } from "react-redux";
 import { RootState } from "../app/store";
 import { LayoutWrapper } from "../layouts/Layout-wrapper";
 import { pageConfig } from "../config/Page-сonfig";
-import {RouteManager} from "../utils/routeManager";
+import { RouteManager } from "../utils/routeManager";
 import Chats from "../features/whisper/chats/Chats";
+import Contacts from "../features/whisper/contacts/Contacts";
 
-interface AppRoutesProps {
-    state: RootState;
-}
+const AppRoutes: React.FC = () => {
+    // Retrieve state from Redux store
+    const whisperPageState = useSelector((state: RootState) => state.content.whisperPage);
 
-const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
     // Helper Components for specific routes
     const DialogsComponent: React.FC = () => (
-        <Chats chats={state.content.whisperPage.chats} />
+        <Chats chats={whisperPageState.chats} />
     );
 
     const ContactsComponent: React.FC = () => (
-        <Contacts contacts={state.content.whisperPage.contacts} />
+        <Contacts contacts={whisperPageState.contacts} />
     );
 
     return (
@@ -30,7 +30,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ state }) => {
                     path={key === "home" ? "/" : `/${key}`}
                     element={
                         <LayoutWrapper layoutConfig={config}>
-                            {config.component(state)}
+                            {config.component()}
                         </LayoutWrapper>
                     }
                 />
