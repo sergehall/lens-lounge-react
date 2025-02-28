@@ -14,11 +14,11 @@ const AppRoutes: React.FC = () => {
 
     // Helper Components for specific routes
     const DialogsComponent: React.FC = () => (
-        <Chats chats={whisperPageState.chats} />
+        <Chats chats={whisperPageState.chatConversations} />
     );
 
     const ContactsComponent: React.FC = () => (
-        <Contacts contacts={whisperPageState.contacts} />
+        <Contacts contacts={whisperPageState.contactList} />
     );
 
     return (
@@ -30,7 +30,7 @@ const AppRoutes: React.FC = () => {
                     path={key === "home" ? "/" : `/${key}`}
                     element={
                         <LayoutWrapper layoutConfig={config}>
-                            {config.component()}
+                            <config.component />
                         </LayoutWrapper>
                     }
                 />

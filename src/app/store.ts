@@ -10,7 +10,7 @@ import { PageTitles } from "../config/page-titles";
 
 // Define interfaces for type safety
 interface SidebarState {
-    links: typeof navLinks;
+    navigationLinks: typeof navLinks;
 }
 
 interface HeaderState {
@@ -20,22 +20,22 @@ interface HeaderState {
 }
 
 interface ShowcasePageState {
-    profile: Record<string, unknown>; // Profile information with dynamic structure
-    posts: typeof postsDataMock; // Mocked posts data
+    userProfile: Record<string, unknown>; // Profile information with dynamic structure
+    userPosts: typeof postsDataMock; // Mocked posts data
 }
 
 interface WhisperPageState {
-    chats: typeof chatsData; // List of chat conversations
-    posts: typeof postsDataMock; // Posts related to chat
-    contacts: typeof contactData; // Contact list
+    chatConversations: typeof chatsData; // List of chat conversations
+    relatedPosts: typeof postsDataMock; // Posts related to chat
+    contactList: typeof contactData; // Contact list
 }
 
 interface NewsPageState {
-    news: typeof newArticlesMock; // News articles
+    articles: typeof newArticlesMock; // News articles
 }
 
 interface ContentState {
-    homePage: Record<string, unknown>; // General home page content
+    homePageContent: Record<string, unknown>; // General home page content
     showcasePage: ShowcasePageState; // State for the showcase page
     whisperPage: WhisperPageState; // State for the whisper (chat) page
     newsPage: NewsPageState; // State for the news page
@@ -68,10 +68,10 @@ const headerSlice = createSlice({
 
 const sidebarSlice = createSlice({
     name: "sidebar",
-    initialState: { links: [...navLinks] } satisfies SidebarState,
+    initialState: { navigationLinks: [...navLinks] } satisfies SidebarState,
     reducers: {
         updateLinks: (state, action: PayloadAction<typeof navLinks>) => {
-            state.links = action.payload; // Update navigation links
+            state.navigationLinks = action.payload; // Update navigation links
         },
     },
 });
@@ -81,10 +81,10 @@ const sidebarSlice = createSlice({
 const contentSlice = createSlice({
     name: "content",
     initialState: {
-        homePage: {}, // Empty object for home page content
-        showcasePage: { profile: {}, posts: postsDataMock }, // Showcase page initial state
-        whisperPage: { chats: chatsData, posts: postsDataMock, contacts: contactData }, // Whisper page initial state
-        newsPage: { news: newArticlesMock }, // News page initial state
+        homePageContent: {}, // Empty object for home page content
+        showcasePage: { userProfile: {}, userPosts: postsDataMock }, // Showcase page initial state
+        whisperPage: { chatConversations: chatsData, relatedPosts: postsDataMock, contactList: contactData }, // Whisper page initial state
+        newsPage: { articles: newArticlesMock }, // News page initial state
     } as ContentState,
     reducers: {
         updateShowcasePage: (state, action: PayloadAction<ShowcasePageState>) => {
