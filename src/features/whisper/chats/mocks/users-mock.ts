@@ -23,6 +23,7 @@ export interface User {
     expirationDate: Date;
     isConfirmed: boolean;
 }
+
 // The type of phone number
 export enum PhoneType {
     MOBILE = "mobile",

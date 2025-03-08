@@ -32,8 +32,7 @@ const ShowcasePage: React.FC = () => {
 
 // Functional component for Whisper Dialogs
 const WhisperDialogsPage: React.FC = () => {
-    const chats = useSelector((state: RootState) => state.content.whisperPage.chatConversations);
-    return <Chats chats={chats} />;
+    return <Chats />;
 };
 
 // Functional component for Whisper Contacts

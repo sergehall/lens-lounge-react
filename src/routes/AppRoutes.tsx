@@ -14,7 +14,7 @@ const AppRoutes: React.FC = () => {
 
     // Helper Components for specific routes
     const DialogsComponent: React.FC = () => (
-        <Chats chats={whisperPageState.chatConversations} />
+        <Chats />
     );
 
     const ContactsComponent: React.FC = () => (
