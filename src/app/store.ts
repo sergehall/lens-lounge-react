@@ -1,45 +1,7 @@
-import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { navLinks } from "../config/nav-links";
-import logo from "../assets/images/logo.svg";
-import { PageTitles } from "../config/page-titles";
-import contentSlice from "../features/whisper/chats/content-slice";
-
-
-// Define interfaces for type safety
-interface SidebarState {
-    navigationLinks: typeof navLinks;
-}
-
-interface HeaderState {
-    title: string;
-    logoUrl: string;
-    homeUrl: string;
-}
-
-// **Create slice for header**
-
-const headerSlice = createSlice({
-    name: "header",
-    initialState: { title: PageTitles.HOME, logoUrl: logo, homeUrl: "/" } satisfies HeaderState,
-    reducers: {
-        updateHeader: (state, action: PayloadAction<Partial<HeaderState>>) => {
-            Object.assign(state, action.payload);
-        },
-    },
-});
-
-
-// **Create slice for sidebar**
-
-const sidebarSlice = createSlice({
-    name: "sidebar",
-    initialState: { navigationLinks: [...navLinks] } satisfies SidebarState,
-    reducers: {
-        updateLinks: (state, action: PayloadAction<typeof navLinks>) => {
-            state.navigationLinks = action.payload; // Update navigation links
-        },
-    },
-});
+import { configureStore  } from "@reduxjs/toolkit";
+import contentSlice from "./slices/content-slice";
+import headerSlice from "./slices/header-slice";
+import sidebarSlice from "./slices/sidebar-slice";
 
 // **Configure Redux store**
 
