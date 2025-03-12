@@ -8,7 +8,7 @@ export enum TechnologyName {
     YARN_BERRY = "Yarn\u00A0Berry", // Package manager
     NPM = "npm", // Package manager
     TYPESCRIPT = "TypeScript", // Strongly typed JavaScript
-    JAVASCRIPT_ES6_PLUS = "JavaScript\u00A0(ES6+)", // Modern JS features with non-breaking space
+    JAVASCRIPT_ES6_PLUS = "JavaScript\u00A0(ES6+)", // Modern JS content with non-breaking space
     CREATE_REACT_APP = "Create\u00A0React\u00A0App", // React setup tool
     VITE = "Vite", // Modern build tool
     REACT_ROUTER = "React\u00A0Router", // SPA navigation and routing

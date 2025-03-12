@@ -1,17 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Home from "../features/home/Home";
-import ExampleUserProfile from "../features/profile/mocks/example-user-profile";
-import MyPosts from "../features/my-posts/My-posts";
-import News from "../features/news/News";
-import Technologies from "../features/technologies/Technologies";
-import About from "../features/about/About";
-import Contact from "../features/contact/Contact";
-import Contacts from "../features/whisper/contacts/Contacts";
+import Home from "../components/content/home/Home";
+import ExampleUserProfile from "../components/content/profile/mocks/example-user-profile";
+import MyPosts from "../components/content/my-posts/My-posts";
+import News from "../components/content/news/News";
+import Technologies from "../components/content/technologies/Technologies";
+import About from "../components/content/about/About";
+import Contact from "../components/content/contact/Contact";
+import Contacts from "../components/content/whisper/contacts/Contacts";
 import { techLinks } from "./technology-links";
 import { RootState } from "../app/store";
 import { ClassNames } from "./class-names.enum";
-import Chats from "../features/whisper/chats/Chats";
+import Chats from "../components/content/whisper/chats/Chats";
 
 export interface PageConfig {
     bannerImage: string;

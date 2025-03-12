@@ -5,8 +5,8 @@ import { RootState } from "../app/store";
 import { LayoutWrapper } from "../layouts/Layout-wrapper";
 import { pageConfig } from "../config/Page-сonfig";
 import { RouteManager } from "../utils/routeManager";
-import Chats from "../features/whisper/chats/Chats";
-import Contacts from "../features/whisper/contacts/Contacts";
+import Chats from "../components/content/whisper/chats/Chats";
+import Contacts from "../components/content/whisper/contacts/Contacts";
 
 const AppRoutes: React.FC = () => {
     // Retrieve state from Redux store
@@ -24,13 +24,13 @@ const AppRoutes: React.FC = () => {
     return (
         <Routes>
             {/* General Routes */}
-            {Object.entries(pageConfig).map(([key, config]) => (
+            {Object.entries(pageConfig).map(([key, pageConfig]) => (
                 <Route
                     key={key}
                     path={key === "home" ? "/" : `/${key}`}
                     element={
-                        <LayoutWrapper layoutConfig={config}>
-                            <config.component />
+                        <LayoutWrapper layoutConfig={pageConfig}>
+                            <pageConfig.component />
                         </LayoutWrapper>
                     }
                 />

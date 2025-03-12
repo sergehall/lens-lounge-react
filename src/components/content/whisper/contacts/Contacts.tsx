@@ -5,7 +5,7 @@ import ContactsList from "./Contacts-list";
 import NavigationButtons from "../Navigation-buttons";
 import ContactDetails from "./Contact-details";
 import {ChatsOrContactsInfoSection, NoContacts, UserListWrapper, WhisperContainer} from "../shared-layout.styles";
-import {RouteManager} from "../../../utils/routeManager";
+import {RouteManager} from "../../../../utils/routeManager";
 
 
 interface ContactsProps {

@@ -17,7 +17,7 @@ export const newArticlesMock: NewArticles[] = [
     {
         id: 2,
         title: "Breaking News: React is Awesome!",
-        content: "React, the popular JavaScript library for building user interfaces, continues to dominate in 2024 with new features and optimizations. Developers praise its versatility, rich ecosystem, and strong community support, making it a go-to choice for both startups and large enterprises.",
+        content: "React, the popular JavaScript library for building user interfaces, continues to dominate in 2024 with new content and optimizations. Developers praise its versatility, rich ecosystem, and strong community support, making it a go-to choice for both startups and large enterprises.",
         link: "https://reactjs.org",
     },
     {

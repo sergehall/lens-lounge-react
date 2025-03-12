@@ -1,7 +1,7 @@
 import React from "react";
-import ImageBanner from "../features/image-banner-content/Image-banner-content";
-import Summarize from "../features/summarize/Summarize";
-import {DynamicTitle} from "../features/summarize/dynamic-title";
+import ImageBanner from "../components/content/image-banner-content/Image-banner-content";
+import Summarize from "../components/content/summarize/Summarize";
+import {DynamicTitle} from "../components/content/summarize/dynamic-title";
 
 interface PageLayoutProps {
     bannerImage: string;

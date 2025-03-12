@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ButtonSegment } from "./navigation-buttons.styles";
-import {RouteManager} from "../../utils/routeManager";
+import {RouteManager} from "../../../utils/routeManager";
 
 const NavigationButtons: React.FC = () => {
     const navigate = useNavigate();

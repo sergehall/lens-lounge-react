@@ -10,8 +10,8 @@ import {
     UserListWrapper,
 } from "../shared-layout.styles";
 import NavigationButtons from "../Navigation-buttons";
-import { RouteManager } from "../../../utils/routeManager";
-import {AppDispatch, RootState, updateChatMessages} from "../../../app/store";
+import { RouteManager } from "../../../../utils/routeManager";
+import {AppDispatch, RootState, updateChatMessages} from "../../../../app/store";
 import InputSection from "./ Input-section";
 
 const Chats: React.FC = () => {
