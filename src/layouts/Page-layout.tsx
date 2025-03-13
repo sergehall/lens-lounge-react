@@ -1,23 +1,17 @@
 import React from "react";
-import ImageBanner from "../components/content/image-banner-content/Image-banner-content";
-import Summarize from "../components/content/summarize/Summarize";
-import {DynamicTitle} from "../components/content/summarize/dynamic-title";
+import PageContentSummarize from "../components/content/summarize/Summarize-content";
 
 interface PageLayoutProps {
-    bannerImage: string;
-    summaryDescription: string;
+    bannerImage: React.FC;
+    summarizeContent: React.FC;
     children: React.ReactNode;
 }
 
-const PageLayout: React.FC<PageLayoutProps> = ({ bannerImage, summaryDescription, children }) => {
+const PageLayout: React.FC<PageLayoutProps> = ({ bannerImage: BannerImage, children }) => {
     return (
         <div>
-            <ImageBanner imageUrl={bannerImage} className="Image-banner-content" altText="Image Banner" />
-            <Summarize
-                title={<DynamicTitle />}
-                imageUrl="https://avatars.githubusercontent.com/u/87441904?s=200&v=4"
-                description={summaryDescription}
-            />
+            <BannerImage />
+            <PageContentSummarize />
             <div>{children}</div>
         </div>
     );

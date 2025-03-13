@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 import Home from "../components/content/home/Home";
 import ExampleUserProfile from "../components/content/profile/mocks/example-user-profile";
 import MyPosts from "../components/content/my-posts/My-posts";
@@ -8,89 +8,82 @@ import Technologies from "../components/content/technologies/Technologies";
 import About from "../components/content/about/About";
 import Contact from "../components/content/contact/Contact";
 import Contacts from "../components/content/whisper/contacts/Contacts";
-import { techLinks } from "./technology-links";
-import { RootState } from "../app/store";
-import { ClassNames } from "./class-names.enum";
+import {techLinks} from "./technology-links";
+import {RootState} from "../app/store";
+import {ClassNames} from "./class-names.enum";
 import Chats from "../components/content/whisper/chats/Chats";
+import BannerImage from "../components/content/banner-image/banner-image";
+import defaultImageBanner from "../assets/images/default-image-banner.png";
+import PageContentSummarize from "../components/content/summarize/Summarize-content";
 
 export interface PageConfig {
-    bannerImage: string;
-    summaryDescription: string;
-    component: React.FC;  // Change to React Functional Component
+    bannerImage: React.FC;
+    pageContentSummarize: React.FC;
+    component: React.FC;
 }
 
-// Functional component for Showcase Page
 const ShowcasePage: React.FC = () => {
     const posts = useSelector((state: RootState) => state.content.whisperPage.relatedPosts);
     return (
         <>
-            <ExampleUserProfile />
-            <MyPosts posts={posts} className={ClassNames.MY_POSTS} />
+            <ExampleUserProfile/>
+            <MyPosts posts={posts} className={ClassNames.MY_POSTS}/>
         </>
     );
 };
 
-// Functional component for Whisper Dialogs
-const WhisperDialogsPage: React.FC = () => {
-    return <Chats />;
-};
+const WhisperDialogsPage: React.FC = () => <Chats/>;
 
-// Functional component for Whisper Contacts
-const WhisperContactsPage: React.FC = () => {
-    const contacts = useSelector((state: RootState) => state.content.whisperPage.contactList);
-    return <Contacts contacts={contacts} />;
-};
-
-// Functional component for News Page
 const NewsPage: React.FC = () => {
     const news = useSelector((state: RootState) => state.content.newsPage.articles);
-    return <News newArticles={news} />;
+    return <News newArticles={news}/>;
 };
-
-const TechnologiesPage: React.FC = () => {
-    return <Technologies links={techLinks} className={ClassNames.TECHNOLOGIES} />;
+const WhisperContactsPage: React.FC = () => {
+    const contacts = useSelector((state: RootState) => state.content.whisperPage.contactList);
+    return <Contacts contacts={contacts}/>;
 };
+const TechnologiesPage: React.FC = () => <Technologies links={techLinks} className={ClassNames.TECHNOLOGIES}/>;
 
-// Object to configure pages dynamically
+
 export const pageConfig: Record<string, PageConfig> = {
     home: {
-        bannerImage: "./../assets/images/default-image-banner.png",
-        summaryDescription: "Welcome to the homepage of Lens Lounge.",
+        bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
+        pageContentSummarize: PageContentSummarize,
         component: Home,
     },
     showcase: {
-        bannerImage: "./..assets/images/default-image-banner.png",
-        summaryDescription: "Explore your profile and shared posts.",
+        bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
+        pageContentSummarize: PageContentSummarize,
         component: ShowcasePage,
     },
     whisperDialogs: {
-        bannerImage: "./..assets/images/default-image-banner.png",
-        summaryDescription: "Your messages and chats.",
+        bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
+        pageContentSummarize: PageContentSummarize,
         component: WhisperDialogsPage,
     },
     whisperContacts: {
-        bannerImage: "./..assets/images/default-image-banner.png",
-        summaryDescription: "Your contacts and friends.",
+        bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
+        pageContentSummarize: PageContentSummarize,
         component: WhisperContactsPage,
     },
     news: {
-        bannerImage: "./../assets/images/default-image-banner.png",
-        summaryDescription: "Stay updated with the latest news.",
+        bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
+        pageContentSummarize: PageContentSummarize,
         component: NewsPage,
     },
     technologies: {
-        bannerImage: "./../assets/images/default-image-banner.png",
-        summaryDescription: "Learn about cutting-edge technologies.",
+        bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
+        pageContentSummarize: PageContentSummarize,
         component: TechnologiesPage,
     },
     about: {
-        bannerImage: "./../assets/images/default-image-banner.png",
-        summaryDescription: "Learn more about our mission and values.",
+        bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
+        pageContentSummarize: PageContentSummarize,
         component: About,
     },
     contact: {
-        bannerImage: "./../assets/images/default-image-banner.png",
-        summaryDescription: "Get in touch with us.",
+        bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
+        pageContentSummarize: PageContentSummarize,
         component: Contact,
     },
 };

@@ -1,12 +1,13 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../app/store";
-import { LayoutWrapper } from "../layouts/Layout-wrapper";
-import { pageConfig } from "../config/Page-сonfig";
-import { RouteManager } from "../utils/routeManager";
+import {Routes, Route, Navigate} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {RootState} from "../app/store";
+import {pageConfig} from "../config/Page-сonfig";
+import {RouteManager} from "../utils/routeManager";
 import Chats from "../components/content/whisper/chats/Chats";
 import Contacts from "../components/content/whisper/contacts/Contacts";
+import LayoutWrapper from "../layouts/Layout-wrapper";
+
 
 const AppRoutes: React.FC = () => {
     // Retrieve state from Redux store
@@ -14,11 +15,11 @@ const AppRoutes: React.FC = () => {
 
     // Helper Components for specific routes
     const DialogsComponent: React.FC = () => (
-        <Chats />
+        <Chats/>
     );
 
     const ContactsComponent: React.FC = () => (
-        <Contacts contacts={whisperPageState.contactList} />
+        <Contacts contacts={whisperPageState.contactList}/>
     );
 
     return (
@@ -29,8 +30,8 @@ const AppRoutes: React.FC = () => {
                     key={key}
                     path={key === "home" ? "/" : `/${key}`}
                     element={
-                        <LayoutWrapper layoutConfig={pageConfig}>
-                            <pageConfig.component />
+                        <LayoutWrapper pageConfig={pageConfig}>
+                            <pageConfig.component/>
                         </LayoutWrapper>
                     }
                 />
@@ -41,15 +42,15 @@ const AppRoutes: React.FC = () => {
                 {/* Default Redirect */}
                 <Route
                     index
-                    element={<Navigate to={RouteManager.getNestedPaths().chats} replace />}
+                    element={<Navigate to={RouteManager.getNestedPaths().chats} replace/>}
                 />
 
                 {/* Dialogs Route */}
                 <Route
                     path={RouteManager.getNestedPaths().chats}
                     element={
-                        <LayoutWrapper layoutConfig={pageConfig.whisperDialogs}>
-                            <DialogsComponent />
+                        <LayoutWrapper pageConfig={pageConfig.whisperDialogs}>
+                            <DialogsComponent/>
                         </LayoutWrapper>
                     }
                 />
@@ -58,8 +59,8 @@ const AppRoutes: React.FC = () => {
                 <Route
                     path={RouteManager.getNestedPaths().chatsUserId}
                     element={
-                        <LayoutWrapper layoutConfig={pageConfig.whisperDialogs}>
-                            <DialogsComponent />
+                        <LayoutWrapper pageConfig={pageConfig.whisperDialogs}>
+                            <DialogsComponent/>
                         </LayoutWrapper>
                     }
                 />
@@ -68,8 +69,8 @@ const AppRoutes: React.FC = () => {
                 <Route
                     path={RouteManager.getNestedPaths().contacts}
                     element={
-                        <LayoutWrapper layoutConfig={pageConfig.whisperContacts}>
-                            <ContactsComponent />
+                        <LayoutWrapper pageConfig={pageConfig.whisperContacts}>
+                            <ContactsComponent/>
                         </LayoutWrapper>
                     }
                 />
@@ -78,8 +79,8 @@ const AppRoutes: React.FC = () => {
                 <Route
                     path={RouteManager.getNestedPaths().contactsUserId}
                     element={
-                        <LayoutWrapper layoutConfig={pageConfig.whisperContacts}>
-                            <ContactsComponent />
+                        <LayoutWrapper pageConfig={pageConfig.whisperContacts}>
+                            <ContactsComponent/>
                         </LayoutWrapper>
                     }
                 />

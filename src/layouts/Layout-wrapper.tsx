@@ -1,15 +1,21 @@
 // Layout Wrapper Component
+import React from "react";
 import PageLayout from "./Page-layout";
 import {PageConfig} from "../config/Page-сonfig";
 
-export const LayoutWrapper: React.FC<{
-    layoutConfig: PageConfig;
+
+interface LayoutWrapperProps {
+    pageConfig: PageConfig;
     children: React.ReactNode;
-}> = ({ layoutConfig, children }) => (
+}
+
+const LayoutWrapper: React.FC<LayoutWrapperProps> = ({ pageConfig, children }) => (
     <PageLayout
-        bannerImage={layoutConfig.bannerImage}
-        summaryDescription={layoutConfig.summaryDescription}
+        bannerImage={pageConfig.bannerImage}
+        summarizeContent={pageConfig.pageContentSummarize}
     >
         {children}
     </PageLayout>
 );
+
+export default LayoutWrapper;

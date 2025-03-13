@@ -6,27 +6,23 @@ import {
     ImageBannerTextWrapper,
     ImageBannerContentTitle,
     ImageBannerContentDescription,
-} from "./image-banner-content.style";
+} from "./banner-image.style";
 
 interface ImageBannerContentProps {
     imageUrl: string;
-    altText: string;
-    className: string;
+    altText?: string;
 }
 
-const ImageBanner: React.FC<ImageBannerContentProps> = ({
-                                                            imageUrl = defaultImageBanner,
+const BannerImage: React.FC<ImageBannerContentProps> = ({
+                                                            imageUrl,
                                                             altText = "Default banner image",
-                                                            className,
                                                         }) => {
     return (
-        <ImageBannerContentContainer className={className}>
+        <ImageBannerContentContainer>
             <ImageBannerContentImage
                 src={imageUrl}
                 alt={altText}
-                onError={(e) => {
-                    e.currentTarget.src = defaultImageBanner; // Fallback to default image
-                }}
+                onError={(e) => (e.currentTarget.src = defaultImageBanner)}
             />
             <ImageBannerTextWrapper>
                 <ImageBannerContentTitle>Image Banner Title</ImageBannerContentTitle>
@@ -38,4 +34,4 @@ const ImageBanner: React.FC<ImageBannerContentProps> = ({
     );
 };
 
-export default ImageBanner;
+export default BannerImage;
