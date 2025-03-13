@@ -1,59 +1,68 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setDynamicPageContent, setDynamicTitle } from "../../../app/store";
 
 export const usePageSummary = (pageContent: string) => {
     const [summary, setSummary] = useState("Analyzing content...");
-    // export const pageConfig: Record<string, PageConfig> = {
-    //     home: {
-    //         bannerImage: () => <BannerImage imageUrl="/assets/images/default-image-banner.png" />,
-    //         pageContent: () => <PageContentComponent content="Welcome to the homepage of Lens Lounge." />,
-    //         component: Home,
-    //     },
-    //     showcase: {
-    //         bannerImage: () => <BannerImage imageUrl="/assets/images/default-image-banner.png" />,
-    //         pageContent: () => <PageContentComponent content="Explore your profile and shared posts." />,
-    //         component: ShowcasePage,
-    //     },
-    //     whisperDialogs: {
-    //         bannerImage: () => <BannerImage imageUrl="/assets/images/default-image-banner.png" />,
-    //         pageContent: () => <PageContentComponent content="Your messages and chats." />,
-    //         component: WhisperDialogsPage,
-    //     },
-    //     whisperContacts: {
-    //         bannerImage: () => <BannerImage imageUrl="/assets/images/default-image-banner.png" />,
-    //         pageContent: () => <PageContentComponent content="Your contacts and friends." />,
-    //         component: WhisperContactsPage,
-    //     },
-    //     news: {
-    //         bannerImage: () => <BannerImage imageUrl="/assets/images/default-image-banner.png" />,
-    //         pageContent: () => <PageContentComponent content="Stay updated with the latest news." />,
-    //         component: NewsPage,
-    //     },
-    //     technologies: {
-    //         bannerImage: () => <BannerImage imageUrl="/assets/images/default-image-banner.png" />,
-    //         pageContent: () => <PageContentComponent content="Learn about cutting-edge technologies." />,
-    //         component: TechnologiesPage,
-    //     },
-    //     about: {
-    //         bannerImage: () => <BannerImage imageUrl="/assets/images/default-image-banner.png" />,
-    //         pageContent: () => <PageContentComponent content="Learn more about our mission and values." />,
-    //         component: About,
-    //     },
-    //     contact: {
-    //         bannerImage: () => <BannerImage imageUrl="/assets/images/default-image-banner.png" />,
-    //         pageContent: () => <PageContentComponent content="Get in touch with us." />,
-    //         component: Contact,
-    //     },
-    // };
+    const location = useLocation();
+    const dispatch = useDispatch();
+
+    const pageContentDefault: Record<string, { pageContent: string }> = {
+        home: {
+            pageContent: "Welcome to the homepage of Lens Lounge.",
+        },
+        showcase: {
+            pageContent: "Explore your profile and shared posts.",
+        },
+        whisperDialogs: {
+            pageContent: "Your messages and chats.",
+        },
+        whisperContacts: {
+            pageContent: "Your contacts and friends.",
+        },
+        news: {
+            pageContent: "Stay updated with the latest news.",
+        },
+        technologies: {
+            pageContent: "Learn about cutting-edge technologies.",
+        },
+        about: {
+            pageContent: "Learn more about our mission and values.",
+        },
+        contact: {
+            pageContent: "Get in touch with us.",
+        },
+    };
 
     useEffect(() => {
+        const pathSegments = location.pathname.split("/").filter(Boolean);
+        const formattedTitle = pathSegments
+            .map(segment => segment.charAt(0).toUpperCase() + segment.slice(1))
+            .join(" ") || "Home";
+
+        console.log(formattedTitle, "formattedTitle!!!!!!");
+
+        // ✅ Fix: Use bracket notation for lookup
+        if (formattedTitle in pageContentDefault) {
+            dispatch(setDynamicPageContent(pageContentDefault[formattedTitle].pageContent));
+        } else {
+            dispatch(setDynamicPageContent(pageContent)); // ✅ Only set if no default exists
+        }
+
+        // ✅ Set the title dynamically
+        dispatch(setDynamicTitle(formattedTitle));
+
+        // ✅ Run AI analysis
         const analyzePageContent = async () => {
             const response = await mockAIAnalysis(pageContent);
             setSummary(response);
         };
 
         analyzePageContent();
-    }, [pageContent]);
+    }, [pageContent, location.pathname, dispatch]); // ✅ Fix: Correct dependencies
 
+    // Mock AI analysis function
     const mockAIAnalysis = async (content: string): Promise<string> => {
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -64,3 +73,72 @@ export const usePageSummary = (pageContent: string) => {
 
     return summary;
 };
+
+// import { useEffect, useState } from "react";
+// import {useLocation} from "react-router-dom";
+// import {setDynamicPageContent, setDynamicTitle} from "../../../app/store";
+// import {useDispatch} from "react-redux";
+//
+// export const usePageSummary = (pageContent: string) => {
+//     const [summary, setSummary] = useState("Analyzing content...");
+//     const location = useLocation();
+//     const dispatch = useDispatch();
+//
+//     const pageContentDefault = {
+//         home: {
+//             pageContent: "Welcome to the homepage of Lens Lounge.",
+//         },
+//         showcase: {
+//             pageContent: "Explore your profile and shared posts.",
+//         },
+//         whisperDialogs: {
+//             pageContent: "Your messages and chats.",
+//         },
+//         whisperContacts: {
+//             pageContent: "Your contacts and friends.",
+//         },
+//         news: {
+//             pageContent: "Stay updated with the latest news.",
+//         },
+//         technologies: {
+//             pageContent: "Learn about cutting-edge technologies.",
+//         },
+//         about: {
+//             pageContent: "Learn more about our mission and values.",
+//         },
+//         contact: {
+//             pageContent: "Get in touch with us.",
+//         },
+//     };
+//
+//
+//     useEffect(() => {
+//         const pathSegments = location.pathname.split("/").filter(Boolean)
+//         const formattedTitle = pathSegments
+//             .map(segment => segment.charAt(0).toUpperCase() + segment.slice(1))
+//             .join(" ") || "Home";
+//
+//         console.log(formattedTitle, 'formattedTitle!!!!!!');
+//         if(formattedTitle in pageContentDefault) {
+//             dispatch(setDynamicPageContent(pageContentDefault.formattedTitle));
+//         }
+//         dispatch(setDynamicPageContent(pageContent));
+//
+//         const analyzePageContent = async () => {
+//             const response = await mockAIAnalysis(pageContent);
+//             setSummary(response);
+//         };
+//
+//         analyzePageContent();
+//     }, [pageContent]);
+//
+//     const mockAIAnalysis = async (content: string): Promise<string> => {
+//         return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve(`AI Summary: ${content.substring(0, 50)}...`);
+//             }, 1000);
+//         });
+//     };
+//
+//     return summary;
+// };
