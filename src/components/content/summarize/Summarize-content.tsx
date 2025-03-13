@@ -10,7 +10,7 @@ import {
     SummarizeTitle,
 } from "./summarize.style";
 import { RootState } from "../../../app/store";
-import {pageContentMock, PageKey, PageKeys} from "./content-mock/page-content-mock";
+import {pageContentMock, PageKey, PageKeys} from "./mocks/page-content-mock";
 
 
 // **AI-based page summary hook**

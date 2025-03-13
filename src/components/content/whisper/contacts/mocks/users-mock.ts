@@ -22,6 +22,10 @@ export interface User {
     confirmationCode: string;
     expirationDate: Date;
     isConfirmed: boolean;
+    birthday?: string,
+    education?: string,
+    website?: string,
+    photoUrl?: string,
 }
 
 // The type of phone number
@@ -61,6 +65,27 @@ export interface AddressData {
 }
 
 export const users: User[] = [
+    {
+        userId: 0,
+        username: "Serge",
+        avatar: "https://masterpiecer-images.s3.yandex.net/e29101853b7111ee934e1282c0ba7723:upscaled",
+        email: "serge@example.com",
+        isOnline: true,
+        lastActive: new Date(),
+        firstName: "Serge",
+        lastName: "Honchar",
+        login: "serge@example.com".toLowerCase(),
+        passwordHash: "hashedPassword0",
+        createdAt: new Date(),
+        orgId: OrgIdEnums.IT_INCUBATOR,
+        roles: [UserRolesEnums.SA, UserRolesEnums.USER],
+        isBanned: false,
+        banDate: null,
+        banReason: null,
+        confirmationCode: v4(),
+        expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        isConfirmed: false,
+    },
     {
         userId: 1,
         username: "EmmyMax",
@@ -234,6 +259,18 @@ export const users: User[] = [
 
 export const addressDataMock: AddressData[] = [
     {
+        id: 200,
+        userId: 0,
+        street: "Infinity Loop 99",
+        city: "Cupertino",
+        state: "California",
+        postalCode: "95014",
+        country: "USA",
+        additionalInfo: "Near Apple Headquarters",
+        coordinates: { latitude: 37.3323, longitude: -122.0312 },
+        isResidential: true,
+    },
+    {
         id: 201,
         userId: 1,
         street: "Algebra Alley 42",
@@ -333,6 +370,17 @@ export const addressDataMock: AddressData[] = [
 
 
 export const cellPhoneDataMock: CellPhoneData[] = [
+    {
+        id: 100,
+        userId: 0,
+        number: "+14155552671",
+        countryCode: "+1",
+        nationalNumber: "4155552671",
+        region: "California",
+        type: PhoneType.MOBILE,
+        isValid: true,
+        displayToOthers: true,
+    },
     {
         id: 101,
         userId: 1,

@@ -4,7 +4,7 @@ import {PostProps} from "../../components/content/my-posts/post/Post";
 import {contactData, ContactsData} from "../../components/content/whisper/contacts/contacts-data";
 import {NewArticles, newArticlesMock} from "../../components/content/news/news-articles-mock";
 import {chatsData} from "../../components/content/whisper/chats/chats-data";
-import {User} from "../../components/content/whisper/chats/mocks/users-mock";
+import {User} from "../../components/content/whisper/contacts/mocks/users-mock";
 import {Message} from "../../components/content/whisper/chats/mocks/messages-mock";
 
 interface Chat {
