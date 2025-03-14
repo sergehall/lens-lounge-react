@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {MessageItem, MessagesContainer} from "./chats.styles";
 import {Message} from "./mocks/messages-mock";
-import {AppDispatch, RootState, updateChatMessages} from "../../../../app/store";
+import {AppDispatch, RootState} from "../../../../app/store";
 import {ChatsData} from "./chats-data";
 
 interface ChatMessagesProps {
@@ -10,7 +10,6 @@ interface ChatMessagesProps {
 }
 
 const ChatMessages: React.FC<ChatMessagesProps> = ({userId}) => {
-    const dispatch = useDispatch<AppDispatch>();
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
     const messagesContainerRef = useRef<HTMLDivElement | null>(null);
 
