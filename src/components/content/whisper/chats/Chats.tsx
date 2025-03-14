@@ -3,16 +3,16 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ChatsList from "./Chats-list";
 import ChatMessages from "./Chat-messages";
-import {
-    ChatsOrContactsInfoSection,
-    WhisperContainer,
-    NoContacts,
-    UserListWrapper,
-} from "../shared-layout.styles";
 import NavigationButtons from "../Navigation-buttons";
 import { RouteManager } from "../../../../utils/routeManager";
-import {AppDispatch, RootState, updateChatMessages} from "../../../../app/store";
-import InputSection from "./ Input-section";
+import { AppDispatch, RootState, updateChatMessages } from "../../../../app/store";
+import {
+    ChatsOrContactsInfoSection,
+    NoContacts,
+    UserListWrapper,
+    WhisperContainer
+} from "../shared-layout-for-contacts.styles";
+import InputSection from "./Input-section";
 
 const Chats: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -21,7 +21,7 @@ const Chats: React.FC = () => {
     const chats = useSelector((state: RootState) => state.content.whisperPage.chatConversations);
     const [message, setMessage] = useState("");
 
-    // Find the selected chat from Redux state
+    // ✅ Get selected chat from Redux state using userId from params
     const selectedDialog = chats.find((chat) => chat.user.userId === Number(userId)) || null;
 
     const handleDialogSelect = (userId: number) => {
@@ -36,8 +36,8 @@ const Chats: React.FC = () => {
                 myId: 100, // Dummy sender ID
                 userId: selectedDialog.user.userId,
                 fromMe: true,
-                createdAt: new Date(),
-                updatedAt: new Date(),
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString(),
                 read: false,
                 message: message,
                 isBanned: false,
@@ -45,10 +45,10 @@ const Chats: React.FC = () => {
                 banReason: null,
             };
 
-            // Dispatch Redux action to update chat messages
+            // ✅ Dispatch Redux action to update chat messages
             dispatch(updateChatMessages({ userId: selectedDialog.user.userId, newMessage }));
 
-            // Clear input field
+            // ✅ Clear input field
             setMessage("");
         }
     };
@@ -70,7 +70,8 @@ const Chats: React.FC = () => {
             <ChatsOrContactsInfoSection>
                 {selectedDialog ? (
                     <>
-                        <ChatMessages messages={selectedDialog.messages} />
+                        {/* ✅ FIX: Pass userId instead of messages */}
+                        <ChatMessages userId={selectedDialog.user.userId} />
                         <InputSection
                             message={message}
                             setMessage={setMessage}

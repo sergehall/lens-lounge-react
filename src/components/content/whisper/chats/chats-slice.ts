@@ -34,8 +34,8 @@ const chatsSlice = createSlice({
                     myId: 1, // Current user ID
                     userId: state.selectedDialog.user.userId, // User ID of the dialog
                     fromMe: true, // Assuming the message is sent by the current user
-                    createdAt: new Date(), // Message creation timestamp
-                    updatedAt: new Date(), // Message update timestamp
+                    createdAt: new Date().toISOString(), // Message creation timestamp
+                    updatedAt: new Date().toISOString(), // Message update timestamp
                     read: false, // Default unread status
                     message: action.payload, // The message text from the action
                     isBanned: false, // Default to not banned

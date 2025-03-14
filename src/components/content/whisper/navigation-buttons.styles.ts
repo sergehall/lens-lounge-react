@@ -7,7 +7,7 @@ export const ButtonSegment = styled.div`
     gap: 8px;
     margin-top: 5px;
     border-radius: 8px;
-    position: sticky; /* Keeps the buttons at the bottom */
+    position: sticky; 
     background-color: ${({theme}) => theme.global.backgroundColor};
     box-shadow: ${({theme}) => theme.global.boxShadowNeon};
     bottom: 0;
@@ -21,6 +21,9 @@ export const ButtonSegment = styled.div`
         color: ${({theme}) => theme.text.colorDarkCharcoalBlue};
         font-size: 16px;
         cursor: pointer;
+        text-align: center;
+        align-items: center; 
+        justify-content: center; 
 
         &:hover {
             background-color: ${({theme}) => theme.contacts.userBgActiveColor};

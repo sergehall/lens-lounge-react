@@ -4,7 +4,7 @@ import {ContactsData} from "./contacts-data";
 import ContactsList from "./Contacts-list";
 import NavigationButtons from "../Navigation-buttons";
 import ContactDetails from "./Contact-details";
-import {ChatsOrContactsInfoSection, NoContacts, UserListWrapper, WhisperContainer} from "../shared-layout.styles";
+import {ChatsOrContactsInfoSection, NoContacts, UserListWrapper, WhisperContainer} from "../shared-layout-for-contacts.styles";
 import {RouteManager} from "../../../../utils/routeManager";
 
 

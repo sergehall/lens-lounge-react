@@ -1,28 +1,34 @@
 import styled from "styled-components";
 
-
 export const WhisperContainer = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 1fr auto;
+    height: 100vh;
     padding: 5px;
     border-radius: 8px;
-    background-color: ${({theme}) => theme.global.backgroundColor};
-    box-shadow: ${({theme}) => theme.global.boxShadow};
+    background-color: ${({ theme }) => theme.global.backgroundColor};
+    box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;
+
 
 export const ChatsOrContactsInfoSection = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 5px;
-    background-color: ${({theme}) => theme.global.backgroundColor};
+    display: grid;
+    grid-template-rows: 1fr auto; /* Messages take available space, input stays at bottom */
+    background-color: ${({ theme }) => theme.global.backgroundColor};
     border-radius: 8px;
+    height: 100%;
+    transition: height 0.3s ease-in-out; /* Smooth resizing when input expands */
 `;
 
+
 export const UserListWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr auto; /* Contacts list grows, buttons stay at bottom */
+    height: 100%;
     padding-right: 5px;
 `;
+
 
 export const UserList = styled.div`
     display: flex;

@@ -1,4 +1,4 @@
-import {AddressData} from "./mocks/users-mock";
+import {AddressData} from "../../users/mocks/users-mock";
 
 export const formatAddress = (addresses: AddressData): string  => {
 

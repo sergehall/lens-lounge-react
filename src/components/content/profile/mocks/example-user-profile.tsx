@@ -1,6 +1,6 @@
 import React from "react";
 import Profile from "../Profile";
-import {users} from "../../whisper/contacts/mocks/users-mock";
+import {users} from "../../users/mocks/users-mock";
 
 const ExampleUserProfile: React.FC = () => {
 
@@ -15,7 +15,7 @@ const ExampleUserProfile: React.FC = () => {
     };
 
 // Find user with userId: 0 or fallback to an empty object
-    const user0 = users.find(user => user.userId === 0) ?? {};
+    const user0 = users.find(user => user.userId === 100) ?? {};
 
 // Merge user data with defaults
     const userProfile = { ...DEFAULT_PROFILE, ...user0 };
