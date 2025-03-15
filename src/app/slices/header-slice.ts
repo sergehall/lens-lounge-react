@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {PageTitles} from "../../config/page-titles";
+import {PageTitles} from "../../components/header/types/page-titles";
 import logo from "../../assets/images/logo.svg";
 
 interface HeaderState {

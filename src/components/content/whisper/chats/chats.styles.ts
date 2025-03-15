@@ -13,6 +13,7 @@ export const MessagesContainer = styled.div`
     box-shadow: ${({theme}) => theme.global.boxShadowNeon};
 `;
 
+
 export const MessageItem = styled.div<{ $fromMe: boolean }>` // Transient prop: $fromMe
     max-width: 70%;
     padding: 10px 15px;

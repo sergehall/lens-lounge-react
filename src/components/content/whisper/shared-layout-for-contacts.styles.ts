@@ -5,6 +5,7 @@ export const WhisperContainer = styled.div`
     grid-template-columns: 250px 1fr;
     grid-template-rows: 1fr auto;
     height: 100vh;
+    //height: 100%;
     padding: 5px;
     border-radius: 8px;
     background-color: ${({ theme }) => theme.global.backgroundColor};
@@ -18,6 +19,7 @@ export const ChatsOrContactsInfoSection = styled.div`
     background-color: ${({ theme }) => theme.global.backgroundColor};
     border-radius: 8px;
     height: 100%;
+    gap: 5px;
     transition: height 0.3s ease-in-out; /* Smooth resizing when input expands */
 `;
 
@@ -28,7 +30,6 @@ export const UserListWrapper = styled.div`
     height: 100%;
     padding-right: 5px;
 `;
-
 
 export const UserList = styled.div`
     display: flex;
@@ -100,4 +101,5 @@ export const NoContacts = styled.div`
     background-color: ${({theme}) => theme.global.secondaryColor};
     border-radius: 6px;
 `;
+
 

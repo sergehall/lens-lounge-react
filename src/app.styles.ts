@@ -55,6 +55,7 @@ export const AppContent = styled.main`
     grid-area: App-content;
     background-color: ${theme.global.secondaryColor};
     padding: ${theme.spacing.default};
-    height: 100%; /* Ensure content fills height */
-    overflow-y: auto; /* Allow scrolling inside the content area */
+    height: 100%;
+    overflow-y: auto;
 `;
+

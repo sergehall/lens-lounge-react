@@ -8,7 +8,7 @@ import {
     SidebarLink,
 } from "./sidebar.styles";
 import { NavLink } from "react-router-dom";
-import {NavLinks} from "../../config/nav-links";
+import {NavLinks} from "./nav-links";
 
 const Sidebar: React.FC = () => {
     // Get links from Redux store

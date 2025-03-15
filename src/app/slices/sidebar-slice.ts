@@ -1,5 +1,5 @@
 // Define interfaces for type safety
-import {navLinks} from "../../config/nav-links";
+import {navLinks} from "../../components/sidebar/nav-links";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 interface SidebarState {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { MyPostsContainer } from './my-posts.style';
 import Post, {PostProps} from './post/Post';
-import {ClassNames} from "../../../config/class-names.enum";
+import {ClassNames} from "../../../config/types/class-names.enum";
 
 interface MyPostsProps {
     posts: PostProps[];

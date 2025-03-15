@@ -10,6 +10,8 @@ export const ImageBannerContentContainer = styled.div`
     box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;
 
+
+
 export const ImageBannerContentImage = styled.img`
     width: 100%;
     height: auto;

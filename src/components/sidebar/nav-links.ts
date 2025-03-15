@@ -1,4 +1,4 @@
-import {RouteManager} from "../utils/routeManager";
+import {RouteManager} from "../../utils/routeManager";
 
 const SidebarPaths = RouteManager.getSidebarPaths();
 

@@ -1,4 +1,4 @@
-import {NavLinks} from "../config/nav-links";
+import {NavLinks} from "../components/sidebar/nav-links";
 
 
 export class RouteManager {

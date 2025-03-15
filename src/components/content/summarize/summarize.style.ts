@@ -21,6 +21,7 @@ export const SummarizeContainer = styled.div`
     }
 `;
 
+
 export const SummarizeImage = styled.img`
     width: 80px;
     height: 80px;
