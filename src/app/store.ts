@@ -3,6 +3,7 @@ import contentSlice from "./slices/content-slice";
 import headerSlice from "./slices/header-slice";
 import sidebarSlice from "./slices/sidebar-slice";
 import pageContentSlice from "./slices/page-content-slice";
+import {apiSlice} from "../api/api-slice";
 
 export const store = configureStore({
     reducer: {
@@ -10,7 +11,10 @@ export const store = configureStore({
         sidebar: sidebarSlice.reducer,
         content: contentSlice.reducer,
         pageContent: pageContentSlice.reducer,
+        [apiSlice.reducerPath]: apiSlice.reducer, // RTK Query reducer
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
 // **Infer RootState and AppDispatch from the store**
