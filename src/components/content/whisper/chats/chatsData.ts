@@ -1,5 +1,5 @@
 import {allMessagesMock, fetchMessagesByUserIds, Message} from "./mocks/messages-mock";
-import {User, users} from "../../users/mocks/users-mock";
+import {User, users} from "../../users/mocks/usersMock";
 
 export interface ChatsData {
     user: User;

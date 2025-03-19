@@ -1,5 +1,5 @@
 import React from "react";
-import PageContentSummarize from "../components/content/summarize/Summarize-content";
+import PageContentSummarize from "../components/content/summarize/SummarizeContent";
 
 interface PageLayoutProps {
     bannerImage: React.FC;

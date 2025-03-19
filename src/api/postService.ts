@@ -1,14 +1,16 @@
-import {useCreatePostMutation, useGetPostByIdQuery, useGetPostsQuery, useSubscribeToPostsQuery} from "./api-slice";
+import {useCreatePostMutation, useGetPostByIdQuery, useGetPostsQuery, useSubscribeToPostsQuery} from "./apiSlice";
+
 
 /**
- * Hook for managing posts.
+ * Hook for managing paginated posts.
  */
 export const usePosts = (page: number) => {
-    const { data: posts, error, isLoading } = useGetPostsQuery({ page });
+    const { data, error, isLoading } = useGetPostsQuery({ page });
     const [createPost, createPostState] = useCreatePostMutation();
 
     return {
-        posts,
+        posts: data?.posts || [], // ✅ Avoid potential undefined errors
+        totalPages: data?.totalPages || 1, // ✅ Ensure pagination safety
         error,
         isLoading,
         createPost,
@@ -17,7 +19,7 @@ export const usePosts = (page: number) => {
 };
 
 /**
- * Hook for fetching a single post.
+ * Hook for fetching a single post by ID.
  */
 export const usePost = (id: string) => {
     return useGetPostByIdQuery(id);

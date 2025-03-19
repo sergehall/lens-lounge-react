@@ -1,4 +1,4 @@
-import {useGetUserQuery, useLoginMutation, useRefreshAuthTokenMutation} from "./api-slice";
+import {useGetUserQuery, useLoginMutation, useRefreshAuthTokenMutation} from "./apiSlice";
 
 
 /**

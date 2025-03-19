@@ -1,8 +1,8 @@
 import React from "react";
-import {ContactsData} from "./contacts-data";
-import {formatAddress} from "./format-address";
+import {ContactsData} from "./contactsData";
+import {formatAddress} from "./formatAddress";
 import {InfoSection, UserInfoDetails, UserName, UserStatus} from "./contacts.styles";
-import {Avatar, NoContacts} from "../shared-layout-for-contacts.styles";
+import {Avatar, NoContacts} from "../sharedLayoutForContacts.styles";
 
 interface ContactDetailsProps {
     contact: ContactsData | null;

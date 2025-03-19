@@ -2,11 +2,11 @@ import React from "react";
 import {Routes, Route, Navigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {RootState} from "../app/store";
-import {pageConfig} from "../config/Page-сonfig";
+import {pageConfig} from "../config/PageConfig";
 import {RouteManager} from "../utils/routeManager";
 import Chats from "../components/content/whisper/chats/Chats";
 import Contacts from "../components/content/whisper/contacts/Contacts";
-import LayoutWrapper from "../layouts/Layout-wrapper";
+import LayoutWrapper from "../layouts/LayoutWrapper";
 
 
 const AppRoutes: React.FC = () => {

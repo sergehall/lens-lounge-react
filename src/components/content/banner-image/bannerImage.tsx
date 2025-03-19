@@ -1,12 +1,12 @@
 import React from "react";
-import defaultImageBanner from "../../../assets/images/default-image-banner.png";
+import defaultImageBanner from "../../../assets/images/defaultImageBanner.png";
 import {
     ImageBannerContentContainer,
     ImageBannerContentImage,
     ImageBannerTextWrapper,
     ImageBannerContentTitle,
     ImageBannerContentDescription,
-} from "./banner-image.style";
+} from "./bannerImage.style";
 
 interface ImageBannerContentProps {
     imageUrl: string;

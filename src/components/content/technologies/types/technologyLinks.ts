@@ -1,4 +1,4 @@
-import {TechnologyName} from "./technology-name";
+import {TechnologyName} from "./technologyName";
 
 export interface TechnologyLinkType {
     name: string;

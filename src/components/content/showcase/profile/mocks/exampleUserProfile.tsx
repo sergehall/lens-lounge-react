@@ -1,6 +1,6 @@
 import React from "react";
 import Profile from "../Profile";
-import {users} from "../../users/mocks/users-mock";
+import {users} from "../../../users/mocks/usersMock";
 
 const ExampleUserProfile: React.FC = () => {
 

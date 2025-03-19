@@ -15,6 +15,7 @@ export const apiSlice = createApi({
     reducerPath: 'api',
     baseQuery,
     endpoints: (builder) => ({
+        // 🔹 Login & Authentication
         login: builder.mutation<{ token: string; refreshToken: string }, { email: string; password: string }>({
             query: (credentials) => ({
                 url: '/auth/login',
@@ -48,10 +49,20 @@ export const apiSlice = createApi({
             },
         }),
 
+        // 🔹 User Management
         getUser: builder.query<{ id: string; name: string; email: string }, void>({
             query: () => '/auth/user',
         }),
 
+        updateUser: builder.mutation<{ name: string; email: string }, { name: string; email: string }>({
+            query: (updatedUser) => ({
+                url: '/auth/user',
+                method: 'PUT',
+                body: updatedUser,
+            }),
+        }),
+
+        // 🔹 Post Management
         getPosts: builder.query<{ posts: { id: string; title: string; content: string }[]; totalPages: number }, { page: number }>({
             query: ({ page }) => `/posts?page=${page}`,
         }),
@@ -68,6 +79,7 @@ export const apiSlice = createApi({
             }),
         }),
 
+        // 🔹 WebSocket for Real-time Post Updates
         subscribeToPosts: builder.query<{ id: string; title: string; content: string }[], void>({
             queryFn: () => ({ data: [] }),
             async onCacheEntryAdded(_, { updateCachedData, cacheEntryRemoved }) {
@@ -90,10 +102,12 @@ export const apiSlice = createApi({
     }),
 });
 
+// 🔹 Export API Hooks for use in components
 export const {
     useLoginMutation,
     useRefreshAuthTokenMutation,
     useGetUserQuery,
+    useUpdateUserMutation,
     useGetPostsQuery,
     useGetPostByIdQuery,
     useCreatePostMutation,

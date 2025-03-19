@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import ChatsList from "./Chats-list";
-import ChatMessages from "./Chat-messages";
+import ChatsList from "./ChatsList";
+import ChatMessages from "./ChatMessages";
 import NavigationButtons from "../Navigation-buttons";
 import { RouteManager } from "../../../../utils/routeManager";
 import { AppDispatch, RootState, updateChatMessages } from "../../../../app/store";
@@ -11,8 +11,8 @@ import {
     NoContacts,
     UserListWrapper,
     WhisperContainer
-} from "../shared-layout-for-contacts.styles";
-import InputSection from "./Input-section";
+} from "../sharedLayoutForContacts.styles";
+import InputSection from "./InputSection";
 
 const Chats: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();

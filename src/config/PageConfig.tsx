@@ -1,20 +1,20 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import Home from "../components/content/home/Home";
-import ExampleUserProfile from "../components/content/profile/mocks/example-user-profile";
-import MyPosts from "../components/content/my-posts/My-posts";
+import ExampleUserProfile from "../components/content/showcase/profile/mocks/exampleUserProfile";
+import MyPosts from "../components/content/showcase/my-posts/MyPosts";
 import News from "../components/content/news/News";
 import Technologies from "../components/content/technologies/Technologies";
 import About from "../components/content/about/About";
 import Contact from "../components/content/contact/Contact";
 import Contacts from "../components/content/whisper/contacts/Contacts";
-import {techLinks} from "../components/content/technologies/types/technology-links";
+import {techLinks} from "../components/content/technologies/types/technologyLinks";
 import {RootState} from "../app/store";
-import {ClassNames} from "./types/class-names.enum";
+import {ClassNames} from "./types/classNames.enum";
 import Chats from "../components/content/whisper/chats/Chats";
-import BannerImage from "../components/content/banner-image/banner-image";
-import defaultImageBanner from "../assets/images/default-image-banner.png";
-import PageContentSummarize from "../components/content/summarize/Summarize-content";
+import BannerImage from "../components/content/banner-image/bannerImage";
+import defaultImageBanner from "../assets/images/defaultImageBanner.png";
+import PageContentSummarize from "../components/content/summarize/SummarizeContent";
 
 export interface PageConfig {
     bannerImage: React.FC;

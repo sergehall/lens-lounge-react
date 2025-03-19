@@ -1,7 +1,7 @@
 // Layout Wrapper Component
 import React from "react";
-import PageLayout from "./Page-layout";
-import {PageConfig} from "../config/Page-сonfig";
+import PageLayout from "./PageLayout";
+import {PageConfig} from "../config/PageConfig";
 
 
 interface LayoutWrapperProps {

@@ -8,7 +8,7 @@ import {
     ArticleTitle,
     ArticleText,
 } from "./news.styles";
-import {NewArticles} from "./news-articles-mock";
+import {NewArticles} from "./newsArticlesMock";
 
 export interface NewArticlesProps {
     newArticles: NewArticles[];

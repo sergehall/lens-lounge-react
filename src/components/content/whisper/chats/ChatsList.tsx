@@ -1,6 +1,6 @@
 import React from "react";
-import { ChatsData } from "./chats-data";
-import {Avatar, UserDetails, UserItem, UserList, UserName, UserStatus } from "../shared-layout-for-contacts.styles";
+import { ChatsData } from "./chatsData";
+import {Avatar, UserDetails, UserItem, UserList, UserName, UserStatus } from "../sharedLayoutForContacts.styles";
 
 interface ChatsListProps {
     chats: ChatsData[];

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {ChatsData} from "./chats-data";
+import {ChatsData} from "./chatsData";
 import {Message} from "./mocks/messages-mock";
 
 interface ChatsState {

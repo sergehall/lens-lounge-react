@@ -17,7 +17,8 @@ const rootElement = document.getElementById(ROOT_ID);
 if (!rootElement) {
     throw new Error(`No element found with ID ${ROOT_ID}`);
 }
-const root = ReactDOM.createRoot(rootElement);
+
+const root = ReactDOM.createRoot(rootElement as HTMLElement);
 
 // Render the application
 root.render(

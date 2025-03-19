@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "./components/sidebar/Sidebar";
 import Header from "./components/header/Header";
 import { AppContainer, AppHeader, AppSidebar, AppContent } from "./app.styles";
-import GlobalStyles from "./global-styles";
+import GlobalStyles from "./globalStyles";
 import AppRoutes from "./routes/AppRoutes";
 
 const App: React.FC = () => {

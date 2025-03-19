@@ -1,4 +1,4 @@
-import {AddressData, addressDataMock, CellPhoneData, cellPhoneDataMock, users} from "../../users/mocks/users-mock";
+import {AddressData, addressDataMock, CellPhoneData, cellPhoneDataMock, users} from "../../users/mocks/usersMock";
 
 export interface ContactsData {
     id: number;

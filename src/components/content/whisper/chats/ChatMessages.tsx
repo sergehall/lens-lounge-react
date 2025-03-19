@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import {MessageItem, MessagesContainer} from "./chats.styles";
 import {Message} from "./mocks/messages-mock";
 import { RootState} from "../../../../app/store";
-import {ChatsData} from "./chats-data";
+import {ChatsData} from "./chatsData";
 
 interface ChatMessagesProps {
     userId: number;

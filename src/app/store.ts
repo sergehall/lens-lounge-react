@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import contentSlice from "./slices/content-slice";
-import headerSlice from "./slices/header-slice";
-import sidebarSlice from "./slices/sidebar-slice";
-import pageContentSlice from "./slices/page-content-slice";
-import {apiSlice} from "../api/api-slice";
+import contentSlice from "./slices/contentSlice";
+import headerSlice from "./slices/headerSlice";
+import sidebarSlice from "./slices/sidebarSlice";
+import pageContentSlice from "./slices/pageContentSlice";
+import {apiSlice} from "../api/apiSlice";
 
 export const store = configureStore({
     reducer: {

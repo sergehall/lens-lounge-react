@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
-import {ContactsData} from "./contacts-data";
-import ContactsList from "./Contacts-list";
+import {ContactsData} from "./contactsData";
+import ContactsList from "./ContactsList";
 import NavigationButtons from "../Navigation-buttons";
-import ContactDetails from "./Contact-details";
-import {ChatsOrContactsInfoSection, NoContacts, UserListWrapper, WhisperContainer} from "../shared-layout-for-contacts.styles";
+import ContactDetails from "./ContactDetails";
+import {ChatsOrContactsInfoSection, NoContacts, UserListWrapper, WhisperContainer} from "../sharedLayoutForContacts.styles";
 import {RouteManager} from "../../../../utils/routeManager";
 
 
