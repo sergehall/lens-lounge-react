@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { setDynamicTitle, setDynamicPageContent } from "../../../app/store";
 import {
     SummarizeContainer,
     SummarizeDescription,
@@ -11,6 +10,7 @@ import {
 } from "./summarize.style";
 import { RootState } from "../../../app/store";
 import {pageContentMock, PageKey, PageKeys} from "./mocks/pageContentMock";
+import {setDynamicPageContent, setDynamicTitle} from "../../../app/slices/pageContentSlice";
 
 
 // **AI-based page summary hook**

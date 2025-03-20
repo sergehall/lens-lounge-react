@@ -27,7 +27,6 @@ export const techLinks: TechnologyLinkType[] = [
     { name: TechnologyName.YARN_BERRY, url: 'https://yarnpkg.com/' },
     { name: TechnologyName.NPM, url: 'https://www.npmjs.com/' },
     { name: TechnologyName.JAVASCRIPT_ES6_PLUS, url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference' },
-    { name: TechnologyName.CREATE_REACT_APP, url: 'https://create-react-app.dev/' },
     { name: TechnologyName.VITE, url: 'https://vitejs.dev/' },
     { name: TechnologyName.REACT_ROUTER, url: 'https://reactrouter.com/' },
     { name: TechnologyName.AXIOS, url: 'https://axios-http.com/' },

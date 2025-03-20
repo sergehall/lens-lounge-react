@@ -1,12 +1,12 @@
 import { Navigate } from "react-router-dom";
-import {useAuth} from "../../api/authService";
+import { useAuth } from "../../api/authService";
 import AdminPanel from "./AdminPanel";
 
 const AdminPage = () => {
-    const { user, isLoading } = useAuth();
+    const { user, userLoading } = useAuth(); // ✅ Ensure correct state names
 
-    if (isLoading) return <p>Loading...</p>;
-    if (!user) return <Navigate to="/login" />;
+    if (userLoading) return <p>Loading...</p>; // ✅ Fix loading state
+    if (!user) return <Navigate to="/signin" replace />; // ✅ Redirect to correct route
 
     return (
         <div className="container mx-auto p-6">

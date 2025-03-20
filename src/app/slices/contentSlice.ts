@@ -46,4 +46,5 @@ const contentSlice = createSlice({
     },
 });
 
-export default contentSlice;
+export const { updateChatMessages } = contentSlice.actions;
+export default contentSlice.reducer;

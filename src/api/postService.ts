@@ -1,4 +1,5 @@
-import {useCreatePostMutation, useGetPostByIdQuery, useGetPostsQuery, useSubscribeToPostsQuery} from "./apiSlice";
+import {useCreatePostMutation, useGetPostByIdQuery,
+    useGetPostsQuery, useSubscribeToPostsQuery} from "./apiSlice";
 
 
 /**

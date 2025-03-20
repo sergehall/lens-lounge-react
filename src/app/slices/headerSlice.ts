@@ -20,4 +20,5 @@ const headerSlice = createSlice({
     },
 });
 
-export default headerSlice;
+export const { updateHeader } = headerSlice.actions;
+export default headerSlice.reducer;

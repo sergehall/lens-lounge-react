@@ -16,5 +16,6 @@ const sidebarSlice = createSlice({
     },
 });
 
-export default sidebarSlice;
+export const { updateLinks } = sidebarSlice.actions;
+export default sidebarSlice.reducer;
 

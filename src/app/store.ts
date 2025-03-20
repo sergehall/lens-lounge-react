@@ -1,17 +1,17 @@
-import { configureStore } from "@reduxjs/toolkit";
-import contentSlice from "./slices/contentSlice";
-import headerSlice from "./slices/headerSlice";
-import sidebarSlice from "./slices/sidebarSlice";
-import pageContentSlice from "./slices/pageContentSlice";
+import {configureStore} from "@reduxjs/toolkit";
+import contentReducer from "./slices/contentSlice";
+import headerReducer from "./slices/headerSlice";
+import sidebarReducer from "./slices/sidebarSlice";
+import pageContentReducer from "./slices/pageContentSlice";
 import {apiSlice} from "../api/apiSlice";
 
 export const store = configureStore({
     reducer: {
-        header: headerSlice.reducer,
-        sidebar: sidebarSlice.reducer,
-        content: contentSlice.reducer,
-        pageContent: pageContentSlice.reducer,
-        [apiSlice.reducerPath]: apiSlice.reducer, // RTK Query reducer
+        [apiSlice.reducerPath]: apiSlice.reducer, // Manages API cache
+        header: headerReducer,
+        sidebar: sidebarReducer,
+        content: contentReducer,
+        pageContent: pageContentReducer,  // Manages UI state (titles, images, content)
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(apiSlice.middleware),
@@ -20,10 +20,3 @@ export const store = configureStore({
 // **Infer RootState and AppDispatch from the store**
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-
-// **Export actions**
-export const { updateHeader } = headerSlice.actions;
-export const { updateLinks } = sidebarSlice.actions;
-export const { updateChatMessages } = contentSlice.actions;
-
-export const { setDynamicImageUrl, setDynamicTitle , setDynamicPageContent} = pageContentSlice.actions;

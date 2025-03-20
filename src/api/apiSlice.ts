@@ -1,68 +1,73 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+const BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://api.example.com";
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_BASE_URL || 'https://api.example.com',
-    prepareHeaders: async (headers) => {
-        let token = localStorage.getItem('token');
+    baseUrl: BASE_URL,
+    prepareHeaders: (headers) => {
+        const token = localStorage.getItem("token");
         if (token) {
-            headers.set('Authorization', `Bearer ${token}`);
+            headers.set("Authorization", `Bearer ${token}`);
         }
         return headers;
     },
 });
 
 export const apiSlice = createApi({
-    reducerPath: 'api',
+    reducerPath: "api",
     baseQuery,
     endpoints: (builder) => ({
-        // 🔹 Login & Authentication
-        login: builder.mutation<{ token: string; refreshToken: string }, { email: string; password: string }>({
+        // 🔹 Sign In API
+        signIn: builder.mutation<{ token: string; refreshToken: string }, { email: string; password: string }>({
             query: (credentials) => ({
-                url: '/auth/login',
-                method: 'POST',
+                url: "/auth/signin",
+                method: "POST",
                 body: credentials,
             }),
             async onQueryStarted(args, { queryFulfilled }) {
                 try {
                     const { data } = await queryFulfilled;
-                    localStorage.setItem('token', data.token);
-                    localStorage.setItem('refreshToken', data.refreshToken);
+                    localStorage.setItem("token", data.token);
+                    localStorage.setItem("refreshToken", data.refreshToken);
                 } catch (error) {
-                    console.error('Login failed:', error);
+                    console.error("Sign-in failed:", error);
                 }
             },
         }),
 
-        refreshAuthToken: builder.mutation<{ token: string }, { refreshToken: string }>({
-            query: ({ refreshToken }) => ({
-                url: '/auth/refresh',
-                method: 'POST',
-                body: { refreshToken },
-            }),
-            async onQueryStarted(args, { queryFulfilled }) {
-                try {
-                    const { data } = await queryFulfilled;
-                    localStorage.setItem('token', data.token);
-                } catch (error) {
-                    console.error('Token refresh failed:', error);
-                }
-            },
-        }),
-
-        // 🔹 User Management
+        // 🔹 Fetch user details
         getUser: builder.query<{ id: string; name: string; email: string }, void>({
-            query: () => '/auth/user',
+            query: () => "/auth/user",
         }),
 
+        // 🔹 Update User Details
         updateUser: builder.mutation<{ name: string; email: string }, { name: string; email: string }>({
             query: (updatedUser) => ({
-                url: '/auth/user',
-                method: 'PUT',
+                url: "/auth/user",
+                method: "PUT",
                 body: updatedUser,
             }),
         }),
 
-        // 🔹 Post Management
+        // 🔹 Sign Out API
+        signOut: builder.mutation<void, void>({
+            query: () => ({
+                url: "/auth/signout",
+                method: "POST",
+            }),
+            async onQueryStarted(_, { dispatch, queryFulfilled }) {
+                try {
+                    await queryFulfilled;
+                    localStorage.removeItem("token");
+                    localStorage.removeItem("refreshToken");
+                    dispatch(apiSlice.util.resetApiState());
+                } catch (error) {
+                    console.error("Sign-out failed:", error);
+                }
+            },
+        }),
+
+        // 🔹 Post Management APIs
         getPosts: builder.query<{ posts: { id: string; title: string; content: string }[]; totalPages: number }, { page: number }>({
             query: ({ page }) => `/posts?page=${page}`,
         }),
@@ -73,8 +78,8 @@ export const apiSlice = createApi({
 
         createPost: builder.mutation<void, { title: string; content: string }>({
             query: (newPost) => ({
-                url: '/posts',
-                method: 'POST',
+                url: "/posts",
+                method: "POST",
                 body: newPost,
             }),
         }),
@@ -83,7 +88,7 @@ export const apiSlice = createApi({
         subscribeToPosts: builder.query<{ id: string; title: string; content: string }[], void>({
             queryFn: () => ({ data: [] }),
             async onCacheEntryAdded(_, { updateCachedData, cacheEntryRemoved }) {
-                const ws = new WebSocket('wss://api.example.com/posts');
+                const ws = new WebSocket(`${BASE_URL.replace("https", "wss")}/posts`);
 
                 try {
                     ws.onmessage = (event) => {
@@ -92,22 +97,23 @@ export const apiSlice = createApi({
                             draft.unshift(newPost);
                         });
                     };
+
                     await cacheEntryRemoved;
                     ws.close();
                 } catch (error) {
-                    console.error('WebSocket error:', error);
+                    console.error("WebSocket error:", error);
                 }
             },
         }),
     }),
 });
 
-// 🔹 Export API Hooks for use in components
+// 🔹 Export API hooks
 export const {
-    useLoginMutation,
-    useRefreshAuthTokenMutation,
+    useSignInMutation,
     useGetUserQuery,
     useUpdateUserMutation,
+    useSignOutMutation,
     useGetPostsQuery,
     useGetPostByIdQuery,
     useCreatePostMutation,

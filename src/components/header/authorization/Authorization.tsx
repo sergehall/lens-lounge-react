@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction} from "react";
+import React, { useState } from "react";
 import {
     AuthButton,
     DropdownContainer,
@@ -14,18 +14,18 @@ import {
     SignInWithGoogleButton,
     ContinueWithFacebookButton,
 } from "./authorization.styles";
+import {useAuth} from "../../../api/authService";
 
 export interface AuthorizationProps {
     isDropdownVisible: boolean;
-    setIsDropdownVisible: Dispatch<SetStateAction<boolean>>; // Proper type for setState
+    setIsDropdownVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Authorization: React.FC<AuthorizationProps> = ({
-                                                         isDropdownVisible,
-                                                         setIsDropdownVisible,
-                                                     }) => {
-    const [showSignInField, setShowSignInField] = React.useState(false);
-    const [username, setUsername] = React.useState("");
+const Authorization: React.FC<AuthorizationProps> = ({ isDropdownVisible, setIsDropdownVisible }) => {
+    const { handleSignIn, signInState, user, handleSignOut } = useAuth();
+    const [showSignInField, setShowSignInField] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const handleSignInClick = () => {
         setShowSignInField(true);
@@ -33,71 +33,91 @@ const Authorization: React.FC<AuthorizationProps> = ({
 
     return (
         <div
-            style={{position: "relative"}}
+            style={{ position: "relative" }}
             onMouseEnter={() => setIsDropdownVisible(true)}
             onMouseLeave={() => setIsDropdownVisible(false)}
         >
             {/* Authorization Button */}
-            <AuthButton $isActive={isDropdownVisible}>Authorization</AuthButton>
+            <AuthButton $isActive={isDropdownVisible}>
+                {user ? `Welcome, ${user.name}` : "Authorization"}
+            </AuthButton>
 
             {/* Dropdown Content */}
             {isDropdownVisible && (
                 <DropdownContainer>
-                    {/* Conditional Rendering for Username Sign-In */}
-                    {!showSignInField ? (
+                    {/* If user is already signed in, show Sign Out */}
+                    {user ? (
                         <>
-                            <DropdownTitle>
-                                SIGN IN
-                                <WhiteDivider>or</WhiteDivider>
-                                CREATE ACCOUNT
-                            </DropdownTitle>
-                            <DropdownButton onClick={handleSignInClick}>
-                                SIGN IN
-                            </DropdownButton>
-                            <DropdownButton onClick={() => alert("Create Account")}>
-                                CREATE ACCOUNT
+                            <DropdownTitle>WELCOME, {user.name.toUpperCase()}</DropdownTitle>
+                            <DropdownButton onClick={handleSignOut}>
+                                SIGN OUT
                             </DropdownButton>
                         </>
                     ) : (
                         <>
-                            {/* Sign In via Username or Login */}
-                            <SignInWithUsernameContainer>
-                                <DropdownTitle>SIGN IN</DropdownTitle>
-                                <SignInInstruction>
-                                    USE YOUR EMAIL ADDRESS OR PHONE NUMBER
-                                </SignInInstruction>
-                                <InputField
-                                    type="text"
-                                    placeholder="Username"
-                                    value={username}
-                                    onChange={(e) => setUsername(e.target.value)}
-                                />
-                                <DropdownButton
-                                    onClick={() => alert(`Welcome, ${username}!`)}
-                                >
-                                    NEXT STEP
-                                </DropdownButton>
-                                <ForgotPasswordLink href="#">
-                                    FORGOT PASSWORD?
-                                </ForgotPasswordLink>
-                            </SignInWithUsernameContainer>
+                            {/* Conditional Rendering for Username Sign-In */}
+                            {!showSignInField ? (
+                                <>
+                                    <DropdownTitle>
+                                        SIGN IN
+                                        <WhiteDivider>or</WhiteDivider>
+                                        CREATE ACCOUNT
+                                    </DropdownTitle>
+                                    <DropdownButton onClick={handleSignInClick}>
+                                        SIGN IN
+                                    </DropdownButton>
+                                    <DropdownButton onClick={() => alert("Create Account")}>
+                                        CREATE ACCOUNT
+                                    </DropdownButton>
+                                </>
+                            ) : (
+                                <>
+                                    {/* Sign In via Email */}
+                                    <SignInWithUsernameContainer>
+                                        <DropdownTitle>SIGN IN</DropdownTitle>
+                                        <SignInInstruction>
+                                            USE YOUR EMAIL ADDRESS OR PHONE NUMBER
+                                        </SignInInstruction>
+                                        <InputField
+                                            type="email"
+                                            placeholder="Email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                        />
+                                        <InputField
+                                            type="password"
+                                            placeholder="Password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        />
+                                        <DropdownButton
+                                            onClick={() => handleSignIn(email, password)}
+                                            disabled={signInState.isLoading}
+                                        >
+                                            {signInState.isLoading ? "Signing in..." : "NEXT STEP"}
+                                        </DropdownButton>
+                                        <ForgotPasswordLink href="#">
+                                            FORGOT PASSWORD?
+                                        </ForgotPasswordLink>
+                                    </SignInWithUsernameContainer>
 
+                                    {/* Divider */}
+                                    <WhiteDivider>or</WhiteDivider>
 
-                            {/* Divider */}
-                            <WhiteDivider>or</WhiteDivider>
-
-                            {/* Sign In via Social Media */}
-                            <SignInWithSocialContainer>
-                                <SignInWithAppleButton>
-                                    Continue with Apple
-                                </SignInWithAppleButton>
-                                <SignInWithGoogleButton>
-                                    Sign in with Google
-                                </SignInWithGoogleButton>
-                                <ContinueWithFacebookButton>
-                                    Continue with Facebook
-                                </ContinueWithFacebookButton>
-                            </SignInWithSocialContainer>
+                                    {/* Sign In via Social Media */}
+                                    <SignInWithSocialContainer>
+                                        <SignInWithAppleButton>
+                                            Continue with Apple
+                                        </SignInWithAppleButton>
+                                        <SignInWithGoogleButton>
+                                            Sign in with Google
+                                        </SignInWithGoogleButton>
+                                        <ContinueWithFacebookButton>
+                                            Continue with Facebook
+                                        </ContinueWithFacebookButton>
+                                    </SignInWithSocialContainer>
+                                </>
+                            )}
                         </>
                     )}
                 </DropdownContainer>
@@ -107,4 +127,3 @@ const Authorization: React.FC<AuthorizationProps> = ({
 };
 
 export default Authorization;
-

@@ -32,4 +32,6 @@ const pageContentSlice = createSlice({
     },
 });
 
-export default pageContentSlice;
+// ✅ Correct: Export actions from the slice
+export const { setDynamicImageUrl, setDynamicPageContent, setDynamicTitle } = pageContentSlice.actions;
+export default pageContentSlice.reducer;

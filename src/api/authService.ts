@@ -1,33 +1,28 @@
-import {useGetUserQuery, useLoginMutation, useRefreshAuthTokenMutation} from "./apiSlice";
+import { useSignInMutation, useSignOutMutation, useGetUserQuery } from "./apiSlice";
 
-
-/**
- * Hook for handling user authentication.
- */
 export const useAuth = () => {
-    const [login, loginState] = useLoginMutation();
-    const [refreshToken] = useRefreshAuthTokenMutation();
-    const { data: user, isLoading } = useGetUserQuery();
+    const [signIn, signInState] = useSignInMutation();
+    const [signOut] = useSignOutMutation();
+    const { data: user, isLoading: userLoading } = useGetUserQuery();
 
-    /**
-     * Automatically refresh the token when necessary.
-     */
-    const handleTokenRefresh = async () => {
-        const storedRefreshToken = localStorage.getItem('refreshToken');
-        if (storedRefreshToken) {
-            try {
-                await refreshToken({ refreshToken: storedRefreshToken }).unwrap();
-            } catch (error) {
-                console.error('Token refresh failed:', error);
-            }
+    const handleSignIn = async (email: string, password: string) => {
+        try {
+            await signIn({ email, password }).unwrap();
+        } catch (error) {
+            console.error("Authentication failed", error);
         }
     };
 
+    const handleSignOut = () => {
+        signOut();
+        window.location.reload(); // Refresh to clear user state
+    };
+
     return {
-        login,
         user,
-        isLoading,
-        loginState,
-        handleTokenRefresh,
+        userLoading,
+        handleSignIn,
+        handleSignOut,
+        signInState,
     };
 };
