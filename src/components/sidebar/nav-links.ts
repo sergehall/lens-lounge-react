@@ -1,3 +1,5 @@
+// src/components/sidebar/nav-links.ts
+
 import {RouteManager} from "../../utils/routeManager";
 
 const SidebarPaths = RouteManager.getSidebarPaths();

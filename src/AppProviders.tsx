@@ -5,8 +5,8 @@ import {Provider} from "react-redux";
 import {store} from "./app/store";
 import {ThemeProvider} from "styled-components";
 import theme from "./themes/theme";
-import {BrowserRouter} from "react-router-dom";
 import {AuthProvider} from "./contexts/AuthContext";
+import {BrowserRouter} from "react-router-dom";
 
 interface AppProvidersProps {
     children: React.ReactNode;

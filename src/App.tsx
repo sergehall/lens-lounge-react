@@ -1,3 +1,5 @@
+// src/App.tsx
+
 import React from "react";
 import Sidebar from "./components/sidebar/Sidebar";
 import Header from "./components/header/Header";
@@ -11,17 +13,17 @@ const App: React.FC = () => {
             <GlobalStyles />
             <AppContainer>
                 {/* Header */}
-                <AppHeader>
+                <AppHeader data-testid="app-header">
                     <Header />
                 </AppHeader>
 
                 {/* Sidebar */}
-                <AppSidebar>
+                <AppSidebar data-testid="app-sidebar">
                     <Sidebar />
                 </AppSidebar>
 
                 {/* Content */}
-                <AppContent>
+                <AppContent data-testid="app-content">
                     <AppRoutes />
                 </AppContent>
             </AppContainer>
@@ -30,3 +32,13 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+// If You Want to Strip data-testid in Production
+// You can do something like this in a custom Babel plugin or build tool step:
+// if (process.env.NODE_ENV === 'production') {
+//   // Remove all data-testid attributes during build
+// }
+// Or, use something like:
+// babel-plugin-react-remove-properties
+// With config:
+// ["react-remove-properties", { "properties": ["data-testid"] }]
