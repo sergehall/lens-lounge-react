@@ -1,10 +1,10 @@
 // src/setupTests.ts
 
 import '@testing-library/jest-dom';
+import 'whatwg-fetch';
 
-//
-// // ✅ Setup check
-// console.log("✅ setupTests.ts loaded");
+// ✅ Setup check
+console.log("✅ setupTests.ts loaded");
 
 // matchMedia polyfill
 Object.defineProperty(window, 'matchMedia', {
@@ -40,6 +40,16 @@ class IntersectionObserverMock implements IntersectionObserver {
 }
 
 window.IntersectionObserver = IntersectionObserverMock;
+
+global.fetch = jest.fn(() =>
+    Promise.resolve({
+        json: () => Promise.resolve({}),
+    })
+) as jest.Mock;
+
+global.Request = class {
+    constructor() {}
+} as any;
 
 // // If you need to inspect how many times it was instantiated in a test:
 // jest.mock('./path/to/observer', () => IntersectionObserverMock);
