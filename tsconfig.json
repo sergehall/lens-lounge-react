@@ -28,6 +28,6 @@
   },
   "include": [
     "src",
-    "src/types/env.d.ts"
+    "src/types/reactAppEnv.d.ts"
   ]
 }
