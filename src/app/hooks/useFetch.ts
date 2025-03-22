@@ -15,8 +15,12 @@ export const useFetch = <T>(
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
+        const controller = new AbortController();
+
         const fetchData = async () => {
             setLoading(true);
+            setError(null);
+
             try {
                 const response = await fetch(url, {
                     method: options?.method || 'GET',
@@ -24,21 +28,29 @@ export const useFetch = <T>(
                         'Content-Type': 'application/json',
                         ...options?.headers,
                     },
-                    body: options?.body ? JSON.stringify(options.body) : null,
+                    body: options?.body ? JSON.stringify(options.body) : undefined,
+                    signal: controller.signal,
                 });
+
                 if (!response.ok) {
-                    throw new Error(`Error: ${response.statusText}`);
+                    const message = await response.text();
+                    setError(`Error ${response.status}: ${message}`);
+                    return;
                 }
+
                 const result = await response.json();
                 setData(result);
             } catch (err: any) {
-                setError(err.message);
+                if (err.name === 'AbortError') return;
+                setError(err.message || 'Unexpected error');
             } finally {
                 setLoading(false);
             }
         };
 
         fetchData();
+
+        return () => controller.abort();
     }, [url, options]);
 
     return { data, error, loading };
