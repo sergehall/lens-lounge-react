@@ -1,7 +1,5 @@
-// src/__tests__/App.test.tsx
-
 // 🧪 Testing library utilities for rendering and querying DOM nodes
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, within, act } from '@testing-library/react';
 
 // 🧩 Application-level providers and components
 import AppProviders from '../AppProviders';
@@ -62,7 +60,10 @@ describe('<App /> (with AppProviders)', () => {
 // 🔽 Suite for testing with async helper to mimic real app environment
 describe('<App /> (async render)', () => {
     test('renders without crashing (with async renderWithProviders)', async () => {
-        await renderWithProviders(<App />);
+        // Wrap the rendering inside `act()` to ensure any state updates are properly handled.
+        await act(async () => {
+            await renderWithProviders(<App />);
+        });
         expect(screen.getByTestId('app-header')).toBeInTheDocument();
     });
 });
