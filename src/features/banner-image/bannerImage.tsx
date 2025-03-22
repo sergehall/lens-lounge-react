@@ -1,5 +1,5 @@
 import React from "react";
-import defaultImageBanner from "../../../assets/images/defaultImageBanner.png";
+import defaultImageBanner from "../../assets/images/defaultImageBanner.png";
 import {
     ImageBannerContentContainer,
     ImageBannerContentImage,

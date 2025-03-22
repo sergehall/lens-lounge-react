@@ -7,7 +7,7 @@ import {
     TechnologyLink, PopupWindow, StyledIframe,
 } from "./technologies.styles";
 import { TechnologyLinkType } from "./types/technologyLinks";
-import {ClassNames} from "../../../config/types/classNames.enum";
+import {ClassNames} from "../../config/types/classNames.enum";
 
 interface TechnologiesProps {
     links: TechnologyLinkType[];

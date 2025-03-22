@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import ChatsList from "./ChatsList";
 import ChatMessages from "./ChatMessages";
 import NavigationButtons from "../Navigation-buttons";
-import { RouteManager } from "../../../../utils/routeManager";
-import { AppDispatch, RootState } from "../../../../app/store";
+import { RouteManager } from "../../../utils/routeManager";
+import { AppDispatch, RootState } from "../../../app/store";
 import {
     ChatsOrContactsInfoSection,
     NoContacts,
@@ -13,7 +13,7 @@ import {
     WhisperContainer
 } from "../sharedLayoutForContacts.styles";
 import InputSection from "./InputSection";
-import {updateChatMessages} from "../../../../app/slices/contentSlice";
+import {updateChatMessages} from "../../../app/slices/contentSlice";
 
 const Chats: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();

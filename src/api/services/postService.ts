@@ -1,5 +1,5 @@
 import {useCreatePostMutation, useGetPostByIdQuery,
-    useGetPostsQuery, useSubscribeToPostsQuery} from "./apiSlice";
+    useGetPostsQuery, useSubscribeToPostsQuery} from "../apiSlice";
 
 
 /**

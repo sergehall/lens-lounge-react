@@ -19,10 +19,15 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "typeRoots": ["./node_modules/@types"],
-    "types": ["styled-components"]
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "types": [
+      "styled-components"
+    ]
   },
   "include": [
-    "src"
+    "src",
+    "src/types/env.d.ts"
   ]
 }

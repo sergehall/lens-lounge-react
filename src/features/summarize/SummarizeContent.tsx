@@ -8,9 +8,9 @@ import {
     SummarizeTextContainer,
     SummarizeTitle,
 } from "./summarize.style";
-import { RootState } from "../../../app/store";
+import { RootState } from "../../app/store";
 import {pageContentMock, PageKey, PageKeys} from "./mocks/pageContentMock";
-import {setDynamicPageContent, setDynamicTitle} from "../../../app/slices/pageContentSlice";
+import {setDynamicPageContent, setDynamicTitle} from "../../app/slices/pageContentSlice";
 
 
 // **AI-based page summary hook**

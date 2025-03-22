@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { postsDataMock } from "../../components/content/showcase/my-posts/mocks/postsDataMock";
-import { PostProps } from "../../components/content/showcase/my-posts/post/Post";
-import { contactData, ContactsData } from "../../components/content/whisper/contacts/contactsData";
-import { NewArticles, newArticlesMock } from "../../components/content/news/newsArticlesMock";
-import { chatsData } from "../../components/content/whisper/chats/chatsData";
-import { User } from "../../components/content/users/mocks/usersMock";
-import { Message } from "../../components/content/whisper/chats/mocks/messages-mock";
+import { postsDataMock } from "../../features/showcase/my-posts/mocks/postsDataMock";
+import { PostProps } from "../../features/showcase/my-posts/post/Post";
+import { contactData, ContactsData } from "../../features/whisper/contacts/contactsData";
+import { NewArticles, newArticlesMock } from "../../features/news/newsArticlesMock";
+import { chatsData } from "../../features/whisper/chats/chatsData";
+import { User } from "../../features/users/mocks/usersMock";
+import { Message } from "../../features/whisper/chats/mocks/messages-mock";
 
 interface Chat {
     user: User;

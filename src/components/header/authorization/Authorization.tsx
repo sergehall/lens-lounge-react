@@ -14,7 +14,7 @@ import {
     SignInWithGoogleButton,
     ContinueWithFacebookButton,
 } from "./authorization.styles";
-import {useAuth} from "../../../api/authService";
+import {useAuth} from "../../../api/services/authService";
 
 export interface AuthorizationProps {
     isDropdownVisible: boolean;

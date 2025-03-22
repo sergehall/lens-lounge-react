@@ -1,4 +1,4 @@
-import { useSignInMutation, useSignOutMutation, useGetUserQuery } from "./apiSlice";
+import { useSignInMutation, useSignOutMutation, useGetUserQuery } from "../apiSlice";
 
 export const useAuth = () => {
     const [signIn, signInState] = useSignInMutation();

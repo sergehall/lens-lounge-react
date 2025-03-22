@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../../api/authService";
+import { useAuth } from "../../api/services/authService";
 import AdminPanel from "./AdminPanel";
 
 const AdminPage = () => {

@@ -8,10 +8,10 @@ import {apiSlice} from "../api/apiSlice";
 export const store = configureStore({
     reducer: {
         [apiSlice.reducerPath]: apiSlice.reducer, // Manages API cache
-        header: headerReducer,
+        header: headerReducer,  // Manages UI state
         sidebar: sidebarReducer,
         content: contentReducer,
-        pageContent: pageContentReducer,  // Manages UI state (titles, images, content)
+        pageContent: pageContentReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(apiSlice.middleware),

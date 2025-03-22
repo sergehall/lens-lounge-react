@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from "react";
 import {useSelector} from "react-redux";
 import {MessageItem, MessagesContainer} from "./chats.styles";
 import {Message} from "./mocks/messages-mock";
-import { RootState} from "../../../../app/store";
+import { RootState} from "../../../app/store";
 import {ChatsData} from "./chatsData";
 
 interface ChatMessagesProps {
