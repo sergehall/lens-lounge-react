@@ -11,7 +11,7 @@ import {
 import Authorization from "./authorization/Authorization";
 
 const Header: React.FC = () => {
-    const { title, logoUrl, homeUrl } = useSelector((state: RootState) => state.header);
+    const { title, logoUrl, homeUrl } = useSelector((state: RootState) => state.layoutHeader);
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
     return (

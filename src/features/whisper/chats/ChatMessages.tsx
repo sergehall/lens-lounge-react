@@ -15,7 +15,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({userId}) => {
 
     // Select messages for the given userId
     const messages = useSelector((state: RootState) =>
-        state.content.whisperPage.chatConversations.find((chat: ChatsData) => chat.user.userId === userId)
+        state.pageContent.whisperPage.chatConversations.find((chat: ChatsData) => chat.user.userId === userId)
             ?.messages || []
     );
 

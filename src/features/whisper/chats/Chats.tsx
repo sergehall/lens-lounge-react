@@ -19,7 +19,7 @@ const Chats: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
     const { userId } = useParams<{ userId: string }>();
-    const chats = useSelector((state: RootState) => state.content.whisperPage.chatConversations);
+    const chats = useSelector((state: RootState) => state.pageContent.whisperPage.chatConversations);
     const [message, setMessage] = useState("");
 
     // ✅ Get selected chat from Redux state using userId from params

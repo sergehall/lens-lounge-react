@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {ChatsData} from "./chatsData";
 import {Message} from "./mocks/messages-mock";
 
@@ -39,8 +39,8 @@ const chatsSlice = createSlice({
                     read: false, // Default unread status
                     message: action.payload, // The message text from the action
                     isBanned: false, // Default to not banned
-                    banDate: null, // No ban date
-                    banReason: null, // No ban reason
+                    banDate: null,
+                    banReason: null,
                 };
 
                 state.selectedDialog.messages.push(newMessage); // Push the new message
@@ -49,7 +49,7 @@ const chatsSlice = createSlice({
     },
 });
 
-export const { setChats, setSelectedDialog, setMessage, sendMessage } = chatsSlice.actions;
+export const {setChats, setSelectedDialog, setMessage, sendMessage} = chatsSlice.actions;
 
 export const selectChats = (state: { chats: ChatsState }) => state.chats.chats;
 export const selectSelectedDialog = (state: { chats: ChatsState }) => state.chats.selectedDialog;

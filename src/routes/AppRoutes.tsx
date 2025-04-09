@@ -11,7 +11,7 @@ import LayoutWrapper from "../layouts/LayoutWrapper";
 
 const AppRoutes: React.FC = () => {
     // Retrieve state from Redux store
-    const whisperPageState = useSelector((state: RootState) => state.content.whisperPage);
+    const whisperPageState = useSelector((state: RootState) => state.pageContent.whisperPage);
 
     // Helper Components for specific routes
     const DialogsComponent: React.FC = () => (

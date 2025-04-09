@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SummarizeContainer = styled.div`
+export const PageInsightContainer = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -22,7 +22,7 @@ export const SummarizeContainer = styled.div`
 `;
 
 
-export const SummarizeImage = styled.img`
+export const PageInsightImage = styled.img`
     width: 80px;
     height: 80px;
     border-radius: ${({ theme }) => theme.global.borderRadius};
@@ -36,7 +36,7 @@ export const SummarizeImage = styled.img`
     }
 `;
 
-export const SummarizeTextContainer = styled.div`
+export const PageInsightTextContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: ${({ theme }) => theme.summarize.textGap};
@@ -50,7 +50,7 @@ export const SummarizeTextContainer = styled.div`
     }
 `;
 
-export const SummarizeTitle = styled.h2`
+export const PageInsightTitle = styled.h2`
     font-size: ${({ theme }) => theme.summarize.titleFontSize};
     margin: 0;
     color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
@@ -61,7 +61,7 @@ export const SummarizeTitle = styled.h2`
     }
 `;
 
-export const SummarizeDescription = styled.p`
+export const PageInsightDescription = styled.p`
     font-size: ${({ theme }) => theme.summarize.descriptionFontSize};
     color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
     margin: 0;

@@ -14,7 +14,7 @@ import {ClassNames} from "./types/classNames.enum";
 import Chats from "../features/whisper/chats/Chats";
 import BannerImage from "../features/banner-image/bannerImage";
 import defaultImageBanner from "../assets/images/defaultImageBanner.png";
-import PageContentSummarize from "../features/summarize/SummarizeContent";
+import PageContentSummarize from "../features/page-insight/PageInsight";
 
 export interface PageConfig {
     bannerImage: React.FC;
@@ -23,7 +23,7 @@ export interface PageConfig {
 }
 
 const ShowcasePage: React.FC = () => {
-    const posts = useSelector((state: RootState) => state.content.whisperPage.relatedPosts);
+    const posts = useSelector((state: RootState) => state.pageContent.whisperPage.relatedPosts);
     return (
         <>
             <ExampleUserProfile/>
@@ -35,11 +35,11 @@ const ShowcasePage: React.FC = () => {
 const WhisperDialogsPage: React.FC = () => <Chats/>;
 
 const NewsPage: React.FC = () => {
-    const news = useSelector((state: RootState) => state.content.newsPage.articles);
+    const news = useSelector((state: RootState) => state.pageContent.newsPage.articles);
     return <News newArticles={news}/>;
 };
 const WhisperContactsPage: React.FC = () => {
-    const contacts = useSelector((state: RootState) => state.content.whisperPage.contactList);
+    const contacts = useSelector((state: RootState) => state.pageContent.whisperPage.contactList);
     return <Contacts contacts={contacts}/>;
 };
 const TechnologiesPage: React.FC = () => <Technologies links={techLinks} className={ClassNames.TECHNOLOGIES}/>;

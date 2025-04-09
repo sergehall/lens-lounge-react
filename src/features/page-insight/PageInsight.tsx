@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {useSelector, useDispatch} from "react-redux";
+import {useLocation} from "react-router-dom";
 import {
-    SummarizeContainer,
-    SummarizeDescription,
-    SummarizeImage,
-    SummarizeTextContainer,
-    SummarizeTitle,
-} from "./summarize.style";
-import { RootState } from "../../app/store";
+    PageInsightContainer, PageInsightDescription, PageInsightImage, PageInsightTextContainer, PageInsightTitle,
+} from "./pageInsight.style";
+import {RootState} from "../../app/store";
 import {pageContentMock, PageKey, PageKeys} from "./mocks/pageContentMock";
-import {setDynamicPageContent, setDynamicTitle} from "../../app/slices/pageContentSlice";
+import {setDynamicPageContent, setDynamicTitle} from "../../app/slices/pageInsightSlice";
 
 
 // **AI-based page summary hook**
@@ -39,12 +35,12 @@ const usePageSummary = (pageContent: string) => {
 };
 
 // **Main PageContentSummarize component**
-const PageContentSummarize: React.FC = () => {
+const PageInsight: React.FC = () => {
     const dispatch = useDispatch();
     const location = useLocation();
 
     // Retrieve Redux state
-    const { title, imageUrl, pageContent } = useSelector((state: RootState) => state.pageContent);
+    const {title, imageUrl, pageContent} = useSelector((state: RootState) => state.pageInsight);
 
     // Generate AI summary
     const summary = usePageSummary(pageContent);
@@ -67,14 +63,14 @@ const PageContentSummarize: React.FC = () => {
     }, [dispatch, location.pathname, pageContent]);
 
     return (
-        <SummarizeContainer>
-            <SummarizeImage src={imageUrl} alt="Summarize Image" />
-            <SummarizeTextContainer>
-                <SummarizeTitle>{title}</SummarizeTitle>
-                <SummarizeDescription>{summary}</SummarizeDescription>
-            </SummarizeTextContainer>
-        </SummarizeContainer>
+        <PageInsightContainer>
+            <PageInsightImage src={imageUrl} alt="PageInsight Image"/>
+            <PageInsightTextContainer>
+                <PageInsightTitle>{title}</PageInsightTitle>
+                <PageInsightDescription>{summary}</PageInsightDescription>
+            </PageInsightTextContainer>
+        </PageInsightContainer>
     );
 };
 
-export default PageContentSummarize;
+export default PageInsight;

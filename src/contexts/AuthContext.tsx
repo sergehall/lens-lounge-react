@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<string | null>(null);
 
     const login = async (username: string, password: string) => {
-        const mockUser = 'John Doe';
+        const mockUser = 'Serge Hall';
         setUser(mockUser);
     };
 

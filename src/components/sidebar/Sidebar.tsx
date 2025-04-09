@@ -14,7 +14,7 @@ import {NavLinks} from "./nav-links";
 
 const Sidebar: React.FC = () => {
     // Get links from Redux store
-    const links = useSelector((state: RootState) => state.sidebar.navigationLinks);
+    const links = useSelector((state: RootState) => state.layoutSidebar.navigationLinks);
 
     return (
         <SidebarContainer role="navigation" aria-label="Sidebar Navigation">
