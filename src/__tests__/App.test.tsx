@@ -9,7 +9,7 @@ import App from '../App';
 import { RouteManager } from '../utils/routeManager';
 
 // 🔧 Custom helper for rendering components wrapped in context providers
-import { renderWithProviders } from '../test-utils'; // ✅ helper for async rendering
+import {renderWithProviders} from "../Test-utils";
 
 // 🧹 Silence console.error to prevent noisy logs (e.g., from fetchBaseQuery during tests)
 beforeAll(() => {
