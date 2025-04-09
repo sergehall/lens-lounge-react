@@ -17,22 +17,29 @@ const initialState: PageInsightState = {
     pageContent: DEFAULT_PAGE_INSIGHT_CONTENT,
 };
 
-
 const pageInsightSlice = createSlice({
     name: "pageInsight",
     initialState,
     reducers: {
         setDynamicImageUrl: (state, action: PayloadAction<string>) => {
-            state.imageUrl = action.payload || DEFAULT_PAGE_INSIGHT_IMAGE_URL;
+            state.imageUrl = action.payload;
         },
         setDynamicPageContent: (state, action: PayloadAction<string>) => {
-            state.pageContent = action.payload || DEFAULT_PAGE_INSIGHT_CONTENT;
+            state.pageContent = action.payload;
         },
         setDynamicTitle: (state, action: PayloadAction<string>) => {
-            state.title = action.payload || DEFAULT_PAGE_INSIGHT_TITLE;
+            state.title = action.payload;
         },
+
+        resetPageInsight: () => initialState,
     },
 });
 
-export const { setDynamicImageUrl, setDynamicPageContent, setDynamicTitle } = pageInsightSlice.actions;
+export const {
+    setDynamicImageUrl,
+    setDynamicPageContent,
+    setDynamicTitle,
+    resetPageInsight,
+} = pageInsightSlice.actions;
+
 export default pageInsightSlice.reducer;
