@@ -1,4 +1,4 @@
-// src/features/pageInsight/PageInsight.tsx
+// src/features/page-insight/PageInsight.tsx
 
 import React, {useEffect, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
@@ -56,22 +56,22 @@ const PageInsight: React.FC = () => {
     useEffect(() => {
         const pathSegments = location.pathname.split("/").filter(Boolean);
         const formattedTitle =
-            pathSegments
-                .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
-                .join(" ") || "Home";
+            pathSegments.map((segment) =>
+                segment.charAt(0).toUpperCase() + segment.slice(1)
+            ).join(" ") || "Home";
 
         const lastPathSegment = pathSegments.at(-1) as PageKey | undefined;
         const defaultContent =
             pageInsightMock[lastPathSegment ?? PageKeys.home]?.pageInsight;
 
-        dispatch(setDynamicPageContent(defaultContent || pageContent));
+        dispatch(setDynamicPageContent(defaultContent ?? ""));
         dispatch(setDynamicTitle(formattedTitle));
 
-        // Reset pageInsight on unmount
         return () => {
-            dispatch(resetPageInsight()); // Prevents data leakage between pages
+            dispatch(resetPageInsight());
         };
     }, [dispatch, location.pathname]);
+
 
     return (
         <PageInsightContainer>
