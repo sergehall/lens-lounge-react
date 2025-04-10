@@ -27,6 +27,13 @@ export const Title = styled.h1`
     }
 `;
 
+export const NameHighlight = styled.span`
+    display: inline;
+    color: ${({ theme }) => theme.highlights.yellow};
+    font-weight: bold;
+    transition: color 0.3s ease;
+`;
+
 // Highlighted text styling
 export const Highlight = styled.span`
     color: ${({ theme }) => theme.links.color};
@@ -34,6 +41,7 @@ export const Highlight = styled.span`
     text-transform: capitalize;
     transition: color 0.3s ease;
 `;
+
 
 // Bottom section container for descriptions
 export const BottomSection = styled.div`

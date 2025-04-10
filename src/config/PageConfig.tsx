@@ -5,7 +5,7 @@ import ExampleUserProfile from "../features/showcase/profile/mocks/exampleUserPr
 import MyPosts from "../features/showcase/my-posts/MyPosts";
 import News from "../features/news/News";
 import Technologies from "../features/technologies/Technologies";
-import About from "../features/about/About";
+import PortfolioIntro from "../features/about/About";
 import Contact from "../features/contact/Contact";
 import Contacts from "../features/whisper/contacts/Contacts";
 import {techLinks} from "../features/technologies/types/technologyLinks";
@@ -23,25 +23,27 @@ export interface PageConfig {
 }
 
 const ShowcasePage: React.FC = () => {
-    const posts = useSelector((state: RootState) => state.pageContent.whisperPage.relatedPosts);
+    const posts = useSelector((state: RootState) => state.relatedPosts.posts);
     return (
         <>
-            <ExampleUserProfile/>
-            <MyPosts posts={posts} className={ClassNames.MY_POSTS}/>
+            <ExampleUserProfile />
+            <MyPosts posts={posts} className={ClassNames.MY_POSTS} />
         </>
     );
 };
 
-const WhisperDialogsPage: React.FC = () => <Chats/>;
+const WhisperDialogsPage: React.FC = () => <Chats />;
+
+const WhisperContactsPage: React.FC = () => {
+    const contacts = useSelector((state: RootState) => state.contactList.list);
+    return <Contacts contacts={contacts} />;
+};
 
 const NewsPage: React.FC = () => {
-    const news = useSelector((state: RootState) => state.pageContent.newsPage.articles);
-    return <News newArticles={news}/>;
+    const news = useSelector((state: RootState) => state.newsPage.articles);
+    return <News newArticles={news} />;
 };
-const WhisperContactsPage: React.FC = () => {
-    const contacts = useSelector((state: RootState) => state.pageContent.whisperPage.contactList);
-    return <Contacts contacts={contacts}/>;
-};
+
 const TechnologiesPage: React.FC = () => <Technologies links={techLinks} className={ClassNames.TECHNOLOGIES}/>;
 
 
@@ -79,7 +81,7 @@ export const pageConfig: Record<string, PageConfig> = {
     about: {
         bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
         pageContentSummarize: PageContentSummarize,
-        component: About,
+        component: PortfolioIntro,
     },
     contact: {
         bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,

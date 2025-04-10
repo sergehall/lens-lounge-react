@@ -3,7 +3,7 @@ import {
     DEFAULT_PAGE_INSIGHT_CONTENT,
     DEFAULT_PAGE_INSIGHT_IMAGE_URL,
     DEFAULT_PAGE_INSIGHT_TITLE
-} from "../../features/page-insight/constants/pageInsightDefaults";
+} from "./constants/pageInsightDefaults";
 
 interface PageInsightState {
     title: string;

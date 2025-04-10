@@ -15,7 +15,7 @@ import {
     setDynamicPageContent,
     setDynamicTitle,
     resetPageInsight,
-} from "../../app/slices/pageInsightSlice";
+} from "./pageInsightSlice";
 import {pageInsightMock, PageKey, PageKeys} from "./mocks/pageInsightMock";
 
 // AI-based summary hook

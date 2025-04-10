@@ -13,13 +13,14 @@ import {
     WhisperContainer
 } from "../sharedLayoutForContacts.styles";
 import InputSection from "./InputSection";
-import {updateChatMessages} from "../../../app/slices/contentSlice";
+import {Chat, updateChatMessages} from "./chatSlice";
+
 
 const Chats: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
     const { userId } = useParams<{ userId: string }>();
-    const chats = useSelector((state: RootState) => state.pageContent.whisperPage.chatConversations);
+    const chats: Chat[] = useSelector((state: RootState) => state.chat.conversations);
     const [message, setMessage] = useState("");
 
     // ✅ Get selected chat from Redux state using userId from params

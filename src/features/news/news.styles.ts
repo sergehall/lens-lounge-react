@@ -107,3 +107,25 @@ export const ArticleText = styled.p`
     overflow: hidden;
     text-overflow: ellipsis;
 `;
+
+// Author and Date Info
+export const ArticleMeta = styled.div`
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: ${({ theme }) => theme.text.timestampSlateGray};
+    margin-top: 10px;
+    font-style: italic;
+    opacity: 0.85;
+
+    ${ArticleItem}:hover & {
+        color: ${({ theme }) => theme.news.hoverTextColor};
+    }
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 4px;
+        text-align: left;
+    }
+`;
+

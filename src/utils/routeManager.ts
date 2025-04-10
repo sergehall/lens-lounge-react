@@ -7,8 +7,8 @@ export class RouteManager {
         home: '/',
         showcase: '/showcase',
         whisper: '/whisper',
-        news: '/news',
         technologies: '/technologies',
+        news: '/news',
         about: '/about',
         contact: '/contact',
     } as const;
