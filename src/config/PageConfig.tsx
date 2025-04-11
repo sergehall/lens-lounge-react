@@ -2,7 +2,6 @@ import React from "react";
 import {useSelector} from "react-redux";
 import Home from "../features/home/Home";
 import ExampleUserProfile from "../features/showcase/profile/mocks/exampleUserProfile";
-import MyPosts from "../features/showcase/my-posts/MyPosts";
 import News from "../features/news/News";
 import Technologies from "../features/technologies/Technologies";
 import PortfolioIntro from "../features/about/About";
@@ -23,11 +22,11 @@ export interface PageConfig {
 }
 
 const ShowcasePage: React.FC = () => {
-    const posts = useSelector((state: RootState) => state.relatedPosts.posts);
+    // const posts = useSelector((state: RootState) => state.postInteractions.posts);
     return (
         <>
             <ExampleUserProfile />
-            <MyPosts posts={posts} className={ClassNames.MY_POSTS} />
+            {/*<MyPosts posts={posts} className={ClassNames.MY_POSTS} />*/}
         </>
     );
 };
