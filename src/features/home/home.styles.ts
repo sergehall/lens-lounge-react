@@ -1,5 +1,24 @@
 import styled from "styled-components";
 
+
+export const FeedContainer = styled.div`
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+`;
+
+export const Loader = styled.div`
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+`;
+
+export const ErrorMsg = styled.div`
+    color: red;
+    text-align: center;
+    margin-top: 2rem;
+`;
+
 // Main container for the Home component
 export const HomeContainer = styled.div`
     display: flex;

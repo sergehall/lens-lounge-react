@@ -5,6 +5,7 @@ const theme = {
         primaryColor: '#FF4500',
         secondaryColor: '#61DAFB',
         backgroundColor: '#282c34',
+        borderColor: '#444444',
         transparentTextShadow: 'rgba(0, 0, 0, 0.5)',
         borderRadius: '8px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
@@ -13,6 +14,7 @@ const theme = {
 
     },
     highlights: {
+        red: '#FF0000',
         yellow: '#FFD700',
         orange: '#FFA500',
         white: '#FFFFFF',
@@ -21,6 +23,10 @@ const theme = {
         lightGray: '#dddddd',
     },
     text: {
+        colorPrimary: '#333333',
+        color: '#FFFFFF',
+        colorLight: '#CCCCCC',
+        colorMuted: '#AAAAAA',
         colorWhite: '#E0E0E0',
         colorDarkCharcoalBlue: '#282c34',
         colorDarkGray: '#333333',
