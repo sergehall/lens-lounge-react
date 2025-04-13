@@ -26,7 +26,7 @@ const chatSlice = createSlice({
     reducers: {
         updateChatMessages: (
             state,
-            action: PayloadAction<{ userId: number; newMessage: Message }>
+            action: PayloadAction<{ userId: string; newMessage: Message }>
         ) => {
             const { userId, newMessage } = action.payload;
             const chat = state.conversations.find((c) => c.user.userId === userId);
@@ -40,7 +40,7 @@ const chatSlice = createSlice({
 // Selectors
 export const selectChats = (state: RootState) => state.chat.conversations;
 
-export const selectMessagesByUser = (userId: number) => (state: RootState): Message[] => {
+export const selectMessagesByUser = (userId: string) => (state: RootState): Message[] => {
     return (
         state.chat.conversations.find((chat) => chat.user.userId === userId)?.messages || []
     );

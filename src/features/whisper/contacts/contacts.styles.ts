@@ -30,7 +30,7 @@ export const UserInfoDetails = styled.div`
     text-align: left;
 
     & > p {
-        font-size: ${({theme}) => theme.text.fontSizeContacts};
+        font-size: ${({theme}) => theme.text.fontSize.contact};
         color: ${({theme}) => theme.text.colorDarkCharcoalBlue};
         margin: 8px 0;
     }

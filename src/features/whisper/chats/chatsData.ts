@@ -9,5 +9,5 @@ export interface ChatsData {
 
 export const chatsData: ChatsData[] = users.map((user) => ({
     user,
-    messages: fetchMessagesByUserIds(0, user.userId, allMessagesMock),
+    messages: fetchMessagesByUserIds('0', user.userId, allMessagesMock),
 }));

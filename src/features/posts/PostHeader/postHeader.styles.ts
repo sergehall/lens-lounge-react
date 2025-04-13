@@ -18,7 +18,7 @@ export const Meta = styled.div`
 `;
 
 export const BlogName = styled(Link)`
-    color: #ffffff;
+    color: ${({theme}) => theme.text.white};
     font-weight: 600;
     text-decoration: none;
 
@@ -28,11 +28,11 @@ export const BlogName = styled(Link)`
 `;
 
 export const DotSeparator = styled.span`
-    color: ${({theme}) => theme.text.colorLight};
+    color: ${({theme}) => theme.text.light};
 `;
 
 export const TimeAgo = styled.span`
-    color: ${({theme}) => theme.text.colorLight};
+    color: ${({theme}) => theme.text.light};
 `;
 
 export const EllipsisButton = styled.button`
@@ -40,7 +40,7 @@ export const EllipsisButton = styled.button`
     border: none;
     cursor: pointer;
     padding: 2px 6px;
-    color: ${({theme}) => theme.text.colorLight};
+    color: ${({ theme }) => theme.text.white};
     
     &:hover {
         color: ${({theme}) => theme.links.hoverColor};

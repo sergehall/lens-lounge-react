@@ -12,6 +12,6 @@ export const Title = styled.h3`
 
 export const Description = styled.p`
   font-size: 0.95rem;
-  color: ${({ theme }) => theme.text.colorMuted};
+  color: ${({ theme }) => theme.text.muted};
   margin-bottom: 10px;
 `;

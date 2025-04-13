@@ -1,8 +1,8 @@
 import {AddressData, addressDataMock, CellPhoneData, cellPhoneDataMock, users} from "../../users/mocks/usersMock";
 
 export interface ContactsData {
-    id: number;
-    userId: number;
+    id: string;
+    userId: string;
     avatar: string;
     username: string;
     firstName: string;

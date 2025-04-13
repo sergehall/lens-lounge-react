@@ -6,7 +6,7 @@ import { Message } from "./mocks/messages-mock";
 import { selectMessagesByUser } from "./chatSlice"; // ✅ new selector
 
 interface ChatMessagesProps {
-    userId: number;
+    userId: string;
 }
 
 const ChatMessages: React.FC<ChatMessagesProps> = ({ userId }) => {

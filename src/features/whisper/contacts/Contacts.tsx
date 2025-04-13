@@ -19,12 +19,12 @@ const Contacts: React.FC<ContactsProps> = ({contacts}) => {
 
     useEffect(() => {
         if (userId) {
-            const contact = contacts.find((c) => c.userId === Number(userId));
+            const contact = contacts.find((c) => c.userId === userId);
             setSelectedContact(contact || null);
         }
     }, [userId, contacts]);
 
-    const handleContactSelect = (userId: number) => {
+    const handleContactSelect = (userId: string) => {
         const path = `${RouteManager.getSidebarPaths().whisper}/${RouteManager.getNestedPaths().contacts}/${userId}`;
         navigate(path);
     };

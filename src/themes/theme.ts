@@ -23,22 +23,31 @@ const theme = {
         lightGray: '#dddddd',
     },
     text: {
-        colorPrimary: '#333333',
-        color: '#FFFFFF',
-        colorLight: '#CCCCCC',
-        colorMuted: '#AAAAAA',
-        colorWhite: '#E0E0E0',
+        // Base & core colors
+        white: '#FFFFFF',
+        light: '#CCCCCC',
+        muted: '#AAAAAA',
+        softWhite: '#E0E0E0',
         colorDarkCharcoalBlue: '#282c34',
         colorDarkGray: '#333333',
-        cyanBlue: '#61DAFB',
-        colorLightGray: "#f0f0f0",
+        slateGray: '#6c757d',
+
+        // Font sizes
+        fontSize: {
+            default: '1.2rem',
+            title: '2rem',
+            mobileTitle: '1.5rem',
+            contact: '1rem',
+            metaPost: '0.7rem',
+        },
+
+        // Typography settings
         lineHeight: '1.6',
-        fontSizeDefault: '1.2rem',
-        fontSizeContacts: '1rem',
-        fontSizeTitle: '2rem',
-        fontSizeMobile: '1.5rem',
-        fontSizeMetaPost: '0.7rem',
-        timestampSlateGray: '#6c757d',
+    },
+    buttons: {
+        primaryBg: "#0095F6",
+        primaryText: "#ffffff",
+        primaryHoverBg: "#1877f2",
     },
     contact: {
         inputBorderColor: 'rgba(0, 0, 0, 0.2)',

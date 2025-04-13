@@ -4,8 +4,8 @@ import {Avatar, UserDetails, UserItem, UserList, UserName, UserStatus} from "../
 
 interface ContactsListProps {
     contacts: ContactsData[];
-    selectedUserId: number | null;
-    onContactSelect: (userId: number) => void;
+    selectedUserId: string | null;
+    onContactSelect: (userId: string) => void;
 }
 
 const ContactsList: React.FC<ContactsListProps> = ({

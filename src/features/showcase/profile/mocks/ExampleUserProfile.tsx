@@ -15,7 +15,7 @@ const ExampleUserProfile: React.FC = () => {
     };
 
 // Find user with userId: 0 or fallback to an empty object
-    const user0 = users.find(user => user.userId === 100) ?? {};
+    const user0 = users.find(user => user.userId === '100') ?? {};
 
 // Merge user data with defaults
     const userProfile = { ...DEFAULT_PROFILE, ...user0 };

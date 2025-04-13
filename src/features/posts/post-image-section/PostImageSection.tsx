@@ -1,6 +1,6 @@
 // PostImageSection.tsx
 import React from "react";
-import {Image} from "./postImage-section/postImageSection.styles";
+import {Image} from "./postImageSection.styles";
 
 interface PostImageSectionProps {
     src: string;

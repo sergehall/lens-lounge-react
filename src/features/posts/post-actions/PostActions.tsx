@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {RootState} from "../../app/store";
-import {Icons} from "../../utils/icons";
-import {toggleLike} from "./interactions/postInteractionsSlice";
-import {ActionBar, Button} from "./post-actions/postActions.styles";
+import {RootState} from "../../../app/store";
+import {Icons} from "../../../utils/icons";
+import {toggleLike} from "../interactions/postInteractionsSlice";
+import {ActionBar, Button} from "./postActions.styles";
 
 
 interface PostActionsProps {

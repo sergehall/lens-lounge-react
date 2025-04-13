@@ -4,8 +4,8 @@ import {Avatar, UserDetails, UserItem, UserList, UserName, UserStatus } from "..
 
 interface ChatsListProps {
     chats: ChatsData[];
-    selectedUserId: number | null;
-    onDialogSelect: (userId: number) => void;
+    selectedUserId: string | null;
+    onDialogSelect: (userId: string) => void;
 }
 
 const ChatsList: React.FC<ChatsListProps> = ({ chats, selectedUserId, onDialogSelect }) => {

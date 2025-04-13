@@ -24,9 +24,9 @@ const Chats: React.FC = () => {
     const [message, setMessage] = useState("");
 
     // ✅ Get selected chat from Redux state using userId from params
-    const selectedDialog = chats.find((chat) => chat.user.userId === Number(userId)) || null;
+    const selectedDialog = chats.find((chat) => chat.user.userId === userId) || null;
 
-    const handleDialogSelect = (userId: number) => {
+    const handleDialogSelect = (userId: string) => {
         const path = `${RouteManager.getSidebarPaths().whisper}/${RouteManager.getNestedPaths().chats}/${userId}`;
         navigate(path);
     };
@@ -34,8 +34,8 @@ const Chats: React.FC = () => {
     const handleSendMessage = () => {
         if (message.trim() && selectedDialog) {
             const newMessage = {
-                id: selectedDialog.messages.length + 1,
-                myId: 100, // Dummy sender ID
+                id: (selectedDialog.messages.length + 1).toString(),
+                myId: '100', // Dummy sender ID
                 userId: selectedDialog.user.userId,
                 fromMe: true,
                 createdAt: new Date().toISOString(),

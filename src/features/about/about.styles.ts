@@ -16,14 +16,13 @@ export const AboutContainer = styled.div`
 
 // Welcome text styling
 export const Title = styled.h1`
-    font-size: ${({ theme }) => theme.text.fontSizeTitle};
     color: ${({ theme }) => theme.highlights.orangeRed};
     margin: 10;
     text-align: center;
     line-height: ${({ theme }) => theme.text.lineHeight};
 
     @media (max-width: 600px) {
-        font-size: ${({ theme }) => theme.text.fontSizeMobile };
+        font-size: ${({ theme }) => theme.text.fontSize.mobileTitle };
     }
 `;
 
@@ -57,7 +56,7 @@ export const BottomSection = styled.div`
 
 // General description text styling
 export const Paragraph = styled.p`
-    color: ${({ theme }) => theme.text.colorWhite};
+    color: ${({ theme }) => theme.text.softWhite};
     font-size: 1.2rem;
     line-height: ${({ theme }) => theme.text.lineHeight};;
     margin: 15px 0;

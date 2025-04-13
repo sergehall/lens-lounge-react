@@ -1,12 +1,9 @@
-// features/home/mocks/postsDataMock.ts
-
-
-import { SinglePostProps} from "../SinglePost";
+import {SinglePostProps} from "../SinglePost";
 
 export const postsDataMock: SinglePostProps[] = [
     {
         post: {
-            id: 'post-1',
+            id: '1',
             title: 'Golden Hour Portrait',
             shortDescription: 'Captured with natural light.',
             content: 'A beautiful sunset portrait session near the coast. Soft lighting and genuine expressions.',
@@ -17,10 +14,10 @@ export const postsDataMock: SinglePostProps[] = [
             banReason: null,
             blogId: 'blog-001',
             blogName: 'photography_journal',
-            postOwnerId: 'user-001',
+            postOwnerId: '1',
         },
         image: {
-            id: 'img-1',
+            id: '2',
             imageUrl: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0',
             postId: 'post-1',
             postTitle: 'Golden Hour Portrait',
@@ -33,7 +30,7 @@ export const postsDataMock: SinglePostProps[] = [
     },
     {
         post: {
-            id: 'post-11',
+            id: '3',
             title: 'Dark Mode Dev Vibes',
             shortDescription: 'Typing in the zone under RGB lights.',
             content: "A late-night shoot capturing a developer immersed in code with soft purple and blue lighting.",
@@ -43,11 +40,11 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-004',
-            blogName: 'code_frame_studio',
-            postOwnerId: 'user-011',
+            blogName: 'it-incubator',
+            postOwnerId: '2',
         },
         image: {
-            id: 'img-11',
+            id: '4',
             imageUrl: 'https://images.unsplash.com/photo-1734106741498-d973cdfda443?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-11',
             postTitle: 'Dark Mode Dev Vibes',
@@ -61,7 +58,7 @@ export const postsDataMock: SinglePostProps[] = [
 
     {
         post: {
-            id: 'post-2',
+            id: '5',
             title: 'Studio Fashion Editorial',
             shortDescription: 'High contrast lighting setup.',
             content: 'Professional studio shoot featuring custom wardrobe and editorial lighting schemes.',
@@ -72,10 +69,10 @@ export const postsDataMock: SinglePostProps[] = [
             banReason: null,
             blogId: 'blog-001',
             blogName: 'photography_journal',
-            postOwnerId: 'user-002',
+            postOwnerId: '3',
         },
         image: {
-            id: 'img-2',
+            id: '6',
             imageUrl: 'https://images.unsplash.com/photo-1731102310685-f080a97ab748?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-2',
             postTitle: 'Studio Fashion Editorial',
@@ -88,7 +85,7 @@ export const postsDataMock: SinglePostProps[] = [
     },
     {
         post: {
-            id: 'post-3',
+            id: '7',
             title: 'Urban Street Style',
             shortDescription: 'Natural light street portraits.',
             content: 'Exploring texture and motion with real people on the streets of New York.',
@@ -98,11 +95,11 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-002',
-            blogName: 'lens_lounge',
-            postOwnerId: 'user-003',
+            blogName: 'street_style',
+            postOwnerId: '4',
         },
         image: {
-            id: 'img-3',
+            id: '8',
             imageUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2459&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-3',
             postTitle: 'Urban Street Style',
@@ -115,7 +112,7 @@ export const postsDataMock: SinglePostProps[] = [
     },
     {
         post: {
-            id: 'post-12',
+            id: '9',
             title: 'Terminal and Coffee',
             shortDescription: 'A dev’s best friend: caffeine and CLI.',
             content: "Cinematic setup of a programmer working at dawn, terminal windows glowing and coffee steaming.",
@@ -126,10 +123,10 @@ export const postsDataMock: SinglePostProps[] = [
             banReason: null,
             blogId: 'blog-004',
             blogName: 'code_frame_studio',
-            postOwnerId: 'user-012',
+            postOwnerId: '5',
         },
         image: {
-            id: 'img-12',
+            id: '10',
             imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
             postId: 'post-12',
             postTitle: 'Terminal and Coffee',
@@ -142,7 +139,7 @@ export const postsDataMock: SinglePostProps[] = [
     },
     {
         post: {
-            id: 'post-13',
+            id: '11',
             title: 'Debugger Diaries',
             shortDescription: 'Close-up of the focus face.',
             content: "An artistic look into the intense focus of a full-stack dev tracking down that one elusive bug.",
@@ -153,10 +150,10 @@ export const postsDataMock: SinglePostProps[] = [
             banReason: null,
             blogId: 'blog-004',
             blogName: 'code_frame_studio',
-            postOwnerId: 'user-013',
+            postOwnerId: '6',
         },
         image: {
-            id: 'img-13',
+            id: '12',
             imageUrl: 'https://images.unsplash.com/photo-1585079542156-2755d9c8a094',
             postId: 'post-13',
             postTitle: 'Debugger Diaries',
@@ -169,7 +166,7 @@ export const postsDataMock: SinglePostProps[] = [
     },
     {
         post: {
-            id: 'post-4',
+            id: '13',
             title: 'Cinematic Moody Tones',
             shortDescription: 'Inspired by film aesthetics and deep shadows.',
             content: "Detailed editorial piece on 'Cinematic Moody Tones', exploring unique lighting and mood setups.",
@@ -180,10 +177,10 @@ export const postsDataMock: SinglePostProps[] = [
             banReason: null,
             blogId: 'blog-001',
             blogName: 'visual_diaries',
-            postOwnerId: 'user-004',
+            postOwnerId: '7',
         },
         image: {
-            id: 'img-4',
+            id: '14',
             imageUrl: 'https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0',
             postId: 'post-4',
             postTitle: 'Cinematic Moody Tones',
@@ -196,7 +193,7 @@ export const postsDataMock: SinglePostProps[] = [
     },
     {
         post: {
-            id: 'post-5',
+            id: '15',
             title: 'Sunlight & Shadows',
             shortDescription: 'Dynamic use of sunlight and window reflections.',
             content: "Detailed editorial piece on 'Sunlight & Shadows', exploring unique lighting and mood setups.",
@@ -207,10 +204,10 @@ export const postsDataMock: SinglePostProps[] = [
             banReason: null,
             blogId: 'blog-002',
             blogName: 'frame&focus',
-            postOwnerId: 'user-005',
+            postOwnerId: '8',
         },
         image: {
-            id: 'img-5',
+            id: '16',
             imageUrl: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d',
             postId: 'post-5',
             postTitle: 'Sunlight & Shadows',
@@ -223,7 +220,7 @@ export const postsDataMock: SinglePostProps[] = [
     },
     {
         post: {
-            id: 'post-6',
+            id: '17',
             title: 'Monochrome Magic',
             shortDescription: 'All black and white — pure emotion, no distraction.',
             content: "Detailed editorial piece on 'Monochrome Magic', exploring unique lighting and mood setups.",
@@ -234,10 +231,10 @@ export const postsDataMock: SinglePostProps[] = [
             banReason: null,
             blogId: 'blog-003',
             blogName: 'contrast_collective',
-            postOwnerId: 'user-006',
+            postOwnerId: '9',
         },
         image: {
-            id: 'img-6',
+            id: '18',
             imageUrl: 'https://images.unsplash.com/photo-1641194970289-581735abc760?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-6',
             postTitle: 'Monochrome Magic',
@@ -250,7 +247,7 @@ export const postsDataMock: SinglePostProps[] = [
     },
     {
         post: {
-            id: 'post-7',
+            id: '19',
             title: 'Rainy Window Portrait',
             shortDescription: 'Shot through a rainy window to capture atmosphere.',
             content: "Detailed editorial piece on 'Rainy Window Portrait', exploring unique lighting and mood setups.",
@@ -261,10 +258,10 @@ export const postsDataMock: SinglePostProps[] = [
             banReason: null,
             blogId: 'blog-001',
             blogName: 'visual_diaries',
-            postOwnerId: 'user-007',
+            postOwnerId: '10',
         },
         image: {
-            id: 'img-7',
+            id: '20',
             imageUrl: 'https://images.unsplash.com/photo-1743073496935-9aa321e0be69?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-7',
             postTitle: 'Rainy Window Portrait',
@@ -277,7 +274,7 @@ export const postsDataMock: SinglePostProps[] = [
     },
     {
         post: {
-            id: 'post-8',
+            id: '21',
             title: 'Backlight Drama',
             shortDescription: 'Backlight creating beautiful separation and glow.',
             content: "Detailed editorial piece on 'Backlight Drama', exploring unique lighting and mood setups.",
@@ -288,10 +285,10 @@ export const postsDataMock: SinglePostProps[] = [
             banReason: null,
             blogId: 'blog-002',
             blogName: 'frame&focus',
-            postOwnerId: 'user-008',
+            postOwnerId: '11',
         },
         image: {
-            id: 'img-8',
+            id: '22',
             imageUrl: 'https://images.unsplash.com/photo-1517433456452-f9633a875f6f',
             postId: 'post-8',
             postTitle: 'Backlight Drama',
@@ -304,7 +301,7 @@ export const postsDataMock: SinglePostProps[] = [
     },
     {
         post: {
-            id: 'post-9',
+            id: '23',
             title: 'Outdoor Studio Setup',
             shortDescription: 'Taking studio lighting outdoors with a twist.',
             content: "Detailed editorial piece on 'Outdoor Studio Setup', exploring unique lighting and mood setups.",
@@ -315,10 +312,10 @@ export const postsDataMock: SinglePostProps[] = [
             banReason: null,
             blogId: 'blog-003',
             blogName: 'contrast_collective',
-            postOwnerId: 'user-009',
+            postOwnerId: '12',
         },
         image: {
-            id: 'img-9',
+            id: '24',
             imageUrl: 'https://images.unsplash.com/photo-1622552213314-9f7ad39ec231?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-9',
             postTitle: 'Outdoor Studio Setup',
@@ -331,7 +328,7 @@ export const postsDataMock: SinglePostProps[] = [
     },
     {
         post: {
-            id: 'post-10',
+            id: '25',
             title: 'Editorial Street Mood',
             shortDescription: 'Candid editorial shots in urban evening light.',
             content: "Detailed editorial piece on 'Editorial Street Mood', exploring unique lighting and mood setups.",
@@ -342,10 +339,10 @@ export const postsDataMock: SinglePostProps[] = [
             banReason: null,
             blogId: 'blog-001',
             blogName: 'visual-diaries',
-            postOwnerId: 'user-010',
+            postOwnerId: '13',
         },
         image: {
-            id: 'img-10',
+            id: '26',
             imageUrl: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2',
             postId: 'post-10',
             postTitle: 'Editorial Street Mood',

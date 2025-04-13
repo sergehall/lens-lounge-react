@@ -1,5 +1,5 @@
 import React from "react";
-import {Content, Description, Title} from "./post-content-block/postContentBlock.styles";
+import {Content, Description, Title} from "./postContentBlock.styles";
 
 interface Props {
     title: string;

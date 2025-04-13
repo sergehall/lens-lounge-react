@@ -1,12 +1,12 @@
 import React from "react";
 import PostHeader from "./PostHeader/PostHeader";
-import PostImageSection from "./PostImageSection";
-import PostActions from "./PostActions";
+import PostImageSection from "./post-image-section/PostImageSection";
+import PostActions from "./post-actions/PostActions";
 import PostStats from "./post-stats/PostStats";
-import PostContentBlock from "./PostContentBlock";
+import PostContentBlock from "./post-content-block/PostContentBlock";
 import PostFooter from "../PostFooter";
 import {PostType} from "./types/postType";
-import {PostImageType} from "./post-images/types/postImage";
+import {PostImageType} from "./post-image-section/types/postImage";
 import {PostWrapper} from "./post.styles";
 
 export interface SinglePostProps {

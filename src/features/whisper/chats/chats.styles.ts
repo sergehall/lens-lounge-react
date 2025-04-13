@@ -55,7 +55,7 @@ export const MessageItem = styled.div<{ $fromMe: boolean }>` // Transient prop: 
 
     .timestamp {
         font-size: 12px;
-        color: ${({theme}) => theme.text.timestampSlateGray};
+        color: ${({theme}) => theme.text.slateGray};
         margin-bottom: 4px;
     }
 `;

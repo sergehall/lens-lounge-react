@@ -16,7 +16,7 @@ export const NewsContainer = styled.div`
 
 // News Title
 export const Title = styled.h1`
-    font-size: ${({theme}) => theme.text.fontSizeTitle};
+    font-size: ${({theme}) => theme.text.fontSize.title};
     color: ${({theme}) => theme.highlights.orangeRed};
     margin: 10;
     text-align: center;
@@ -24,7 +24,7 @@ export const Title = styled.h1`
     line-height: ${({theme}) => theme.text.lineHeight};
 
     @media (max-width: 600px) {
-        font-size: ${({theme}) => theme.text.fontSizeMobile};
+        font-size: ${({theme}) => theme.text.fontSize.mobileTitle};
     }
 `;
 
@@ -113,7 +113,7 @@ export const ArticleMeta = styled.div`
     display: flex;
     justify-content: space-between;
     font-size: 0.85rem;
-    color: ${({ theme }) => theme.text.timestampSlateGray};
+    color: ${({ theme }) => theme.text.slateGray};
     margin-top: 10px;
     font-style: italic;
     opacity: 0.85;

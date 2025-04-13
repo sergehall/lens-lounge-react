@@ -27,12 +27,12 @@ export const ButtonSegment = styled.div`
 
         &:hover {
             background-color: ${({theme}) => theme.contacts.userBgActiveColor};
-            color: ${({theme}) => theme.text.colorWhite};
+            color: ${({theme}) => theme.text.softWhite};
         }
 
         &.active {
             background-color: ${({theme}) => theme.contacts.userBgActiveColor};
-            color: ${({theme}) => theme.text.colorWhite};
+            color: ${({theme}) => theme.text.softWhite};
             font-weight: bold;
         }
 

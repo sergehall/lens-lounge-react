@@ -16,14 +16,14 @@ export const ContactContainer = styled.div`
 
 // Welcome text styling
 export const Title = styled.h1`
-    font-size: ${({theme}) => theme.text.fontSizeTitle};
+    font-size: ${({theme}) => theme.text.fontSize.title};
     color: ${({theme}) => theme.highlights.orangeRed};
     margin: 10;
     text-align: center;
     line-height: ${({ theme }) => theme.text.lineHeight};
 
     @media (max-width: 600px) {
-        font-size: ${({theme}) => theme.text.fontSizeMobile};
+        font-size: ${({theme}) => theme.text.fontSize.mobileTitle};
     }
 `;
 

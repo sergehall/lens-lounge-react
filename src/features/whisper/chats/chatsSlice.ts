@@ -30,8 +30,8 @@ const chatsSlice = createSlice({
         sendMessage(state, action: PayloadAction<string>) {
             if (state.selectedDialog) {
                 const newMessage: Message = {
-                    id: Date.now(), // Unique ID for the message
-                    myId: 1, // Current user ID
+                    id: new Date(Date.now()).toISOString(),
+                    myId: '1', // Current user ID
                     userId: state.selectedDialog.user.userId, // User ID of the dialog
                     fromMe: true, // Assuming the message is sent by the current user
                     createdAt: new Date().toISOString(), // Message creation timestamp
