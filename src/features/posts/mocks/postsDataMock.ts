@@ -1,9 +1,9 @@
 // features/home/mocks/postsDataMock.ts
 
 
-import {PostProps} from "../Post";
+import { SinglePostProps} from "../SinglePost";
 
-export const postsDataMock: PostProps[] = [
+export const postsDataMock: SinglePostProps[] = [
     {
         post: {
             id: 'post-1',
@@ -16,7 +16,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-001',
-            blogName: 'Photography Journal',
+            blogName: 'photography_journal',
             postOwnerId: 'user-001',
         },
         image: {
@@ -43,7 +43,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-004',
-            blogName: 'CodeFrame Studio',
+            blogName: 'code_frame_studio',
             postOwnerId: 'user-011',
         },
         image: {
@@ -71,7 +71,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-001',
-            blogName: 'Photography Journal',
+            blogName: 'photography_journal',
             postOwnerId: 'user-002',
         },
         image: {
@@ -98,7 +98,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-002',
-            blogName: 'Lens Lounge',
+            blogName: 'lens_lounge',
             postOwnerId: 'user-003',
         },
         image: {
@@ -125,7 +125,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-004',
-            blogName: 'CodeFrame Studio',
+            blogName: 'code_frame_studio',
             postOwnerId: 'user-012',
         },
         image: {
@@ -152,7 +152,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-004',
-            blogName: 'CodeFrame Studio',
+            blogName: 'code_frame_studio',
             postOwnerId: 'user-013',
         },
         image: {
@@ -179,7 +179,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-001',
-            blogName: 'Visual Diaries',
+            blogName: 'visual_diaries',
             postOwnerId: 'user-004',
         },
         image: {
@@ -206,7 +206,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-002',
-            blogName: 'Frame & Focus',
+            blogName: 'frame&focus',
             postOwnerId: 'user-005',
         },
         image: {
@@ -233,7 +233,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-003',
-            blogName: 'Contrast Collective',
+            blogName: 'contrast_collective',
             postOwnerId: 'user-006',
         },
         image: {
@@ -260,7 +260,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-001',
-            blogName: 'Visual Diaries',
+            blogName: 'visual_diaries',
             postOwnerId: 'user-007',
         },
         image: {
@@ -287,7 +287,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-002',
-            blogName: 'Frame & Focus',
+            blogName: 'frame&focus',
             postOwnerId: 'user-008',
         },
         image: {
@@ -314,7 +314,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-003',
-            blogName: 'Contrast Collective',
+            blogName: 'contrast_collective',
             postOwnerId: 'user-009',
         },
         image: {
@@ -341,7 +341,7 @@ export const postsDataMock: PostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-001',
-            blogName: 'Visual Diaries',
+            blogName: 'visual-diaries',
             postOwnerId: 'user-010',
         },
         image: {

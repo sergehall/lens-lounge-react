@@ -1,9 +1,10 @@
-// features/posts/postsSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { PostType } from './types/postType';
+import {RootState} from "../../app/store";
+import {SinglePostProps} from "./SinglePost";
+
 
 interface PostsState {
-    items: PostType[];
+    items: SinglePostProps[];
 }
 
 const initialState: PostsState = {
@@ -14,20 +15,20 @@ const postsSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        setPosts(state, action: PayloadAction<PostType[]>) {
+        setPosts(state, action: PayloadAction<SinglePostProps[]>) {
             state.items = action.payload;
         },
-        addPost(state, action: PayloadAction<PostType>) {
+        addPost(state, action: PayloadAction<SinglePostProps>) {
             state.items.unshift(action.payload);
         },
-        updatePost(state, action: PayloadAction<PostType>) {
-            const index = state.items.findIndex(post => post.id === action.payload.id);
+        updatePost(state, action: PayloadAction<SinglePostProps>) {
+            const index = state.items.findIndex(p => p.post.id === action.payload.post.id);
             if (index !== -1) {
                 state.items[index] = action.payload;
             }
         },
         removePost(state, action: PayloadAction<string>) {
-            state.items = state.items.filter(post => post.id !== action.payload);
+            state.items = state.items.filter(p => p.post.id !== action.payload);
         },
         clearPosts(state) {
             state.items = [];
@@ -35,8 +36,6 @@ const postsSlice = createSlice({
     },
 });
 
-
-export const selectAllPosts = (state: { posts: PostsState }) => state.posts.items;
-
+export const selectAllPosts = (state: RootState) => state.posts.items;
 export const { setPosts, addPost, updatePost, removePost, clearPosts } = postsSlice.actions;
 export default postsSlice.reducer;

@@ -2,13 +2,13 @@ const theme = {
     global: {
         transparentBorder: 'rgba(0, 0, 0, 0.1)',
         semiTransparentBorder: 'rgba(0, 0, 0, 0.2)',
-        primaryColor: '#FF4500',
         secondaryColor: '#61DAFB',
         backgroundColor: '#282c34',
         borderColor: '#444444',
         transparentTextShadow: 'rgba(0, 0, 0, 0.5)',
         borderRadius: '8px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+        boxShadowBackgroundColor: '0 4px 8px rgba(40, 44, 52, 0.2)',
         boxShadowNeon: '0 0 5px 2px rgba(97, 218, 251, 0.7)',
         boxShadowNeonShort: '0 0 3px 1px rgba(97, 218, 251, 0.9)',
 
@@ -37,6 +37,7 @@ const theme = {
         fontSizeContacts: '1rem',
         fontSizeTitle: '2rem',
         fontSizeMobile: '1.5rem',
+        fontSizeMetaPost: '0.7rem',
         timestampSlateGray: '#6c757d',
     },
     contact: {

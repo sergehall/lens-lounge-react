@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {RootState} from "../../app/store";
 import {postsDataMock} from "../posts/mocks/postsDataMock";
-import {PostProps} from "../posts/Post";
+import {SinglePostProps} from "../posts/SinglePost";
 
 interface HomePageState {
-    posts: PostProps[];
+    posts: SinglePostProps[];
     loading: boolean;
     error: string | null;
 }
@@ -15,14 +15,26 @@ const initialState: HomePageState = {
     error: null,
 };
 
-export const fetchHomePosts = createAsyncThunk<PostProps[]>("homePage/fetchPosts", async () => {
-    // Your real API call here
-    return await new Promise<PostProps[]>((resolve) =>
-        setTimeout(() => {
-            resolve(postsDataMock); // mocked posts
-        }, 500)
-    );
-});
+const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
+
+// export const fetchHomePosts = createAsyncThunk<SinglePostProps[]>(
+//     "homePage/fetchPosts",
+//     () =>
+//         new Promise<SinglePostProps[]>((resolve) =>
+//             setTimeout(() => resolve(postsDataMock), 500)
+//         )
+// );
+
+// Use the mock data directly for now
+export const fetchHomePosts = createAsyncThunk<SinglePostProps[]>(
+    "homePage/fetchPosts",
+    async () => {
+        await delay(500);
+        return postsDataMock;
+    }
+);
+
+
 
 const homePageSlice = createSlice({
     name: "homePage",

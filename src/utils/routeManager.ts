@@ -19,6 +19,8 @@ export class RouteManager {
         chatsUserId: 'chats/:userId',
         contacts: 'contacts',
         contactsUserId: 'contacts/:userId',
+        blog: 'blog',
+        blogBlogName: 'blog/:blogName',
     } as const;
 
     /**

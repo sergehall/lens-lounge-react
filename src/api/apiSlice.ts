@@ -67,7 +67,7 @@ export const apiSlice = createApi({
             },
         }),
 
-        // 🔹 Post Management APIs
+        // 🔹 SinglePost Management APIs
         getPosts: builder.query<{ posts: { id: string; title: string; content: string }[]; totalPages: number }, { page: number }>({
             query: ({ page }) => `/posts?page=${page}`,
         }),
@@ -84,7 +84,7 @@ export const apiSlice = createApi({
             }),
         }),
 
-        // 🔹 WebSocket for Real-time Post Updates
+        // 🔹 WebSocket for Real-time SinglePost Updates
         subscribeToPosts: builder.query<{ id: string; title: string; content: string }[], void>({
             queryFn: () => ({ data: [] }),
             async onCacheEntryAdded(_, { updateCachedData, cacheEntryRemoved }) {
