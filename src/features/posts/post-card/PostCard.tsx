@@ -1,6 +1,4 @@
-// features/posts/PostCard.tsx
 import React from "react";
-import styled from "styled-components";
 import {PostType} from "../types/postType";
 import {Card, Content, Description, Metadata, Title} from "./postCard.styles";
 
