@@ -18,7 +18,7 @@ export const postsDataMock: SinglePostProps[] = [
         },
         image: {
             id: '2',
-            imageUrl: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0',
+            imageUrl: 'https://static.wixstatic.com/media/df0156_385a21664572489dba16d7a944af8d69~mv2_d_1267_1900_s_2.jpg/v1/fill/w_1267,h_1900,al_c,q_90,enc_auto/df0156_385a21664572489dba16d7a944af8d69~mv2_d_1267_1900_s_2.jpg',
             postId: 'post-1',
             postTitle: 'Golden Hour Portrait',
             postOwnerId: 'user-001',

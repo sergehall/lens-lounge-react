@@ -26,7 +26,7 @@ interface PostLikesModalProps {
     onClose: () => void;
 }
 
-const PostLikesModal: React.FC<PostLikesModalProps> = ({ users, onClose }) => {
+const PostLikesModal: React.FC<PostLikesModalProps> = ({users, onClose}) => {
     return (
         <ModalOverlay onClick={onClose}>
             <ModalContainer onClick={(e) => e.stopPropagation()}>
@@ -39,7 +39,7 @@ const PostLikesModal: React.FC<PostLikesModalProps> = ({ users, onClose }) => {
                     {users.map((user) => (
                         <UserItem key={user.id}>
                             <LeftSide>
-                                <Avatar src={user.avatarUrl} alt={user.username} />
+                                <Avatar src={user.avatarUrl} alt={user.username}/>
                                 <UserNameWrapper>
                                     <Username>{user.blogName}</Username>
                                     <RealName>{user.username}</RealName>
