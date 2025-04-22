@@ -16,6 +16,6 @@ export const LikesButton = styled.button`
     font-weight: 600;
 
     &:hover {
-        text-decoration: underline;
+        color: ${({theme}) => theme.links.hoverColor};
     }
 `;

@@ -34,7 +34,7 @@ export const combineContactData = (): ContactsData[] => {
         return {
             id: user.userId,
             userId: user.userId,
-            avatar: user.avatar,
+            avatar: user.avatarUrl,
             username: user.username,
             firstName: user.firstName,
             lastName: user.lastName,

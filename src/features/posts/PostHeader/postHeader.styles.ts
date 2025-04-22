@@ -17,7 +17,7 @@ export const Meta = styled.div`
     font-size: 14px;
 `;
 
-export const BlogName = styled(Link)`
+export const UserName = styled(Link)`
     color: ${({theme}) => theme.text.white};
     font-weight: 600;
     text-decoration: none;
@@ -40,8 +40,8 @@ export const EllipsisButton = styled.button`
     border: none;
     cursor: pointer;
     padding: 2px 6px;
-    color: ${({ theme }) => theme.text.white};
-    
+    color: ${({theme}) => theme.text.white};
+
     &:hover {
         color: ${({theme}) => theme.links.hoverColor};
     }

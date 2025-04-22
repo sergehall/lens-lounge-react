@@ -18,7 +18,7 @@ const ChatsList: React.FC<ChatsListProps> = ({ chats, selectedUserId, onDialogSe
                     $isActive={selectedUserId === chat.user.userId}
                 >
                     <Avatar
-                        src={chat.user.avatar || "/default-avatar.png"}
+                        src={chat.user.avatarUrl || "/default-avatar.png"}
                         alt={`${chat.user.username}'s avatar`}
                         $isActive={selectedUserId === chat.user.userId}
                         $large={false}

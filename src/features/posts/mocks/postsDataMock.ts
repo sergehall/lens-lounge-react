@@ -2,6 +2,11 @@ import {SinglePostProps} from "../SinglePost";
 
 export const postsDataMock: SinglePostProps[] = [
     {
+        user: {
+            userId: '1',
+            username: "EmmyMax",
+            avatarUrl: "https://masterpiecer-images.s3.yandex.net/e29101853b7111ee934e1282c0ba7723:upscaled",
+        },
         post: {
             id: '1',
             title: 'Golden Hour Portrait',
@@ -13,7 +18,7 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-001',
-            blogName: 'photography_journal',
+            blogName: 'Photography journal',
             postOwnerId: '1',
         },
         image: {
@@ -21,7 +26,7 @@ export const postsDataMock: SinglePostProps[] = [
             imageUrl: 'https://static.wixstatic.com/media/df0156_385a21664572489dba16d7a944af8d69~mv2_d_1267_1900_s_2.jpg/v1/fill/w_1267,h_1900,al_c,q_90,enc_auto/df0156_385a21664572489dba16d7a944af8d69~mv2_d_1267_1900_s_2.jpg',
             postId: 'post-1',
             postTitle: 'Golden Hour Portrait',
-            postOwnerId: 'user-001',
+            postOwnerId: '1',
             createdAt: '2025-04-10T14:20:00Z',
             isBanned: false,
             banDate: null,
@@ -29,6 +34,11 @@ export const postsDataMock: SinglePostProps[] = [
         },
     },
     {
+        user: {
+            userId: '2',
+            username: "Dimych#1751",
+            avatarUrl: "https://i.ytimg.com/vi/ujvaADXPO8E/maxresdefault.jpg",
+        },
         post: {
             id: '3',
             title: 'Dark Mode Dev Vibes',
@@ -40,7 +50,7 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-004',
-            blogName: 'it-incubator',
+            blogName: 'It Incubator',
             postOwnerId: '2',
         },
         image: {
@@ -48,7 +58,7 @@ export const postsDataMock: SinglePostProps[] = [
             imageUrl: 'https://images.unsplash.com/photo-1734106741498-d973cdfda443?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-11',
             postTitle: 'Dark Mode Dev Vibes',
-            postOwnerId: 'user-011',
+            postOwnerId: '2',
             createdAt: '2025-03-27T22:00:00Z',
             isBanned: false,
             banDate: null,
@@ -57,6 +67,11 @@ export const postsDataMock: SinglePostProps[] = [
     },
 
     {
+        user: {
+            userId: '3',
+            username: "PierreDeFermat",
+            avatarUrl: "https://thumbs.dreamstime.com/b/belarus-city-gomil-september-holiday-slavic-man-national-dress-young-ukrainian-belarusian-guy-embroidered-shirt-187379288.jpg",
+        },
         post: {
             id: '5',
             title: 'Studio Fashion Editorial',
@@ -68,7 +83,7 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-001',
-            blogName: 'photography_journal',
+            blogName: 'Photography Journal',
             postOwnerId: '3',
         },
         image: {
@@ -76,7 +91,7 @@ export const postsDataMock: SinglePostProps[] = [
             imageUrl: 'https://images.unsplash.com/photo-1731102310685-f080a97ab748?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-2',
             postTitle: 'Studio Fashion Editorial',
-            postOwnerId: 'user-002',
+            postOwnerId: '3',
             createdAt: '2025-04-08T09:00:00Z',
             isBanned: false,
             banDate: null,
@@ -84,6 +99,11 @@ export const postsDataMock: SinglePostProps[] = [
         },
     },
     {
+        user: {
+            userId: '4',
+            username: "Lovelace",
+            avatarUrl: "https://camo.githubusercontent.com/d05e80bf07249ed858dcd65c362524dbcbe72093973c35421de936560ef7a7af/68747470733a2f2f626c6f672e6765656b68756e7465722e636f6d2e62722f77702d636f6e74656e742f75706c6f6164732f323032322f30312f6164612d6c6f76656c6163652d322e6a7067",
+        },
         post: {
             id: '7',
             title: 'Urban Street Style',
@@ -95,7 +115,7 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-002',
-            blogName: 'street_style',
+            blogName: 'Street Style',
             postOwnerId: '4',
         },
         image: {
@@ -103,7 +123,7 @@ export const postsDataMock: SinglePostProps[] = [
             imageUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2459&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-3',
             postTitle: 'Urban Street Style',
-            postOwnerId: 'user-003',
+            postOwnerId: '4',
             createdAt: '2025-04-05T16:45:00Z',
             isBanned: false,
             banDate: null,
@@ -111,6 +131,11 @@ export const postsDataMock: SinglePostProps[] = [
         },
     },
     {
+        user: {
+            userId: '5',
+            username: "Riemann",
+            avatarUrl: "https://production-it-incubator.s3.eu-central-1.amazonaws.com/it-kamasutra/Image/c959a045-0eb3-4b46-af08-851e1052e40a_blob",
+        },
         post: {
             id: '9',
             title: 'Terminal and Coffee',
@@ -122,7 +147,7 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-004',
-            blogName: 'code_frame_studio',
+            blogName: 'Code Frame Studio',
             postOwnerId: '5',
         },
         image: {
@@ -130,7 +155,7 @@ export const postsDataMock: SinglePostProps[] = [
             imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
             postId: 'post-12',
             postTitle: 'Terminal and Coffee',
-            postOwnerId: 'user-012',
+            postOwnerId: '5',
             createdAt: '2025-03-26T07:30:00Z',
             isBanned: false,
             banDate: null,
@@ -138,6 +163,11 @@ export const postsDataMock: SinglePostProps[] = [
         },
     },
     {
+        user: {
+            userId: '6',
+            username: "SofiaPrixBordin",
+            avatarUrl: "https://production-it-incubator.s3.eu-central-1.amazonaws.com/it-kamasutra/Image/5d35280f-5521-489a-a372-45efacaf084e_4d2ee26774cf11eeaead5696910b1137_upscaled.jpg",
+        },
         post: {
             id: '11',
             title: 'Debugger Diaries',
@@ -149,7 +179,7 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-004',
-            blogName: 'code_frame_studio',
+            blogName: 'Code Frame Studio',
             postOwnerId: '6',
         },
         image: {
@@ -157,7 +187,7 @@ export const postsDataMock: SinglePostProps[] = [
             imageUrl: 'https://images.unsplash.com/photo-1585079542156-2755d9c8a094',
             postId: 'post-13',
             postTitle: 'Debugger Diaries',
-            postOwnerId: 'user-013',
+            postOwnerId: '6',
             createdAt: '2025-03-25T18:15:00Z',
             isBanned: false,
             banDate: null,
@@ -165,6 +195,11 @@ export const postsDataMock: SinglePostProps[] = [
         },
     },
     {
+        user: {
+            userId: '7',
+            username: "Ramanujan1729",
+            avatarUrl: "https://production-it-incubator.s3.eu-central-1.amazonaws.com/it-kamasutra/Image/18da458e-2abf-433f-9517-2403c0072655_blob",
+        },
         post: {
             id: '13',
             title: 'Cinematic Moody Tones',
@@ -176,7 +211,7 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-001',
-            blogName: 'visual_diaries',
+            blogName: 'Visual Diaries',
             postOwnerId: '7',
         },
         image: {
@@ -184,7 +219,7 @@ export const postsDataMock: SinglePostProps[] = [
             imageUrl: 'https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0',
             postId: 'post-4',
             postTitle: 'Cinematic Moody Tones',
-            postOwnerId: 'user-004',
+            postOwnerId: '7',
             createdAt: '2025-04-03T10:00:00Z',
             isBanned: false,
             banDate: null,
@@ -192,6 +227,11 @@ export const postsDataMock: SinglePostProps[] = [
         },
     },
     {
+        user: {
+            userId: '8',
+            username: "Gauss",
+            avatarUrl: "https://preview.redd.it/regular-day-of-a-belarusian-man-v0-izkc3fdjc5cc1.jpg?width=1024&format=pjpg&auto=webp&s=0ada9fdbd8628217b9ca6885c9f25e5190aa1f0d",
+        },
         post: {
             id: '15',
             title: 'Sunlight & Shadows',
@@ -203,7 +243,7 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-002',
-            blogName: 'frame&focus',
+            blogName: 'Frame & focus',
             postOwnerId: '8',
         },
         image: {
@@ -211,7 +251,7 @@ export const postsDataMock: SinglePostProps[] = [
             imageUrl: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d',
             postId: 'post-5',
             postTitle: 'Sunlight & Shadows',
-            postOwnerId: 'user-005',
+            postOwnerId: '8',
             createdAt: '2025-04-02T10:00:00Z',
             isBanned: false,
             banDate: null,
@@ -219,6 +259,11 @@ export const postsDataMock: SinglePostProps[] = [
         },
     },
     {
+        user: {
+            userId: '8',
+            username: "Gauss",
+            avatarUrl: "https://preview.redd.it/regular-day-of-a-belarusian-man-v0-izkc3fdjc5cc1.jpg?width=1024&format=pjpg&auto=webp&s=0ada9fdbd8628217b9ca6885c9f25e5190aa1f0d",
+        },
         post: {
             id: '17',
             title: 'Monochrome Magic',
@@ -230,15 +275,15 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-003',
-            blogName: 'contrast_collective',
-            postOwnerId: '9',
+            blogName: 'Contrast Collective',
+            postOwnerId: '8',
         },
         image: {
             id: '18',
             imageUrl: 'https://images.unsplash.com/photo-1641194970289-581735abc760?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-6',
             postTitle: 'Monochrome Magic',
-            postOwnerId: 'user-006',
+            postOwnerId: '8',
             createdAt: '2025-04-01T10:00:00Z',
             isBanned: false,
             banDate: null,
@@ -246,6 +291,11 @@ export const postsDataMock: SinglePostProps[] = [
         },
     },
     {
+        user: {
+            userId: '7',
+            username: "Ramanujan1729",
+            avatarUrl: "https://production-it-incubator.s3.eu-central-1.amazonaws.com/it-kamasutra/Image/18da458e-2abf-433f-9517-2403c0072655_blob",
+        },
         post: {
             id: '19',
             title: 'Rainy Window Portrait',
@@ -257,15 +307,15 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-001',
-            blogName: 'visual_diaries',
-            postOwnerId: '10',
+            blogName: 'Visual Diaries',
+            postOwnerId: '7',
         },
         image: {
             id: '20',
             imageUrl: 'https://images.unsplash.com/photo-1743073496935-9aa321e0be69?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-7',
             postTitle: 'Rainy Window Portrait',
-            postOwnerId: 'user-007',
+            postOwnerId: '7',
             createdAt: '2025-03-31T10:00:00Z',
             isBanned: false,
             banDate: null,
@@ -273,6 +323,11 @@ export const postsDataMock: SinglePostProps[] = [
         },
     },
     {
+        user: {
+            userId: '1',
+            username: "EmmyMax",
+            avatarUrl: "https://masterpiecer-images.s3.yandex.net/e29101853b7111ee934e1282c0ba7723:upscaled",
+        },
         post: {
             id: '21',
             title: 'Backlight Drama',
@@ -284,15 +339,15 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-002',
-            blogName: 'frame&focus',
-            postOwnerId: '11',
+            blogName: 'Frame & Focus',
+            postOwnerId: '1',
         },
         image: {
             id: '22',
             imageUrl: 'https://images.unsplash.com/photo-1517433456452-f9633a875f6f',
             postId: 'post-8',
             postTitle: 'Backlight Drama',
-            postOwnerId: 'user-008',
+            postOwnerId: '1',
             createdAt: '2025-03-30T10:00:00Z',
             isBanned: false,
             banDate: null,
@@ -300,6 +355,11 @@ export const postsDataMock: SinglePostProps[] = [
         },
     },
     {
+        user: {
+            userId: '3',
+            username: "PierreDeFermat",
+            avatarUrl: "https://thumbs.dreamstime.com/b/belarus-city-gomil-september-holiday-slavic-man-national-dress-young-ukrainian-belarusian-guy-embroidered-shirt-187379288.jpg",
+        },
         post: {
             id: '23',
             title: 'Outdoor Studio Setup',
@@ -311,15 +371,15 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-003',
-            blogName: 'contrast_collective',
-            postOwnerId: '12',
+            blogName: 'Contrast Collective',
+            postOwnerId: '2',
         },
         image: {
             id: '24',
             imageUrl: 'https://images.unsplash.com/photo-1622552213314-9f7ad39ec231?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             postId: 'post-9',
             postTitle: 'Outdoor Studio Setup',
-            postOwnerId: 'user-009',
+            postOwnerId: '2',
             createdAt: '2025-03-29T10:00:00Z',
             isBanned: false,
             banDate: null,
@@ -327,6 +387,11 @@ export const postsDataMock: SinglePostProps[] = [
         },
     },
     {
+        user: {
+            userId: '2',
+            username: "Dimych#1751",
+            avatarUrl: "https://i.ytimg.com/vi/ujvaADXPO8E/maxresdefault.jpg",
+        },
         post: {
             id: '25',
             title: 'Editorial Street Mood',
@@ -338,15 +403,15 @@ export const postsDataMock: SinglePostProps[] = [
             banDate: null,
             banReason: null,
             blogId: 'blog-001',
-            blogName: 'visual-diaries',
-            postOwnerId: '13',
+            blogName: 'Visual Diaries',
+            postOwnerId: '2',
         },
         image: {
             id: '26',
             imageUrl: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2',
             postId: 'post-10',
             postTitle: 'Editorial Street Mood',
-            postOwnerId: 'user-010',
+            postOwnerId: '2',
             createdAt: '2025-03-28T10:00:00Z',
             isBanned: false,
             banDate: null,

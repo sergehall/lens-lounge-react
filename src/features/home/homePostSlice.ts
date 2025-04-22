@@ -3,6 +3,7 @@ import {RootState} from "../../app/store";
 import {postsDataMock} from "../posts/mocks/postsDataMock";
 import {SinglePostProps} from "../posts/SinglePost";
 
+
 interface HomePageState {
     posts: SinglePostProps[];
     loading: boolean;

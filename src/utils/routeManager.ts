@@ -20,7 +20,9 @@ export class RouteManager {
         contacts: 'contacts',
         contactsUserId: 'contacts/:userId',
         blog: 'blog',
-        blogBlogName: 'blog/:blogName',
+        blogBlogId: 'blog/:blogId',
+        post: 'post',
+        postPostId: 'post/:postId',
     } as const;
 
     /**

@@ -1,24 +1,27 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Icons } from "../../../utils/icons";
+import React, {useState, useRef, useEffect} from "react";
+import {Icons} from "../../../utils/icons";
 import {
     HeaderWrapper,
     Meta,
     EllipsisButton,
     Dropdown,
     MenuItem,
-    BlogName,
     DotSeparator,
-    TimeAgo
+    TimeAgo,
+    UserName
 } from "./postHeader.styles";
 import {RouteManager} from "../../../utils/routeManager";
 import {timeAgo} from "../../../utils/timeAgo";
 
-interface PostHeaderProps {
-    blogName: string;
+
+
+export interface PostHeaderProps {
+    username: string;
+    postId: string;
     createdAt: string;
 }
 
-const PostHeader: React.FC<PostHeaderProps> = ({ blogName, createdAt }) => {
+const PostHeader: React.FC<PostHeaderProps> = ({username, postId, createdAt}) => {
     const [menuVisible, setMenuVisible] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +29,8 @@ const PostHeader: React.FC<PostHeaderProps> = ({ blogName, createdAt }) => {
         setMenuVisible(prev => !prev);
     };
 
-    const path = `/${RouteManager.getNestedPaths().blog}/${blogName}`;
+    const path = `/${RouteManager.getNestedPaths().post}/${postId}`;
+
 
     // Optional: Close menu when clicking outside
     useEffect(() => {
@@ -48,13 +52,13 @@ const PostHeader: React.FC<PostHeaderProps> = ({ blogName, createdAt }) => {
     return (
         <HeaderWrapper>
             <Meta>
-                <BlogName to={path}>@{blogName}</BlogName>
+                <UserName to={path}>@{username}</UserName>
                 <DotSeparator>•</DotSeparator>
                 <TimeAgo>{timeAgo(createdAt)}</TimeAgo>
             </Meta>
 
             <EllipsisButton onClick={toggleMenu}>
-                <Icons.EllipsisExtraBold size={23} />
+                <Icons.EllipsisExtraBold size={23}/>
 
             </EllipsisButton>
             {menuVisible && (
