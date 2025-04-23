@@ -8,7 +8,7 @@ import {
     Tile,
     Image,
     Label,
-    Overlay
+    Overlay, HoverReveal
 } from './homePageStart.styles';
 import {Category} from '../categories/categorySlice';
 import {RootState} from '../../app/store';
@@ -25,7 +25,7 @@ const HomePageStart: React.FC = () => {
         navigate(RouteManager.getCategoryPathBySlug(slug));
     };
 
-    return (
+    return(
         <Grid>
             {categories.map((cat) => (
                 <Tile
@@ -33,8 +33,9 @@ const HomePageStart: React.FC = () => {
                     isFeatured={cat.featured}
                     onClick={() => handleClick(cat)}
                 >
-                    <Image src={cat.imageUrl} alt={cat.name}/>
-                    <Overlay/>
+                    <Image src={cat.imageUrl} alt={cat.name} />
+                    <HoverReveal/>
+                    <Overlay />
                     <Label>{cat.name}</Label>
                 </Tile>
             ))}

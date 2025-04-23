@@ -1,67 +1,78 @@
-// /src/pages/CategoryPage/CategoryPage.styles.ts
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const Tile = styled.div`
-  background: #1a1a1a;
-  border-radius: 12px;
-  padding: 24px;
-  color: white;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 24px;
+    color: white;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 `;
 
 export const Grid = styled.div`
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 `;
 
 export const BlogTile = styled(Tile)`
-  background: #121212;
-  padding: 16px;
+    background-color: ${({theme}) => theme.global.backgroundColor};
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
 
-  img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 12px;
-  }
-
-  h4 {
-    margin: 8px 0;
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-
-  p {
-    font-size: 0.95rem;
-    color: #ccc;
-  }
-
-  span {
-    font-size: 0.8rem;
-    color: #888;
-  }
+    img {
+        width: 100%;
+        height: 66.66%; /* 2/3 of the tile */
+        object-fit: cover;
+        display: block;
+    }
 `;
 
-export const CTAButton = styled.button`
-  margin-top: 12px;
-  padding: 10px 16px;
-  font-size: 1rem;
-  background: #4f46e5;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+export const Content = styled.div`
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-  &:hover {
-    background: #3730a3;
-  }
+    h4 {
+        margin: 0 0 3px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    p {
+        font-size: 0.85rem;
+        color: #ccc;
+        margin-bottom: 8px;
+        flex-grow: 1;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    span {
+        font-size: 0.7rem;
+        color: #888;
+    }
+`;
+
+export const IconWrapper = styled.div`
+    padding-top: 20px;
+    color: ${({theme}) => theme.global.secondaryColor};
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 `;

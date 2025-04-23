@@ -1,4 +1,4 @@
-import { FaHeart, FaRegHeart, FaComment, FaShare, FaEllipsisH } from 'react-icons/fa';
+import {FaHeart, FaRegHeart, FaComment, FaShare, FaEllipsisH, FaUsers} from 'react-icons/fa';
 import { FiMoreHorizontal } from 'react-icons/fi';
 import { HiDotsHorizontal } from 'react-icons/hi';
 import { RiMoreFill } from 'react-icons/ri';
@@ -16,4 +16,5 @@ export const Icons = {
     EllipsisMinimal: FiMoreHorizontal as IconComponent,
     EllipsisLarge: HiDotsHorizontal as IconComponent,
     EllipsisExtraBold: RiMoreFill as IconComponent,
+    Users: FaUsers as IconComponent,
 };
