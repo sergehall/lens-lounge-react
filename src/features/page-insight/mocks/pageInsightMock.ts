@@ -16,7 +16,7 @@ export type PageKey = typeof PageKeys[keyof typeof PageKeys];
 // **Page Content Mapping Using Strict Keys**
 export const pageInsightMock: Record<PageKey, { pageInsight: string }> = {
     [PageKeys.home]: {
-        pageInsight: "Welcome to Lens Lounge! Discover new ideas, connect with people, and explore the latest trends in technology and creativity.",
+        pageInsight: "Lens Lounge is your gateway to discovery. Dive into a curated world of creativity, culture, and technology — from bold visuals and pop culture to cutting-edge development and community highlights. Whether you're here to explore ideas, get inspired, or just vibe with what's trending, this is where curiosity comes to life.",
     },
     [PageKeys.showcase]: {
         pageInsight: "Step into the showcase section to display your best work, projects, and innovations. Share your journey with the world.",

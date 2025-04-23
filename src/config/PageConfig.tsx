@@ -14,6 +14,7 @@ import Chats from "../features/whisper/chats/Chats";
 import BannerImage from "../features/banner-image/bannerImage";
 import defaultImageBanner from "../assets/images/defaultImageBanner.png";
 import PageContentSummarize from "../features/page-insight/PageInsight";
+import HomePageStart from "../features/home-page-start/HomePageStart";
 
 export interface PageConfig {
     bannerImage: React.FC;
@@ -50,7 +51,7 @@ export const pageConfig: Record<string, PageConfig> = {
     home: {
         bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
         pageContentSummarize: PageContentSummarize,
-        component: Home,
+        component: HomePageStart,
     },
     showcase: {
         bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
