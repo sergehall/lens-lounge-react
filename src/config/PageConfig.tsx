@@ -1,6 +1,5 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import Home from "../features/home/Home";
 import ExampleUserProfile from "../features/showcase/profile/mocks/ExampleUserProfile";
 import News from "../features/news/News";
 import Technologies from "../features/technologies/Technologies";
