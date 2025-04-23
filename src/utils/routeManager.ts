@@ -1,8 +1,8 @@
-import {NavLinks} from "../components/sidebar/nav-links";
-
+import { NavLinks } from "../components/sidebar/nav-links";
+import { slugify } from "./slugify";
 
 export class RouteManager {
-    // Private Sidebar paths (static routes)
+    // === Static Sidebar Navigation Routes ===
     private static SidebarPaths = {
         home: '/',
         showcase: '/showcase',
@@ -13,7 +13,25 @@ export class RouteManager {
         contact: '/contact',
     } as const;
 
-    // Private Nested paths (dynamic and relative routes)
+    // === Category-Specific Nested Routes ===
+    private static NestedCategoryPaths = {
+        root: 'categories',
+        anime: 'categories/anime',
+        art: 'categories/art',
+        photography: 'categories/photography',
+        gaming: 'categories/gaming',
+        culture: 'categories/culture',
+        movies: 'categories/movies',
+        programming: 'categories/programming',
+        'music-and-bands': 'categories/music-and-bands',
+        science: 'categories/science',
+        'tv-shows': 'categories/tv-shows',
+        technology: 'categories/technology',
+        'books-and-literature': 'categories/books-and-literature',
+        'community-and-spotlight': 'categories/community-and-spotlight',
+    } as const;
+
+    // === Functional App Routes (e.g. Chats, Blog) ===
     private static NestedPaths = {
         chats: 'chats',
         chatsUserId: 'chats/:userId',
@@ -25,25 +43,49 @@ export class RouteManager {
         postPostId: 'post/:postId',
     } as const;
 
-    /**
-     * Expose SidebarPaths safely through a getter method.
-     */
+    // === Public Accessors ===
     public static getSidebarPaths(): typeof RouteManager.SidebarPaths {
         return this.SidebarPaths;
+    }
+
+    public static getCategoryPaths(): typeof RouteManager.NestedCategoryPaths {
+        return this.NestedCategoryPaths;
     }
 
     public static getNestedPaths(): typeof RouteManager.NestedPaths {
         return this.NestedPaths;
     }
 
+    // === Category Routing Helpers ===
 
     /**
-     * Generates navigation links for sidebar based on SidebarPaths.
-     * @returns Array of navigation links with name and URL.
+     * Gets a full category route path by slugified category name.
+     * Falls back to dynamic string-based path if no predefined match is found.
      */
+    public static getCategoryPathBySlug(slug: string): string {
+        const categoryPaths = this.getCategoryPaths();
+        if (Object.prototype.hasOwnProperty.call(categoryPaths, slug)) {
+            return (categoryPaths as Record<string, string>)[slug];
+        }
+        return `${categoryPaths.root}/${slug}`;
+    }
+
+    public static getCategoryRoutePattern(): string {
+        return `${this.NestedCategoryPaths.root}/:name`;
+    }
+
+    /**
+     * Gets a full path from a category name by slugifying and resolving.
+     */
+    public static getCategoryPathByName(name: string): string {
+        const slug = slugify(name);
+        return this.getCategoryPathBySlug(slug);
+    }
+
+    // === Sidebar Nav Link Generator ===
     public static getNavLinks(): NavLinks[] {
         return Object.entries(this.SidebarPaths).map(([key, url]) => ({
-            name: key.charAt(0).toUpperCase() + key.slice(1), // Capitalize the first letter
+            name: key.charAt(0).toUpperCase() + key.slice(1),
             url,
         }));
     }

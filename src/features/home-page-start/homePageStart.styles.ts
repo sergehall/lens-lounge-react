@@ -5,7 +5,7 @@ export const Grid = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); // Responsive columns
     grid-auto-rows: 200px; // Fixed height per row for consistent sizing
     gap: 5px;
-    grid-auto-flow: dense; 
+    grid-auto-flow: dense;
 `;
 
 export const Tile = styled.div<{ isFeatured?: boolean }>`
@@ -20,7 +20,7 @@ export const Tile = styled.div<{ isFeatured?: boolean }>`
 
     grid-column: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
     grid-row: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
-    
+
 
     &:hover {
         filter: grayscale(0%) brightness(1);

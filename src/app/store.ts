@@ -10,7 +10,7 @@ import postsReducer from "../features/posts/postsSlice";
 import homePageReducer from "../features/home/homePostSlice";
 import postInteractionsReducer from "../features/posts/interactions/postInteractionsSlice";
 import categoriesReducer from "../features/categories/categorySlice";
-
+import categoryBlogsReducer from "../features/category-blogs/categoryBlogsSlice";
 import { apiSlice } from "../api/apiSlice";
 
 export const store = configureStore({
@@ -28,6 +28,7 @@ export const store = configureStore({
         newsPage: newsPageReducer,
 
         categories: categoriesReducer,
+        categoryBlogs: categoryBlogsReducer,
 
         posts: postsReducer,
         postInteractions: postInteractionsReducer,

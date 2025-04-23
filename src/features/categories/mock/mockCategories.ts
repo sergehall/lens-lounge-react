@@ -1,4 +1,4 @@
-import {Category} from "./categorySlice";
+import {Category} from "../categorySlice";
 
 export const mockCategories: Category[] = [
     {
