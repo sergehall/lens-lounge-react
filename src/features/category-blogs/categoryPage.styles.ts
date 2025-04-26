@@ -11,6 +11,7 @@ export const Tile = styled.div`
     padding: 24px;
     color: white;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    height: ${({theme}) => theme.tile.height};
 `;
 
 export const Grid = styled.div`
@@ -26,7 +27,6 @@ export const BlogTile = styled(Tile)`
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 300px;
 
     img {
         width: 100%;

@@ -186,6 +186,10 @@ const theme = {
                 #61DAFB 100%  
             )`,
     },
+    tile: {
+        height: '300px',
+        mobileTitle: '200px',
+    }
 };
 
 export type Theme = typeof theme;
