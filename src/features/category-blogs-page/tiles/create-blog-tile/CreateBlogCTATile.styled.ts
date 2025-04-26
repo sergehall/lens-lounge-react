@@ -1,13 +1,7 @@
 import styled from 'styled-components';
+import {Tile} from "../../categoryBlogsPage.styles";
 
-export const CTATile = styled.div`
-    background-color: ${({theme}) => theme.global.backgroundColor};
-    border-radius: 12px;
-    padding: 5px 20px;
-    color: white;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-    height: ${({theme}) => theme.tile.height};
-
+export const CTATile = styled(Tile)`
     h3 {
         font-size: 1.1rem;
         font-weight: 600;
@@ -22,7 +16,7 @@ export const CTATile = styled.div`
 
     @media (max-width: 600px) {
         padding-top: 5px;
-        height: ${({theme}) => theme.tile.height};
+        height: ${({theme}) => theme.tile.mobileTile};
         h3 {
             margin: 15px 0 5px;
         }
@@ -49,19 +43,3 @@ export const CTAButton = styled.button`
         transform: scale(0.95);
     }
 `;
-
-
-// export const CTAButton = styled.button`
-//     margin-top: 12px;
-//     padding: 10px 16px;
-//     font-size: 1rem;
-//     background: #4f46e5;
-//     color: white;
-//     border: none;
-//     border-radius: 8px;
-//     cursor: pointer;
-//
-//     &:hover {
-//         background: #3730a3;
-//     }
-// `;

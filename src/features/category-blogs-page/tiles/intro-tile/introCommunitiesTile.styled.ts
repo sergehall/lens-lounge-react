@@ -1,13 +1,7 @@
 import styled from 'styled-components';
+import {Tile} from "../../categoryBlogsPage.styles";
 
-export const IntroTile = styled.div`
-    background-color: ${({ theme }) => theme.global.backgroundColor};
-    border-radius: 12px;
-    padding: 5px 20px;
-    color: white;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-    height: ${({theme}) => theme.tile.height};
-
+export const IntroTile = styled(Tile)`
     h3 {
         font-size: 1.1rem;
         font-weight: 600;
@@ -21,7 +15,7 @@ export const IntroTile = styled.div`
     }
     @media (max-width: 600px) {
         padding-top: 5px;
-        height: ${({theme}) => theme.tile.mobileTitle};
+        height: ${({theme}) => theme.tile.mobileTile};
         h3 {
             margin: 15px 0 5px;
         }

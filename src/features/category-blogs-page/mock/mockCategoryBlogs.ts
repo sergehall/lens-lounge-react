@@ -1,4 +1,5 @@
-import {BlogPreview} from "../categoryBlogsSlice";
+import {BlogPreview} from "../types/blogs.types";
+
 
 export const mockCategoryBlogs: Record<string, BlogPreview[]> = {
     photography: [

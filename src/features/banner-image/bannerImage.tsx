@@ -15,7 +15,7 @@ interface ImageBannerContentProps {
 
 const BannerImage: React.FC<ImageBannerContentProps> = ({
                                                             imageUrl,
-                                                            altText = "Default banner post-images",
+                                                            altText = "Default banner posts-slider-images",
                                                         }) => {
     return (
         <ImageBannerContentContainer>

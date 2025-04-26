@@ -1,4 +1,3 @@
-// /src/features/categories/categorySlice.js
 import { createSlice } from '@reduxjs/toolkit';
 import {mockCategories} from "./mock/mockCategories";
 

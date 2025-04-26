@@ -24,7 +24,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '2',
             imageUrl: 'https://static.wixstatic.com/media/df0156_385a21664572489dba16d7a944af8d69~mv2_d_1267_1900_s_2.jpg/v1/fill/w_1267,h_1900,al_c,q_90,enc_auto/df0156_385a21664572489dba16d7a944af8d69~mv2_d_1267_1900_s_2.jpg',
-            postId: 'post-1',
+            postId: 'posts-slider-1',
             postTitle: 'Golden Hour Portrait',
             postOwnerId: '1',
             createdAt: '2025-04-10T14:20:00Z',
@@ -56,7 +56,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '4',
             imageUrl: 'https://images.unsplash.com/photo-1734106741498-d973cdfda443?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            postId: 'post-11',
+            postId: 'posts-slider-11',
             postTitle: 'Dark Mode Dev Vibes',
             postOwnerId: '2',
             createdAt: '2025-03-27T22:00:00Z',
@@ -89,7 +89,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '6',
             imageUrl: 'https://images.unsplash.com/photo-1731102310685-f080a97ab748?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            postId: 'post-2',
+            postId: 'posts-slider-2',
             postTitle: 'Studio Fashion Editorial',
             postOwnerId: '3',
             createdAt: '2025-04-08T09:00:00Z',
@@ -121,7 +121,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '8',
             imageUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2459&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            postId: 'post-3',
+            postId: 'posts-slider-3',
             postTitle: 'Urban Street Style',
             postOwnerId: '4',
             createdAt: '2025-04-05T16:45:00Z',
@@ -153,7 +153,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '10',
             imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
-            postId: 'post-12',
+            postId: 'posts-slider-12',
             postTitle: 'Terminal and Coffee',
             postOwnerId: '5',
             createdAt: '2025-03-26T07:30:00Z',
@@ -185,7 +185,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '12',
             imageUrl: 'https://images.unsplash.com/photo-1585079542156-2755d9c8a094',
-            postId: 'post-13',
+            postId: 'posts-slider-13',
             postTitle: 'Debugger Diaries',
             postOwnerId: '6',
             createdAt: '2025-03-25T18:15:00Z',
@@ -217,7 +217,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '14',
             imageUrl: 'https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0',
-            postId: 'post-4',
+            postId: 'posts-slider-4',
             postTitle: 'Cinematic Moody Tones',
             postOwnerId: '7',
             createdAt: '2025-04-03T10:00:00Z',
@@ -249,7 +249,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '16',
             imageUrl: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d',
-            postId: 'post-5',
+            postId: 'posts-slider-5',
             postTitle: 'Sunlight & Shadows',
             postOwnerId: '8',
             createdAt: '2025-04-02T10:00:00Z',
@@ -281,7 +281,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '18',
             imageUrl: 'https://images.unsplash.com/photo-1641194970289-581735abc760?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            postId: 'post-6',
+            postId: 'posts-slider-6',
             postTitle: 'Monochrome Magic',
             postOwnerId: '8',
             createdAt: '2025-04-01T10:00:00Z',
@@ -313,7 +313,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '20',
             imageUrl: 'https://images.unsplash.com/photo-1743073496935-9aa321e0be69?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            postId: 'post-7',
+            postId: 'posts-slider-7',
             postTitle: 'Rainy Window Portrait',
             postOwnerId: '7',
             createdAt: '2025-03-31T10:00:00Z',
@@ -345,7 +345,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '22',
             imageUrl: 'https://images.unsplash.com/photo-1517433456452-f9633a875f6f',
-            postId: 'post-8',
+            postId: 'posts-slider-8',
             postTitle: 'Backlight Drama',
             postOwnerId: '1',
             createdAt: '2025-03-30T10:00:00Z',
@@ -377,7 +377,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '24',
             imageUrl: 'https://images.unsplash.com/photo-1622552213314-9f7ad39ec231?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            postId: 'post-9',
+            postId: 'posts-slider-9',
             postTitle: 'Outdoor Studio Setup',
             postOwnerId: '2',
             createdAt: '2025-03-29T10:00:00Z',
@@ -409,7 +409,7 @@ export const postsDataMock: SinglePostProps[] = [
         image: {
             id: '26',
             imageUrl: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2',
-            postId: 'post-10',
+            postId: 'posts-slider-10',
             postTitle: 'Editorial Street Mood',
             postOwnerId: '2',
             createdAt: '2025-03-28T10:00:00Z',

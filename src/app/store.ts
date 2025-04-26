@@ -7,10 +7,10 @@ import sidebarReducer from "../components/sidebar/sidebarSlice";
 import pageInsightReducer from "../features/page-insight/pageInsightSlice";
 import newsPageReducer from "../features/news/newsPageSlice";
 import postsReducer from "../features/posts/postsSlice";
-import homePageReducer from "../features/home/homePostSlice";
+import homePageReducer from "../features/posts/posts-slider/postsSliderSlice";
 import postInteractionsReducer from "../features/posts/interactions/postInteractionsSlice";
 import categoriesReducer from "../features/categories/categorySlice";
-import categoryBlogsReducer from "../features/category-blogs/categoryBlogsSlice";
+import categoryBlogsReducer from "../features/category-blogs-page/CategoryBlogsPageSlice";
 import { apiSlice } from "../api/apiSlice";
 
 export const store = configureStore({
@@ -25,6 +25,7 @@ export const store = configureStore({
         pageInsight: pageInsightReducer,
 
         homePage: homePageReducer,
+
         newsPage: newsPageReducer,
 
         categories: categoriesReducer,
@@ -33,7 +34,7 @@ export const store = configureStore({
         posts: postsReducer,
         postInteractions: postInteractionsReducer,
 
-        // Whisper feature (modularized)
+        // Whisper features
         chat: chatReducer,
         contactList: contactListReducer,
     },

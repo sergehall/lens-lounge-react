@@ -1,15 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {mockCategoryBlogs} from "./mock/mockCategoryBlogs";
-
-export interface BlogPreview {
-    id: string;
-    title: string;
-    summary: string;
-    imageUrl: string;
-    tags: string[];
-    author: string;
-    lastPosted: string;
-}
+import {BlogPreview} from "./types/blogs.types";
 
 interface CategoryBlogsState {
     [categoryName: string]: BlogPreview[];
@@ -21,7 +12,7 @@ const categoryBlogsSlice = createSlice({
     name: 'categoryBlogs',
     initialState,
     reducers: {
-        // Add real-time loading, post creation, etc. later
+        // Add real-time loading, posts-slider creation, etc. later
         setCategoryBlogs(state, action: PayloadAction<{ category: string; blogs: BlogPreview[] }>) {
             state[action.payload.category] = action.payload.blogs;
         },

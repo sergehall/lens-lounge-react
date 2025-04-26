@@ -20,7 +20,7 @@ export const usePosts = (page: number) => {
 };
 
 /**
- * Hook for fetching a single post by ID.
+ * Hook for fetching a single posts-slider by ID.
  */
 export const usePost = (id: string) => {
     return useGetPostByIdQuery(id);

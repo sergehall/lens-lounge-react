@@ -1,7 +1,7 @@
 import React from 'react';
 import {IntroTile} from './introCommunitiesTile.styled';
 import {Icons} from '../../../../utils/icons';
-import {IconWrapper} from "../../categoryPage.styles";
+import {IconWrapper} from "../../categoryBlogsPage.styles";
 
 const IntroCommunitiesTile: React.FC = () => (
     <IntroTile>

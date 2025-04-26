@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "../../app/store";
-import SinglePost from "../posts/SinglePost";
+import { AppDispatch } from "../../../app/store";
+import SinglePost from "../SinglePost";
 import {
     fetchHomePosts,
     selectHomeError,
     selectHomeLoading,
     selectHomePosts,
-} from "./homePostSlice";
-import { ErrorMsg, FeedContainer, Loader } from "./home.styles";
+} from "./postsSliderSlice";
+import { ErrorMsg, FeedContainer, Loader } from "./postsSlider.styles";
 
 const HomePage: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();

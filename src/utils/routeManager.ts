@@ -40,7 +40,7 @@ export class RouteManager {
         blog: 'blog',
         blogBlogId: 'blog/:blogId',
         post: 'post',
-        postPostId: 'post/:postId',
+        postPostId: 'posts-slider/:postId',
     } as const;
 
     // === Public Accessors ===

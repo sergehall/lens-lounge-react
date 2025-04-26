@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import {RootState} from "../../app/store";
-import {postsDataMock} from "../posts/mocks/postsDataMock";
-import {SinglePostProps} from "../posts/SinglePost";
+import {RootState} from "../../../app/store";
+import {postsDataMock} from "../mocks/postsDataMock";
+import {SinglePostProps} from "../SinglePost";
 
 
 interface HomePageState {

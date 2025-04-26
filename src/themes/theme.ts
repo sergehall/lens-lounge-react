@@ -188,7 +188,7 @@ const theme = {
     },
     tile: {
         height: '300px',
-        mobileTitle: '200px',
+        mobileTile: '200px',
     }
 };
 
