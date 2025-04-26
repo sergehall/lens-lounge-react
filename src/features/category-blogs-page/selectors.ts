@@ -1,30 +1,19 @@
-import {createSelector} from '@reduxjs/toolkit';
-import {RootState} from '../../app/store';
+import { createSelector } from '@reduxjs/toolkit';
+import { RootState } from '../../app/store';
+import { CategoryBlogsState } from './categoryBlogsPageSlice';
 
-/**
- * Base selector for categoryBlogs slice.
- */
-const selectCategoryBlogsState = (state: RootState) => state.categoryBlogs;
+const selectCategoryBlogsState = (state: RootState): CategoryBlogsState => state.categoryBlogs;
 
-/**
- * Selects blogsByCategory object (memoized).
- */
 export const selectBlogsByCategory = createSelector(
     [selectCategoryBlogsState],
-    (categoryBlogsState) => categoryBlogsState
+    (categoryBlogsState) => categoryBlogsState.blogsByCategory // Only the blogs part
 );
 
-/**
- * Selects loading status (memoized).
- */
-export const selectCategoryBlogsLoading = createSelector(
+export const selectCategoryBlogsLoading = (category: string) => createSelector(
     [selectCategoryBlogsState],
-    (categoryBlogsState) => categoryBlogsState.loading
+    (categoryBlogsState) => categoryBlogsState.loading[category] || false
 );
 
-/**
- * Dynamic selector: Select blogs for a specific category
- */
 export const makeSelectBlogsForCategory = (categoryName: string) =>
     createSelector(
         [selectBlogsByCategory],

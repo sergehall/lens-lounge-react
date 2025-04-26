@@ -15,7 +15,7 @@ import postsReducer from '../features/posts/postsSlice';
 import homePageReducer from '../features/posts/posts-slider/postsSliderSlice';
 import postInteractionsReducer from '../features/posts/interactions/postInteractionsSlice';
 import categoriesReducer from '../features/categories/categorySlice';
-import categoryBlogsReducer from '../features/category-blogs-page/CategoryBlogsPageSlice';
+import categoryBlogsReducer from '../features/category-blogs-page/categoryBlogsPageSlice';
 
 export const store = configureStore({
     reducer: {

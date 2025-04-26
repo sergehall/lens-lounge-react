@@ -6,21 +6,24 @@ import { RootState, AppDispatch } from '../../app/store';
 import { RouteManager } from '../../utils/routeManager';
 import { slugify } from '../../utils/slugify';
 import { Category } from '../categories/types/category.types';
-import { loadCategoryBlogs } from '../category-blogs-page/CategoryBlogsPageSlice';
+import { loadCategoryBlogs } from '../category-blogs-page/categoryBlogsPageSlice';
 import Categories from '../categories/Categories';
 import Loader from '../../components/loader/Loader';
 import {selectCategories} from "../categories/selectors";
+
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
 
     const categories = useSelector(selectCategories);
-    const loading = useSelector((state: RootState) => state.categoryBlogs.loading);
+    const isAnyCategoryLoading = useSelector((state: RootState) =>
+        Object.values(state.categoryBlogs.loading).some((loading) => loading)
+    );
 
     const handleClick = async (category: Category) => {
         const slug = slugify(category.name);
-        const categoryKey = category.name.toLowerCase();
+        const categoryKey = category.name;
 
         try {
             await dispatch(loadCategoryBlogs(categoryKey)).unwrap();
@@ -31,7 +34,7 @@ const HomePage: React.FC = () => {
         navigate(RouteManager.getCategoryPathBySlug(slug));
     };
 
-    if (loading) {
+    if (isAnyCategoryLoading) {
         return <Loader />;
     }
 
@@ -39,3 +42,4 @@ const HomePage: React.FC = () => {
 };
 
 export default HomePage;
+
