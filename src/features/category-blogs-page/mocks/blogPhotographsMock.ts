@@ -1,7 +1,7 @@
 import {BlogPreview} from "../types/blogs.types";
 
 
-export const mockCategoryBlogs: Record<string, BlogPreview[]> = {
+export const blogPhotographsMock: Record<string, BlogPreview[]> = {
     photography: [
         {
             id: '1',

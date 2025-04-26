@@ -1,40 +1,46 @@
-import { configureStore } from "@reduxjs/toolkit";
-import chatReducer from "../features/whisper/chats/chatSlice";
-import contactListReducer from "../features/whisper/contacts/contactListSlice";
+// src/app/store.ts
+import { configureStore } from '@reduxjs/toolkit';
 
-import headerReducer from "../components/header/headerSlice";
-import sidebarReducer from "../components/sidebar/sidebarSlice";
-import pageInsightReducer from "../features/page-insight/pageInsightSlice";
-import newsPageReducer from "../features/news/newsPageSlice";
-import postsReducer from "../features/posts/postsSlice";
-import homePageReducer from "../features/posts/posts-slider/postsSliderSlice";
-import postInteractionsReducer from "../features/posts/interactions/postInteractionsSlice";
-import categoriesReducer from "../features/categories/categorySlice";
-import categoryBlogsReducer from "../features/category-blogs-page/CategoryBlogsPageSlice";
-import { apiSlice } from "../api/apiSlice";
+// RTK Query API
+import { apiSlice } from '../api/apiSlice';
+
+// Features
+import chatReducer from '../features/whisper/chats/chatSlice';
+import contactListReducer from '../features/whisper/contacts/contactListSlice';
+import headerReducer from '../components/header/headerSlice';
+import sidebarReducer from '../components/sidebar/sidebarSlice';
+import pageInsightReducer from '../features/page-insight/pageInsightSlice';
+import newsPageReducer from '../features/news/newsPageSlice';
+import postsReducer from '../features/posts/postsSlice';
+import homePageReducer from '../features/posts/posts-slider/postsSliderSlice';
+import postInteractionsReducer from '../features/posts/interactions/postInteractionsSlice';
+import categoriesReducer from '../features/categories/categorySlice';
+import categoryBlogsReducer from '../features/category-blogs-page/CategoryBlogsPageSlice';
 
 export const store = configureStore({
     reducer: {
-        [apiSlice.reducerPath]: apiSlice.reducer,  // RTK Query API cache
+        [apiSlice.reducerPath]: apiSlice.reducer, // 🔥 Handles RTK Query caching
 
         // Layout / UI
         layoutHeader: headerReducer,
         layoutSidebar: sidebarReducer,
 
-        // AI features
+        // AI Features
         pageInsight: pageInsightReducer,
 
+        // Pages
         homePage: homePageReducer,
-
         newsPage: newsPageReducer,
 
-        categories: categoriesReducer,
-        categoryBlogs: categoryBlogsReducer,
-
+        // Posts
         posts: postsReducer,
         postInteractions: postInteractionsReducer,
 
-        // Whisper features
+        // Categories
+        categories: categoriesReducer,
+        categoryBlogs: categoryBlogsReducer,
+
+        // Whisper Features
         chat: chatReducer,
         contactList: contactListReducer,
     },

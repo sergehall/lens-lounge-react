@@ -7,7 +7,7 @@ import Chats from "../features/whisper/chats/Chats";
 import Contacts from "../features/whisper/contacts/Contacts";
 import LayoutWrapper from "../layouts/LayoutWrapper";
 import {selectContacts} from "../features/whisper/contacts/contactListSlice";
-import CategoryPage from "../features/category-blogs-page/CategoryBlogsPage";
+import CategoryBlogsPage from "../features/category-blogs-page/CategoryBlogsPage";
 
 // Moved outside component for cleaner render
 const ChatsContainer: React.FC = () => <Chats/>;
@@ -37,7 +37,7 @@ const AppRoutes: React.FC = () => {
                 path={RouteManager.getCategoryRoutePattern()}
                 element={
                     <LayoutWrapper pageConfig={pageConfig.home}>
-                        <CategoryPage />
+                        <CategoryBlogsPage />
                     </LayoutWrapper>
                 }
             />

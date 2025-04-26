@@ -26,7 +26,7 @@ const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 //         )
 // );
 
-// Use the mock data directly for now
+// Use the mocks data directly for now
 export const fetchHomePosts = createAsyncThunk<SinglePostProps[]>(
     "homePage/fetchPosts",
     async () => {

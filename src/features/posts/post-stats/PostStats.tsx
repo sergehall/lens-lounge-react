@@ -14,7 +14,7 @@ const PostStats: React.FC<PostStatsProps> = ({postId}) => {
         (state: RootState) => state.postInteractions.likes[postId] || 0
     );
 
-    // Temporary mock of users (ideally fetch from backend later)
+    // Temporary mocks of users (ideally fetch from backend later)
     const usersWhoLiked: LikeUser[] = [
         {
             id: "1",

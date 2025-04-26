@@ -1,12 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {mockCategories} from "./mock/mockCategories";
+import {Category} from "./types/category.types";
 
-
-export interface Category {
-    name: string;
-    imageUrl: string;
-    featured: boolean;
-}
 
 interface CategoryState {
     list: Category[];

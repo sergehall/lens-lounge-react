@@ -22,7 +22,7 @@ Object.defineProperty(window, 'matchMedia', {
 // scrollTo polyfill
 window.scrollTo = jest.fn();
 
-// ✅ IntersectionObserver mock with correct TS signature
+// ✅ IntersectionObserver mocks with correct TS signature
 class IntersectionObserverMock implements IntersectionObserver {
     readonly root: Element | null = null;
     readonly rootMargin: string = '';
@@ -52,4 +52,4 @@ global.Request = class {
 } as any;
 
 // // If you need to inspect how many times it was instantiated in a test:
-// jest.mock('./path/to/observer', () => IntersectionObserverMock);
+// jest.mocks('./path/to/observer', () => IntersectionObserverMock);

@@ -1,7 +1,7 @@
 import logo from '../../assets/images/logo.svg';
 
 // Test to verify that posts-slider-images import is mocked correctly
-test('posts-slider-images mock returns the stub value', () => {
+test('posts-slider-images mocks returns the stub value', () => {
     // Logs the mocked posts-slider-images import value ('test-file-stub')
     console.log('🖼️ Mocked logo import:', logo);
 
