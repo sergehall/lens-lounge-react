@@ -77,9 +77,7 @@ const ShowcasePage: React.FC = () => {
                 )}
             </ProfileSection>
             <BlogsSection>
-
                     <MyCategories categories={categories} onCategoryClick={handleCategoryClick} />
-
             </BlogsSection>
         </ShowcaseContainer>
     );

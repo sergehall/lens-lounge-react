@@ -45,6 +45,9 @@ const theme = {
         // Typography settings
         lineHeight: '1.6',
     },
+    border: {
+        borderSecondaryColor: '2px solid #61dafb'
+    },
     buttons: {
         primaryBg: "#0095F6",
         primaryText: "#ffffff",

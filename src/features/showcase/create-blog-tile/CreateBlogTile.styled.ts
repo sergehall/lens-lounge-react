@@ -17,8 +17,7 @@ export const Tile = styled.div<{ isFeatured?: boolean }>`
   justify-content: center;
   background-color: ${({ theme }) => theme.global.backgroundColor};
   padding: 20px;
-  height: ${({theme}) => theme.tile.height}; // Same tile height as others
-
+  height: ${({theme}) => theme.tile.height}; 
   grid-column: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
   grid-row: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
 
@@ -65,7 +64,7 @@ export const CTATile = styled(Tile)`
 export const CTAButton = styled.button`
     background: transparent;
     color: ${({theme}) => theme.links.color};
-    border: 2px solid #61dafb;
+    border: ${({theme}) => theme.border.borderSecondaryColor};
     border-radius: ${({theme}) => theme.global.borderRadius};
     padding: 10px 30px;
     font-size: 1rem;

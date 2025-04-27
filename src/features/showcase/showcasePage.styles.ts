@@ -5,7 +5,6 @@ export const ShowcaseContainer = styled.div`
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing.default};
     padding: ${({ theme }) => theme.spacing.default};
-    background-color: ${({ theme }) => theme.global.backgroundColor};
     border-radius: ${({ theme }) => theme.global.borderRadius};
     box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;
@@ -31,11 +30,8 @@ export const Image = styled.img`
 export const ProfileSection = styled.div`
     background-color: ${({ theme }) => theme.global.secondaryColor};
     border-radius: ${({ theme }) => theme.global.borderRadius};
-    padding: ${({ theme }) => theme.spacing.default};
 `;
 
-
-// NEW: Copy these from categoryBlogsPage.styles.ts
 export const Grid = styled.div`
     display: grid;
     gap: 5px;
