@@ -23,8 +23,8 @@ export const PageInsightContainer = styled.div`
 
 
 export const PageInsightImage = styled.img`
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: ${({ theme }) => theme.global.borderRadius};
     object-fit: cover;
     background-color: ${({ theme }) => theme.highlights.white};
@@ -33,6 +33,8 @@ export const PageInsightImage = styled.img`
 
     @media (max-width: 600px) {
         margin-right: 10px;
+        width: 70px;
+        height: 70px;
     }
 `;
 
