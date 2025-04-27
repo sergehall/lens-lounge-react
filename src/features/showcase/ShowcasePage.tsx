@@ -20,6 +20,8 @@ import { slugify } from "../../utils/slugify";
 import { RouteManager } from "../../utils/routeManager";
 import {mockCategories} from "../categories/mock/mockCategories";
 import MyCategories from "./categories/MyCategories";
+import placeholderImageDefault from "../../assets/images/placeholderImageDefault.png";
+
 
 const ShowcasePage: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -38,12 +40,13 @@ const ShowcasePage: React.FC = () => {
         return Object.keys(userBlogsByCategory).map((categoryName) => {
             const found = mockCategories.find(cat => cat.name.toLowerCase() === categoryName.toLowerCase());
             return {
-                name: categoryName,
-                imageUrl: found?.imageUrl || "https://via.placeholder.com/400",
+                name: found?.name || categoryName,
+                imageUrl: found?.imageUrl || placeholderImageDefault,
                 featured: false,
             };
         });
     }, [userBlogsByCategory]);
+
 
     const handleCategoryClick = (category: Category) => {
         const slug = slugify(category.name);

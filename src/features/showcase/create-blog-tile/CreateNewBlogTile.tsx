@@ -15,7 +15,7 @@ const CreateNewBlogTile: React.FC = () => {
                     </IconWrapper>
 
                     {/* Headline dynamically includes the selected category */}
-                    <h3>Create your own blog about</h3>
+                    <h3>Create your own blog</h3>
 
                     {/* Brief explanation to prompt user action */}
                     <p>Lens Lounge are spaces for your ideas. Get started in minutes.</p>
