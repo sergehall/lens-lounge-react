@@ -16,6 +16,7 @@ import homePageReducer from '../features/posts/posts-slider/postsSliderSlice';
 import postInteractionsReducer from '../features/posts/interactions/postInteractionsSlice';
 import categoriesReducer from '../features/categories/categorySlice';
 import categoryBlogsReducer from '../features/category-blogs-page/categoryBlogsPageSlice';
+import showcasePageReducer from "../features/showcase/showcasePageReducer";
 
 export const store = configureStore({
     reducer: {
@@ -30,17 +31,18 @@ export const store = configureStore({
 
         // Pages
         homePage: homePageReducer,
+        showcasePage: showcasePageReducer,
         newsPage: newsPageReducer,
 
         // Posts
         posts: postsReducer,
         postInteractions: postInteractionsReducer,
 
-        // Categories
+        // MyCategories
         categories: categoriesReducer,
         categoryBlogs: categoryBlogsReducer,
 
-        // Whisper Features
+        // Whisper
         chat: chatReducer,
         contactList: contactListReducer,
     },

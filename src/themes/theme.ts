@@ -11,7 +11,7 @@ const theme = {
         boxShadowBackgroundColor: '0 4px 8px rgba(40, 44, 52, 0.2)',
         boxShadowNeon: '0 0 5px 2px rgba(97, 218, 251, 0.7)',
         boxShadowNeonShort: '0 0 3px 1px rgba(97, 218, 251, 0.9)',
-
+        boxShadowGlowOnSecondaryColor: '0 0 5px #0d2b3d, 0 0 10px #0d2b3d, 0 0 20px #61dafb',
     },
     highlights: {
         red: '#FF0000',
@@ -25,6 +25,7 @@ const theme = {
     text: {
         // Base & core colors
         white: '#FFFFFF',
+        lightGray: '#F0F0F0',
         light: '#CCCCCC',
         muted: '#AAAAAA',
         softWhite: '#E0E0E0',

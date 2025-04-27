@@ -9,7 +9,7 @@ export const blogPhotographsMock: Record<string, BlogPreview[]> = {
             summary: 'For fantasy-inspired illustrators and painters',
             imageUrl: 'https://plus.unsplash.com/premium_photo-1740430848606-8e4bf6d755b7?q=80&w=3853&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             tags: ['fantasy', 'dnd'],
-            author: 'artlover22',
+            author: 'sergehall',
             lastPosted: '1 hour ago',
         },
         {
@@ -18,7 +18,7 @@ export const blogPhotographsMock: Record<string, BlogPreview[]> = {
             summary: 'A place to share your favorite paintings',
             imageUrl: 'https://plus.unsplash.com/premium_photo-1706548911842-7162d4bd2c98?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Ds',
             tags: ['art history', 'classical'],
-            author: 'sergehall',
+            author: 'historybuff',
             lastPosted: '3 hours ago',
         },
         {

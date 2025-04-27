@@ -1,6 +1,5 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import ExampleUserProfile from "../features/showcase/profile/mocks/ExampleUserProfile";
 import News from "../features/news/News";
 import Technologies from "../features/technologies/Technologies";
 import PortfolioIntro from "../features/about/About";
@@ -14,22 +13,13 @@ import BannerImage from "../features/banner-image/bannerImage";
 import defaultImageBanner from "../assets/images/defaultImageBanner.png";
 import PageContentSummarize from "../features/page-insight/PageInsight";
 import HomePage from "../features/home-page/HomePage";
+import ShowcasePage from "../features/showcase/ShowcasePage";
 
 export interface PageConfig {
     bannerImage: React.FC;
     pageContentSummarize: React.FC;
     component: React.FC;
 }
-
-const ShowcasePage: React.FC = () => {
-    // const posts = useSelector((state: RootState) => state.postInteractions.posts);
-    return (
-        <>
-            <ExampleUserProfile />
-            {/*<MyPosts posts={posts} className={ClassNames.MY_POSTS} />*/}
-        </>
-    );
-};
 
 const WhisperDialogsPage: React.FC = () => <Chats />;
 

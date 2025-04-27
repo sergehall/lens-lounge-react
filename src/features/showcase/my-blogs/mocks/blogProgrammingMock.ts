@@ -36,7 +36,7 @@ export const blogProgrammingMock: Record<string, BlogPreview[]> = {
             summary: 'Everything containers: Docker, Kubernetes, and DevOps practices.',
             imageUrl: 'https://www.docker.com/app/uploads/2024/12/1300x1300_docker-evergreen_logo_blog_D-1-980x980.png',
             tags: ['docker', 'kubernetes', 'devops'],
-            author: 'sergehall',
+            author: 'devopsguru',
             lastPosted: '1 day ago',
         },
         {
