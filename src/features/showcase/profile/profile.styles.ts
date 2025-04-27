@@ -9,7 +9,7 @@ export const ProfileContainer = styled.div`
     background-color: ${({ theme }) => theme.global.secondaryColor};
     margin-bottom: ${({ theme }) => theme.spacing.default};
     color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
-    border-radius: ${({ theme }) => theme.global.borderRadius};
+    border-radius: ${({ theme }) => theme.border.borderRadius};
     box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;
 
@@ -17,7 +17,7 @@ export const ProfileContainer = styled.div`
 export const ProfilePhoto = styled.img`
     width: ${({ theme }) => theme.profile.photoSize};
     height: ${({ theme }) => theme.profile.photoSize};
-    border-radius: ${({ theme }) => theme.global.borderRadius};
+    border-radius: ${({ theme }) => theme.border.borderRadius};
     box-shadow: ${({ theme }) => theme.global.boxShadow};
     object-fit: cover;
 `;

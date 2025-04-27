@@ -7,7 +7,7 @@ export const TechnologyContainer = styled.div`
     color: ${({ theme }) => theme.global.backgroundColor};
     text-align: start;
     background-color: ${({ theme }) => theme.global.secondaryColor};
-    border-radius: ${({ theme }) => theme.global.borderRadius};
+    border-radius: ${({ theme }) => theme.border.borderRadius};
     box-shadow: ${({ theme }) => theme.global.boxShadow};
     max-width: 100%;
     margin: 0 auto;

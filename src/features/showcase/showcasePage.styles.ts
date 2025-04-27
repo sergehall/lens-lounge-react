@@ -4,8 +4,8 @@ export const ShowcaseContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing.default};
-    padding: ${({ theme }) => theme.spacing.default};
-    border-radius: ${({ theme }) => theme.global.borderRadius};
+    border-radius: ${({ theme }) => theme.border.borderRadius};
+    padding-bottom: 5px;
     box-shadow: ${({ theme }) => theme.global.boxShadow};
 `;
 
@@ -29,7 +29,7 @@ export const Image = styled.img`
 
 export const ProfileSection = styled.div`
     background-color: ${({ theme }) => theme.global.secondaryColor};
-    border-radius: ${({ theme }) => theme.global.borderRadius};
+    border-radius: ${({ theme }) => theme.border.borderRadius};
 `;
 
 export const Grid = styled.div`
@@ -76,7 +76,7 @@ export const PlaceholderProfileContainer = styled.div`
     align-items: center;
     text-align: center;
     background-color: ${({theme}) => theme.global.secondaryColor};
-    border-radius: ${({theme}) => theme.global.borderRadius};
+    border-radius: ${({theme}) => theme.border.borderRadius};
     padding: ${({theme}) => theme.spacing.default};
 `;
 
@@ -91,7 +91,7 @@ export const ActionButton = styled.button`
     background: ${({ theme }) => theme.global.backgroundColor};
     color: ${({ theme }) => theme.links.color};
     border: 2px solid #61dafb;
-    border-radius: ${({ theme }) => theme.global.borderRadius};
+    border-radius: ${({ theme }) => theme.border.borderRadius};
     padding: 10px 40px;
     font-size: 1rem;
     cursor: pointer;

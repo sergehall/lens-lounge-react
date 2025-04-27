@@ -4,12 +4,12 @@ export const PageInsightContainer = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 10px;
+    padding: 5px;
     margin-bottom: 5px;
     max-width: 100%;
     background-color: ${({ theme }) => theme.global.secondaryColor};
     color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
-    border-radius: ${({ theme }) => theme.global.borderRadius};
+    border-radius: ${({ theme }) => theme.border.borderRadius};
     box-shadow: ${({ theme }) => theme.summarize.boxShadow};
     box-sizing: border-box;
 
@@ -25,7 +25,7 @@ export const PageInsightContainer = styled.div`
 export const PageInsightImage = styled.img`
     width: 90px;
     height: 90px;
-    border-radius: ${({ theme }) => theme.global.borderRadius};
+    border-radius: ${({ theme }) => theme.border.borderRadius};
     object-fit: cover;
     background-color: ${({ theme }) => theme.highlights.white};
     margin-right: 15px;

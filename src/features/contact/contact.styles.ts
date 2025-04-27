@@ -7,7 +7,7 @@ export const ContactContainer = styled.div`
     align-items: center;
     justify-content: flex-start;
     padding: 20px 20px 40px;
-    border-radius: ${({theme}) => theme.global.borderRadius};
+    border-radius: ${({theme}) => theme.border.borderRadius};
     background-color: ${({theme}) => theme.global.backgroundColor};
     color: ${({theme}) => theme.contact.textColor};
     box-shadow: ${({theme}) => theme.global.transparentBorder};
@@ -44,7 +44,7 @@ export const Form = styled.form`
     width: 100%;
     background-color: ${({theme}) => theme.global.secondaryColor};
     padding: 20px;
-    border-radius: ${({theme}) => theme.global.borderRadius};
+    border-radius: ${({theme}) => theme.border.borderRadius};
     box-shadow: ${({theme}) => theme.global.boxShadow};
 `;
 

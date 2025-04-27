@@ -6,28 +6,28 @@ export const Wrapper = styled.div`
 `;
 
 export const Tile = styled.div<{ isFeatured?: boolean }>`
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column; 
-  align-items: center;     
-  justify-content: center;
-  background-color: ${({ theme }) => theme.global.backgroundColor};
-  padding: 20px;
-  height: ${({theme}) => theme.tile.height}; 
-  grid-column: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
-  grid-row: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: ${({theme}) => theme.border.borderRadius};
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: ${({theme}) => theme.global.backgroundColor};
+    padding: 20px;
+    height: ${({theme}) => theme.tile.height};
+    grid-column: ${({isFeatured}) => (isFeatured ? 'span 2' : 'span 1')};
+    grid-row: ${({isFeatured}) => (isFeatured ? 'span 2' : 'span 1')};
 
-  &:hover {
-    transform: scale(1.03);
+    &:hover {
+        transform: scale(1.03);
 
-    .hover-reveal {
-      filter: grayscale(0%) brightness(1);
+        .hover-reveal {
+            filter: grayscale(0%) brightness(1);
+        }
     }
-  }
 `;
 
 export const IconWrapper = styled.div`
@@ -65,7 +65,7 @@ export const CTAButton = styled.button`
     background: transparent;
     color: ${({theme}) => theme.links.color};
     border: ${({theme}) => theme.border.borderSecondaryColor};
-    border-radius: ${({theme}) => theme.global.borderRadius};
+    border-radius: ${({theme}) => theme.border.borderRadius};
     padding: 10px 30px;
     font-size: 1rem;
     cursor: pointer;
