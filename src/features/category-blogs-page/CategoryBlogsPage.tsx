@@ -17,7 +17,6 @@ const CategoryBlogsPage: React.FC = () => {
 
     const dispatch = useDispatch<AppDispatch>(); // Typed dispatch for thunks
     const blogs = useSelector<RootState, BlogPreview[]>(makeSelectBlogsForCategory(decodedName));
-    // const loading = useSelector(selectCategoryBlogsLoading);
     const loading = useSelector(selectCategoryBlogsLoading(decodedName));
 
     useEffect(() => {

@@ -8,7 +8,7 @@ import Contacts from "../features/whisper/contacts/Contacts";
 import LayoutWrapper from "../layouts/LayoutWrapper";
 import {selectContacts} from "../features/whisper/contacts/contactListSlice";
 import CategoryBlogsPage from "../features/category-blogs-page/CategoryBlogsPage";
-import ShowcasePage from "../features/showcase/ShowcasePage";
+import MyCategoryBlogsPage from "../features/showcase/my-blogs/MyCategoryBlogsPage";
 
 // Moved outside component for cleaner render
 const ChatsContainer: React.FC = () => <Chats/>;
@@ -33,22 +33,22 @@ const AppRoutes: React.FC = () => {
                 />
             ))}
 
-            {/* Category Page (Dynamic) */}
+            {/* Category Page (Dynamic) for HomePage */}
             <Route
                 path={RouteManager.getCategoryRoutePattern()}
                 element={
                     <LayoutWrapper pageConfig={pageConfig.home}>
-                        <CategoryBlogsPage />
+                        <CategoryBlogsPage/>
                     </LayoutWrapper>
                 }
             />
 
-            {/* MyCategory Page (Dynamic) */}
+            {/* MyCategory Page (Dynamic) for ShowcasePage */}
             <Route
-                path={RouteManager.getCategoryRoutePattern()}
+                path={RouteManager.getShowcaseCategoryRoutePattern()}
                 element={
                     <LayoutWrapper pageConfig={pageConfig.showcase}>
-                        <ShowcasePage />
+                        <MyCategoryBlogsPage/>
                     </LayoutWrapper>
                 }
             />

@@ -17,6 +17,7 @@ import postInteractionsReducer from '../features/posts/interactions/postInteract
 import categoriesReducer from '../features/categories/categorySlice';
 import categoryBlogsReducer from '../features/category-blogs-page/categoryBlogsPageSlice';
 import showcasePageReducer from "../features/showcase/showcasePageReducer";
+import myCategoriesReducer from "../features/showcase/categories/MyCategorySlice";
 
 export const store = configureStore({
     reducer: {
@@ -40,6 +41,7 @@ export const store = configureStore({
 
         // MyCategories
         categories: categoriesReducer,
+        myCategories: myCategoriesReducer,
         categoryBlogs: categoryBlogsReducer,
 
         // Whisper

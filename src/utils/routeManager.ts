@@ -1,90 +1,114 @@
 import { NavLinks } from "../components/sidebar/nav-links";
 import { slugify } from "./slugify";
 
+type SidebarPaths = {
+    home: "/";
+    showcase: "/showcase";
+    whisper: "/whisper";
+    technologies: "/technologies";
+    news: "/news";
+    about: "/about";
+    contact: "/contact";
+};
+
+type CategoryPaths = {
+    root: "categories";
+    [key: string]: string; // Allow dynamic category paths too
+};
+
+type NestedPaths = {
+    chats: "chats";
+    chatsUserId: "chats/:userId";
+    contacts: "contacts";
+    contactsUserId: "contacts/:userId";
+    blog: "blog";
+    blogBlogId: "blog/:blogId";
+    post: "post";
+    postPostId: "posts-slider/:postId";
+};
+
 export class RouteManager {
-    // === Static Sidebar Navigation Routes ===
-    private static SidebarPaths = {
-        home: '/',
-        showcase: '/showcase',
-        whisper: '/whisper',
-        technologies: '/technologies',
-        news: '/news',
-        about: '/about',
-        contact: '/contact',
-    } as const;
+    private static sidebarPaths: SidebarPaths = {
+        home: "/",
+        showcase: "/showcase",
+        whisper: "/whisper",
+        technologies: "/technologies",
+        news: "/news",
+        about: "/about",
+        contact: "/contact",
+    };
 
-    // === Category-Specific Nested Routes ===
-    private static NestedCategoryPaths = {
-        root: 'categories',
-        anime: 'categories/anime',
-        art: 'categories/art',
-        photography: 'categories/photography',
-        gaming: 'categories/gaming',
-        culture: 'categories/culture',
-        movies: 'categories/movies',
-        programming: 'categories/programming',
-        'music-and-bands': 'categories/music-and-bands',
-        science: 'categories/science',
-        'tv-shows': 'categories/tv-shows',
-        technology: 'categories/technology',
-        'books-and-literature': 'categories/books-and-literature',
-        'community-and-spotlight': 'categories/community-and-spotlight',
-    } as const;
+    private static nestedCategoryPaths: CategoryPaths = {
+        root: "categories",
+        anime: "categories/anime",
+        art: "categories/art",
+        photography: "categories/photography",
+        gaming: "categories/gaming",
+        culture: "categories/culture",
+        movies: "categories/movies",
+        programming: "categories/programming",
+        "music-and-bands": "categories/music-and-bands",
+        science: "categories/science",
+        "tv-shows": "categories/tv-shows",
+        technology: "categories/technology",
+        "books-and-literature": "categories/books-and-literature",
+        "community-and-spotlight": "categories/community-and-spotlight",
+    };
 
-    // === Functional App Routes (e.g. Chats, Blog) ===
-    private static NestedPaths = {
-        chats: 'chats',
-        chatsUserId: 'chats/:userId',
-        contacts: 'contacts',
-        contactsUserId: 'contacts/:userId',
-        blog: 'blog',
-        blogBlogId: 'blog/:blogId',
-        post: 'post',
-        postPostId: 'posts-slider/:postId',
-    } as const;
+    private static nestedPaths: NestedPaths = {
+        chats: "chats",
+        chatsUserId: "chats/:userId",
+        contacts: "contacts",
+        contactsUserId: "contacts/:userId",
+        blog: "blog",
+        blogBlogId: "blog/:blogId",
+        post: "post",
+        postPostId: "posts-slider/:postId",
+    };
 
-    // === Public Accessors ===
-    public static getSidebarPaths(): typeof RouteManager.SidebarPaths {
-        return this.SidebarPaths;
+    // --- Public Accessors ---
+
+    public static getSidebarPaths(): SidebarPaths {
+        return this.sidebarPaths;
     }
 
-    public static getCategoryPaths(): typeof RouteManager.NestedCategoryPaths {
-        return this.NestedCategoryPaths;
+    public static getCategoryPaths(): CategoryPaths {
+        return this.nestedCategoryPaths;
     }
 
-    public static getNestedPaths(): typeof RouteManager.NestedPaths {
-        return this.NestedPaths;
+    public static getNestedPaths(): NestedPaths {
+        return this.nestedPaths;
     }
 
-    // === Category Routing Helpers ===
+    // --- Category URL Builders ---
 
-    /**
-     * Gets a full category route path by slugified category name.
-     * Falls back to dynamic string-based path if no predefined match is found.
-     */
     public static getCategoryPathBySlug(slug: string): string {
-        const categoryPaths = this.getCategoryPaths();
-        if (Object.prototype.hasOwnProperty.call(categoryPaths, slug)) {
-            return (categoryPaths as Record<string, string>)[slug];
-        }
-        return `${categoryPaths.root}/${slug}`;
+        const paths = this.getCategoryPaths();
+        return paths[slug] || `${paths.root}/${slug}`;
     }
 
     public static getCategoryRoutePattern(): string {
-        return `${this.NestedCategoryPaths.root}/:name`;
+        return `${this.nestedCategoryPaths.root}/:name`;
     }
 
-    /**
-     * Gets a full path from a category name by slugifying and resolving.
-     */
     public static getCategoryPathByName(name: string): string {
-        const slug = slugify(name);
-        return this.getCategoryPathBySlug(slug);
+        return this.getCategoryPathBySlug(slugify(name));
     }
 
-    // === Sidebar Nav Link Generator ===
+    // --- Showcase My Categories URL Builders ---
+
+    public static getShowcaseCategoryPathBySlug(slug: string): string {
+        return `/showcase/${slug}`;
+    }
+
+    public static getShowcaseCategoryRoutePattern(): string {
+        return `showcase/:name`;
+    }
+
+    // --- Sidebar Link Builder ---
+
     public static getNavLinks(): NavLinks[] {
-        return Object.entries(this.SidebarPaths).map(([key, url]) => ({
+        return Object.entries(this.sidebarPaths).map(([key, url]) => ({
             name: key.charAt(0).toUpperCase() + key.slice(1),
             url,
         }));

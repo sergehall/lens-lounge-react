@@ -4,7 +4,7 @@ import {mockCategories} from "../../categories/mock/mockCategories";
 
 
 
-interface CategoryState {
+export interface CategoryState {
     list: Category[];
 }
 

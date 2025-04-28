@@ -6,12 +6,21 @@ export const Wrapper = styled.div`
 `;
 
 export const Tile = styled.div`
-    background-color: ${({ theme }) => theme.global.backgroundColor};
+    background-color: ${({theme}) => theme.global.backgroundColor};
     border-radius: 12px;
     padding: 5px 20px;
     color: ${({theme}) => theme.text.white};
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
     height: ${({theme}) => theme.tile.height};
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.03);
+
+        .hover-reveal {
+            filter: grayscale(0%) brightness(1);
+        }
+    }
 `;
 
 export const Grid = styled.div`

@@ -13,6 +13,7 @@ export const IntroTile = styled(Tile)`
         color: ${({theme}) => theme.text.light};
         line-height: 1.4;
     }
+    
     @media (max-width: 600px) {
         padding-top: 5px;
         height: ${({theme}) => theme.tile.mobileTile};
