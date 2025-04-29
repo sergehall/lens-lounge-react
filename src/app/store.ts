@@ -18,10 +18,15 @@ import categoriesReducer from '../features/categories/categorySlice';
 import categoryBlogsReducer from '../features/category-blogs-page/categoryBlogsPageSlice';
 import showcasePageReducer from "../features/showcase/showcasePageReducer";
 import myCategoriesReducer from "../features/showcase/categories/MyCategorySlice";
+import authReducer from "../features/auth/authSlice";
+
 
 export const store = configureStore({
     reducer: {
         [apiSlice.reducerPath]: apiSlice.reducer, // 🔥 Handles RTK Query caching
+
+        // Auth
+        auth: authReducer,
 
         // Layout / UI
         layoutHeader: headerReducer,
@@ -44,7 +49,7 @@ export const store = configureStore({
         myCategories: myCategoriesReducer,
         categoryBlogs: categoryBlogsReducer,
 
-        // Whisper
+        // WhisperPage
         chat: chatReducer,
         contactList: contactListReducer,
     },

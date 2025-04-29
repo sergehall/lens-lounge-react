@@ -53,7 +53,7 @@ const AppRoutes: React.FC = () => {
                 }
             />
 
-            {/* Whisper Routes */}
+            {/* WhisperPage Routes */}
             <Route path={RouteManager.getSidebarPaths().whisper}>
                 <Route
                     index

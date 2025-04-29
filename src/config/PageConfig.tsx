@@ -14,6 +14,7 @@ import defaultImageBanner from "../assets/images/defaultImageBanner.png";
 import PageContentSummarize from "../features/page-insight/PageInsight";
 import HomePage from "../features/home-page/HomePage";
 import ShowcasePage from "../features/showcase/ShowcasePage";
+import WhisperPage from "../features/whisper/WhisperPage";
 
 export interface PageConfig {
     bannerImage: React.FC;
@@ -21,7 +22,7 @@ export interface PageConfig {
     component: React.FC;
 }
 
-const WhisperDialogsPage: React.FC = () => <Chats />;
+// const WhisperDialogsPage: React.FC = () => <Chats />;
 
 const WhisperContactsPage: React.FC = () => {
     const contacts = useSelector((state: RootState) => state.contactList.list);
@@ -50,7 +51,7 @@ export const pageConfig: Record<string, PageConfig> = {
     whisperDialogs: {
         bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
         pageContentSummarize: PageContentSummarize,
-        component: WhisperDialogsPage,
+        component: WhisperPage,
     },
     whisperContacts: {
         bannerImage: () => <BannerImage imageUrl={defaultImageBanner}/>,
