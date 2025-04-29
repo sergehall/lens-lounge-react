@@ -1,5 +1,5 @@
-import { NavLinks } from "../components/sidebar/nav-links";
-import { slugify } from "./slugify";
+import {NavLinks} from "../components/sidebar/nav-links";
+import {slugify} from "./slugify";
 
 type SidebarPaths = {
     home: "/";
@@ -37,6 +37,32 @@ export class RouteManager {
         about: "/about",
         contact: "/contact",
     };
+
+    private static nestedShowcasePaths = {
+        root: "showcase",
+        showcaseUserId: "showcase/:userId",
+        showcaseUserIdAnime: "showcase/:userId/anime",
+        showcaseUserIdArt: "showcase/:userId/art",
+        showcaseUserIdPhotography: "showcase/:userId/photography",
+        showcaseUserIdGaming: "showcase/:userId/gaming",
+        showcaseUserIdCulture: "showcase/:userId/culture",
+        showcaseUserIdGMovies: "showcase/:userId/movies",
+        showcaseUserIdProgramming: "showcase/:userId/programming",
+        showcaseUserIdFunny: "showcase/:userId/funny",
+        showcaseUserIdMusicBands: "showcase/:userId/Music-bands",
+        showcaseUserIdScience: "showcase/:userId/science",
+        showcaseUserIdTVShows: "showcase/:userId/tv-shows",
+        showcaseUserIdTechnology: "showcase/:userId/technology",
+        showcaseUserIdBooksLiterature: "showcase/:userId/books-lLiterature",
+        showcaseUserIdCommunitySpotlight: "showcase/:userId/community-spotlight",
+    };
+
+    private static nestedWhisperPaths = {
+        root: "whisper",
+        whisperChatsUserId: "whisper/chats/:userId",
+        whisperContactsUserId: "whisper/contacts/:userId",
+    };
+
 
     private static nestedCategoryPaths: CategoryPaths = {
         root: "categories",

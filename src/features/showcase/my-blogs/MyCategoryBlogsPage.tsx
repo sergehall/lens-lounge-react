@@ -1,3 +1,4 @@
+// src/features/showcase/my-blogs/MyCategoryBlogsPage.tsx
 import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -5,17 +6,23 @@ import { Wrapper, Grid } from '../../category-blogs-page/categoryBlogsPage.style
 import IntroCommunitiesTile from '../../category-blogs-page/tiles/intro-tile/IntroCommunitiesTile';
 import BlogsTile from '../../category-blogs-page/tiles/blogs-tile/BlogsTile';
 import CreateBlogCTATile from '../../category-blogs-page/tiles/create-blog-tile/CreateBlogCTATile';
-import { RootState } from '../../../app/store';
 import { getUserBlogsByCategory } from './mocks/getUserBlogsByCategory';
-import {CategoryNotFound} from "./myCategoryBlogsPage.styles";
+import { CategoryNotFound } from "./myCategoryBlogsPage.styles";
+import { selectProfile } from "../../auth/authSlice";
 
 const MyCategoryBlogsPage: React.FC = () => {
     const { name } = useParams<{ name: string }>();
     const decodedName = decodeURIComponent(name || '');
 
-    const profile = useSelector((state: RootState) => state.showcasePage.profile);
+    const profile = useSelector(selectProfile);
 
-    const userBlogsByCategory = useMemo(() => getUserBlogsByCategory(profile.username), [profile.username]);
+    const userBlogsByCategory = useMemo(() => {
+        if (!profile || !profile.username) {
+            return {};
+        }
+        return getUserBlogsByCategory(profile.username);
+    }, [profile]);
+
     const blogs = userBlogsByCategory[decodedName] || [];
 
     if (!name) {

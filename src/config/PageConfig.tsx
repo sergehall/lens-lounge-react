@@ -8,7 +8,6 @@ import Contacts from "../features/whisper/contacts/Contacts";
 import {techLinks} from "../features/technologies/types/technologyLinks";
 import {RootState} from "../app/store";
 import {ClassNames} from "./types/classNames.enum";
-import Chats from "../features/whisper/chats/Chats";
 import BannerImage from "../features/banner-image/bannerImage";
 import defaultImageBanner from "../assets/images/defaultImageBanner.png";
 import PageContentSummarize from "../features/page-insight/PageInsight";

@@ -1,30 +1,57 @@
 // src/features/auth/authSlice.ts
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
+import { DEFAULT_PROFILE } from "../showcase/profile/mocks/defaultProfile";
 
-interface AuthState {
-    isAuthenticated: boolean;
+// Profile structure used in the app
+interface Profile {
+    firstName: string;
+    lastName: string;
+    photoUrl: string;
+    username: string;
+    birthday: string;
+    education: string;
+    website: string;
 }
 
+// Auth state includes the current user and login status
+interface AuthState {
+    isAuthenticated: boolean;
+    profile: Profile | null;
+}
+
+// Initial state — assume user is logged in (easy to remove later)
 const initialState: AuthState = {
-    isAuthenticated: false,
+    isAuthenticated: true,    // <-- simulate logged-in user
+    profile: DEFAULT_PROFILE, // <-- simulate user profile loaded
 };
+
+// Async thunk to load profile when logging in
+export const loginUser = createAsyncThunk("auth/loginUser", async () => {
+    // Simulate a backend call
+    return await Promise.resolve(DEFAULT_PROFILE);
+});
 
 const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        login: (state) => {
-            state.isAuthenticated = true;
-        },
         logout: (state) => {
             state.isAuthenticated = false;
+            state.profile = null;
         },
+    },
+    extraReducers: (builder) => {
+        builder.addCase(loginUser.fulfilled, (state, action: PayloadAction<Profile>) => {
+            state.isAuthenticated = true;
+            state.profile = action.payload;
+        });
     },
 });
 
-// ✅ Selector — this is the clean way
+// Selectors to use in UI
 export const selectIsAuthenticated = (state: RootState) => state.auth.isAuthenticated;
+export const selectProfile = (state: RootState) => state.auth.profile;
 
-export const { login, logout } = authSlice.actions;
+export const { logout } = authSlice.actions;
 export default authSlice.reducer;
