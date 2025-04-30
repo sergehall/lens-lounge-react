@@ -3,9 +3,8 @@ import { configureStore } from '@reduxjs/toolkit';
 
 // RTK Query API
 import { apiSlice } from '../api/apiSlice';
-
 // Features
-import chatReducer from '../features/whisper/chats/chatSlice';
+import chatReducer  from "../features/whisper/chats/chatsSlice";
 import contactListReducer from '../features/whisper/contacts/contactListSlice';
 import headerReducer from '../components/header/headerSlice';
 import sidebarReducer from '../components/sidebar/sidebarSlice';
@@ -39,7 +38,7 @@ export const store = configureStore({
         homePage: homePageReducer,
         showcasePage: showcasePageReducer,
         newsPage: newsPageReducer,
-
+        
         // Posts
         posts: postsReducer,
         postInteractions: postInteractionsReducer,

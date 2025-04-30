@@ -1,58 +1,85 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {ChatsData} from "./chatsData";
-import {Message} from "./mocks/messages-mock";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Message } from "./mocks/messages-mock";
+import { RootState } from "../../../app/store";
+import axios from "axios";
 
-interface ChatsState {
-    chats: ChatsData[];
-    selectedDialog: ChatsData | null;
-    message: string;
+// Types for chat
+export interface Chat {
+    id: string;
+    type: "private" | "group";
+    participants: string[];
+    createdAt: string;
+    updatedAt: string;
+    messages: Message[];
+    lastMessage?: Message;
 }
 
-const initialState: ChatsState = {
-    chats: [],
-    selectedDialog: null,
-    message: "",
+// Redux state for chat feature
+interface ChatState {
+    conversations: Chat[];                // List of all chats (1-on-1 or group)
+    status: "idle" | "loading" | "succeeded" | "failed"; // Status of async loading
+    error: string | null;
+}
+
+
+const initialState: ChatState = {
+    conversations: [],
+    status: "idle",
+    error: null,
 };
 
-const chatsSlice = createSlice({
-    name: "chats",
+// Thunk to download all chat
+export const fetchChats = createAsyncThunk<Chat[]>(
+    "chat/fetchChats",
+    async () => {
+        const response = await axios.get("/api/chats"); // 🔁 Заменить на свой URL
+        return response.data;
+    }
+);
+
+// slice
+const chatSlice = createSlice({
+    name: "chat",
     initialState,
     reducers: {
-        setChats(state, action: PayloadAction<ChatsData[]>) {
-            state.chats = action.payload;
-        },
-        setSelectedDialog(state, action: PayloadAction<ChatsData | null>) {
-            state.selectedDialog = action.payload;
-        },
-        setMessage(state, action: PayloadAction<string>) {
-            state.message = action.payload;
-        },
-        sendMessage(state, action: PayloadAction<string>) {
-            if (state.selectedDialog) {
-                const newMessage: Message = {
-                    id: new Date(Date.now()).toISOString(),
-                    myId: '1', // Current user ID
-                    userId: state.selectedDialog.user.userId, // User ID of the dialog
-                    fromMe: true, // Assuming the message is sent by the current user
-                    createdAt: new Date().toISOString(), // Message creation timestamp
-                    updatedAt: new Date().toISOString(), // Message update timestamp
-                    read: false, // Default unread status
-                    message: action.payload, // The message text from the action
-                    isBanned: false, // Default to not banned
-                    banDate: null,
-                    banReason: null,
-                };
-
-                state.selectedDialog.messages.push(newMessage); // Push the new message
+        updateChatMessages: (
+            state,
+            action: PayloadAction<{ chatId: string; newMessage: Message }>
+        ) => {
+            const { chatId, newMessage } = action.payload;
+            const chat = state.conversations.find((c) => c.id === chatId);
+            if (chat) {
+                chat.messages.push(newMessage);
+                chat.updatedAt = new Date().toISOString();
+                chat.lastMessage = newMessage;
             }
         },
     },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchChats.pending, (state) => {
+                state.status = "loading";
+                state.error = null;
+            })
+            .addCase(fetchChats.fulfilled, (state, action: PayloadAction<Chat[]>) => {
+                state.status = "succeeded";
+                state.conversations = action.payload;
+            })
+            .addCase(fetchChats.rejected, (state, action) => {
+                state.status = "failed";
+                state.error = action.error.message || "Failed to fetch chats.";
+            });
+    },
 });
 
-export const {setChats, setSelectedDialog, setMessage, sendMessage} = chatsSlice.actions;
+// Selectors
+export const selectMessagesByChatId = (chatId: string) => (state: RootState): Message[] => {
+    const chat = state.chat.conversations.find((chat) => chat.id === chatId);
+    return chat ? chat.messages : [];
+};
+export const selectChats = (state: RootState) => state.chat.conversations;
+export const selectChatsStatus = (state: RootState) => state.chat.status;
+export const selectChatsError = (state: RootState) => state.chat.error;
 
-export const selectChats = (state: { chats: ChatsState }) => state.chats.chats;
-export const selectSelectedDialog = (state: { chats: ChatsState }) => state.chats.selectedDialog;
-export const selectMessage = (state: { chats: ChatsState }) => state.chats.message;
-
-export default chatsSlice.reducer;
+export const { updateChatMessages } = chatSlice.actions;
+export default chatSlice.reducer;

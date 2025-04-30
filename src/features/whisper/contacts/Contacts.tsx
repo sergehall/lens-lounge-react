@@ -24,10 +24,15 @@ const Contacts: React.FC<ContactsProps> = ({contacts}) => {
         }
     }, [userId, contacts]);
 
-    const handleContactSelect = (userId: string) => {
-        const path = `${RouteManager.getSidebarPaths().whisper}/${RouteManager.getNestedPaths().contacts}/${userId}`;
-        navigate(path);
+    // const handleContactSelect = (userId: string) => {
+    //     const path = `${RouteManager.getSidebarPaths().whisper}/${RouteManager.getNestedPaths().contacts}/${userId}`;
+    //     navigate(path);
+    // };
+
+    const handleContactSelect = (contactId: string) => {
+        navigate(RouteManager.getWhisperContactPath(contactId));
     };
+
 
     return (
         <WhisperContainer>

@@ -29,7 +29,9 @@ const PostHeader: React.FC<PostHeaderProps> = ({username, postId, createdAt}) =>
         setMenuVisible(prev => !prev);
     };
 
-    const path = `/${RouteManager.getNestedPaths().post}/${postId}`;
+    // const path = `/${RouteManager.getNestedPaths().post}/${postId}`;
+    const path = RouteManager.getPostPath(postId);
+
 
 
     // Optional: Close menu when clicking outside

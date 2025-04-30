@@ -1,5 +1,5 @@
-import {NavLinks} from "../components/sidebar/nav-links";
-import {slugify} from "./slugify";
+import { NavLinks } from "../components/sidebar/nav-links";
+import { slugify } from "./slugify";
 
 type SidebarPaths = {
     home: "/";
@@ -13,18 +13,7 @@ type SidebarPaths = {
 
 type CategoryPaths = {
     root: "categories";
-    [key: string]: string; // Allow dynamic category paths too
-};
-
-type NestedPaths = {
-    chats: "chats";
-    chatsUserId: "chats/:userId";
-    contacts: "contacts";
-    contactsUserId: "contacts/:userId";
-    blog: "blog";
-    blogBlogId: "blog/:blogId";
-    post: "post";
-    postPostId: "posts-slider/:postId";
+    [key: string]: string;
 };
 
 export class RouteManager {
@@ -38,33 +27,7 @@ export class RouteManager {
         contact: "/contact",
     };
 
-    private static nestedShowcasePaths = {
-        root: "showcase",
-        showcaseUserId: "showcase/:userId",
-        showcaseUserIdAnime: "showcase/:userId/anime",
-        showcaseUserIdArt: "showcase/:userId/art",
-        showcaseUserIdPhotography: "showcase/:userId/photography",
-        showcaseUserIdGaming: "showcase/:userId/gaming",
-        showcaseUserIdCulture: "showcase/:userId/culture",
-        showcaseUserIdGMovies: "showcase/:userId/movies",
-        showcaseUserIdProgramming: "showcase/:userId/programming",
-        showcaseUserIdFunny: "showcase/:userId/funny",
-        showcaseUserIdMusicBands: "showcase/:userId/Music-bands",
-        showcaseUserIdScience: "showcase/:userId/science",
-        showcaseUserIdTVShows: "showcase/:userId/tv-shows",
-        showcaseUserIdTechnology: "showcase/:userId/technology",
-        showcaseUserIdBooksLiterature: "showcase/:userId/books-lLiterature",
-        showcaseUserIdCommunitySpotlight: "showcase/:userId/community-spotlight",
-    };
-
-    private static nestedWhisperPaths = {
-        root: "whisper",
-        whisperChatsUserId: "whisper/chats/:userId",
-        whisperContactsUserId: "whisper/contacts/:userId",
-    };
-
-
-    private static nestedCategoryPaths: CategoryPaths = {
+    private static categoryPaths: CategoryPaths = {
         root: "categories",
         anime: "categories/anime",
         art: "categories/art",
@@ -78,18 +41,7 @@ export class RouteManager {
         "tv-shows": "categories/tv-shows",
         technology: "categories/technology",
         "books-and-literature": "categories/books-and-literature",
-        "community-and-spotlight": "categories/community-and-spotlight",
-    };
-
-    private static nestedPaths: NestedPaths = {
-        chats: "chats",
-        chatsUserId: "chats/:userId",
-        contacts: "contacts",
-        contactsUserId: "contacts/:userId",
-        blog: "blog",
-        blogBlogId: "blog/:blogId",
-        post: "post",
-        postPostId: "posts-slider/:postId",
+        "community-spotlight": "categories/community-spotlight",
     };
 
     // --- Public Accessors ---
@@ -99,14 +51,29 @@ export class RouteManager {
     }
 
     public static getCategoryPaths(): CategoryPaths {
-        return this.nestedCategoryPaths;
+        return this.categoryPaths;
     }
 
-    public static getNestedPaths(): NestedPaths {
-        return this.nestedPaths;
+    // --- Whisper Paths (chats, contacts) ---
+
+    public static getWhisperChatsRoot(): string {
+        return "/whisper/chats";
     }
 
-    // --- Category URL Builders ---
+    public static getWhisperChatPath(chatId: string): string {
+        return `/whisper/chats/${chatId}`;
+    }
+
+    public static getWhisperContactsRoot(): string {
+        return "/whisper/contacts";
+    }
+
+    public static getWhisperContactPath(contactId: string): string {
+        return `/whisper/contacts/${contactId}`;
+    }
+
+
+    // --- Category Builders ---
 
     public static getCategoryPathBySlug(slug: string): string {
         const paths = this.getCategoryPaths();
@@ -114,21 +81,27 @@ export class RouteManager {
     }
 
     public static getCategoryRoutePattern(): string {
-        return `${this.nestedCategoryPaths.root}/:name`;
+        return `${this.categoryPaths.root}/:name`;
     }
 
     public static getCategoryPathByName(name: string): string {
         return this.getCategoryPathBySlug(slugify(name));
     }
 
-    // --- Showcase My Categories URL Builders ---
+    // --- Showcase Builders ---
 
     public static getShowcaseCategoryPathBySlug(slug: string): string {
         return `/showcase/${slug}`;
     }
 
     public static getShowcaseCategoryRoutePattern(): string {
-        return `showcase/:name`;
+        return "showcase/:name";
+    }
+
+    // --- Post ---
+
+    public static getPostPath(postId: string): string {
+        return `/post/${postId}`;
     }
 
     // --- Sidebar Link Builder ---

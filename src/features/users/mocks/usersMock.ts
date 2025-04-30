@@ -266,7 +266,7 @@ export const users: User[] = [
         photoUrl: "https://defaultavatar.com/avatar.jpg"
     },
     {
-        userId: '100',
+        userId: '0',
         username: "SergeHall",
         avatarUrl: "https://avatars.githubusercontent.com/u/60080971?s=400&u=142534052d9a95da0103bb0094b44d5202f90a21&v=4",
         email: "sergehall@example.com",
@@ -296,7 +296,7 @@ export const users: User[] = [
 export const addressDataMock: AddressData[] = [
     {
         id: '199',
-        userId: '100',
+        userId: '1011',
         street: "Infinity Loop 99",
         city: "Cupertino",
         state: "California",
@@ -420,7 +420,7 @@ export const addressDataMock: AddressData[] = [
 export const cellPhoneDataMock: CellPhoneData[] = [
     {
         id: '100',
-        userId: '100',
+        userId: '0',
         number: "3472102222",
         countryCode: "+1",
         nationalNumber: "13472102222",

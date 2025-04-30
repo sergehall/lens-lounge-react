@@ -14,18 +14,18 @@ export const MessagesContainer = styled.div`
 `;
 
 
-export const MessageItem = styled.div<{ $fromMe: boolean }>` // Transient prop: $fromMe
+export const MessageItem = styled.div<{ $isMine: boolean }>` // Transient prop: $isMine
     max-width: 70%;
     padding: 10px 15px;
     border-radius: 12px;
-    align-self: ${({$fromMe}) => ($fromMe ? "flex-end" : "flex-start")};
-    background-color: ${({$fromMe, theme}) =>
-            $fromMe ? theme.global.secondaryColor : theme.dialogs.messageFromOtherBg};
+    align-self: ${({$isMine}) => ($isMine ? "flex-end" : "flex-start")};
+    background-color: ${({$isMine, theme}) =>
+            $isMine ? theme.global.secondaryColor : theme.dialogs.messageFromOtherBg};
     color: ${({theme}) => theme.text.colorDarkGray};
     word-wrap: break-word;
     position: relative;
-    box-shadow: ${({$fromMe, theme}) =>
-            $fromMe
+    box-shadow: ${({$isMine, theme}) =>
+            $isMine
                     ? theme.dialogs.boxShadowNeonShortWhiteSmall
                     : theme.dialogs.boxShadowNeonShortBlue};
 
@@ -37,12 +37,12 @@ export const MessageItem = styled.div<{ $fromMe: boolean }>` // Transient prop: 
         bottom: 0;
         width: 20px;
         height: 20px;
-        background-color: ${({$fromMe, theme}) =>
-                $fromMe ? theme.global.secondaryColor : theme.dialogs.messageFromOtherBg};
-        border-radius: ${({$fromMe}) =>
-                $fromMe ? "0 0 12px 0" : "0 0 0 12px"};
-        ${({$fromMe}) =>
-                $fromMe
+        background-color: ${({$isMine, theme}) =>
+                $isMine ? theme.global.secondaryColor : theme.dialogs.messageFromOtherBg};
+        border-radius: ${({$isMine}) =>
+                $isMine ? "0 0 12px 0" : "0 0 0 12px"};
+        ${({$isMine}) =>
+                $isMine
                         ? `
                     right: -10px;
                     clip-path: polygon(100% 0, 0 0, 0 100%);

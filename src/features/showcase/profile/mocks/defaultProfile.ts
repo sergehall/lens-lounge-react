@@ -1,9 +1,34 @@
-export const DEFAULT_PROFILE = {
-    photoUrl: "https://avatars.githubusercontent.com/u/60080971?s=400&u=142534052d9a95da0103bb0094b44d5202f90a21&v=4",
-    firstName: "Serge",
-    lastName: "Hall",
-    username: "sergehall",
-    birthday: "January 1, 1990",
-    education: "Bachelor's in Computer Science",
-    website: "https://sergioartg.com",
+
+
+// Profile structure used by the app
+import {users} from "../../../users/mocks/usersMock";
+
+export interface Profile {
+    userId: string;
+    photoUrl: string;
+    firstName: string;
+    lastName: string;
+    username: string;
+    birthday: string;
+    education: string;
+    website: string;
+}
+
+// Find user with userId === "0"
+const defaultUser = users.find((user) => user.userId === "0");
+
+if (!defaultUser) {
+    throw new Error("Default user with userId '0' not found in users array.");
+}
+
+// Generate default profile from that user
+export const DEFAULT_PROFILE: Profile = {
+    userId: defaultUser.userId,
+    photoUrl: defaultUser.photoUrl,
+    firstName: defaultUser.firstName,
+    lastName: defaultUser.lastName,
+    username: defaultUser.username,
+    birthday: defaultUser.birthday,
+    education: defaultUser.education,
+    website: defaultUser.website,
 };

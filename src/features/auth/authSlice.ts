@@ -1,18 +1,8 @@
 // src/features/auth/authSlice.ts
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import { DEFAULT_PROFILE } from "../showcase/profile/mocks/defaultProfile";
+import {DEFAULT_PROFILE, Profile} from "../showcase/profile/mocks/defaultProfile";
 
-// Profile structure used in the app
-interface Profile {
-    firstName: string;
-    lastName: string;
-    photoUrl: string;
-    username: string;
-    birthday: string;
-    education: string;
-    website: string;
-}
 
 // Auth state includes the current user and login status
 interface AuthState {
@@ -29,7 +19,7 @@ const initialState: AuthState = {
 // Async thunk to load profile when logging in
 export const loginUser = createAsyncThunk("auth/loginUser", async () => {
     // Simulate a backend call
-    return await Promise.resolve(DEFAULT_PROFILE);
+    return DEFAULT_PROFILE;
 });
 
 const authSlice = createSlice({

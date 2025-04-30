@@ -1,20 +1,20 @@
 import React from "react";
-import {Routes, Route, Navigate} from "react-router-dom";
-import {useSelector} from "react-redux";
-import {pageConfig} from "../config/PageConfig";
-import {RouteManager} from "../utils/routeManager";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { pageConfig } from "../config/PageConfig";
 import Chats from "../features/whisper/chats/Chats";
 import Contacts from "../features/whisper/contacts/Contacts";
 import LayoutWrapper from "../layouts/LayoutWrapper";
-import {selectContacts} from "../features/whisper/contacts/contactListSlice";
+import { selectContacts } from "../features/whisper/contacts/contactListSlice";
 import CategoryBlogsPage from "../features/category-blogs-page/CategoryBlogsPage";
 import MyCategoryBlogsPage from "../features/showcase/my-blogs/MyCategoryBlogsPage";
+import {RouteManager} from "../utils/routeManager";
 
 // Moved outside component for cleaner render
-const ChatsContainer: React.FC = () => <Chats/>;
+const ChatsContainer: React.FC = () => <Chats />;
 const ContactsContainer: React.FC = () => {
     const contacts = useSelector(selectContacts);
-    return <Contacts contacts={contacts}/>;
+    return <Contacts contacts={contacts} />;
 };
 
 const AppRoutes: React.FC = () => {
@@ -27,7 +27,7 @@ const AppRoutes: React.FC = () => {
                     path={key === "home" ? "/" : `/${key}`}
                     element={
                         <LayoutWrapper pageConfig={config}>
-                            <config.component/>
+                            <config.component />
                         </LayoutWrapper>
                     }
                 />
@@ -38,7 +38,7 @@ const AppRoutes: React.FC = () => {
                 path={RouteManager.getCategoryRoutePattern()}
                 element={
                     <LayoutWrapper pageConfig={pageConfig.home}>
-                        <CategoryBlogsPage/>
+                        <CategoryBlogsPage />
                     </LayoutWrapper>
                 }
             />
@@ -48,53 +48,62 @@ const AppRoutes: React.FC = () => {
                 path={RouteManager.getShowcaseCategoryRoutePattern()}
                 element={
                     <LayoutWrapper pageConfig={pageConfig.showcase}>
-                        <MyCategoryBlogsPage/>
+                        <MyCategoryBlogsPage />
                     </LayoutWrapper>
                 }
             />
 
             {/* WhisperPage Routes */}
             <Route path={RouteManager.getSidebarPaths().whisper}>
+                {/* Redirect from /whisper to /whisper/chats */}
                 <Route
                     index
-                    element={<Navigate to={RouteManager.getNestedPaths().chats} replace/>}
+                    element={<Navigate to={RouteManager.getWhisperChatsRoot()} replace />}
                 />
+
+                {/* List of all chats */}
                 <Route
-                    path={RouteManager.getNestedPaths().chats}
+                    path="chats"
                     element={
                         <LayoutWrapper pageConfig={pageConfig.whisperDialogs}>
-                            <ChatsContainer/>
+                            <ChatsContainer />
                         </LayoutWrapper>
                     }
                 />
+
+                {/* Specific chat by chatId */}
                 <Route
-                    path={RouteManager.getNestedPaths().chatsUserId}
+                    path="chats/:chatId"
                     element={
                         <LayoutWrapper pageConfig={pageConfig.whisperDialogs}>
-                            <ChatsContainer/>
+                            <ChatsContainer />
                         </LayoutWrapper>
                     }
                 />
+
+                {/* List of all contacts */}
                 <Route
-                    path={RouteManager.getNestedPaths().contacts}
+                    path="contacts"
                     element={
                         <LayoutWrapper pageConfig={pageConfig.whisperContacts}>
-                            <ContactsContainer/>
+                            <ContactsContainer />
                         </LayoutWrapper>
                     }
                 />
+
+                {/* Specific contact by contactId */}
                 <Route
-                    path={RouteManager.getNestedPaths().contactsUserId}
+                    path="contacts/:contactId"
                     element={
                         <LayoutWrapper pageConfig={pageConfig.whisperContacts}>
-                            <ContactsContainer/>
+                            <ContactsContainer />
                         </LayoutWrapper>
                     }
                 />
             </Route>
 
             {/* Fallback */}
-            <Route path="*" element={<Navigate to="/" replace/>}/>
+            <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
     );
 };
