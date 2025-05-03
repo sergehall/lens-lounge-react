@@ -4,8 +4,6 @@ import { configureStore } from '@reduxjs/toolkit';
 // RTK Query API
 import { apiSlice } from '../api/apiSlice';
 // Features
-import chatReducer  from "../features/whisper/chat/chatSlice";
-import contactListReducer from '../features/whisper/contacts/contactListSlice';
 import headerReducer from '../components/header/headerSlice';
 import sidebarReducer from '../components/sidebar/sidebarSlice';
 import pageInsightReducer from '../features/page-insight/pageInsightSlice';
