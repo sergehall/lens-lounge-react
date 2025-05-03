@@ -7,7 +7,7 @@ export interface ChatData {
     unreadCount?: number;
 }
 
-// Фильтруем сообщения по sender/recipient без fromMe
+// Filter messages by sender/recipient without fromMe
 function getMessagesWithUser(currentUserId: string, otherUserId: string, allMessages: Message[]): Message[] {
     return allMessages.filter(
         (msg) =>
@@ -16,7 +16,7 @@ function getMessagesWithUser(currentUserId: string, otherUserId: string, allMess
     );
 }
 
-//  Создаём структуру чатов с пользователями
+//  Create a chat structure with users
 export const chatsData: ChatData[] = users.map((user) => ({
     user,
     messages: getMessagesWithUser("0", user.userId, allMessagesMock), // ← current userId = "0"

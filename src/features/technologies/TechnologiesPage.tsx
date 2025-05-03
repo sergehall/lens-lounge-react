@@ -1,20 +1,22 @@
+// src/features/technologies/TechnologiesPage.tsx
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import {
     TechnologyContainer,
     Title,
     TechnologyList,
     TechnologyItem,
-    TechnologyLink, PopupWindow, StyledIframe,
+    TechnologyLink,
+    PopupWindow,
+    StyledIframe,
 } from "./technologies.styles";
-import { TechnologyLinkType } from "./types/technologyLinks";
-import {ClassNames} from "../../config/types/classNames.enum";
+import { RootState } from "../../app/store";
+import { TechnologyLinkType } from "./mocks/technologyLinksMock";
 
-interface TechnologiesProps {
-    links: TechnologyLinkType[];
-    className: ClassNames.TECHNOLOGIES;
-}
 
-const Technologies: React.FC<TechnologiesProps> = ({ links, className }) => {
+const TechnologiesPage: React.FC = ( ) => {
+    const links = useSelector((state: RootState) => state.technologiesPage.links);
+
     const [hoveredLink, setHoveredLink] = useState<TechnologyLinkType | null>(null);
     const [popupPosition, setPopupPosition] = useState<{ top: number; left: number }>({
         top: 0,
@@ -27,8 +29,8 @@ const Technologies: React.FC<TechnologiesProps> = ({ links, className }) => {
     ) => {
         setHoveredLink(link);
         setPopupPosition({
-            top: event.clientY - 50, // Adjusts to appear where the mouse hovers
-            left: event.currentTarget.offsetLeft + 200, // Adjust horizontally
+            top: event.clientY - 50,
+            left: event.currentTarget.offsetLeft + 200,
         });
     };
 
@@ -37,7 +39,7 @@ const Technologies: React.FC<TechnologiesProps> = ({ links, className }) => {
     };
 
     return (
-        <TechnologyContainer className={className}>
+        <TechnologyContainer >
             <Title>Technologies</Title>
             <TechnologyList>
                 {links.map((link) => (
@@ -57,19 +59,15 @@ const Technologies: React.FC<TechnologiesProps> = ({ links, className }) => {
                 ))}
             </TechnologyList>
 
-            {/* Popup Window */}
             {hoveredLink && (
                 <PopupWindow style={{ top: `${popupPosition.top}px`, left: `${popupPosition.left}px` }}>
                     <h4>{hoveredLink.name}</h4>
                     <p>Loading more info...</p>
-                    <StyledIframe
-                        src={hoveredLink.url}
-                        title="Technology Info"
-                    />
+                    <StyledIframe src={hoveredLink.url} title="Technology Info" />
                 </PopupWindow>
             )}
         </TechnologyContainer>
     );
 };
 
-export default Technologies;
+export default TechnologiesPage;

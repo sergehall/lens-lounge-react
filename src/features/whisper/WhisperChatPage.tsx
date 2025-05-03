@@ -2,7 +2,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectIsAuthenticated } from "../auth/authSlice";
-import GuestWhisperLanding from "./GuestWhisperLanding";
+import GuestWhisperLanding from "./guest-whisper-landing/GuestWhisperLanding";
 import Chat from "./chat/Chat";
 
 const WhisperChatPage: React.FC = () => {

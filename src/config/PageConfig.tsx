@@ -1,27 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../app/store";
-
 import HomePage from "../features/home-page/HomePage";
 import ShowcasePage from "../features/showcase/ShowcasePage";
 import WhisperChatPage from "../features/whisper/WhisperChatPage";
 import Contacts from "../features/whisper/contacts/Contacts";
-import News from "../features/news/News";
-import Technologies from "../features/technologies/Technologies";
 import PortfolioIntro from "../features/about/About";
 import Contact from "../features/contact/Contact";
-
-import { techLinks } from "../features/technologies/types/technologyLinks";
-import { ClassNames } from "./types/classNames.enum";
-
 import BannerImage from "../features/banner-image/bannerImage";
 import defaultImageBanner from "../assets/images/defaultImageBanner.png";
 import PageContentSummarize from "../features/page-insight/PageInsight";
+import TechnologiesPage from "../features/technologies/TechnologiesPage";
+import NewsPage from "../features/news/NewsPage";
 
-// -------------------------------
+
 // PageConfig interface
-// -------------------------------
-
 export interface PageConfig {
     bannerImage: React.FC;
     pageContentSummarize: React.FC;
@@ -30,23 +21,7 @@ export interface PageConfig {
     children?: Record<string, PageConfig>;
 }
 
-// -------------------------------
-// Feature-specific React wrappers
-// -------------------------------
-
-const NewsPage: React.FC = () => {
-    const news = useSelector((state: RootState) => state.newsPage.articles);
-    return <News newArticles={news} />;
-};
-
-const TechnologiesPage: React.FC = () => (
-    <Technologies links={techLinks} className={ClassNames.TECHNOLOGIES} />
-);
-
-// -------------------------------
 // Global pageConfig object
-// -------------------------------
-
 export const pageConfig: Record<string, PageConfig> = {
     home: {
         bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
@@ -58,7 +33,7 @@ export const pageConfig: Record<string, PageConfig> = {
         bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
         pageContentSummarize: PageContentSummarize,
         component: ShowcasePage,
-        isProtected: true, // 🚫 requires auth
+        isProtected: true, // requires auth
         children: {
             // Example nested page
             featured: {

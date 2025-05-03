@@ -1,11 +1,11 @@
-import {TechnologyName} from "./technologyName";
+import {TechnologyName} from "../types/technologyName";
 
 export interface TechnologyLinkType {
     name: string;
     url: string;
 }
 
-export const techLinks: TechnologyLinkType[] = [
+export const techLinksMock: TechnologyLinkType[] = [
     { name: TechnologyName.CSS, url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
     { name: TechnologyName.HTML, url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
     { name: TechnologyName.JAVASCRIPT, url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },

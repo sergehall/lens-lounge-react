@@ -7,7 +7,6 @@ import { apiSlice } from '../api/apiSlice';
 import headerReducer from '../components/header/headerSlice';
 import sidebarReducer from '../components/sidebar/sidebarSlice';
 import pageInsightReducer from '../features/page-insight/pageInsightSlice';
-import newsPageReducer from '../features/news/newsPageSlice';
 import postsReducer from '../features/posts/postsSlice';
 import homePageReducer from '../features/posts/posts-slider/postsSliderSlice';
 import postInteractionsReducer from '../features/posts/interactions/postInteractionsSlice';
@@ -17,6 +16,8 @@ import showcasePageReducer from "../features/showcase/showcasePageReducer";
 import myCategoriesReducer from "../features/showcase/categories/MyCategorySlice";
 import authReducer from "../features/auth/authSlice";
 import whisperPageReducer from "../features/whisper/whisperPageReducer";
+import technologiesReducer from "../features/technologies/technologiesSlice";
+import newsPageReducer from "../features/news/newsPageSlice";
 
 
 export const store = configureStore({
@@ -38,6 +39,7 @@ export const store = configureStore({
         showcasePage: showcasePageReducer,
         newsPage: newsPageReducer,
         whisperPage: whisperPageReducer,
+        technologiesPage: technologiesReducer,
 
         // Posts
         posts: postsReducer,
