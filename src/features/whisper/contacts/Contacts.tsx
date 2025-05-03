@@ -1,38 +1,27 @@
-import React, {useEffect, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
-import {ContactsData} from "./contactsData";
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import ContactsList from "./ContactsList";
 import NavigationButtons from "../Navigation-buttons";
 import ContactDetails from "./ContactDetails";
-import {ChatsOrContactsInfoSection, NoContacts, UserListWrapper, WhisperContainer} from "../sharedLayoutForContacts.styles";
-import {RouteManager} from "../../../utils/routeManager";
+import {
+    ChatsOrContactsInfoSection,
+    NoContacts,
+    UserListWrapper,
+    WhisperContainer,
+} from "../sharedLayoutForContacts.styles";
+import { RouteManager } from "../../../utils/routeManager";
+import { selectContacts } from "./contactListSlice";
 
-
-interface ContactsProps {
-    contacts: ContactsData[];
-}
-
-const Contacts: React.FC<ContactsProps> = ({contacts}) => {
+const Contacts: React.FC = () => {
     const navigate = useNavigate();
-    const {userId} = useParams<{ userId: string }>();
-    const [selectedContact, setSelectedContact] = useState<ContactsData | null>(null);
-
-    useEffect(() => {
-        if (userId) {
-            const contact = contacts.find((c) => c.userId === userId);
-            setSelectedContact(contact || null);
-        }
-    }, [userId, contacts]);
-
-    // const handleContactSelect = (userId: string) => {
-    //     const path = `${RouteManager.getSidebarPaths().whisper}/${RouteManager.getNestedPaths().contacts}/${userId}`;
-    //     navigate(path);
-    // };
+    const { userId } = useParams<{ userId: string }>();
+    const contacts = useSelector(selectContacts);
+    const selectedContact = contacts.find((c) => c.userId === userId) || null;
 
     const handleContactSelect = (contactId: string) => {
         navigate(RouteManager.getWhisperContactPath(contactId));
     };
-
 
     return (
         <WhisperContainer>
@@ -42,11 +31,11 @@ const Contacts: React.FC<ContactsProps> = ({contacts}) => {
                     selectedUserId={selectedContact?.userId || null}
                     onContactSelect={handleContactSelect}
                 />
-                <NavigationButtons/>
+                <NavigationButtons />
             </UserListWrapper>
             <ChatsOrContactsInfoSection>
                 {selectedContact ? (
-                    <ContactDetails contact={selectedContact}/>
+                    <ContactDetails contact={selectedContact} />
                 ) : (
                     <NoContacts>Select a contact to view details</NoContacts>
                 )}

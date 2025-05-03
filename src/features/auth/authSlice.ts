@@ -1,4 +1,4 @@
-// src/features/auth/authSlice.ts
+// src/features/auth/authSlice2.ts
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import {DEFAULT_PROFILE, Profile} from "../showcase/profile/mocks/defaultProfile";

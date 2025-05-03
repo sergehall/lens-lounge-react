@@ -4,7 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 // RTK Query API
 import { apiSlice } from '../api/apiSlice';
 // Features
-import chatReducer  from "../features/whisper/chats/chatsSlice";
+import chatReducer  from "../features/whisper/chat/chatSlice";
 import contactListReducer from '../features/whisper/contacts/contactListSlice';
 import headerReducer from '../components/header/headerSlice';
 import sidebarReducer from '../components/sidebar/sidebarSlice';
@@ -18,6 +18,7 @@ import categoryBlogsReducer from '../features/category-blogs-page/categoryBlogsP
 import showcasePageReducer from "../features/showcase/showcasePageReducer";
 import myCategoriesReducer from "../features/showcase/categories/MyCategorySlice";
 import authReducer from "../features/auth/authSlice";
+import whisperPageReducer from "../features/whisper/whisperPageReducer";
 
 
 export const store = configureStore({
@@ -38,7 +39,8 @@ export const store = configureStore({
         homePage: homePageReducer,
         showcasePage: showcasePageReducer,
         newsPage: newsPageReducer,
-        
+        whisperPage: whisperPageReducer,
+
         // Posts
         posts: postsReducer,
         postInteractions: postInteractionsReducer,
@@ -47,10 +49,6 @@ export const store = configureStore({
         categories: categoriesReducer,
         myCategories: myCategoriesReducer,
         categoryBlogs: categoryBlogsReducer,
-
-        // WhisperPage
-        chat: chatReducer,
-        contactList: contactListReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(apiSlice.middleware),

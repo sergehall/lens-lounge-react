@@ -1,4 +1,4 @@
-// src/features/auth/authSlice.ts
+// src/features/auth/authSlice2.ts
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
@@ -10,7 +10,7 @@ const initialState: AuthState = {
     isAuthenticated: false,
 };
 
-const authSlice = createSlice({
+const authSlice2 = createSlice({
     name: "auth",
     initialState,
     reducers: {
@@ -26,5 +26,5 @@ const authSlice = createSlice({
 // ✅ Selector: used in components instead of raw state access
 export const selectIsAuthenticated = (state: RootState) => state.auth.isAuthenticated;
 
-export const { login, logout } = authSlice.actions;
-export default authSlice.reducer;
+export const { login, logout } = authSlice2.actions;
+export default authSlice2.reducer;

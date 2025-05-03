@@ -4,9 +4,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Avatar, UserDetails, UserItem, UserList, UserName, UserStatus } from "../sharedLayoutForContacts.styles";
 import { selectProfile } from "../../auth/authSlice";
 import { User } from "../../users/mocks/usersMock";
-import { selectChats } from "./chatsSlice";
+import { selectChats } from "./chatSlice";
 
-const ChatsList: React.FC = () => {
+const ChasList: React.FC = () => {
     const navigate = useNavigate();
     const { chatId: selectedChatId } = useParams<{ chatId: string }>();
     const chats = useSelector(selectChats);
@@ -62,4 +62,4 @@ const ChatsList: React.FC = () => {
     );
 };
 
-export default ChatsList;
+export default ChasList;

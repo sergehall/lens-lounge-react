@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import ChatsList from "./ChatsList";
+import ChasList from "./ChasList";
 import ChatMessages from "./ChatMessages";
 import NavigationButtons from "../Navigation-buttons";
 import { AppDispatch, RootState } from "../../../app/store";
@@ -13,13 +13,13 @@ import {
 } from "../sharedLayoutForContacts.styles";
 import InputSection from "./InputSection";
 import { Message } from "./mocks/messages-mock";
-import { Chat, updateChatMessages } from "./chatsSlice";
+import { ChatType, updateChatMessages } from "./chatSlice";
 import { selectProfile } from "../../auth/authSlice";
 
-const Chats: React.FC = () => {
+const Chat: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { chatId } = useParams<{ chatId: string }>();
-    const chats: Chat[] = useSelector((state: RootState) => state.chat.conversations);
+    const chats: ChatType[] = useSelector((state: RootState) => state.whisperPage.chat.conversations);
     const profile = useSelector(selectProfile);
     const currentUserId = profile?.userId || "0";
     const [message, setMessage] = useState("");
@@ -56,7 +56,7 @@ const Chats: React.FC = () => {
     return (
         <WhisperContainer>
             <UserListWrapper>
-                <ChatsList />
+                <ChasList />
                 <NavigationButtons />
             </UserListWrapper>
             <ChatsOrContactsInfoSection>
@@ -78,5 +78,5 @@ const Chats: React.FC = () => {
     );
 };
 
-export default Chats;
+export default Chat;
 

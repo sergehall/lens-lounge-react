@@ -1,7 +1,7 @@
 import { allMessagesMock, Message } from "./mocks/messages-mock";
 import { User, users } from "../../users/mocks/usersMock";
 
-export interface ChatsData {
+export interface ChatData {
     user: User;
     messages: Message[];
     unreadCount?: number;
@@ -17,7 +17,7 @@ function getMessagesWithUser(currentUserId: string, otherUserId: string, allMess
 }
 
 //  Создаём структуру чатов с пользователями
-export const chatsData: ChatsData[] = users.map((user) => ({
+export const chatsData: ChatData[] = users.map((user) => ({
     user,
     messages: getMessagesWithUser("0", user.userId, allMessagesMock), // ← current userId = "0"
 }));

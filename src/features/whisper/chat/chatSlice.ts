@@ -4,7 +4,7 @@ import { RootState } from "../../../app/store";
 import axios from "axios";
 
 // Types for chat
-export interface Chat {
+export interface ChatType {
     id: string;
     type: "private" | "group";
     participants: string[];
@@ -16,7 +16,7 @@ export interface Chat {
 
 // Redux state for chat feature
 interface ChatState {
-    conversations: Chat[];                // List of all chats (1-on-1 or group)
+    conversations: ChatType[];                // List of all chat (1-on-1 or group)
     status: "idle" | "loading" | "succeeded" | "failed"; // Status of async loading
     error: string | null;
 }
@@ -29,7 +29,7 @@ const initialState: ChatState = {
 };
 
 // Thunk to download all chat
-export const fetchChats = createAsyncThunk<Chat[]>(
+export const fetchChats = createAsyncThunk<ChatType[]>(
     "chat/fetchChats",
     async () => {
         const response = await axios.get("/api/chats"); // 🔁 Заменить на свой URL
@@ -61,25 +61,25 @@ const chatSlice = createSlice({
                 state.status = "loading";
                 state.error = null;
             })
-            .addCase(fetchChats.fulfilled, (state, action: PayloadAction<Chat[]>) => {
+            .addCase(fetchChats.fulfilled, (state, action: PayloadAction<ChatType[]>) => {
                 state.status = "succeeded";
                 state.conversations = action.payload;
             })
             .addCase(fetchChats.rejected, (state, action) => {
                 state.status = "failed";
-                state.error = action.error.message || "Failed to fetch chats.";
+                state.error = action.error.message || "Failed to fetch chat.";
             });
     },
 });
 
 // Selectors
 export const selectMessagesByChatId = (chatId: string) => (state: RootState): Message[] => {
-    const chat = state.chat.conversations.find((chat) => chat.id === chatId);
+    const chat = state.whisperPage.chat.conversations.find((chat) => chat.id === chatId);
     return chat ? chat.messages : [];
 };
-export const selectChats = (state: RootState) => state.chat.conversations;
-export const selectChatsStatus = (state: RootState) => state.chat.status;
-export const selectChatsError = (state: RootState) => state.chat.error;
+export const selectChats = (state: RootState) => state.whisperPage.chat.conversations;
+export const selectChatsStatus = (state: RootState) => state.whisperPage.chat.status;
+export const selectChatsError = (state: RootState) => state.whisperPage.chat.error;
 
 export const { updateChatMessages } = chatSlice.actions;
 export default chatSlice.reducer;

@@ -1,9 +1,9 @@
 import React, {useEffect, useRef} from "react";
 import {useSelector} from "react-redux";
-import {MessageItem, MessagesContainer} from "./chats.styles";
+import {MessageItem, MessagesContainer} from "./chat.styles";
 import {Message} from "./mocks/messages-mock";
 import {selectProfile} from "../../auth/authSlice";
-import {selectMessagesByChatId} from "./chatsSlice";
+import {selectMessagesByChatId} from "./chatSlice";
 
 interface ChatMessagesProps {
     chatId: string;

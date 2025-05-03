@@ -48,8 +48,8 @@ export const RouteManager = {
 
     // Nested routes (whisper)
     nested: {
-        chats: "/whisper/chats",
-        chatsUserId: "/whisper/chats/:userId",
+        chats: "/whisper/chat",
+        chatsUserId: "/whisper/chat/:userId",
         contacts: "/whisper/contacts",
         contactsUserId: "/whisper/contacts/:userId",
     },

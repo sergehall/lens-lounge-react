@@ -7,7 +7,7 @@ const NavigationButtons: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation(); // Get the current route
 
-    // const chats = RouteManager.getSidebarPaths().whisper + '/' + RouteManager.getNestedPaths().chats
+    // const chat = RouteManager.getSidebarPaths().whisper + '/' + RouteManager.getNestedPaths().chat
     // const contacts = RouteManager.getSidebarPaths().whisper + '/' + RouteManager.getNestedPaths().contacts
 
     const chats = RouteManager.getWhisperChatsRoot();

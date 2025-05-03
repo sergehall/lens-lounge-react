@@ -54,14 +54,14 @@ export class RouteManager {
         return this.categoryPaths;
     }
 
-    // --- Whisper Paths (chats, contacts) ---
+    // --- Whisper Paths (chat, contacts) ---
 
     public static getWhisperChatsRoot(): string {
-        return "/whisper/chats";
+        return "/whisper/chat";
     }
 
     public static getWhisperChatPath(chatId: string): string {
-        return `/whisper/chats/${chatId}`;
+        return `/whisper/chat/${chatId}`;
     }
 
     public static getWhisperContactsRoot(): string {
