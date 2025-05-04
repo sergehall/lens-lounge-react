@@ -21,6 +21,10 @@ const theme = {
     orangeRed: '#FF4500',
     lightGray: '#dddddd',
   },
+  alert: {
+    warningColor: '#FF0000',
+  },
+
   text: {
     // Base & core colors
     white: '#FFFFFF',

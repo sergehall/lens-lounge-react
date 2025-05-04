@@ -3,20 +3,21 @@ import React from 'react';
 import * as S from './UnauthenticatedLanding.styles';
 
 interface Props {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
+  warning: string;
   onSignIn: () => void;
   onCreateAccount: () => void;
 }
 
 /**
- * GuestWhisperLanding is shown to unauthenticated users
- * visiting the Whisper, Showcase feature. Encourages SIGN IN or CREATE ACCOUNT to proceed.
+ * UnauthenticatedLanding is shown to unauthenticated users
+ * visiting features like Whisper or Showcase. Encourages SIGN IN or CREATE ACCOUNT to proceed.
  */
 const UnauthenticatedLanding: React.FC<Props> = ({
   title = 'Welcome to Lens Lounge',
-  description = 'Please register or sign in to complete your profile and join the\n' +
-    '                            community!',
+  description = 'Please register or sign in to complete your profile and join the community!',
+  warning,
   onSignIn,
   onCreateAccount,
 }) => {
@@ -25,6 +26,7 @@ const UnauthenticatedLanding: React.FC<Props> = ({
       <S.Content>
         <S.Title>{title}</S.Title>
         <S.Description>{description}</S.Description>
+        {warning && <S.Warning>{warning}</S.Warning>}
         <S.ActionButtonsWrapper>
           <S.ActionButton onClick={onSignIn}>SIGN IN</S.ActionButton>
           <S.DividerText>

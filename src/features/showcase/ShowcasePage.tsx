@@ -30,7 +30,8 @@ const ShowcasePage: React.FC = () => {
   return (
     <UnauthenticatedLanding
       title="Welcome to Showcase"
-      description="Please sign in or create an account to start chatting with the community."
+      description="Here you can view and edit your blogs. Please sign in or create an account to get started."
+      warning="Only registered users can publish or manage blog content."
       onSignIn={handleSignInClick}
       onCreateAccount={handleCreateAccountClick}
     />

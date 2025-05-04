@@ -37,11 +37,10 @@ export const Description = styled.p`
   max-width: 500px;
 `;
 
-export const Divider = styled.hr`
-  width: 100%;
-  margin: ${({ theme }) => theme.spacing.small10} 0;
-  border: 0;
-  border-top: 1px solid ${({ theme }) => theme.global.backgroundColor};
+export const Warning = styled.p`
+  font-size: 0.9rem;
+  color: ${({ theme }) => theme.alert.warningColor};
+  margin-top: 0.5rem;
 `;
 
 export const ActionButtonsWrapper = styled.div`

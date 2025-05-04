@@ -20,6 +20,7 @@ const WhisperPage: React.FC = () => {
     <UnauthenticatedLanding
       title="Welcome to Whisper"
       description="Please sign in or create an account to start chatting with the community."
+      warning="Only registered users can join and participate in real-time conversations."
       onSignIn={handleSignInClick}
       onCreateAccount={handleCreateAccountClick}
     />
