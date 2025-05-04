@@ -2,11 +2,11 @@ import logo from '../../assets/images/logo.svg';
 
 // Test to verify that posts-slider-images import is mocked correctly
 test('posts-slider-images mocks returns the stub value', () => {
-    // Logs the mocked posts-slider-images import value ('test-file-stub')
-    console.log('🖼️ Mocked logo import:', logo);
+  // Logs the mocked posts-slider-images import value ('test-file-stub')
+  console.log('Mocked logo import:', logo);
 
-    // Verifies that the imported 'logo' is the mocked value
-    expect(logo).toBe('test-file-stub');
+  // Verifies that the imported 'logo' is the mocked value
+  expect(logo).toBe('test-file-stub');
 });
 
 // Explanation:

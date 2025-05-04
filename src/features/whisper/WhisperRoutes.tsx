@@ -1,29 +1,29 @@
-import React from "react";
-import {Navigate, Route} from "react-router-dom";
-import {RouteManager} from "../../utils/routeManager";
-import {pageConfig} from "../../config/PageConfig";
-import {generateFeatureRoute} from "../../utils/generateFeatureRoutes";
+import React from 'react';
+import { Navigate, Route } from 'react-router-dom';
+
+import { RouteManager } from '../../utils/routeManager';
+import { pageConfig } from '../../config/PageConfig';
+import { generateFeatureRoute } from '../../utils/generateFeatureRoutes';
 
 /**
  * Generates whisper-specific routes using a utility function.
  */
 export const WhisperRoutes = () => (
-    <>
-        <Route
-            path={RouteManager.getSidebarPaths().whisper}
-            element={<Navigate to={RouteManager.getWhisperChatsRoot()} replace/>}
-        />
+  <>
+    <Route
+      path={RouteManager.getSidebarPaths().whisper}
+      element={<Navigate to={RouteManager.getWhisperChatsRoot()} replace />}
+    />
 
-        {/* Dialog routes */}
-        {generateFeatureRoute("whisper/chat", pageConfig.whisperDialogs)}
-        {generateFeatureRoute("whisper/chat/:chatId", pageConfig.whisperDialogs)}
+    {/* Dialog routes */}
+    {generateFeatureRoute('whisper/chat', pageConfig.whisperDialogs)}
+    {generateFeatureRoute('whisper/chat/:chatId', pageConfig.whisperDialogs)}
 
-        {/* Contact routes */}
-        {generateFeatureRoute("whisper/contacts", pageConfig.whisperContacts)}
-        {generateFeatureRoute("whisper/contacts/:contactId", pageConfig.whisperContacts)}
-    </>
+    {/* Contact routes */}
+    {generateFeatureRoute('whisper/contacts', pageConfig.whisperContacts)}
+    {generateFeatureRoute('whisper/contacts/:contactId', pageConfig.whisperContacts)}
+  </>
 );
-
 
 // // WhisperRoutes.ts
 // import React from "react";

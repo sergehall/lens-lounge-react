@@ -2,6 +2,7 @@
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import { Category } from '../../categories/types/category.types';
 import { Grid, HoverReveal, Image, Label, Overlay, Tile } from '../showcasePage.styles';
 import CreateNewBlogTile from '../create-blog-tile/CreateNewBlogTile';
@@ -10,56 +11,58 @@ import { RouteManager } from '../../../utils/routeManager';
 import { mockCategories } from '../../categories/mock/mockCategories';
 import placeholderImageDefault from '../../../assets/images/placeholderImageDefault.png';
 import { getUserBlogsByCategory } from '../my-blogs/mocks/getUserBlogsByCategory';
-import {selectProfile} from "../../auth/authSlice"; // You had this function!
+import { selectProfile } from '../../auth/authSlice'; // You had this function!
 
 const MyCategories: React.FC = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    // Get profile from Redux
-    const profile = useSelector(selectProfile);
+  // Get profile from Redux
+  const profile = useSelector(selectProfile);
 
-    const userBlogsByCategory = useMemo(() => {
-        if (!profile || !profile.username) {
-            return {};
-        }
-        // Compute userBlogsByCategory based on profile.username === blog.author
-        return getUserBlogsByCategory(profile.username);
-    }, [profile]);
+  const userBlogsByCategory = useMemo(() => {
+    if (!profile || !profile.username) {
+      return {};
+    }
+    // Compute userBlogsByCategory based on profile.username === blog.author
+    return getUserBlogsByCategory(profile.username);
+  }, [profile]);
 
-    // Build categories based on blogs
-    const categories: Category[] = useMemo(() => {
-        return Object.keys(userBlogsByCategory).map((categoryName) => {
-            const found = mockCategories.find(cat => cat.name.toLowerCase() === categoryName.toLowerCase());
-            return {
-                name: found?.name || categoryName,
-                imageUrl: found?.imageUrl || placeholderImageDefault,
-                featured: false,
-            };
-        });
-    }, [userBlogsByCategory]);
+  // Build categories based on blogs
+  const categories: Category[] = useMemo(() => {
+    return Object.keys(userBlogsByCategory).map((categoryName) => {
+      const found = mockCategories.find(
+        (cat) => cat.name.toLowerCase() === categoryName.toLowerCase()
+      );
+      return {
+        name: found?.name || categoryName,
+        imageUrl: found?.imageUrl || placeholderImageDefault,
+        featured: false,
+      };
+    });
+  }, [userBlogsByCategory]);
 
-    const handleCategoryClick = (category: Category) => {
-        const slug = slugify(category.name);
-        navigate(RouteManager.getShowcaseCategoryPathBySlug(slug)); // use /showcase/:name
-    };
+  const handleCategoryClick = (category: Category) => {
+    const slug = slugify(category.name);
+    navigate(RouteManager.getShowcaseCategoryPathBySlug(slug)); // use /showcase/:name
+  };
 
-    return (
-        <Grid>
-            <CreateNewBlogTile />
-            {categories.map((category) => (
-                <Tile
-                    key={category.name}
-                    isFeatured={category.featured}
-                    onClick={() => handleCategoryClick(category)}
-                >
-                    <Image src={category.imageUrl} alt={category.name} />
-                    <HoverReveal />
-                    <Overlay />
-                    <Label>{category.name}</Label>
-                </Tile>
-            ))}
-        </Grid>
-    );
+  return (
+    <Grid>
+      <CreateNewBlogTile />
+      {categories.map((category) => (
+        <Tile
+          key={category.name}
+          isFeatured={category.featured}
+          onClick={() => handleCategoryClick(category)}
+        >
+          <Image src={category.imageUrl} alt={category.name} />
+          <HoverReveal />
+          <Overlay />
+          <Label>{category.name}</Label>
+        </Tile>
+      ))}
+    </Grid>
+  );
 };
 
 export default MyCategories;

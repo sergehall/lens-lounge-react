@@ -2,29 +2,29 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface ProfileState {
-    photoUrl: string;
-    firstName: string;
-    lastName: string;
-    username: string;
-    birthday: string;
-    education: string;
-    website: string;
+  photoUrl: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  birthday: string;
+  education: string;
+  website: string;
 }
 
 const initialState: ProfileState = {
-    photoUrl: "",
-    firstName: "",
-    lastName: "",
-    username: "",
-    birthday: "",
-    education: "",
-    website: "",
+  photoUrl: '',
+  firstName: '',
+  lastName: '',
+  username: '',
+  birthday: '',
+  education: '',
+  website: '',
 };
 
 const profileSlice = createSlice({
-    name: 'profile',
-    initialState,
-    reducers: {},
+  name: 'profile',
+  initialState,
+  reducers: {},
 });
 
 // no actions и thunks

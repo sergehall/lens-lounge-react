@@ -57,16 +57,16 @@ export const Label = styled.div`
 `;
 
 export const HoverReveal = styled.div`
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 25%;
-    filter: grayscale(50%) brightness(0.8);
-    transition: filter 0.3s ease;
-    z-index: 1;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25%;
+  filter: grayscale(50%) brightness(0.8);
+  transition: filter 0.3s ease;
+  z-index: 1;
 
-    /* This is what changes on hover */
-    ${Tile}:hover & {
-        filter: grayscale(0%) brightness(1);
-    }
+  /* This is what changes on hover */
+  ${Tile}:hover & {
+    filter: grayscale(0%) brightness(1);
+  }
 `;

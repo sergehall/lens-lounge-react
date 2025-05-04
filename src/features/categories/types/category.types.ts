@@ -1,5 +1,5 @@
 export interface Category {
-    name: string;
-    imageUrl: string;
-    featured: boolean;
+  name: string;
+  imageUrl: string;
+  featured: boolean;
 }

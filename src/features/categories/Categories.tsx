@@ -1,40 +1,41 @@
-// Categories.tsx
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Tile, Image, Label, Overlay, HoverReveal, Grid } from '../home-page/homePage.styles';
-import { Category } from './types/category.types';
+
+import * as S from '../home-page/homePage.styles';
 import { slugify } from '../../utils/slugify';
 import { RouteManager } from '../../utils/routeManager';
-import {selectCategories} from "./selectors";
+import { useAppSelector } from '../../hooks/reduxHooks';
+
+import { selectCategories } from './selectors';
+import { Category } from './types/category.types';
 
 const Categories: React.FC = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    // Pull default categories from Redux
-    const categories = useSelector(selectCategories);
+  // Pull default categories from Redux
+  const categories = useAppSelector(selectCategories);
 
-    const handleCategoryClick = (category: Category) => {
-        const slug = slugify(category.name);
-        navigate(RouteManager.getCategoryPathBySlug(slug));
-    };
+  const handleCategoryClick = (category: Category) => {
+    const slug = slugify(category.name);
+    navigate(RouteManager.getCategoryPathBySlug(slug));
+  };
 
-    return (
-        <Grid>
-            {categories.map((category) => (
-                <Tile
-                    key={category.name}
-                    isFeatured={category.featured}
-                    onClick={() => handleCategoryClick(category)}
-                >
-                    <Image src={category.imageUrl} alt={category.name} />
-                    <HoverReveal />
-                    <Overlay />
-                    <Label>{category.name}</Label>
-                </Tile>
-            ))}
-        </Grid>
-    );
+  return (
+    <S.Grid>
+      {categories.map((category) => (
+        <S.Tile
+          key={category.name}
+          isFeatured={category.featured}
+          onClick={() => handleCategoryClick(category)}
+        >
+          <S.Image src={category.imageUrl} alt={category.name} />
+          <S.HoverReveal />
+          <S.Overlay />
+          <S.Label>{category.name}</S.Label>
+        </S.Tile>
+      ))}
+    </S.Grid>
+  );
 };
 
 export default Categories;

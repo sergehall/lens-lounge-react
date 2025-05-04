@@ -6,12 +6,12 @@ import { env } from '../services/env.service';
  * @throws {Error} - If no element is found with the given ID
  */
 export const getRootElement = (): HTMLElement => {
-    const rootId: string = env.REACT_APP_ROOT_ID;
-    const el: HTMLElement | null = document.getElementById(rootId);
+  const rootId: string = env.REACT_APP_ROOT_ID;
+  const el: HTMLElement | null = document.getElementById(rootId);
 
-    if (!el) {
-        throw new Error(`❌ No element found with ID "${rootId}"`);
-    }
+  if (!el) {
+    throw new Error(`❌ No element found with ID "${rootId}"`);
+  }
 
-    return el;
+  return el;
 };

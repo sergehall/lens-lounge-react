@@ -1,12 +1,10 @@
-// src/components/sidebar/nav-links.ts
+import { RouteManager } from '../../utils/routeManager';
 
-import {RouteManager} from "../../utils/routeManager";
-
-const SidebarPaths = RouteManager.getSidebarPaths();
+type SidebarPaths = ReturnType<typeof RouteManager.getSidebarPaths>;
 
 export interface NavLinks {
-    name: string;
-    url: typeof SidebarPaths[keyof typeof SidebarPaths];
+  name: string;
+  url: SidebarPaths[keyof SidebarPaths];
 }
 
-export const navLinks: NavLinks[] = RouteManager.getNavLinks()
+export const navLinks: NavLinks[] = RouteManager.getNavLinks();

@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+
 import { RootState } from '../../app/store';
 
 /**
@@ -10,6 +11,6 @@ const selectCategoriesState = (state: RootState) => state.categories;
  * Selects list of categories.
  */
 export const selectCategories = createSelector(
-    [selectCategoriesState],
-    (categoriesState) => categoriesState.list
+  [selectCategoriesState],
+  (categoriesState) => categoriesState.list
 );

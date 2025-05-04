@@ -2,46 +2,48 @@
 import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
 import { Wrapper, Grid } from '../../category-blogs-page/categoryBlogsPage.styles';
 import IntroCommunitiesTile from '../../category-blogs-page/tiles/intro-tile/IntroCommunitiesTile';
 import BlogsTile from '../../category-blogs-page/tiles/blogs-tile/BlogsTile';
 import CreateBlogCTATile from '../../category-blogs-page/tiles/create-blog-tile/CreateBlogCTATile';
+import { selectProfile } from '../../auth/authSlice';
+
 import { getUserBlogsByCategory } from './mocks/getUserBlogsByCategory';
-import { CategoryNotFound } from "./myCategoryBlogsPage.styles";
-import { selectProfile } from "../../auth/authSlice";
+import { CategoryNotFound } from './myCategoryBlogsPage.styles';
 
 const MyCategoryBlogsPage: React.FC = () => {
-    const { name } = useParams<{ name: string }>();
-    const decodedName = decodeURIComponent(name || '');
+  const { name } = useParams<{ name: string }>();
+  const decodedName = decodeURIComponent(name || '');
 
-    const profile = useSelector(selectProfile);
+  const profile = useSelector(selectProfile);
 
-    const userBlogsByCategory = useMemo(() => {
-        if (!profile || !profile.username) {
-            return {};
-        }
-        return getUserBlogsByCategory(profile.username);
-    }, [profile]);
-
-    const blogs = userBlogsByCategory[decodedName] || [];
-
-    if (!name) {
-        return <CategoryNotFound>Category not found</CategoryNotFound>;
+  const userBlogsByCategory = useMemo(() => {
+    if (!profile || !profile.username) {
+      return {};
     }
+    return getUserBlogsByCategory(profile.username);
+  }, [profile]);
 
-    if (!blogs.length) {
-        return <CategoryNotFound>No blogs found in this category.</CategoryNotFound>;
-    }
+  const blogs = userBlogsByCategory[decodedName] || [];
 
-    return (
-        <Wrapper>
-            <Grid>
-                <IntroCommunitiesTile />
-                <CreateBlogCTATile categoryName={decodedName} />
-                <BlogsTile blogs={blogs} />
-            </Grid>
-        </Wrapper>
-    );
+  if (!name) {
+    return <CategoryNotFound>Category not found</CategoryNotFound>;
+  }
+
+  if (!blogs.length) {
+    return <CategoryNotFound>No blogs found in this category.</CategoryNotFound>;
+  }
+
+  return (
+    <Wrapper>
+      <Grid>
+        <IntroCommunitiesTile />
+        <CreateBlogCTATile categoryName={decodedName} />
+        <BlogsTile blogs={blogs} />
+      </Grid>
+    </Wrapper>
+  );
 };
 
 export default MyCategoryBlogsPage;

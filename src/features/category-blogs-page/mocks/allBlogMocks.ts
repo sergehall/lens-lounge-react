@@ -6,6 +6,6 @@ import { blogProgrammingMock } from './blogProgrammingMock';
  * Keys = category names (photography, programming, etc.)
  */
 export const allBlogMocks = {
-    ...blogPhotographsMock,
-    ...blogProgrammingMock,
+  ...blogPhotographsMock,
+  ...blogProgrammingMock,
 };

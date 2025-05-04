@@ -6,23 +6,23 @@
  * @returns A formatted date string.
  */
 export const formatDate = (
-    date: Date | string | number,
-    options: Intl.DateTimeFormatOptions = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-    }
+  date: Date | string | number,
+  options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }
 ): string => {
-    try {
-        // const rawDate = '2024-12-18T18:30:00Z';
-        // const formattedDate = formatDate(rawDate);
-        //
-        // return <p>The formatted date is: {formattedDate}</p>;
+  try {
+    // const rawDate = '2024-12-18T18:30:00Z';
+    // const formattedDate = formatDate(rawDate);
+    //
+    // return <p>The formatted date is: {formattedDate}</p>;
 
-        const dateObj = typeof date === 'string' || typeof date === 'number' ? new Date(date) : date;
-        return new Intl.DateTimeFormat('en-US', options).format(dateObj);
-    } catch (error) {
-        console.error('Error formatting date:', error);
-        return 'Invalid Date';
-    }
+    const dateObj = typeof date === 'string' || typeof date === 'number' ? new Date(date) : date;
+    return new Intl.DateTimeFormat('en-US', options).format(dateObj);
+  } catch (error) {
+    console.error('Error formatting date:', error);
+    return 'Invalid Date';
+  }
 };

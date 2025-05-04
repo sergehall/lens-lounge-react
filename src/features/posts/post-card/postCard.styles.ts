@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Card = styled.article`
   background-color: ${({ theme }) => theme.global.secondaryColor};

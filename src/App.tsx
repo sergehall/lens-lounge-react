@@ -1,34 +1,34 @@
 // src/App.tsx
+import React from 'react';
 
-import React from "react";
-import Sidebar from "./components/sidebar/Sidebar";
-import Header from "./components/header/Header";
-import { AppContainer, AppHeader, AppSidebar, AppContent } from "./styles/app.styles";
-import GlobalStyles from "./styles/globalStyles";
-import AppRoutes from "./routes/AppRoutes";
+import Sidebar from './components/sidebar/Sidebar';
+import Header from './components/header/Header';
+import { AppContainer, AppHeader, AppSidebar, AppContent } from './styles/app.styles';
+import GlobalStyles from './styles/globalStyles';
+import AppRoutes from './routes/AppRoutes';
 
 const App: React.FC = () => {
-    return (
-        <>
-            <GlobalStyles />
-            <AppContainer>
-                {/* Header */}
-                <AppHeader data-testid="app-header">
-                    <Header />
-                </AppHeader>
+  return (
+    <>
+      <GlobalStyles />
+      <AppContainer>
+        {/* Header */}
+        <AppHeader data-testid="app-header">
+          <Header />
+        </AppHeader>
 
-                {/* Sidebar */}
-                <AppSidebar data-testid="app-sidebar">
-                    <Sidebar />
-                </AppSidebar>
+        {/* Sidebar */}
+        <AppSidebar data-testid="app-sidebar">
+          <Sidebar />
+        </AppSidebar>
 
-                {/* Content */}
-                <AppContent data-testid="app-content">
-                    <AppRoutes />
-                </AppContent>
-            </AppContainer>
-        </>
-    );
+        {/* Content */}
+        <AppContent data-testid="app-content">
+          <AppRoutes />
+        </AppContent>
+      </AppContainer>
+    </>
+  );
 };
 
 export default App;

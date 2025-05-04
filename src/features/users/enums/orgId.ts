@@ -1,3 +1,3 @@
 export enum OrgIdEnums {
-    IT_INCUBATOR = 'It-Incubator',
+  IT_INCUBATOR = 'It-Incubator',
 }

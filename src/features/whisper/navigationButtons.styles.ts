@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ButtonSegment = styled.div`
     padding: 10px;
@@ -8,8 +8,8 @@ export const ButtonSegment = styled.div`
     margin-top: 5px;
     border-radius: 8px;
     position: sticky;
-    background-color: ${({theme}) => theme.global.backgroundColor};
-    box-shadow: ${({theme}) => theme.global.boxShadowNeon};
+    background-color: ${({ theme }) => theme.global.backgroundColor};
+    box-shadow: ${({ theme }) => theme.global.boxShadowNeon};
     bottom: 0;
 
     button {
@@ -17,8 +17,8 @@ export const ButtonSegment = styled.div`
         padding: 12px;
         border: none;
         border-radius: 5px;
-        background-color: ${({theme}) => theme.global.secondaryColor};
-        color: ${({theme}) => theme.text.colorDarkCharcoalBlue};
+        background-color: ${({ theme }) => theme.global.secondaryColor};
+        color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
         font-size: 16px;
         cursor: pointer;
         text-align: center;
@@ -26,13 +26,13 @@ export const ButtonSegment = styled.div`
         justify-content: center;
 
         &:hover {
-            background-color: ${({theme}) => theme.contacts.userBgActiveColor};
-            color: ${({theme}) => theme.text.softWhite};
+            background-color: ${({ theme }) => theme.contacts.userBgActiveColor};
+            color: ${({ theme }) => theme.text.softWhite};
         }
 
         &.active {
-            background-color: ${({theme}) => theme.contacts.userBgActiveColor};
-            color: ${({theme}) => theme.text.softWhite};
+            background-color: ${({ theme }) => theme.contacts.userBgActiveColor};
+            color: ${({ theme }) => theme.text.softWhite};
             font-weight: bold;
         }
 
@@ -46,4 +46,3 @@ export const ButtonSegment = styled.div`
             }
         }
 `;
-
