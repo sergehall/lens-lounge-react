@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
 
+import { useAppSelector } from '../../../hooks/reduxHooks';
 import { selectProfile } from '../../auth/authSlice';
 
 import { MessageItem, MessagesContainer } from './chat.styles';
@@ -15,8 +15,8 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({ chatId }) => {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const messagesContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const messages: Message[] = useSelector(selectMessagesByChatId(chatId));
-  const profile = useSelector(selectProfile);
+  const messages: Message[] = useAppSelector(selectMessagesByChatId(chatId));
+  const profile = useAppSelector(selectProfile);
   const currentUserId: string = profile?.userId || '0'; // Safe fallback
 
   useEffect(() => {

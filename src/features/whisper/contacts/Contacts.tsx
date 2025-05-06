@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
+import { useAppSelector } from '../../../hooks/reduxHooks';
 import NavigationButtons from '../Navigation-buttons';
 import {
   ChatsOrContactsInfoSection,
@@ -18,7 +18,7 @@ import { selectContacts } from './contactListSlice';
 const Contacts: React.FC = () => {
   const navigate = useNavigate();
   const { userId } = useParams<{ userId: string }>();
-  const contacts = useSelector(selectContacts);
+  const contacts = useAppSelector(selectContacts);
   const selectedContact = contacts.find((c) => c.userId === userId) || null;
 
   const handleContactSelect = (contactId: string) => {

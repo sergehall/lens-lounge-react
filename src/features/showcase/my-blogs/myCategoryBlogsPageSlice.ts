@@ -27,8 +27,11 @@ export const loadCategoryBlogs = createAsyncThunk<
   try {
     const blogs = await fetchMyBlogsAPI(categoryName);
     return { category: categoryName, blogs };
-  } catch (error: any) {
-    return rejectWithValue(error.message || 'Failed to load category blogs');
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return rejectWithValue(error.message);
+    }
+    return rejectWithValue('Failed to load category blogs');
   }
 });
 

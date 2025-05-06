@@ -1,7 +1,7 @@
 // src/features/showcase/profile/Profile.tsx
 import React from 'react';
-import { useSelector } from 'react-redux';
 
+import { useAppSelector } from '../../../hooks/reduxHooks';
 import { selectProfile } from '../../auth/authSlice';
 
 import {
@@ -14,7 +14,7 @@ import {
 } from './profile.styles';
 
 const Profile: React.FC = () => {
-  const profile = useSelector(selectProfile);
+  const profile = useAppSelector(selectProfile);
 
   // If profile is null, render fallback
   if (!profile) {

@@ -1,4 +1,4 @@
-import { env } from '../services/env.service';
+import { env } from '../config/env/env.service';
 
 /**
  * Safely retrieves the root DOM element by ID from the validated environment config.

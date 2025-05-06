@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 import SinglePost from '../SinglePost';
-import { useAppDispatch } from '../../../hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 
 import {
   fetchHomePosts,
@@ -14,9 +13,9 @@ import { ErrorMsg, FeedContainer, Loader } from './postsSlider.styles';
 
 const HomePage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const posts = useSelector(selectHomePosts);
-  const loading = useSelector(selectHomeLoading);
-  const error = useSelector(selectHomeError);
+  const posts = useAppSelector(selectHomePosts);
+  const loading = useAppSelector(selectHomeLoading);
+  const error = useAppSelector(selectHomeError);
 
   useEffect(() => {
     dispatch(fetchHomePosts());

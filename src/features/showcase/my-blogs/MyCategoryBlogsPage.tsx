@@ -1,8 +1,8 @@
 // src/features/showcase/my-blogs/MyCategoryBlogsPage.tsx
 import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
+import { useAppSelector } from '../../../hooks/reduxHooks';
 import { Wrapper, Grid } from '../../category-blogs-page/categoryBlogsPage.styles';
 import IntroCommunitiesTile from '../../category-blogs-page/tiles/intro-tile/IntroCommunitiesTile';
 import BlogsTile from '../../category-blogs-page/tiles/blogs-tile/BlogsTile';
@@ -16,7 +16,7 @@ const MyCategoryBlogsPage: React.FC = () => {
   const { name } = useParams<{ name: string }>();
   const decodedName = decodeURIComponent(name || '');
 
-  const profile = useSelector(selectProfile);
+  const profile = useAppSelector(selectProfile);
 
   const userBlogsByCategory = useMemo(() => {
     if (!profile || !profile.username) {

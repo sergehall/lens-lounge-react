@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
+import { useAppSelector } from '../../hooks/reduxHooks';
 import { selectIsAuthenticated } from '../auth/authSlice';
 import useAuthNavigation from '../../hooks/useAuthNavigation';
 import UnauthenticatedLanding from '../../components/unauthenticated-landing/UnauthenticatedLanding';
@@ -8,7 +8,7 @@ import UnauthenticatedLanding from '../../components/unauthenticated-landing/Una
 import Chat from './chat/Chat';
 
 const WhisperPage: React.FC = () => {
-  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
   const { handleSignInClick, handleCreateAccountClick } = useAuthNavigation();
 

@@ -1,6 +1,6 @@
 import type { z } from 'zod';
 
-import { envSchema } from '../schema/env.schema';
+import { envSchema } from './env.schema';
 
 // 1. Typed env schema shape
 type EnvSchema = z.infer<typeof envSchema>;

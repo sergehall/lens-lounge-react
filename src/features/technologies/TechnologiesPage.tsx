@@ -1,15 +1,15 @@
 // src/features/technologies/TechnologiesPage.tsx
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import { RootState } from '../../app/store';
+import { useAppSelector } from '../../hooks/reduxHooks';
 
 import { categorizedLinks } from './mocks/categorizedLinks';
 import * as S from './technologies.styles';
 import { TechnologyLinkType } from './mocks/technologyLinksMock';
 
 const TechnologiesPage: React.FC = () => {
-  const links = useSelector((state: RootState) => state.technologiesPage.links);
+  const links = useAppSelector((state: RootState) => state.technologiesPage.links);
   const [hoveredLink, setHoveredLink] = useState<TechnologyLinkType | null>(null);
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
 

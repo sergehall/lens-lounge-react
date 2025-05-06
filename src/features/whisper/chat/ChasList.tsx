@@ -1,7 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import { useAppSelector } from '../../../hooks/reduxHooks';
 import {
   Avatar,
   UserDetails,
@@ -18,8 +18,8 @@ import { selectChats } from './chatSlice';
 const ChasList: React.FC = () => {
   const navigate = useNavigate();
   const { chatId: selectedChatId } = useParams<{ chatId: string }>();
-  const chats = useSelector(selectChats);
-  const profile = useSelector(selectProfile);
+  const chats = useAppSelector(selectChats);
+  const profile = useAppSelector(selectProfile);
   const currentUserId = profile?.userId || '0';
 
   const getRecipientUser = (participants: string[]): User | null => {

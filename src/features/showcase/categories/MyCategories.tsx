@@ -1,8 +1,8 @@
 // MyCategories.tsx
 import React, { useMemo } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { useAppSelector } from '../../../hooks/reduxHooks';
 import { Category } from '../../categories/types/category.types';
 import CreateNewBlogTile from '../create-blog-tile/CreateNewBlogTile';
 import { slugify } from '../../../utils/slugify';
@@ -17,7 +17,7 @@ const MyCategories: React.FC = () => {
   const navigate = useNavigate();
 
   // Get profile from Redux
-  const profile = useSelector(selectProfile);
+  const profile = useAppSelector(selectProfile);
 
   const userBlogsByCategory = useMemo(() => {
     if (!profile || !profile.username) {
