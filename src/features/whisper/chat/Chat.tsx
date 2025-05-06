@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import NavigationButtons from '../Navigation-buttons';
@@ -11,14 +11,22 @@ import {
 import { selectProfile } from '../../auth/authSlice';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 
-import ChasList from './ChasList';
+import ChasList from './ChatList';
 import ChatMessages from './ChatMessages';
 import InputSection from './InputSection';
-import { Message } from './mocks/messages-mock';
-import { ChatType, updateChatMessages } from './chatSlice';
+import { ChatType, fetchChats, selectChatsStatus, updateChatMessages } from './chatSlice';
+import { Message } from './types/messageType';
 
 const Chat: React.FC = () => {
   const dispatch = useAppDispatch();
+  const status = useAppSelector(selectChatsStatus);
+
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchChats());
+    }
+  }, [dispatch, status]);
+
   const { chatId } = useParams<{ chatId: string }>();
   const chats: ChatType[] = useAppSelector((state) => state.whisperPage.chat.conversations);
   const profile = useAppSelector(selectProfile);

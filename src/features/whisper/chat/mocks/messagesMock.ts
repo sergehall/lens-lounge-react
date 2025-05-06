@@ -1,18 +1,6 @@
-export interface Message {
-  id: string;
-  senderId: string;
-  recipientId: string;
-  chatId: string;
-  message: string;
-  createdAt: string;
-  updatedAt: string;
-  read: boolean;
-  isBanned: boolean;
-  banDate: string | null;
-  banReason: string | null;
-}
+import { Message } from '../types/messageType';
 
-export const allMessagesMock: Message[] = [
+export const messagesMock: Message[] = [
   // Messages with Emmy
   {
     id: '1',
@@ -1068,7 +1056,7 @@ export const allMessagesMock: Message[] = [
 ];
 
 export function fetchMessagesByUserIds(currentUserId: string, recipientUserId: string): Message[] {
-  return allMessagesMock.filter(
+  return messagesMock.filter(
     (msg) =>
       (msg.senderId === currentUserId && msg.recipientId === recipientUserId) ||
       (msg.senderId === recipientUserId && msg.recipientId === currentUserId)

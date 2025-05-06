@@ -5,7 +5,7 @@ import { pageConfig } from '../config/PageConfig';
 import CategoryBlogsPage from '../features/category-blogs-page/CategoryBlogsPage';
 import MyCategoryBlogsPage from '../features/showcase/my-blogs/MyCategoryBlogsPage';
 import { RouteManager } from '../utils/routeManager';
-import { WhisperRoutes } from '../features/whisper/WhisperRoutes';
+import { WhisperRoutes } from './WhisperRoutes';
 import {
   generateRoutesFromPageConfig,
   splitProtectedRoutes,

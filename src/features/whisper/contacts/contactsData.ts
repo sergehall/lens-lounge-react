@@ -3,7 +3,7 @@ import {
   addressDataMock,
   CellPhoneData,
   cellPhoneDataMock,
-  users,
+  usersMock,
 } from '../../users/mocks/usersMock';
 
 export interface ContactsData {
@@ -26,7 +26,7 @@ export interface ContactsData {
 }
 
 export const combineContactData = (): ContactsData[] => {
-  return users.map((user) => {
+  return usersMock.map((user) => {
     const phoneNumber = cellPhoneDataMock.find((phone) => phone.userId === user.userId);
     if (!phoneNumber) {
       throw new Error(`Phone number not found for userId: ${user.userId}`);

@@ -2,36 +2,28 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppSelector } from '../../../hooks/reduxHooks';
-import {
-  Avatar,
-  UserDetails,
-  UserItem,
-  UserList,
-  UserName,
-  UserStatus,
-} from '../sharedLayoutForContacts.styles';
+import { User } from '../../users/types/userType';
+import { selectAllUsers } from '../../users/userSlice';
 import { selectProfile } from '../../auth/authSlice';
-import { User } from '../../users/mocks/usersMock';
-
 import { selectChats } from './chatSlice';
 
-const ChasList: React.FC = () => {
+import * as S from '../sharedLayoutForContacts.styles';
+
+const ChatList: React.FC = () => {
   const navigate = useNavigate();
   const { chatId: selectedChatId } = useParams<{ chatId: string }>();
+
   const chats = useAppSelector(selectChats);
+  const users = useAppSelector(selectAllUsers);
   const profile = useAppSelector(selectProfile);
   const currentUserId = profile?.userId || '0';
 
+  // 🔍 Получаем собеседника из участников чата
   const getRecipientUser = (participants: string[]): User | null => {
     const recipientId = participants.find((id) => id !== currentUserId);
     if (!recipientId) return null;
 
-    return {
-      userId: recipientId,
-      username: recipientId,
-      avatarUrl: '',
-      isOnline: false,
-    } as User;
+    return users.find((user) => user.userId === recipientId) || null;
   };
 
   const handleDialogSelect = (chatId: string) => {
@@ -39,36 +31,35 @@ const ChasList: React.FC = () => {
   };
 
   return (
-    <UserList>
+    <S.UserList>
       {chats.map((chat) => {
         const user = getRecipientUser(chat.participants);
 
-        // Skip rendering if user is null (i.e. no recipient found)
         if (!user) return null;
 
         return (
-          <UserItem
+          <S.UserItem
             key={chat.id}
             onClick={() => handleDialogSelect(chat.id)}
             $isActive={selectedChatId === chat.id}
           >
-            <Avatar
+            <S.Avatar
               src={user.avatarUrl || '/default-avatar.png'}
               alt={`${user.username}'s avatar`}
               $isActive={selectedChatId === chat.id}
               $large={false}
             />
-            <UserDetails>
-              <UserName>{user.username}</UserName>
-              <UserStatus $isOnline={user.isOnline}>
+            <S.UserDetails>
+              <S.UserName>{user.username}</S.UserName>
+              <S.UserStatus $isOnline={user.isOnline}>
                 {user.isOnline ? 'Online' : 'Offline'}
-              </UserStatus>
-            </UserDetails>
-          </UserItem>
+              </S.UserStatus>
+            </S.UserDetails>
+          </S.UserItem>
         );
       })}
-    </UserList>
+    </S.UserList>
   );
 };
 
-export default ChasList;
+export default ChatList;

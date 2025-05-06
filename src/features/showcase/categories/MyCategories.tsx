@@ -10,7 +10,7 @@ import { RouteManager } from '../../../utils/routeManager';
 import { mockCategories } from '../../categories/mock/mockCategories';
 import placeholderImageDefault from '../../../assets/images/placeholderImageDefault.png';
 import { getUserBlogsByCategory } from '../my-blogs/mocks/getUserBlogsByCategory';
-import { selectProfile } from '../../auth/authSlice'; // You had this function!
+import { selectProfile } from '../../auth/authSlice';
 import * as S from '../showcasePage.styles';
 
 const MyCategories: React.FC = () => {
@@ -27,7 +27,8 @@ const MyCategories: React.FC = () => {
     return getUserBlogsByCategory(profile.username);
   }, [profile]);
 
-  // Build categories based on blogs
+  // Build categories based on blog
+  // s
   const categories: Category[] = useMemo(() => {
     return Object.keys(userBlogsByCategory).map((categoryName) => {
       const found = mockCategories.find(

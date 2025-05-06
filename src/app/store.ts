@@ -18,6 +18,7 @@ import authReducer from '../features/auth/authSlice';
 import whisperPageReducer from '../features/whisper/whisperPageReducer';
 import technologiesReducer from '../features/technologies/technologiesSlice';
 import newsPageReducer from '../features/news/newsPageSlice';
+import userReducer from '../features/users/userSlice';
 
 export const store = configureStore({
   reducer: {
@@ -44,7 +45,10 @@ export const store = configureStore({
     posts: postsReducer,
     postInteractions: postInteractionsReducer,
 
-    // MyCategories
+    // users
+    users: userReducer,
+
+    // Categories
     categories: categoriesReducer,
     myCategories: myCategoriesReducer,
     categoryBlogs: categoryBlogsReducer,

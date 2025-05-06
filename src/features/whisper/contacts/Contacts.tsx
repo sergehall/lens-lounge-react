@@ -17,9 +17,9 @@ import { selectContacts } from './contactListSlice';
 
 const Contacts: React.FC = () => {
   const navigate = useNavigate();
-  const { userId } = useParams<{ userId: string }>();
+  const { contactId } = useParams<{ contactId: string }>();
   const contacts = useAppSelector(selectContacts);
-  const selectedContact = contacts.find((c) => c.userId === userId) || null;
+  const selectedContact = contacts.find((c) => c.userId === contactId) || null;
 
   const handleContactSelect = (contactId: string) => {
     navigate(RouteManager.getWhisperContactPath(contactId));

@@ -4,8 +4,8 @@ import { useAppSelector } from '../../../hooks/reduxHooks';
 import { selectProfile } from '../../auth/authSlice';
 
 import { MessageItem, MessagesContainer } from './chat.styles';
-import { Message } from './mocks/messages-mock';
 import { selectMessagesByChatId } from './chatSlice';
+import { Message } from './types/messageType';
 
 interface ChatMessagesProps {
   chatId: string;

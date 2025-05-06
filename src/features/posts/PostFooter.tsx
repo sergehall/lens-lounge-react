@@ -1,7 +1,7 @@
 // PostFooter.tsx
 import React from 'react';
 
-import { Footer } from './posts/post-footer/postFooter.styles';
+import { Footer } from './post-footer/postFooter.styles';
 
 interface Props {
   postOwnerId: string;

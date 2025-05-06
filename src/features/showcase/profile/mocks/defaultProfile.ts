@@ -1,4 +1,4 @@
-import { users } from '../../../users/mocks/usersMock';
+import { usersMock } from '../../../users/mocks/usersMock';
 
 export interface Profile {
   userId: string;
@@ -12,7 +12,7 @@ export interface Profile {
 }
 
 // Find user with userId === "0"
-const defaultUser = users.find((user) => user.userId === '0');
+const defaultUser = usersMock.find((user) => user.userId === '0');
 
 if (!defaultUser) {
   throw new Error("Default user with userId '0' not found in users array.");

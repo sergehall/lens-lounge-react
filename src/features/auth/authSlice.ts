@@ -1,4 +1,4 @@
-// src/features/auth/authSlice2.ts
+// src/features/auth/authSlice.ts
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { RootState } from '../../app/store';
@@ -12,7 +12,7 @@ interface AuthState {
 
 // Initial state — assume user is logged in (easy to remove later)
 const initialState: AuthState = {
-  isAuthenticated: false, // <-- simulate logged-in user
+  isAuthenticated: true, // <-- simulate logged-in user
   profile: DEFAULT_PROFILE, // <-- simulate user profile loaded
 };
 

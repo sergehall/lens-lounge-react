@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate, Route } from 'react-router-dom';
 
-import { RouteManager } from '../../utils/routeManager';
-import { pageConfig } from '../../config/PageConfig';
-import { generateFeatureRoute } from '../../utils/generateFeatureRoutes';
+import { RouteManager } from '../utils/routeManager';
+import { pageConfig } from '../config/PageConfig';
+import { generateFeatureRoute } from '../utils/generateFeatureRoutes';
 
 /**
  * Generates whisper-specific routes using a utility function.
