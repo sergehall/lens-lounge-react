@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 
-import { RootState } from '../../../app/store';
+import { useAppSelector } from '../../../hooks/reduxHooks';
 
 import { StatsWrapper, LikesButton } from './postStats.styles';
 import PostLikesModal, { LikeUser } from './post-likes-modal/PostLikesModal';
@@ -12,9 +11,7 @@ interface PostStatsProps {
 
 const PostStats: React.FC<PostStatsProps> = ({ postId }) => {
   const [showModal, setShowModal] = useState(false);
-  const likes: number = useSelector(
-    (state: RootState) => state.postInteractions.likes[postId] || 0
-  );
+  const likes: number = useAppSelector((state) => state.postInteractions.likes[postId] || 0);
 
   // Temporary mocks of users (ideally fetch from backend later)
   const usersWhoLiked: LikeUser[] = [

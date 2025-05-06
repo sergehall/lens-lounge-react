@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { Category } from '../../categories/types/category.types';
-import { Grid, HoverReveal, Image, Label, Overlay, Tile } from '../showcasePage.styles';
 import CreateNewBlogTile from '../create-blog-tile/CreateNewBlogTile';
 import { slugify } from '../../../utils/slugify';
 import { RouteManager } from '../../../utils/routeManager';
@@ -12,6 +11,7 @@ import { mockCategories } from '../../categories/mock/mockCategories';
 import placeholderImageDefault from '../../../assets/images/placeholderImageDefault.png';
 import { getUserBlogsByCategory } from '../my-blogs/mocks/getUserBlogsByCategory';
 import { selectProfile } from '../../auth/authSlice'; // You had this function!
+import * as S from '../showcasePage.styles';
 
 const MyCategories: React.FC = () => {
   const navigate = useNavigate();
@@ -47,21 +47,21 @@ const MyCategories: React.FC = () => {
   };
 
   return (
-    <Grid>
+    <S.Grid>
       <CreateNewBlogTile />
       {categories.map((category) => (
-        <Tile
+        <S.Tile
           key={category.name}
           isFeatured={category.featured}
           onClick={() => handleCategoryClick(category)}
         >
-          <Image src={category.imageUrl} alt={category.name} />
-          <HoverReveal />
-          <Overlay />
-          <Label>{category.name}</Label>
-        </Tile>
+          <S.Image src={category.imageUrl} alt={category.name} />
+          <S.HoverReveal />
+          <S.Overlay />
+          <S.Label>{category.name}</S.Label>
+        </S.Tile>
       ))}
-    </Grid>
+    </S.Grid>
   );
 };
 

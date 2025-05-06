@@ -6,7 +6,7 @@ export const ShowcaseContainer = styled.div`
   gap: ${({ theme }) => theme.spacing.default};
   border-radius: ${({ theme }) => theme.border.borderRadius};
   padding-bottom: 5px;
-  box-shadow: ${({ theme }) => theme.global.boxShadow};
+  box-shadow: ${({ theme }) => theme.box.boxShadow};
 `;
 
 export const Label = styled.div`

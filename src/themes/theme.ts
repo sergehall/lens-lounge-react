@@ -4,13 +4,20 @@ const theme = {
     semiTransparentBorder: 'rgba(0, 0, 0, 0.2)',
     secondaryColor: '#61DAFB',
     backgroundColor: '#282c34',
-    borderColor: '#444444',
     transparentTextShadow: 'rgba(0, 0, 0, 0.5)',
+  },
+  box: {
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
     boxShadowBackgroundColor: '0 4px 8px rgba(40, 44, 52, 0.2)',
     boxShadowNeon: '0 0 5px 2px rgba(97, 218, 251, 0.7)',
     boxShadowNeonShort: '0 0 3px 1px rgba(97, 218, 251, 0.9)',
     boxShadowGlowOnSecondaryColor: '0 0 5px #0d2b3d, 0 0 10px #0d2b3d, 0 0 20px #61dafb',
+  },
+  border: {
+    darkGray: '1px solid #444444',
+    borderColor: '#444444',
+    borderSecondaryColor: '2px solid #61dafb',
+    borderRadius: '8px',
   },
   highlights: {
     red: '#FF0000',
@@ -47,10 +54,6 @@ const theme = {
 
     // Typography settings
     lineHeight: '1.6',
-  },
-  border: {
-    borderSecondaryColor: '2px solid #61dafb',
-    borderRadius: '8px',
   },
   buttons: {
     primaryBg: '#0095F6',

@@ -7,7 +7,7 @@ export const ImageBannerContentContainer = styled.div`
   margin-bottom: 5px;
   border-radius: ${({ theme }) => theme.imageBanner.containerBorderRadius};
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.global.boxShadow};
+  box-shadow: ${({ theme }) => theme.box.boxShadow};
 `;
 
 export const ImageBannerContentImage = styled.img`

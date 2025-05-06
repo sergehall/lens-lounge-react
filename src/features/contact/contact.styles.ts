@@ -46,7 +46,7 @@ export const Form = styled.form`
   background-color: ${({ theme }) => theme.global.secondaryColor};
   padding: 20px;
   border-radius: ${({ theme }) => theme.border.borderRadius};
-  box-shadow: ${({ theme }) => theme.global.boxShadow};
+  box-shadow: ${({ theme }) => theme.box.boxShadow};
 `;
 
 export const Input = styled.input`

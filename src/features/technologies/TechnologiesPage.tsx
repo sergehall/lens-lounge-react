@@ -4,28 +4,14 @@ import { useSelector } from 'react-redux';
 
 import { RootState } from '../../app/store';
 
-import {
-  TechnologyContainer,
-  Title,
-  TechnologyList,
-  TechnologyItem,
-  TechnologyLink,
-  PopupWindow,
-  StyledIframe,
-} from './technologies.styles';
+import { categorizedLinks } from './mocks/categorizedLinks';
+import * as S from './technologies.styles';
 import { TechnologyLinkType } from './mocks/technologyLinksMock';
 
 const TechnologiesPage: React.FC = () => {
   const links = useSelector((state: RootState) => state.technologiesPage.links);
-
   const [hoveredLink, setHoveredLink] = useState<TechnologyLinkType | null>(null);
-  const [popupPosition, setPopupPosition] = useState<{
-    top: number;
-    left: number;
-  }>({
-    top: 0,
-    left: 0,
-  });
+  const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
 
   const handleMouseEnter = (link: TechnologyLinkType, event: React.MouseEvent<HTMLLIElement>) => {
     setHoveredLink(link);
@@ -40,35 +26,38 @@ const TechnologiesPage: React.FC = () => {
   };
 
   return (
-    <TechnologyContainer>
-      <Title>Technologies</Title>
-      <TechnologyList>
-        {links.map((link) => (
-          <TechnologyItem
-            key={link.url}
-            onMouseEnter={(e) => handleMouseEnter(link, e)}
-            onMouseLeave={handleMouseLeave}
-          >
-            <TechnologyLink href={link.url} target="_blank" rel="noopener noreferrer">
-              {link.name}
-            </TechnologyLink>
-          </TechnologyItem>
+    <S.TechnologyContainer>
+      <S.CategoriesWrapper>
+        {Object.entries(categorizedLinks).map(([category, techNames]) => (
+          <S.CategoryTile key={category}>
+            <S.CategoryTitle>{category}</S.CategoryTitle>
+            <S.TechnologyList>
+              {links
+                .filter((link) => techNames.includes(link.name))
+                .map((link) => (
+                  <S.TechnologyItem
+                    key={link.url}
+                    onMouseEnter={(e) => handleMouseEnter(link, e)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <S.TechnologyLink href={link.url} target="_blank" rel="noopener noreferrer">
+                      {link.name}
+                    </S.TechnologyLink>
+                  </S.TechnologyItem>
+                ))}
+            </S.TechnologyList>
+          </S.CategoryTile>
         ))}
-      </TechnologyList>
+      </S.CategoriesWrapper>
 
       {hoveredLink && (
-        <PopupWindow
-          style={{
-            top: `${popupPosition.top}px`,
-            left: `${popupPosition.left}px`,
-          }}
-        >
+        <S.PopupWindow style={{ top: `${popupPosition.top}px`, left: `${popupPosition.left}px` }}>
           <h4>{hoveredLink.name}</h4>
           <p>Loading more info...</p>
-          <StyledIframe src={hoveredLink.url} title="Technology Info" />
-        </PopupWindow>
+          <S.StyledIframe src={hoveredLink.url} title="Technology Info" />
+        </S.PopupWindow>
       )}
-    </TechnologyContainer>
+    </S.TechnologyContainer>
   );
 };
 

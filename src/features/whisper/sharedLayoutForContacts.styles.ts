@@ -9,7 +9,7 @@ export const WhisperChatContainer = styled.div`
   padding: 5px;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.global.backgroundColor};
-  box-shadow: ${({ theme }) => theme.global.boxShadow};
+  box-shadow: ${({ theme }) => theme.box.boxShadow};
 `;
 
 export const ChatsOrContactsInfoSection = styled.div`
@@ -38,7 +38,7 @@ export const UserList = styled.div`
   border-right: 1px solid ${({ theme }) => theme.contacts.userListBorderColor};
   padding: 10px;
   background-color: ${({ theme }) => theme.global.backgroundColor};
-  box-shadow: ${({ theme }) => theme.global.boxShadowNeonShort};
+  box-shadow: ${({ theme }) => theme.box.boxShadowNeonShort};
 `;
 
 export const UserItem = styled.div<{ $isActive: boolean }>`
@@ -47,7 +47,7 @@ export const UserItem = styled.div<{ $isActive: boolean }>`
   gap: 10px;
   padding: 10px;
   border-radius: 6px;
-  box-shadow: ${({ theme }) => theme.global.boxShadowNeonShort};
+  box-shadow: ${({ theme }) => theme.box.boxShadowNeonShort};
   background-color: ${({ $isActive, theme }) =>
     $isActive ? theme.contacts.userBgActiveColor : theme.global.secondaryColor};
   color: ${({ $isActive, theme }) =>

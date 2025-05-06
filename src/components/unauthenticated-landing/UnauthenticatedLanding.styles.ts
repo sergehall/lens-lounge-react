@@ -16,7 +16,7 @@ export const Container = styled(motion.div).attrs(() => ({
   justify-content: center;
   text-align: center;
   padding: 20px;
-  box-shadow: ${({ theme }) => theme.global.boxShadow};
+  box-shadow: ${({ theme }) => theme.box.boxShadow};
 `;
 
 export const Content = styled.div`
@@ -67,7 +67,7 @@ export const ActionButton = styled(motion.button).attrs(() => ({
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: ${({ theme }) => theme.global.boxShadowGlowOnSecondaryColor};
+    box-shadow: ${({ theme }) => theme.box.boxShadowGlowOnSecondaryColor};
     color: ${({ theme }) => theme.links.hoverColor};
   }
 

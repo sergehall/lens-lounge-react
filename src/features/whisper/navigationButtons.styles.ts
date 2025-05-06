@@ -9,7 +9,7 @@ export const ButtonSegment = styled.div`
     border-radius: 8px;
     position: sticky;
     background-color: ${({ theme }) => theme.global.backgroundColor};
-    box-shadow: ${({ theme }) => theme.global.boxShadowNeon};
+    box-shadow: ${({ theme }) => theme.box.boxShadowNeon};
     bottom: 0;
 
     button {

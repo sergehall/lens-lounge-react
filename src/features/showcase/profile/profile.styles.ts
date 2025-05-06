@@ -10,7 +10,7 @@ export const ProfileContainer = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.default};
   color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
   border-radius: ${({ theme }) => theme.border.borderRadius};
-  box-shadow: ${({ theme }) => theme.global.boxShadow};
+  box-shadow: ${({ theme }) => theme.box.boxShadow};
 `;
 
 // Profile photo styling
@@ -18,7 +18,7 @@ export const ProfilePhoto = styled.img`
   width: ${({ theme }) => theme.profile.photoSize};
   height: ${({ theme }) => theme.profile.photoSize};
   border-radius: ${({ theme }) => theme.border.borderRadius};
-  box-shadow: ${({ theme }) => theme.global.boxShadow};
+  box-shadow: ${({ theme }) => theme.box.boxShadow};
   object-fit: cover;
 `;
 

@@ -1,32 +1,31 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { RootState } from '../../../app/store';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { Icons } from '../../../utils/icons';
 import { toggleLike } from '../interactions/postInteractionsSlice';
 
-import { ActionBar, Button } from './postActions.styles';
+import * as S from './postActions.styles';
 
 interface PostActionsProps {
   postId: string;
 }
 
 const PostActions: React.FC<PostActionsProps> = ({ postId }) => {
-  const dispatch = useDispatch();
-  const liked = useSelector((state: RootState) => state.postInteractions.likedByUser[postId]);
+  const dispatch = useAppDispatch();
+  const liked = useAppSelector((state) => state.postInteractions.likedByUser[postId]);
 
   return (
-    <ActionBar>
-      <Button onClick={() => dispatch(toggleLike({ postId }))} $active={liked}>
+    <S.ActionBar>
+      <S.Button onClick={() => dispatch(toggleLike({ postId }))} $active={liked}>
         {liked ? <Icons.Heart /> : <Icons.RegHeart />}
-      </Button>
-      <Button>
+      </S.Button>
+      <S.Button>
         <Icons.Comment />
-      </Button>
-      <Button>
+      </S.Button>
+      <S.Button>
         <Icons.Share />
-      </Button>
-    </ActionBar>
+      </S.Button>
+    </S.ActionBar>
   );
 };
 

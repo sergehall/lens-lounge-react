@@ -9,7 +9,7 @@ export const MessagesContainer = styled.div`
   padding: 10px;
   background-color: ${({ theme }) => theme.global.backgroundColor};
   border-radius: 6px;
-  box-shadow: ${({ theme }) => theme.global.boxShadowNeon};
+  box-shadow: ${({ theme }) => theme.box.boxShadowNeon};
 `;
 
 export const MessageItem = styled.div<{ $isMine: boolean }>`
@@ -63,7 +63,7 @@ export const InputSectionChat = styled.div`
   padding: 5px;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.global.backgroundColor};
-  box-shadow: ${({ theme }) => theme.global.boxShadowNeon};
+  box-shadow: ${({ theme }) => theme.box.boxShadowNeon};
   position: sticky;
   bottom: 0;
   width: 100%;

@@ -4,7 +4,7 @@ export const InfoSection = styled.div`
   padding: 20px;
   background-color: ${({ theme }) => theme.global.secondaryColor};
   border-radius: 8px;
-  box-shadow: ${({ theme }) => theme.global.boxShadowNeon};
+  box-shadow: ${({ theme }) => theme.box.boxShadowNeon};
 `;
 
 export const UserName = styled.span`

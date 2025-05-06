@@ -29,7 +29,7 @@ export const CategoryNotFound = styled.div`
   background-color: ${({ theme }) => theme.global.secondaryColor};
   color: ${({ theme }) => theme.text.colorDarkCharcoalBlue};
   border-radius: ${({ theme }) => theme.border.borderRadius};
-  box-shadow: ${({ theme }) => theme.global.boxShadow};
+  box-shadow: ${({ theme }) => theme.box.boxShadow};
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;

@@ -54,4 +54,3 @@ export const store = configureStore({
 
 // App-wide Redux types
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
