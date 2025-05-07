@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { AvatarSize } from './enums/avatarSize.enum';
 
 export const InfoSection = styled.div`
   padding: 20px;
@@ -20,22 +19,6 @@ export const Header = styled.div`
     flex-direction: column-reverse;
     align-items: center;
     text-align: center;
-  }
-`;
-
-export const Avatar = styled.img<{ $isActive: boolean; $size?: AvatarSize }>`
-  width: ${({ theme, $size = AvatarSize.Medium }) => theme.avatarSizes[$size]};
-  height: ${({ theme, $size = AvatarSize.Medium }) => theme.avatarSizes[$size]};
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid
-    ${({ theme, $isActive }) =>
-      $isActive ? theme.highlights.white : theme.global.semiTransparentBorder};
-
-  @media (max-width: 600px) {
-    width: ${({ theme }) => theme.avatarSizes[AvatarSize.Medium]};
-    height: ${({ theme }) => theme.avatarSizes[AvatarSize.Medium]};
-    margin-bottom: 10px;
   }
 `;
 

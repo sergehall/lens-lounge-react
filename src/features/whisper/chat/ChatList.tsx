@@ -6,6 +6,7 @@ import { RouteManager } from '../../../utils/routeManager';
 import { User } from '../../users/types/user.type';
 import { selectAllUsers } from '../../users/userSlice';
 import { selectProfile } from '../../auth/authSlice';
+import { AvatarSize } from '../contacts/enums/avatarSize.enum';
 import * as S from '../sharedLayoutForContacts.styles';
 
 import { selectChats } from './chatSlice';
@@ -50,7 +51,7 @@ const ChatList: React.FC = () => {
               src={user.avatarUrl || '/default-avatar.png'}
               alt={`${user.username}'s avatar`}
               $isActive={selectedChatId === chat.id}
-              $large={false}
+              $size={AvatarSize.Small}
             />
             <S.UserDetails>
               <S.UserName>{user.username}</S.UserName>

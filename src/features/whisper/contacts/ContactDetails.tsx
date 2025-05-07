@@ -1,9 +1,10 @@
 // src/features/whisper/contacts/ContactDetails.tsx
 
 import React from 'react';
-import * as S from './contacts.styles';
 
-import { NoContacts } from '../sharedLayoutForContacts.styles';
+import { Avatar, NoContacts } from '../sharedLayoutForContacts.styles';
+
+import * as S from './contacts.styles';
 import { ContactsData } from './contactsData';
 import { AvatarSize } from './enums/avatarSize.enum';
 import { formatAddress } from './formatAddress';
@@ -24,7 +25,7 @@ const ContactDetails: React.FC<ContactDetailsProps> = ({ contact }) => {
             {contact.isOnline ? 'Online' : 'Offline'}
           </S.UserStatus>
         </S.UserInfoHeader>
-        <S.Avatar
+        <Avatar
           src={contact.avatar || '/default-avatar.png'}
           alt="avatar"
           $isActive={contact.isOnline}

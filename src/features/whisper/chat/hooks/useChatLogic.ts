@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { useAppDispatch, useAppSelector } from '../../../../hooks/reduxHooks';
 import { selectProfile } from '../../../auth/authSlice';
 import { fetchChats, selectChatsStatus, updateChatMessages } from '../chatSlice';

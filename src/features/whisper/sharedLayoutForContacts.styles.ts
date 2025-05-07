@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { AvatarSize } from './contacts/enums/avatarSize.enum';
+
 export const WhisperChatContainer = styled.div`
   display: grid;
   grid-template-columns: 250px 1fr;
@@ -62,15 +64,20 @@ export const UserItem = styled.div<{ $isActive: boolean }>`
   }
 `;
 
-export const Avatar = styled.img<{ $isActive: boolean; $large: boolean }>`
-  // Use $isActive and $large
-  width: ${({ $large }) => ($large ? '100px' : '40px')};
-  height: ${({ $large }) => ($large ? '100px' : '40px')};
+export const Avatar = styled.img<{ $isActive: boolean; $size: AvatarSize }>`
+  width: ${({ theme, $size }) => theme.avatarSizes[$size]};
+  height: ${({ theme, $size }) => theme.avatarSizes[$size]};
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid
     ${({ theme, $isActive }) =>
       $isActive ? theme.highlights.white : theme.global.semiTransparentBorder};
+
+  @media (max-width: 600px) {
+    width: ${({ theme }) => theme.avatarSizes[AvatarSize.Medium]};
+    height: ${({ theme }) => theme.avatarSizes[AvatarSize.Medium]};
+    margin-bottom: 10px;
+  }
 `;
 
 export const UserDetails = styled.div`

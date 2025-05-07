@@ -5,6 +5,7 @@ import React from 'react';
 import * as S from '../sharedLayoutForContacts.styles';
 
 import { ContactsData } from './contactsData';
+import { AvatarSize } from './enums/avatarSize.enum';
 
 interface ContactsListProps {
   contacts: ContactsData[];
@@ -27,9 +28,9 @@ const ContactsList: React.FC<ContactsListProps> = ({
         >
           <S.Avatar
             src={contact.avatar || '/default-avatar.png'}
-            alt={`${contact.username}'s avatar`}
-            $isActive={selectedUserId === contact.userId}
-            $large={false}
+            alt="avatar"
+            $isActive={contact.isOnline}
+            $size={AvatarSize.Small}
           />
           <S.UserDetails>
             <S.UserName>{contact.username}</S.UserName>
