@@ -5,7 +5,7 @@ import { selectProfile } from '../../auth/authSlice';
 
 import { MessageItem, MessagesContainer } from './chat.styles';
 import { selectMessagesByChatId } from './chatSlice';
-import { Message } from './types/messageType';
+import { Message } from './types/message.type';
 
 interface ChatMessagesProps {
   chatId: string;

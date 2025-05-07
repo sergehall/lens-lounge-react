@@ -1,74 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-
+import React from 'react';
 import NavigationButtons from '../Navigation-buttons';
-import {
-  ChatsOrContactsInfoSection,
-  NoContacts,
-  UserListWrapper,
-  WhisperChatContainer,
-} from '../sharedLayoutForContacts.styles';
-import { selectProfile } from '../../auth/authSlice';
-import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
+import * as S from '../sharedLayoutForContacts.styles';
 
 import ChasList from './ChatList';
 import ChatMessages from './ChatMessages';
+import { useChatLogic } from './hooks/useChatLogic';
 import InputSection from './InputSection';
-import { ChatType, fetchChats, selectChatsStatus, updateChatMessages } from './chatSlice';
-import { Message } from './types/messageType';
 
 const Chat: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const status = useAppSelector(selectChatsStatus);
-
-  useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchChats());
-    }
-  }, [dispatch, status]);
-
-  const { chatId } = useParams<{ chatId: string }>();
-  const chats: ChatType[] = useAppSelector((state) => state.whisperPage.chat.conversations);
-  const profile = useAppSelector(selectProfile);
-  const currentUserId = profile?.userId || '0';
-  const [message, setMessage] = useState('');
-
-  const selectedDialog = chats.find((chat) => chat.id === chatId) || null;
-
-  const handleSendMessage = () => {
-    if (message.trim() && selectedDialog) {
-      const recipientId = selectedDialog.participants.find((id) => id !== currentUserId) || '';
-
-      const newMessage: Message = {
-        id: (selectedDialog.messages.length + 1).toString(),
-        senderId: currentUserId,
-        recipientId,
-        chatId: selectedDialog.id,
-        message: message,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        read: false,
-        isBanned: false,
-        banDate: null,
-        banReason: null,
-      };
-
-      dispatch(updateChatMessages({ chatId: selectedDialog.id, newMessage }));
-      setMessage('');
-    }
-  };
-
-  const handleUploadFile = () => {
-    console.log('File upload triggered');
-  };
+  const { message, setMessage, selectedDialog, handleSendMessage, handleUploadFile } =
+    useChatLogic();
 
   return (
-    <WhisperChatContainer>
-      <UserListWrapper>
+    <S.WhisperChatContainer>
+      <S.UserListWrapper>
         <ChasList />
         <NavigationButtons />
-      </UserListWrapper>
-      <ChatsOrContactsInfoSection>
+      </S.UserListWrapper>
+      <S.ChatsOrContactsInfoSection>
         {selectedDialog ? (
           <>
             <ChatMessages chatId={selectedDialog.id} />
@@ -80,10 +29,10 @@ const Chat: React.FC = () => {
             />
           </>
         ) : (
-          <NoContacts>Select a chat to view messages</NoContacts>
+          <S.NoContacts>Select a chat to view messages</S.NoContacts>
         )}
-      </ChatsOrContactsInfoSection>
-    </WhisperChatContainer>
+      </S.ChatsOrContactsInfoSection>
+    </S.WhisperChatContainer>
   );
 };
 

@@ -1,10 +1,10 @@
 // src/features/whisper/chat/utils/generateMockChats.ts
 
-import { User } from '../../../users/types/userType';
+import { User } from '../../../users/types/user.type';
 import { usersMock } from '../../../users/mocks/usersMock';
 import { messagesMock } from '../mocks/messagesMock';
 import { ChatType } from '../chatSlice';
-import { Message } from '../types/messageType';
+import { Message } from '../types/message.type';
 
 /**
  * Filters messages exchanged between the current user and another user.

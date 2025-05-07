@@ -1,55 +1,64 @@
+// src/features/whisper/contacts/ContactDetails.tsx
+
 import React from 'react';
+import * as S from './contacts.styles';
 
-import { Avatar, NoContacts } from '../sharedLayoutForContacts.styles';
-
+import { NoContacts } from '../sharedLayoutForContacts.styles';
 import { ContactsData } from './contactsData';
+import { AvatarSize } from './enums/avatarSize.enum';
 import { formatAddress } from './formatAddress';
-import { InfoSection, UserInfoDetails, UserName, UserStatus } from './contacts.styles';
 
 interface ContactDetailsProps {
   contact: ContactsData | null;
 }
 
 const ContactDetails: React.FC<ContactDetailsProps> = ({ contact }) => {
-  if (!contact) {
-    return <NoContacts>No Contacts to view details</NoContacts>;
-  }
+  if (!contact) return <NoContacts>No Contacts to view details</NoContacts>;
 
   return (
-    <InfoSection>
-      <Avatar
-        src={contact.avatar || '/default-avatar.png'}
-        alt={`${contact.username}'s avatar`}
-        $isActive={true}
-        $large={true}
-      />
-      <UserName>{contact.username}</UserName>
-      <UserStatus $isOnline={contact.isOnline}>
-        {contact.isOnline ? 'Online' : 'Offline'}
-      </UserStatus>
-      <UserInfoDetails>
-        <p>
-          <strong>First Name</strong>: <span className="hoverable">{contact.firstName}</span>
-        </p>
-        <p>
-          <strong>Last Name</strong>: <span className="hoverable">{contact.lastName}</span>
-        </p>
-        <p>
-          <strong>Email</strong>: <span className="hoverable">{contact.email}</span>
-        </p>
-        <p>
-          <strong>Phone</strong>:{' '}
-          <span className="hoverable">{contact.phoneNumber.nationalNumber}</span>
-        </p>
-        <p>
-          <strong>Address</strong>:{' '}
-          <span className="hoverable">{formatAddress(contact.addresses)}</span>
-        </p>
-        <p>
-          <strong>About</strong>: <span className="hoverable">{contact.about}</span>
-        </p>
-      </UserInfoDetails>
-    </InfoSection>
+    <S.InfoSection>
+      <S.Header>
+        <S.UserInfoHeader>
+          <S.UserName>{contact.username}</S.UserName>
+          <S.UserStatus $isOnline={contact.isOnline}>
+            {contact.isOnline ? 'Online' : 'Offline'}
+          </S.UserStatus>
+        </S.UserInfoHeader>
+        <S.Avatar
+          src={contact.avatar || '/default-avatar.png'}
+          alt="avatar"
+          $isActive={contact.isOnline}
+          $size={AvatarSize.XL}
+        />
+      </S.Header>
+
+      <S.UserInfoDetails>
+        <S.DetailRow>
+          <S.DetailLabel>First Name</S.DetailLabel>
+          <S.DetailValue>{contact.firstName}</S.DetailValue>
+        </S.DetailRow>
+        <S.DetailRow>
+          <S.DetailLabel>Last Name</S.DetailLabel>
+          <S.DetailValue>{contact.lastName}</S.DetailValue>
+        </S.DetailRow>
+        <S.DetailRow>
+          <S.DetailLabel>Email</S.DetailLabel>
+          <S.DetailValue>{contact.email}</S.DetailValue>
+        </S.DetailRow>
+        <S.DetailRow>
+          <S.DetailLabel>Phone</S.DetailLabel>
+          <S.DetailValue>{contact.phoneNumber.nationalNumber}</S.DetailValue>
+        </S.DetailRow>
+        <S.DetailRow>
+          <S.DetailLabel>Address</S.DetailLabel>
+          <S.DetailValue>{formatAddress(contact.addresses)}</S.DetailValue>
+        </S.DetailRow>
+        <S.DetailRow>
+          <S.DetailLabel>About</S.DetailLabel>
+          <S.DetailValue>{contact.about}</S.DetailValue>
+        </S.DetailRow>
+      </S.UserInfoDetails>
+    </S.InfoSection>
   );
 };
 

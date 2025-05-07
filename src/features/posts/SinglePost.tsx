@@ -1,7 +1,6 @@
 import React from 'react';
 
 import PostFooter from './PostFooter';
-
 import PostHeader from './post-header/PostHeader';
 import PostImageSection from './post-image-section/PostImageSection';
 import PostActions from './post-actions/PostActions';

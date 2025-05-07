@@ -1,13 +1,8 @@
+// src/features/whisper/contacts/ContactsList.tsx
+
 import React from 'react';
 
-import {
-  Avatar,
-  UserDetails,
-  UserItem,
-  UserList,
-  UserName,
-  UserStatus,
-} from '../sharedLayoutForContacts.styles';
+import * as S from '../sharedLayoutForContacts.styles';
 
 import { ContactsData } from './contactsData';
 
@@ -23,28 +18,28 @@ const ContactsList: React.FC<ContactsListProps> = ({
   onContactSelect,
 }) => {
   return (
-    <UserList>
+    <S.UserList>
       {contacts.map((contact) => (
-        <UserItem
+        <S.UserItem
           key={contact.userId}
           onClick={() => onContactSelect(contact.userId)}
           $isActive={selectedUserId === contact.userId}
         >
-          <Avatar
+          <S.Avatar
             src={contact.avatar || '/default-avatar.png'}
             alt={`${contact.username}'s avatar`}
             $isActive={selectedUserId === contact.userId}
             $large={false}
           />
-          <UserDetails>
-            <UserName>{contact.username}</UserName>
-            <UserStatus $isOnline={contact.isOnline}>
+          <S.UserDetails>
+            <S.UserName>{contact.username}</S.UserName>
+            <S.UserStatus $isOnline={contact.isOnline}>
               {contact.isOnline ? 'Online' : 'Offline'}
-            </UserStatus>
-          </UserDetails>
-        </UserItem>
+            </S.UserStatus>
+          </S.UserDetails>
+        </S.UserItem>
       ))}
-    </UserList>
+    </S.UserList>
   );
 };
 

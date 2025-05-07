@@ -2,14 +2,9 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppSelector } from '../../../hooks/reduxHooks';
-import NavigationButtons from '../Navigation-buttons';
-import {
-  ChatsOrContactsInfoSection,
-  NoContacts,
-  UserListWrapper,
-  WhisperChatContainer,
-} from '../sharedLayoutForContacts.styles';
+import * as S from '../sharedLayoutForContacts.styles';
 import { RouteManager } from '../../../utils/routeManager';
+import NavigationButtons from '../Navigation-buttons';
 
 import ContactDetails from './ContactDetails';
 import ContactsList from './ContactsList';
@@ -26,23 +21,23 @@ const Contacts: React.FC = () => {
   };
 
   return (
-    <WhisperChatContainer>
-      <UserListWrapper>
+    <S.WhisperChatContainer>
+      <S.UserListWrapper>
         <ContactsList
           contacts={contacts}
           selectedUserId={selectedContact?.userId || null}
           onContactSelect={handleContactSelect}
         />
         <NavigationButtons />
-      </UserListWrapper>
-      <ChatsOrContactsInfoSection>
+      </S.UserListWrapper>
+      <S.ChatsOrContactsInfoSection>
         {selectedContact ? (
           <ContactDetails contact={selectedContact} />
         ) : (
-          <NoContacts>Select a contact to view details</NoContacts>
+          <S.NoContacts>Select a contact to view details</S.NoContacts>
         )}
-      </ChatsOrContactsInfoSection>
-    </WhisperChatContainer>
+      </S.ChatsOrContactsInfoSection>
+    </S.WhisperChatContainer>
   );
 };
 

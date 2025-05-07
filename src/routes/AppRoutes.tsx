@@ -5,13 +5,14 @@ import { pageConfig } from '../config/PageConfig';
 import CategoryBlogsPage from '../features/category-blogs-page/CategoryBlogsPage';
 import MyCategoryBlogsPage from '../features/showcase/my-blogs/MyCategoryBlogsPage';
 import { RouteManager } from '../utils/routeManager';
-import { WhisperRoutes } from './WhisperRoutes';
 import {
   generateRoutesFromPageConfig,
   splitProtectedRoutes,
 } from '../utils/generateRoutesFromPageConfig';
 import LayoutWrapper from '../layouts/LayoutWrapper';
 import PrivateRoute from '../components/routing/PrivateRoute';
+
+import { WhisperRoutes } from './WhisperRoutes';
 
 // Split into protected and public configs
 const { protectedConfig, publicConfig } = splitProtectedRoutes(pageConfig);

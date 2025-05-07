@@ -2,12 +2,13 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppSelector } from '../../../hooks/reduxHooks';
-import { User } from '../../users/types/userType';
+import { RouteManager } from '../../../utils/routeManager';
+import { User } from '../../users/types/user.type';
 import { selectAllUsers } from '../../users/userSlice';
 import { selectProfile } from '../../auth/authSlice';
-import { selectChats } from './chatSlice';
-
 import * as S from '../sharedLayoutForContacts.styles';
+
+import { selectChats } from './chatSlice';
 
 const ChatList: React.FC = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const ChatList: React.FC = () => {
   const profile = useAppSelector(selectProfile);
   const currentUserId = profile?.userId || '0';
 
-  // 🔍 Получаем собеседника из участников чата
+  //  Get an interlocutor from chat participants
   const getRecipientUser = (participants: string[]): User | null => {
     const recipientId = participants.find((id) => id !== currentUserId);
     if (!recipientId) return null;
@@ -27,7 +28,7 @@ const ChatList: React.FC = () => {
   };
 
   const handleDialogSelect = (chatId: string) => {
-    navigate(`/whisper/chats/${chatId}`);
+    navigate(RouteManager.getWhisperChatPath(chatId));
   };
 
   return (
@@ -40,7 +41,9 @@ const ChatList: React.FC = () => {
         return (
           <S.UserItem
             key={chat.id}
-            onClick={() => handleDialogSelect(chat.id)}
+            onClick={() => {
+              handleDialogSelect(chat.id);
+            }}
             $isActive={selectedChatId === chat.id}
           >
             <S.Avatar

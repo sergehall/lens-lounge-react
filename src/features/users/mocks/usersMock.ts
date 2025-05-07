@@ -2,7 +2,7 @@ import { v4 } from 'uuid';
 
 import { OrgIdEnums } from '../enums/orgId';
 import { UserRolesEnums } from '../enums/userRoles';
-import { User } from '../types/userType';
+import { User } from '../types/user.type';
 
 // The type of phone number
 export enum PhoneType {

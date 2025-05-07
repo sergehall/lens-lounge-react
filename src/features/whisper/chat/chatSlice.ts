@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import { RootState } from '../../../app/store';
-import { Message } from './types/messageType';
+
+import { Message } from './types/message.type';
 import { generateDefaultMockChats } from './utils/generateMockChats';
 
 // Types for chat

@@ -1,6 +1,7 @@
 import { usersMock } from '../../../users/mocks/usersMock';
 import { ChatType } from '../chatSlice';
-import { Message } from '../types/messageType';
+import { Message } from '../types/message.type';
+
 import { messagesMock } from './messagesMock';
 
 const currentUserId = '0';

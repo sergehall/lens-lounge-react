@@ -1,4 +1,4 @@
-import { Message } from '../types/messageType';
+import { Message } from '../types/message.type';
 
 export const messagesMock: Message[] = [
   // Messages with Emmy
@@ -30,8 +30,8 @@ export const messagesMock: Message[] = [
   },
   {
     id: '3',
-    senderId: '0',
-    recipientId: '1',
+    senderId: '1',
+    recipientId: '0',
     chatId: '1',
     read: true,
     message: "Great! I'm prepping for the holidays 🎄. You?",
@@ -162,8 +162,8 @@ export const messagesMock: Message[] = [
   },
   {
     id: '13',
-    senderId: '0',
-    recipientId: '2',
+    senderId: '2',
+    recipientId: '0',
     chatId: '2',
     read: true,
     message: 'Not much. Just chilling with Netflix 🍿.',

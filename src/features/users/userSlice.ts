@@ -1,16 +1,10 @@
 // features/users/userSlice.ts
 import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../../app/store';
-import { usersMock } from './mocks/usersMock';
-import { User } from './types/userType';
 
-// // Type definition for a single user
-// export interface User {
-//   userId: string;
-//   username: string;
-//   avatarUrl: string;
-//   isOnline: boolean;
-// }
+import { RootState } from '../../app/store';
+
+import { usersMock } from './mocks/usersMock';
+import { User } from './types/user.type';
 
 // State structure for the users slice
 interface UsersState {
