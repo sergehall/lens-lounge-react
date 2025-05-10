@@ -36,7 +36,7 @@ export const loadCategoryBlogs = createAsyncThunk<
 });
 
 // Create slice
-const myCategoryBlogsPageSlice = createSlice({
+const userBlogsSlice = createSlice({
   name: 'categoryBlogs',
   initialState,
   reducers: {
@@ -61,5 +61,5 @@ const myCategoryBlogsPageSlice = createSlice({
   },
 });
 
-export const { setCategoryBlogs } = myCategoryBlogsPageSlice.actions;
-export default myCategoryBlogsPageSlice.reducer;
+export const { setCategoryBlogs } = userBlogsSlice.actions;
+export default userBlogsSlice.reducer;

@@ -1,9 +1,11 @@
+// src/routes/AppRoutes.tsx
+
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { pageConfig } from '../config/PageConfig';
 import CategoryBlogsPage from '../features/category-blogs-page/CategoryBlogsPage';
-import MyCategoryBlogsPage from '../features/showcase/my-blogs/MyCategoryBlogsPage';
+import UserBlogs from '../features/showcase/user-blogs/UserBlogs';
 import { RouteManager } from '../utils/routeManager';
 import {
   generateRoutesFromPageConfig,
@@ -39,12 +41,12 @@ const AppRoutes: React.FC = () => {
           </LayoutWrapper>
         }
       />
-      {/* Dynamic showcase blog page route */}
+      {/* Dynamic showcase blogs page route */}
       <Route
         path={RouteManager.getShowcaseCategoryRoutePattern()}
         element={
           <LayoutWrapper pageConfig={pageConfig.showcase}>
-            <MyCategoryBlogsPage />
+            <UserBlogs />
           </LayoutWrapper>
         }
       />

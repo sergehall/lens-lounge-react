@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { categoriesMock } from './mock/categoriesMock';
 
-import { mockCategories } from './mock/mockCategories';
 import { Category } from './types/category.types';
 
 interface CategoryState {
@@ -8,7 +8,7 @@ interface CategoryState {
 }
 
 const initialState: CategoryState = {
-  list: mockCategories,
+  list: categoriesMock,
 };
 
 const categorySlice = createSlice({

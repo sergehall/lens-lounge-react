@@ -1,6 +1,6 @@
 import { Category } from '../types/category.types';
 
-export const mockCategories: Category[] = [
+export const categoriesMock: Category[] = [
   {
     name: 'Anime',
     imageUrl:

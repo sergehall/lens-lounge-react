@@ -6,7 +6,7 @@ import useAuthNavigation from '../../hooks/useAuthNavigation';
 import UnauthenticatedLanding from '../../components/unauthenticated-landing/UnauthenticatedLanding';
 
 import Profile from './profile/Profile';
-import MyCategories from './categories/MyCategories';
+import MyCategories from './user-categories/UserCategories';
 import { BlogsSection, ProfileSection, ShowcaseContainer } from './showcasePage.styles';
 
 const ShowcasePage: React.FC = () => {

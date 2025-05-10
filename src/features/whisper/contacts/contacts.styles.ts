@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { AvatarSize } from './enums/avatarSize.enum';
+
 export const InfoSection = styled.div`
   padding: 20px;
   background-color: ${({ theme }) => theme.global.secondaryColor};
@@ -25,6 +27,22 @@ export const Header = styled.div`
 export const UserInfoHeader = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const Avatar = styled.img<{ $isActive: boolean; $size: AvatarSize }>`
+  width: ${({ theme, $size }) => theme.avatarSizes[$size]};
+  height: ${({ theme, $size }) => theme.avatarSizes[$size]};
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid
+    ${({ theme, $isActive }) =>
+      $isActive ? theme.highlights.white : theme.global.semiTransparentBorder};
+
+  @media (max-width: 600px) {
+    width: ${({ theme }) => theme.avatarSizes[AvatarSize.Medium]};
+    height: ${({ theme }) => theme.avatarSizes[AvatarSize.Medium]};
+    margin-bottom: 10px;
+  }
 `;
 
 export const UserName = styled.span`

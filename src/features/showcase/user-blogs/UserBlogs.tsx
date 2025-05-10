@@ -1,4 +1,4 @@
-// src/features/showcase/my-blogs/MyCategoryBlogsPage.tsx
+// src/features/showcase/user-blogs/UserBlogs.tsx
 import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -10,9 +10,9 @@ import CreateBlogCTATile from '../../category-blogs-page/tiles/create-blog-tile/
 import { selectProfile } from '../../auth/authSlice';
 
 import { getUserBlogsByCategory } from './mocks/getUserBlogsByCategory';
-import { CategoryNotFound } from './myCategoryBlogsPage.styles';
+import { CategoryNotFound } from './UserBlogs.styles';
 
-const MyCategoryBlogsPage: React.FC = () => {
+const UserBlogs: React.FC = () => {
   const { name } = useParams<{ name: string }>();
   const decodedName = decodeURIComponent(name || '');
 
@@ -46,4 +46,4 @@ const MyCategoryBlogsPage: React.FC = () => {
   );
 };
 
-export default MyCategoryBlogsPage;
+export default UserBlogs;

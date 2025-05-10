@@ -17,6 +17,21 @@ type CategoryPaths = {
   [key: string]: string;
 };
 
+type WhisperPaths = {
+  root: 'whisper';
+  [key: string]: string;
+};
+
+type ShowcasePaths = {
+  root: 'showcase';
+  [key: string]: string;
+};
+
+type PostsPaths = {
+  root: 'posts';
+  [key: string]: string;
+};
+
 export class RouteManager {
   private static sidebarPaths: SidebarPaths = {
     home: '/',
@@ -30,19 +45,36 @@ export class RouteManager {
 
   private static categoryPaths: CategoryPaths = {
     root: 'categories',
-    anime: 'categories/anime',
-    art: 'categories/art',
-    photography: 'categories/photography',
-    gaming: 'categories/gaming',
-    culture: 'categories/culture',
-    movies: 'categories/movies',
-    programming: 'categories/programming',
-    'music-and-bands': 'categories/music-and-bands',
-    science: 'categories/science',
-    'tv-shows': 'categories/tv-shows',
-    technology: 'categories/technology',
-    'books-and-literature': 'categories/books-and-literature',
-    'community-spotlight': 'categories/community-spotlight',
+    name: 'categories/:name',
+    anime: 'user-categories/anime',
+    art: 'user-categories/art',
+    photography: 'user-categories/photography',
+    gaming: 'user-categories/gaming',
+    culture: 'user-categories/culture',
+    movies: 'user-categories/movies',
+    programming: 'user-categories/programming',
+    'music-and-bands': 'user-categories/music-and-bands',
+    science: 'user-categories/science',
+    'tv-shows': 'user-categories/tv-shows',
+    technology: 'user-categories/technology',
+    'books-and-literature': 'user-categories/books-and-literature',
+    'community-spotlight': 'user-categories/community-spotlight',
+  };
+
+  private static whisperPaths: WhisperPaths = {
+    root: 'whisper',
+    chat: 'whisper/chat',
+    contacts: 'whisper/contacts',
+  };
+
+  private static showcasePaths: ShowcasePaths = {
+    root: 'showcase',
+    name: 'showcase/:name',
+  };
+
+  private static postsPaths: PostsPaths = {
+    root: 'posts',
+    name: 'posts/:name',
   };
 
   // --- Public Accessors ---
@@ -58,50 +90,49 @@ export class RouteManager {
   // --- Whisper Paths (chat, contacts) ---
 
   public static getWhisperChatsRoot(): string {
-    return '/whisper/chat';
+    return `${this.whisperPaths.chat}`;
   }
 
   public static getWhisperChatPath(chatId: string): string {
-    return `/whisper/chat/${chatId}`;
+    return `${this.whisperPaths.chat}/${chatId}`;
   }
 
   public static getWhisperContactsRoot(): string {
-    return '/whisper/contacts';
+    return `${this.whisperPaths.contacts}`;
   }
 
   public static getWhisperContactPath(contactId: string): string {
-    return `/whisper/contacts/${contactId}`;
+    return `${this.whisperPaths.contacts}/${contactId}`;
+  }
+
+  // --- Showcase Builders ---
+
+  public static getShowcaseCategoryPathBySlug(slug: string): string {
+    return `${this.showcasePaths.root}/${slug}`;
+  }
+
+  public static getShowcaseCategoryRoutePattern(): string {
+    return `${this.showcasePaths.name}`;
   }
 
   // --- Category Builders ---
 
   public static getCategoryPathBySlug(slug: string): string {
-    const paths = this.getCategoryPaths();
-    return paths[slug] || `${paths.root}/${slug}`;
+    return `${this.categoryPaths.root}/${slug}`;
   }
 
   public static getCategoryRoutePattern(): string {
-    return `${this.categoryPaths.root}/:name`;
+    return `${this.categoryPaths.name}`;
   }
 
   public static getCategoryPathByName(name: string): string {
     return this.getCategoryPathBySlug(slugify(name));
   }
 
-  // --- Showcase Builders ---
-
-  public static getShowcaseCategoryPathBySlug(slug: string): string {
-    return `/showcase/${slug}`;
-  }
-
-  public static getShowcaseCategoryRoutePattern(): string {
-    return 'showcase/:name';
-  }
-
   // --- Post ---
 
   public static getPostPath(postId: string): string {
-    return `/post/${postId}`;
+    return `${this.postsPaths.root}/${postId}`;
   }
 
   // --- Sidebar Link Builder ---

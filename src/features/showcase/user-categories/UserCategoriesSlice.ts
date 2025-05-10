@@ -1,17 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { categoriesMock } from '../../categories/mock/categoriesMock';
 
 import { Category } from '../../categories/types/category.types';
-import { mockCategories } from '../../categories/mock/mockCategories';
 
 export interface CategoryState {
   list: Category[];
 }
 
 const initialState: CategoryState = {
-  list: mockCategories,
+  list: categoriesMock,
 };
 
-const myCategorySlice = createSlice({
+const userCategoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
@@ -19,4 +19,4 @@ const myCategorySlice = createSlice({
   },
 });
 
-export default myCategorySlice.reducer;
+export default userCategoriesSlice.reducer;

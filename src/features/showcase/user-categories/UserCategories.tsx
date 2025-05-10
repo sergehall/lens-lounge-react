@@ -1,4 +1,4 @@
-// MyCategories.tsx
+// src/features/showcase/user-categories/UserCategories.tsx
 import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,13 +7,13 @@ import { Category } from '../../categories/types/category.types';
 import CreateNewBlogTile from '../create-blog-tile/CreateNewBlogTile';
 import { slugify } from '../../../utils/slugify';
 import { RouteManager } from '../../../utils/routeManager';
-import { mockCategories } from '../../categories/mock/mockCategories';
+import { categoriesMock } from '../../categories/mock/categoriesMock';
 import placeholderImageDefault from '../../../assets/images/placeholderImageDefault.png';
-import { getUserBlogsByCategory } from '../my-blogs/mocks/getUserBlogsByCategory';
+import { getUserBlogsByCategory } from '../user-blogs/mocks/getUserBlogsByCategory';
 import { selectProfile } from '../../auth/authSlice';
 import * as S from '../showcasePage.styles';
 
-const MyCategories: React.FC = () => {
+const UserCategories: React.FC = () => {
   const navigate = useNavigate();
 
   // Get profile from Redux
@@ -27,11 +27,10 @@ const MyCategories: React.FC = () => {
     return getUserBlogsByCategory(profile.username);
   }, [profile]);
 
-  // Build categories based on blog
-  // s
+  // Build user-categories based on blog
   const categories: Category[] = useMemo(() => {
     return Object.keys(userBlogsByCategory).map((categoryName) => {
-      const found = mockCategories.find(
+      const found = categoriesMock.find(
         (cat) => cat.name.toLowerCase() === categoryName.toLowerCase()
       );
       return {
@@ -50,20 +49,21 @@ const MyCategories: React.FC = () => {
   return (
     <S.Grid>
       <CreateNewBlogTile />
-      {categories.map((category) => (
-        <S.Tile
-          key={category.name}
-          isFeatured={category.featured}
-          onClick={() => handleCategoryClick(category)}
-        >
-          <S.Image src={category.imageUrl} alt={category.name} />
-          <S.HoverReveal />
-          <S.Overlay />
-          <S.Label>{category.name}</S.Label>
-        </S.Tile>
-      ))}
+      {categories.length > 0 &&
+        categories.map((category) => (
+          <S.Tile
+            key={category.name}
+            isFeatured={category.featured}
+            onClick={() => handleCategoryClick(category)}
+          >
+            <S.Image src={category.imageUrl} alt={category.name} />
+            <S.HoverReveal />
+            <S.Overlay />
+            <S.Label>{category.name}</S.Label>
+          </S.Tile>
+        ))}
     </S.Grid>
   );
 };
 
-export default MyCategories;
+export default UserCategories;

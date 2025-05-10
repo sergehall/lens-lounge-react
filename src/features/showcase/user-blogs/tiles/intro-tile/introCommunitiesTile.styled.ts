@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Tile } from '../../myCategoryBlogsPage.styles';
+import { Tile } from '../../UserBlogs.styles';
 
 export const IntroTile = styled(Tile)`
   h3 {

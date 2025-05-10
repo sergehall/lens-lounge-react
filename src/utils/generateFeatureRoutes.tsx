@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { PageConfig } from '../config/types/types';
 
 import LayoutWrapper from '../layouts/LayoutWrapper';
-import { PageConfig } from '../config/PageConfig';
 
 /**
  * Generates a Route element with LayoutWrapper for a given path and config.

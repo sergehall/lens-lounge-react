@@ -2,7 +2,8 @@
 
 import React from 'react';
 
-import { Avatar, NoContacts } from '../sharedLayoutForContacts.styles';
+import { NoContacts } from '../ContactsList.styles';
+import imageDefault from '../../../assets/images/placeholderImageDefault.png';
 
 import * as S from './contacts.styles';
 import { ContactsData } from './contactsData';
@@ -25,8 +26,8 @@ const ContactDetails: React.FC<ContactDetailsProps> = ({ contact }) => {
             {contact.isOnline ? 'Online' : 'Offline'}
           </S.UserStatus>
         </S.UserInfoHeader>
-        <Avatar
-          src={contact.avatar || '/default-avatar.png'}
+        <S.Avatar
+          src={contact.avatar || imageDefault}
           alt="avatar"
           $isActive={contact.isOnline}
           $size={AvatarSize.XL}

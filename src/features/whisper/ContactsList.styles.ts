@@ -74,9 +74,8 @@ export const Avatar = styled.img<{ $isActive: boolean; $size: AvatarSize }>`
       $isActive ? theme.highlights.white : theme.global.semiTransparentBorder};
 
   @media (max-width: 600px) {
-    width: ${({ theme }) => theme.avatarSizes[AvatarSize.Medium]};
-    height: ${({ theme }) => theme.avatarSizes[AvatarSize.Medium]};
-    margin-bottom: 10px;
+    width: ${({ theme }) => theme.avatarSizes[AvatarSize.Small]};
+    height: ${({ theme }) => theme.avatarSizes[AvatarSize.Small]};
   }
 `;
 

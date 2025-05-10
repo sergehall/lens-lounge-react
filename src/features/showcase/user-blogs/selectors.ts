@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import { RootState } from '../../../app/store';
 
-import { MyBlogsState } from './myCategoryBlogsPageSlice';
+import { MyBlogsState } from './userBlogsSlice';
 
 const selectCategoryBlogsState = (state: RootState): MyBlogsState => state.categoryBlogs;
 

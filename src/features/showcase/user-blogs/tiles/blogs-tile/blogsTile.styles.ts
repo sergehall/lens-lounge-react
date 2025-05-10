@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Tile } from '../../myCategoryBlogsPage.styles';
+import { Tile } from '../../UserBlogs.styles';
 
 export const BlogTile = styled(Tile)`
   padding: 0;

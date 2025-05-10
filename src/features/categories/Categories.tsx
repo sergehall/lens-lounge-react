@@ -12,7 +12,7 @@ import { Category } from './types/category.types';
 const Categories: React.FC = () => {
   const navigate = useNavigate();
 
-  // Pull default categories from Redux
+  // Pull default user-categories from Redux
   const categories = useAppSelector(selectCategories);
 
   const handleCategoryClick = (category: Category) => {

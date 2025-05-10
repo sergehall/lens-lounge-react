@@ -1,9 +1,9 @@
 // src/utils/generateRoutesFromPageConfig.ts
 import React, { ReactElement } from 'react';
 import { Route } from 'react-router-dom';
+import { PageConfig } from '../config/types/types';
 
 import LayoutWrapper from '../layouts/LayoutWrapper';
-import { PageConfig } from '../config/PageConfig';
 
 /**
  * Recursively generate <Route /> elements from pageConfig,

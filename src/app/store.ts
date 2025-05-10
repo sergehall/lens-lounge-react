@@ -13,7 +13,7 @@ import postInteractionsReducer from '../features/posts/interactions/postInteract
 import categoriesReducer from '../features/categories/categorySlice';
 import categoryBlogsReducer from '../features/category-blogs-page/categoryBlogsPageSlice';
 import showcasePageReducer from '../features/showcase/showcasePageReducer';
-import myCategoriesReducer from '../features/showcase/categories/MyCategorySlice';
+import myCategoriesReducer from '../features/showcase/user-categories/UserCategoriesSlice';
 import authReducer from '../features/auth/authSlice';
 import whisperPageReducer from '../features/whisper/whisperPageReducer';
 import technologiesReducer from '../features/technologies/technologiesSlice';

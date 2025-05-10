@@ -1,10 +1,11 @@
-// src/config/types.ts
+// src/config/types/types.ts
 import React from 'react';
 
 export interface PageConfig {
-  component: React.FC;
   bannerImage: React.FC;
-  pageContentSummarize?: React.FC;
-  requiresAuth?: boolean;
-  layoutType?: 'default' | 'fullWidth';
+  pageContentSummarize: React.FC;
+  component: React.FC;
+  isProtected: boolean;
+  layoutType: 'default' | 'fullWidth';
+  children: Record<string, PageConfig>;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppSelector } from '../../../hooks/reduxHooks';
-import * as S from '../sharedLayoutForContacts.styles';
+import * as S from '../ContactsList.styles';
 import { RouteManager } from '../../../utils/routeManager';
 import NavigationButtons from '../Navigation-buttons';
 

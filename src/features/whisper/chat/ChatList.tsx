@@ -7,7 +7,7 @@ import { User } from '../../users/types/user.type';
 import { selectAllUsers } from '../../users/userSlice';
 import { selectProfile } from '../../auth/authSlice';
 import { AvatarSize } from '../contacts/enums/avatarSize.enum';
-import * as S from '../sharedLayoutForContacts.styles';
+import * as S from '../ContactsList.styles';
 
 import { selectChats } from './chatSlice';
 

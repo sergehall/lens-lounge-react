@@ -1,7 +1,7 @@
 import React from 'react';
 
 import NavigationButtons from '../Navigation-buttons';
-import * as S from '../sharedLayoutForContacts.styles';
+import * as S from '../ContactsList.styles';
 
 import ChasList from './ChatList';
 import ChatMessages from './ChatMessages';
