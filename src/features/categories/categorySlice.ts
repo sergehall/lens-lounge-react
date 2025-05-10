@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { categoriesMock } from './mock/categoriesMock';
 
+import { categoriesMock } from './mock/categoriesMock';
 import { Category } from './types/category.types';
 
 interface CategoryState {

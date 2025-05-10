@@ -1,9 +1,10 @@
 // src/utils/routes/routeManager.ts
 
 import { NavLinks } from '../../components/sidebar/nav-links';
+import { slugify } from '../slugify';
+
 import { ROUTES } from './routes';
 import { buildPath } from './routeUtils';
-import { slugify } from '../slugify';
 
 export class RouteManager {
   // Sidebar

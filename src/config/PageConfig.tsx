@@ -13,6 +13,7 @@ import defaultImageBanner from '../assets/images/defaultImageBanner.png';
 import PageContentSummarize from '../features/page-insight/PageInsight';
 import TechnologiesPage from '../features/technologies/TechnologiesPage';
 import NewsPage from '../features/news/NewsPage';
+
 import { PageConfig } from './types/types';
 
 export const pageConfig: Record<string, PageConfig> = {

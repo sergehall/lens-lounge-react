@@ -1,8 +1,8 @@
 // src/utils/generateFeatureRoute.ts
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { PageConfig } from '../config/types/types';
 
+import { PageConfig } from '../config/types/types';
 import PageLayout from '../layouts/PageLayout';
 
 /**

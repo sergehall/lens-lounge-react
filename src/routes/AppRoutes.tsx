@@ -13,6 +13,7 @@ import {
 } from '../utils/generateRoutesFromPageConfig';
 import PrivateRoute from '../components/routing/PrivateRoute';
 import PageLayout from '../layouts/PageLayout';
+
 import { WhisperRoutes } from './WhisperRoutes';
 
 const { protectedConfig, publicConfig } = splitProtectedRoutes(pageConfig);

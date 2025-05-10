@@ -42,6 +42,7 @@ export const fetchChats = createAsyncThunk<ChatType[]>(
       });
       return response.data;
     } catch (error) {
+      console.error('fetchChats error:', error);
       return rejectWithValue('Failed to load chats from server');
     }
   }
