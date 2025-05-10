@@ -1,4 +1,4 @@
-import { RouteManager } from '../../utils/routeManager';
+import { RouteManager } from '../../utils/routes/routeManager';
 
 type SidebarPaths = ReturnType<typeof RouteManager.getSidebarPaths>;
 

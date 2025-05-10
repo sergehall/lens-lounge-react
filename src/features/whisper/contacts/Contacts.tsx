@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppSelector } from '../../../hooks/reduxHooks';
 import * as S from '../ContactsList.styles';
-import { RouteManager } from '../../../utils/routeManager';
+import { RouteManager } from '../../../utils/routes/routeManager';
 import NavigationButtons from '../Navigation-buttons';
 
 import ContactDetails from './ContactDetails';
@@ -17,7 +17,7 @@ const Contacts: React.FC = () => {
   const selectedContact = contacts.find((c) => c.userId === contactId) || null;
 
   const handleContactSelect = (contactId: string) => {
-    navigate(RouteManager.getWhisperContactPath(contactId));
+    navigate(RouteManager.getWhisperContactsPath(contactId));
   };
 
   return (

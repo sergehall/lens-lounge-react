@@ -1,11 +1,12 @@
+// src/utils/generateFeatureRoute.ts
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { PageConfig } from '../config/types/types';
 
-import LayoutWrapper from '../layouts/LayoutWrapper';
+import PageLayout from '../layouts/PageLayout';
 
 /**
- * Generates a Route element with LayoutWrapper for a given path and config.
+ * Generates a Route element with PageLayout for a given path and config.
  * Optionally adds nested routes if provided.
  */
 export const generateFeatureRoute = (
@@ -17,9 +18,9 @@ export const generateFeatureRoute = (
     <Route
       path={path}
       element={
-        <LayoutWrapper pageConfig={config}>
+        <PageLayout bannerImage={config.bannerImage} summarizeContent={config.pageContentSummarize}>
           <config.component />
-        </LayoutWrapper>
+        </PageLayout>
       }
     >
       {children}

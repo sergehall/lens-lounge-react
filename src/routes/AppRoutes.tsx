@@ -6,53 +6,58 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { pageConfig } from '../config/PageConfig';
 import CategoryBlogsPage from '../features/category-blogs-page/CategoryBlogsPage';
 import UserBlogs from '../features/showcase/user-blogs/UserBlogs';
-import { RouteManager } from '../utils/routeManager';
+import { RouteManager } from '../utils/routes/routeManager';
 import {
   generateRoutesFromPageConfig,
   splitProtectedRoutes,
 } from '../utils/generateRoutesFromPageConfig';
-import LayoutWrapper from '../layouts/LayoutWrapper';
 import PrivateRoute from '../components/routing/PrivateRoute';
-
+import PageLayout from '../layouts/PageLayout';
 import { WhisperRoutes } from './WhisperRoutes';
 
-// Split into protected and public configs
 const { protectedConfig, publicConfig } = splitProtectedRoutes(pageConfig);
 
-/**
- * AppRoutes component defines the overall routing structure of the app.
- * It uses React Router to switch between different features and pages.
- */
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      {/* Public routes generated from config */}
-      {generateRoutesFromPageConfig(publicConfig)}x
-      {/* Protected routes wrapped with PrivateRoute */}
+      {/* Public routes */}
+      {generateRoutesFromPageConfig(publicConfig)}
+
+      {/* Protected routes */}
       {generateRoutesFromPageConfig(protectedConfig, '', (element) => (
         <PrivateRoute>{element}</PrivateRoute>
       ))}
-      {/* Dynamic category blog page route for homepage */}
+
+      {/* Dynamic category blog page */}
       <Route
         path={RouteManager.getCategoryRoutePattern()}
         element={
-          <LayoutWrapper pageConfig={pageConfig.home}>
+          <PageLayout
+            bannerImage={pageConfig.home.bannerImage}
+            summarizeContent={pageConfig.home.pageContentSummarize}
+          >
             <CategoryBlogsPage />
-          </LayoutWrapper>
+          </PageLayout>
         }
       />
-      {/* Dynamic showcase blogs page route */}
+
+      {/* Dynamic showcase blog page */}
       <Route
         path={RouteManager.getShowcaseCategoryRoutePattern()}
         element={
-          <LayoutWrapper pageConfig={pageConfig.showcase}>
+          <PageLayout
+            bannerImage={pageConfig.showcase.bannerImage}
+            summarizeContent={pageConfig.showcase.pageContentSummarize}
+          >
             <UserBlogs />
-          </LayoutWrapper>
+          </PageLayout>
         }
       />
-      {/* Whisper feature-specific nested routes */}
+
+      {/* Nested Whisper routes */}
       {WhisperRoutes()}
-      {/* Fallback route */}
+
+      {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

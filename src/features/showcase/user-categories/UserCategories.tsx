@@ -6,7 +6,7 @@ import { useAppSelector } from '../../../hooks/reduxHooks';
 import { Category } from '../../categories/types/category.types';
 import CreateNewBlogTile from '../create-blog-tile/CreateNewBlogTile';
 import { slugify } from '../../../utils/slugify';
-import { RouteManager } from '../../../utils/routeManager';
+import { RouteManager } from '../../../utils/routes/routeManager';
 import { categoriesMock } from '../../categories/mock/categoriesMock';
 import placeholderImageDefault from '../../../assets/images/placeholderImageDefault.png';
 import { getUserBlogsByCategory } from '../user-blogs/mocks/getUserBlogsByCategory';
@@ -53,7 +53,7 @@ const UserCategories: React.FC = () => {
         categories.map((category) => (
           <S.Tile
             key={category.name}
-            isFeatured={category.featured}
+            $isFeatured={category.featured}
             onClick={() => handleCategoryClick(category)}
           >
             <S.Image src={category.imageUrl} alt={category.name} />

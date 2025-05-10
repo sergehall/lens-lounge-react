@@ -6,8 +6,8 @@ import useAuthNavigation from '../../hooks/useAuthNavigation';
 import UnauthenticatedLanding from '../../components/unauthenticated-landing/UnauthenticatedLanding';
 
 import Profile from './profile/Profile';
-import MyCategories from './user-categories/UserCategories';
-import { BlogsSection, ProfileSection, ShowcaseContainer } from './showcasePage.styles';
+import UserCategories from './user-categories/UserCategories';
+import * as S from './showcasePage.styles';
 
 const ShowcasePage: React.FC = () => {
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
@@ -16,14 +16,14 @@ const ShowcasePage: React.FC = () => {
 
   if (isAuthenticated) {
     return (
-      <ShowcaseContainer>
-        <ProfileSection>
+      <S.ShowcaseContainer>
+        <S.ProfileSection>
           <Profile />
-        </ProfileSection>
-        <BlogsSection>
-          <MyCategories />
-        </BlogsSection>
-      </ShowcaseContainer>
+        </S.ProfileSection>
+        <S.BlogsSection>
+          <UserCategories />
+        </S.BlogsSection>
+      </S.ShowcaseContainer>
     );
   }
 

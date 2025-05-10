@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Icons } from '../../../utils/icons';
 
-import { CTAButton, CTATile, IconWrapper, Wrapper } from './CreateBlogTile.styled';
+import * as S from './CreateBlogTile.styled';
 
 /**
  * Renders a call-to-action tile encouraging users to create a blog
@@ -10,11 +10,11 @@ import { CTAButton, CTATile, IconWrapper, Wrapper } from './CreateBlogTile.style
  */
 const CreateNewBlogTile: React.FC = () => {
   return (
-    <Wrapper>
-      <CTATile>
-        <IconWrapper>
+    <S.Wrapper>
+      <S.CTATile>
+        <S.IconWrapper>
           <Icons.Users size={24} aria-hidden="true" />
-        </IconWrapper>
+        </S.IconWrapper>
 
         {/* Headline dynamically includes the selected category */}
         <h3>Create your own blog</h3>
@@ -23,9 +23,9 @@ const CreateNewBlogTile: React.FC = () => {
         <p>Lens Lounge are spaces for your ideas. Get started in minutes.</p>
 
         {/* Primary action button */}
-        <CTAButton aria-label={`Create a blog about`}>Create</CTAButton>
-      </CTATile>
-    </Wrapper>
+        <S.CTAButton aria-label={`Create a blog about`}>Create</S.CTAButton>
+      </S.CTATile>
+    </S.Wrapper>
   );
 };
 

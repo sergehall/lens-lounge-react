@@ -1,6 +1,5 @@
+// src/layouts/PageLayout.tsx
 import React from 'react';
-
-import PageContentSummarize from '../features/page-insight/PageInsight';
 
 interface PageLayoutProps {
   bannerImage: React.FC;
@@ -8,11 +7,15 @@ interface PageLayoutProps {
   children: React.ReactNode;
 }
 
-const PageLayout: React.FC<PageLayoutProps> = ({ bannerImage: BannerImage, children }) => {
+const PageLayout: React.FC<PageLayoutProps> = ({
+  bannerImage: BannerImage,
+  summarizeContent: SummarizeContent,
+  children,
+}) => {
   return (
     <div>
       <BannerImage />
-      <PageContentSummarize />
+      <SummarizeContent />
       <div>{children}</div>
     </div>
   );

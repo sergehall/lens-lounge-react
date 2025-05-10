@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Tile = styled.div<{ isFeatured?: boolean }>`
+export const Tile = styled.div<{ $isFeatured?: boolean }>`
   position: relative;
   cursor: pointer;
   overflow: hidden;
@@ -18,8 +18,8 @@ export const Tile = styled.div<{ isFeatured?: boolean }>`
   background-color: ${({ theme }) => theme.global.backgroundColor};
   padding: 20px;
   height: ${({ theme }) => theme.tile.height};
-  grid-column: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
-  grid-row: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
+  grid-column: ${({ $isFeatured }) => ($isFeatured ? 'span 2' : 'span 1')};
+  grid-row: ${({ $isFeatured }) => ($isFeatured ? 'span 2' : 'span 1')};
 
   &:hover {
     transform: scale(1.03);

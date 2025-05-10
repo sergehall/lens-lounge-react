@@ -8,7 +8,7 @@ export const Grid = styled.div`
   grid-auto-flow: dense;
 `;
 
-export const Tile = styled.div<{ isFeatured?: boolean }>`
+export const Tile = styled.div<{ $isFeatured: boolean }>`
   position: relative;
   cursor: pointer;
   overflow: hidden;
@@ -17,8 +17,8 @@ export const Tile = styled.div<{ isFeatured?: boolean }>`
   display: flex;
   align-items: flex-end;
 
-  grid-column: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
-  grid-row: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
+  grid-column: ${({ $isFeatured }) => ($isFeatured ? 'span 2' : 'span 1')};
+  grid-row: ${({ $isFeatured }) => ($isFeatured ? 'span 2' : 'span 1')};
 
   &:hover {
     transform: scale(1.03);

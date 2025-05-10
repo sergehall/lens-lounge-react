@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import { Route } from 'react-router-dom';
 import { PageConfig } from '../config/types/types';
 
-import LayoutWrapper from '../layouts/LayoutWrapper';
+import PageLayout from '../layouts/PageLayout';
 
 /**
  * Recursively generate <Route /> elements from pageConfig,
@@ -18,9 +18,9 @@ export const generateRoutesFromPageConfig = (
     const path = parentPath + (key === 'home' && parentPath === '' ? '/' : `/${key}`);
 
     const element = (
-      <LayoutWrapper pageConfig={config}>
+      <PageLayout bannerImage={config.bannerImage} summarizeContent={config.pageContentSummarize}>
         <config.component />
-      </LayoutWrapper>
+      </PageLayout>
     );
 
     const wrappedElement = wrapper ? wrapper(element) : element;

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import * as S from '../home-page/homePage.styles';
 import { slugify } from '../../utils/slugify';
-import { RouteManager } from '../../utils/routeManager';
+import { RouteManager } from '../../utils/routes/routeManager';
 import { useAppSelector } from '../../hooks/reduxHooks';
 
 import { selectCategories } from './selectors';
@@ -25,7 +25,7 @@ const Categories: React.FC = () => {
       {categories.map((category) => (
         <S.Tile
           key={category.name}
-          isFeatured={category.featured}
+          $isFeatured={category.featured}
           onClick={() => handleCategoryClick(category)}
         >
           <S.Image src={category.imageUrl} alt={category.name} />

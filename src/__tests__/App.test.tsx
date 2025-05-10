@@ -6,7 +6,7 @@ import AppProviders from '../AppProviders';
 import App from '../App';
 
 // Route manager used to verify expected sidebar links
-import { RouteManager } from '../utils/routeManager';
+import { RouteManager } from '../utils/routes/routeManager';
 
 // Custom helper for rendering components wrapped in context providers
 import { renderWithProviders } from '../Test-utils';

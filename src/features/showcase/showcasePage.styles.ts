@@ -38,7 +38,7 @@ export const Grid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 `;
 
-export const Tile = styled.div<{ isFeatured?: boolean }>`
+export const Tile = styled.div<{ $isFeatured: boolean }>`
   position: relative;
   cursor: pointer;
   overflow: hidden;
@@ -52,8 +52,8 @@ export const Tile = styled.div<{ isFeatured?: boolean }>`
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
   height: ${({ theme }) => theme.tile.height};
 
-  grid-column: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
-  grid-row: ${({ isFeatured }) => (isFeatured ? 'span 2' : 'span 1')};
+  grid-column: ${({ $isFeatured }) => ($isFeatured ? 'span 2' : 'span 1')};
+  grid-row: ${({ $isFeatured }) => ($isFeatured ? 'span 2' : 'span 1')};
 
   &:hover {
     transform: scale(1.03);
