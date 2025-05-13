@@ -1,56 +1,39 @@
-// src/utils/generateRoutesFromPageConfig.ts
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
 
 import { PageConfig } from '../config/types/types';
 import PageLayout from '../layouts/PageLayout';
+import PrivateRoute from '../components/routing/PrivateRoute';
 
 /**
  * Recursively generate <Route /> elements from pageConfig,
- * optionally wrapping elements with a provided wrapper (e.g. PrivateRoute)
+ * automatically wrapping protected routes with <PrivateRoute />
  */
 export const generateRoutesFromPageConfig = (
   configMap: Record<string, PageConfig>,
-  parentPath = '',
-  wrapper?: (element: ReactElement) => ReactElement
+  parentPath = ''
 ): React.ReactNode[] => {
   return Object.entries(configMap).map(([key, config]) => {
     const path = parentPath + (key === 'home' && parentPath === '' ? '/' : `/${key}`);
 
-    const element = (
+    let element = (
       <PageLayout bannerImage={config.bannerImage} summarizeContent={config.pageContentSummarize}>
         <config.component />
       </PageLayout>
     );
 
-    const wrappedElement = wrapper ? wrapper(element) : element;
+    if (config.isProtected) {
+      element = <PrivateRoute>{element}</PrivateRoute>;
+    }
 
-    const childrenRoutes = config.children
-      ? generateRoutesFromPageConfig(config.children, `${path}`, wrapper)
+    const childrenRoutes = Object.keys(config.children).length
+      ? generateRoutesFromPageConfig(config.children, `${path}`)
       : undefined;
 
     return (
-      <Route key={path} path={path} element={wrappedElement}>
+      <Route key={path} path={path} element={element}>
         {childrenRoutes}
       </Route>
     );
   });
-};
-
-/**
- * Splits the config into protected/public route configs based on isProtected flag
- */
-export const splitProtectedRoutes = (configMap: Record<string, PageConfig>) => {
-  const protectedConfig: Record<string, PageConfig> = {};
-  const publicConfig: Record<string, PageConfig> = {};
-
-  Object.entries(configMap).forEach(([key, config]) => {
-    if (config.isProtected) {
-      protectedConfig[key] = config;
-    } else {
-      publicConfig[key] = config;
-    }
-  });
-
-  return { protectedConfig, publicConfig };
 };

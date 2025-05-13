@@ -36,7 +36,8 @@ export const ROUTES = {
   },
   showcase: {
     root: '/showcase',
-    name: '/showcase/:name',
+    categories: '/showcase/categories',
+    name: '/showcase/categories/:name',
   },
   posts: {
     root: '/posts',

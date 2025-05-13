@@ -58,12 +58,16 @@ export class RouteManager {
   }
 
   // Showcase
+  public static getShowcaseCategoryPattern() {
+    return ROUTES.showcase.categories;
+  }
+
   public static getShowcaseCategoryRoutePattern() {
     return ROUTES.showcase.name;
   }
 
   public static getShowcaseCategoryPathBySlug(slug: string) {
-    return buildPath(ROUTES.showcase.root, slug);
+    return buildPath(ROUTES.showcase.categories, slug);
   }
 
   // Posts

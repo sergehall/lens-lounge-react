@@ -12,7 +12,7 @@ interface AuthState {
 
 // Initial state — assume user is logged in (easy to remove later)
 const initialState: AuthState = {
-  isAuthenticated: true, // <-- simulate logged-in user
+  isAuthenticated: false, // <-- simulate logged-in user
   profile: DEFAULT_PROFILE, // <-- simulate user profile loaded
 };
 

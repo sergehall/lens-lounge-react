@@ -1,33 +1,20 @@
-// src/routes/AppRoutes.tsx
-
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { pageConfig } from '../config/PageConfig';
 import CategoryBlogsPage from '../features/category-blogs-page/CategoryBlogsPage';
-import UserBlogs from '../features/showcase/user-blogs/UserBlogs';
 import { RouteManager } from '../utils/routes/routeManager';
-import {
-  generateRoutesFromPageConfig,
-  splitProtectedRoutes,
-} from '../utils/generateRoutesFromPageConfig';
-import PrivateRoute from '../components/routing/PrivateRoute';
+import { generateRoutesFromPageConfig } from '../utils/generateRoutesFromPageConfig';
 import PageLayout from '../layouts/PageLayout';
 
+import { ShowcaseRoutes } from './ShowcaseRoutes';
 import { WhisperRoutes } from './WhisperRoutes';
-
-const { protectedConfig, publicConfig } = splitProtectedRoutes(pageConfig);
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      {/* Public routes */}
-      {generateRoutesFromPageConfig(publicConfig)}
-
-      {/* Protected routes */}
-      {generateRoutesFromPageConfig(protectedConfig, '', (element) => (
-        <PrivateRoute>{element}</PrivateRoute>
-      ))}
+      {/* All routes from pageConfig */}
+      {generateRoutesFromPageConfig(pageConfig)}
 
       {/* Dynamic category blog page */}
       <Route
@@ -42,18 +29,8 @@ const AppRoutes: React.FC = () => {
         }
       />
 
-      {/* Dynamic showcase blog page */}
-      <Route
-        path={RouteManager.getShowcaseCategoryRoutePattern()}
-        element={
-          <PageLayout
-            bannerImage={pageConfig.showcase.bannerImage}
-            summarizeContent={pageConfig.showcase.pageContentSummarize}
-          >
-            <UserBlogs />
-          </PageLayout>
-        }
-      />
+      {/* Nested showcase routes */}
+      {ShowcaseRoutes()}
 
       {/* Nested Whisper routes */}
       {WhisperRoutes()}

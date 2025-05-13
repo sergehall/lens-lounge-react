@@ -12,10 +12,12 @@ import PageLayout from '../layouts/PageLayout';
 export const generateFeatureRoute = (
   path: string,
   config: PageConfig,
-  children?: React.ReactNode
+  children?: React.ReactNode,
+  key?: string
 ) => {
   return (
     <Route
+      key={key || path}
       path={path}
       element={
         <PageLayout bannerImage={config.bannerImage} summarizeContent={config.pageContentSummarize}>
