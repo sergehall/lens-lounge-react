@@ -1,3 +1,5 @@
+// src/features/category-blogs-page/categoryBlogsPageSlice.ts
+
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
 import { BlogPreview } from './types/blogs.types';
@@ -26,6 +28,7 @@ export const loadCategoryBlogs = createAsyncThunk<
 >('categoryBlogs/loadCategoryBlogs', async (categoryName, { rejectWithValue }) => {
   try {
     const blogs = await fetchCategoryBlogsAPI(categoryName);
+
     return { category: categoryName, blogs };
   } catch (error: unknown) {
     if (error instanceof Error) {

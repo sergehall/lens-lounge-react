@@ -2,13 +2,13 @@ import { allBlogMocks } from '../mocks/allBlogMocks';
 import { BlogPreview } from '../types/blogs.types';
 
 export const fetchCategoryBlogsAPI = async (categoryName: string): Promise<BlogPreview[]> => {
-  const normalizedCategoryName = Object.keys(allBlogMocks).find(
-    (key) => key.toLowerCase() === categoryName.toLowerCase()
-  );
+  const key = categoryName.toLowerCase();
 
-  if (normalizedCategoryName) {
-    return allBlogMocks[normalizedCategoryName];
-  } else {
-    throw new Error('Category not found');
+  const blogs = allBlogMocks[key];
+
+  if (blogs) {
+    return blogs;
   }
+
+  throw new Error(`Category "${categoryName}" not found`);
 };

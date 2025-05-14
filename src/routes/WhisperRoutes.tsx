@@ -11,7 +11,7 @@ import { generateFeatureRoute } from '../utils/generateFeatureRoutes';
 export const WhisperRoutes = () => {
   const sidebarRedirect = (
     <Route
-      path={RouteManager.getSidebarPaths().whisper}
+      path={RouteManager.getWhisperRoot()}
       element={<Navigate to={RouteManager.getWhisperChatsRoot()} replace />}
     />
   );

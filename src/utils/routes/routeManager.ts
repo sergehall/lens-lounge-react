@@ -1,31 +1,19 @@
 // src/utils/routes/routeManager.ts
 
-import { NavLinks } from '../../components/sidebar/nav-links';
-import { slugify } from '../slugify';
-
 import { ROUTES } from './routes';
-import { buildPath } from './routeUtils';
 
 export class RouteManager {
-  // Sidebar
-  public static getSidebarPaths() {
-    return ROUTES.sidebar;
-  }
-
-  public static getNavLinks(): NavLinks[] {
-    return Object.entries(ROUTES.sidebar).map(([key, url]) => ({
-      name: key.charAt(0).toUpperCase() + key.slice(1),
-      url,
-    }));
-  }
-
   // Whisper
+  public static getWhisperRoot() {
+    return ROUTES.whisper.root;
+  }
+
   public static getWhisperChatsRoot() {
     return ROUTES.whisper.chat;
   }
 
   public static getWhisperChatPath(chatId: string) {
-    return buildPath(ROUTES.whisper.chat, chatId);
+    return `${ROUTES.whisper.chat}/${chatId}`;
   }
 
   public static getWhisperChatRoutePattern() {
@@ -37,7 +25,7 @@ export class RouteManager {
   }
 
   public static getWhisperContactsPath(contactId: string) {
-    return buildPath(ROUTES.whisper.contacts, contactId);
+    return `${ROUTES.whisper.contacts}/${contactId}`;
   }
 
   public static getWhisperContactsPattern() {
@@ -46,18 +34,18 @@ export class RouteManager {
 
   // Categories
   public static getCategoryRoutePattern() {
-    return ROUTES.categories.dynamic;
+    return ROUTES.home.dynamic;
   }
 
   public static getCategoryPathBySlug(slug: string) {
-    return buildPath(ROUTES.categories.root, slug);
-  }
-
-  public static getCategoryPathByName(name: string) {
-    return this.getCategoryPathBySlug(slugify(name));
+    return `${ROUTES.home.dynamicBase}/${slug}`;
   }
 
   // Showcase
+  public static getShowcaseRoot() {
+    return ROUTES.showcase.root;
+  }
+
   public static getShowcaseCategoryPattern() {
     return ROUTES.showcase.categories;
   }
@@ -67,11 +55,11 @@ export class RouteManager {
   }
 
   public static getShowcaseCategoryPathBySlug(slug: string) {
-    return buildPath(ROUTES.showcase.categories, slug);
+    return `${ROUTES.showcase.categories}/${slug}`;
   }
 
   // Posts
   public static getPostPath(postId: string) {
-    return buildPath(ROUTES.posts.root, postId);
+    return `${ROUTES.whisper.posts.root}/${postId}`;
   }
 }

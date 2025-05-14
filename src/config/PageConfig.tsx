@@ -1,9 +1,9 @@
-// src/config/PageConfig.tsx
-
 import React from 'react';
 
+import CategoryBlogsPage from '../features/category-blogs-page/CategoryBlogsPage';
 import HomePage from '../features/home-page/HomePage';
 import ShowcasePage from '../features/showcase/ShowcasePage';
+import UserBlogs from '../features/showcase/user-blogs/UserBlogs';
 import WhisperPage from '../features/whisper/WhisperPage';
 import Contacts from '../features/whisper/contacts/Contacts';
 import PortfolioIntro from '../features/about/About';
@@ -13,8 +13,10 @@ import defaultImageBanner from '../assets/images/defaultImageBanner.png';
 import PageContentSummarize from '../features/page-insight/PageInsight';
 import TechnologiesPage from '../features/technologies/TechnologiesPage';
 import NewsPage from '../features/news/NewsPage';
+import EmptyLayout from '../layouts/EmptyLayout';
 
 import { PageConfig } from './types/types';
+import { unauthContent } from './unauthContent';
 
 export const pageConfig: Record<string, PageConfig> = {
   home: {
@@ -26,13 +28,41 @@ export const pageConfig: Record<string, PageConfig> = {
     children: {},
   },
 
+  categories: {
+    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
+    pageContentSummarize: PageContentSummarize,
+    component: EmptyLayout,
+    isProtected: false,
+    layoutType: 'none',
+    children: {
+      ':name': {
+        bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
+        pageContentSummarize: PageContentSummarize,
+        component: CategoryBlogsPage,
+        isProtected: false,
+        layoutType: 'default',
+        children: {},
+      },
+    },
+  },
+
   showcase: {
     bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
     pageContentSummarize: PageContentSummarize,
     component: ShowcasePage,
     isProtected: true,
     layoutType: 'default',
-    children: {},
+    children: {
+      'categories/:name': {
+        bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
+        pageContentSummarize: PageContentSummarize,
+        component: UserBlogs,
+        isProtected: true,
+        layoutType: 'default',
+        children: {},
+      },
+    },
+    unauthLandingProps: unauthContent.showcase,
   },
 
   whisperDialogs: {

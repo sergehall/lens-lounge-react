@@ -1,18 +1,21 @@
-// Define interfaces for type safety
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { navLinks } from './nav-links';
+import { sidebarLinks, NavLink } from './sidebar.links';
 
 interface SidebarState {
-  navigationLinks: typeof navLinks;
+  navigationLinks: NavLink[];
 }
+
+const initialState: SidebarState = {
+  navigationLinks: [...sidebarLinks],
+};
 
 const sidebarSlice = createSlice({
   name: 'sidebar',
-  initialState: { navigationLinks: [...navLinks] } satisfies SidebarState,
+  initialState,
   reducers: {
-    updateLinks: (state, action: PayloadAction<typeof navLinks>) => {
-      state.navigationLinks = action.payload; // Update navigation links
+    updateLinks: (state, action: PayloadAction<NavLink[]>) => {
+      state.navigationLinks = action.payload;
     },
   },
 });

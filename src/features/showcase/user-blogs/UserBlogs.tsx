@@ -40,7 +40,7 @@ const UserBlogs: React.FC = () => {
       <Grid>
         <IntroCommunitiesTile />
         <CreateBlogCTATile categoryName={decodedName} />
-        <BlogsTile blogs={blogs} />
+        <BlogsTile />
       </Grid>
     </Wrapper>
   );

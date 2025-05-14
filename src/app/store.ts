@@ -27,7 +27,7 @@ export const store = configureStore({
     // Auth
     auth: authReducer,
 
-    // Layout / UI
+    // Layout
     layoutHeader: headerReducer,
     layoutSidebar: sidebarReducer,
 
@@ -41,17 +41,17 @@ export const store = configureStore({
     whisperPage: whisperPageReducer,
     technologiesPage: technologiesReducer,
 
+    // Categories
+    categories: categoriesReducer,
+    myCategories: myCategoriesReducer,
+    categoryBlogs: categoryBlogsReducer,
+
     // Posts
     posts: postsReducer,
     postInteractions: postInteractionsReducer,
 
     // users
     users: userReducer,
-
-    // Categories
-    categories: categoriesReducer,
-    myCategories: myCategoriesReducer,
-    categoryBlogs: categoryBlogsReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
 });
