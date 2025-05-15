@@ -1,21 +1,15 @@
+// src/features/showcase/user-blogs/selectors.ts
+
 import { createSelector } from '@reduxjs/toolkit';
 
 import { RootState } from '../../../app/store';
 
-import { MyBlogsState } from './userBlogsSlice';
+import { UserBlogsState } from './userBlogsSlice';
 
-const selectCategoryBlogsState = (state: RootState): MyBlogsState => state.categoryBlogs;
+const selectUserBlogsState = (state: RootState): UserBlogsState => state.showcasePage.userBlogs;
 
-export const selectBlogsByCategory = createSelector(
-  [selectCategoryBlogsState],
-  (categoryBlogsState) => categoryBlogsState.blogsByCategory // Only the blogs part
-);
-
-export const selectCategoryBlogsLoading = (category: string) =>
+export const makeSelectUserBlogsForCategory = (categoryName: string, username: string) =>
   createSelector(
-    [selectCategoryBlogsState],
-    (categoryBlogsState) => categoryBlogsState.loading[category] || false
+    [(state: RootState) => selectUserBlogsState(state).blogsByCategory[categoryName] || []],
+    (blogs) => blogs.filter((blog) => blog.author.toLowerCase() === username.toLowerCase())
   );
-
-export const makeSelectBlogsForCategory = (categoryName: string) =>
-  createSelector([selectBlogsByCategory], (blogsByCategory) => blogsByCategory[categoryName] || []);

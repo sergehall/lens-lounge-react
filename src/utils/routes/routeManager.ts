@@ -46,16 +46,12 @@ export class RouteManager {
     return ROUTES.showcase.root;
   }
 
-  public static getShowcaseCategoryPattern() {
-    return ROUTES.showcase.categories;
-  }
-
-  public static getShowcaseCategoryRoutePattern() {
-    return ROUTES.showcase.name;
+  public static getShowcaseCategoryName() {
+    return `${ROUTES.showcaseCategory.name}`;
   }
 
   public static getShowcaseCategoryPathBySlug(slug: string) {
-    return `${ROUTES.showcase.categories}/${slug}`;
+    return `${ROUTES.showcaseCategory.root}/${slug}`;
   }
 
   // Posts

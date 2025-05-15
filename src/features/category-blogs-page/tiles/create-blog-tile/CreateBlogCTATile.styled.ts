@@ -36,6 +36,7 @@ export const CTAButton = styled.button`
 
   &:hover {
     box-shadow: ${({ theme }) => theme.authorization.boxShadow};
+    color: ${({ theme }) => theme.links.hoverColor};
     ${({ theme }) => theme.links.hoverColor};
   }
 

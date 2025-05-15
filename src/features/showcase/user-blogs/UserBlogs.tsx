@@ -1,48 +1,40 @@
-// src/features/showcase/user-blogs/UserBlogs.tsx
-import React, { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import { useAppSelector } from '../../../hooks/reduxHooks';
-import { Wrapper, Grid } from '../../category-blogs-page/categoryBlogsPage.styles';
-import IntroCommunitiesTile from '../../category-blogs-page/tiles/intro-tile/IntroCommunitiesTile';
-import BlogsTile from '../../category-blogs-page/tiles/blogs-tile/BlogsTile';
-import CreateBlogCTATile from '../../category-blogs-page/tiles/create-blog-tile/CreateBlogCTATile';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
+import { RouteManager } from '../../../utils/routes/routeManager';
+import * as S from '../../category-blogs-page/categoryBlogsPage.styles';
 import { selectProfile } from '../../auth/authSlice';
 
-import { getUserBlogsByCategory } from './mocks/getUserBlogsByCategory';
+import AuthorBlogsTile from './tiles/author-blogs-bile/AuthorBlogsTile';
 import { CategoryNotFound } from './UserBlogs.styles';
+import { loadUserBlogs } from './userBlogsSlice';
 
 const UserBlogs: React.FC = () => {
   const { name } = useParams<{ name: string }>();
-  const decodedName = decodeURIComponent(name || '');
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const profile = useAppSelector(selectProfile);
+  const username = profile?.username || '';
 
-  const userBlogsByCategory = useMemo(() => {
-    if (!profile || !profile.username) {
-      return {};
+  useEffect(() => {
+    if (username) {
+      dispatch(loadUserBlogs(username));
     }
-    return getUserBlogsByCategory(profile.username);
-  }, [profile]);
+  }, [username, dispatch]);
 
-  const blogs = userBlogsByCategory[decodedName] || [];
-
-  if (!name) {
-    return <CategoryNotFound>Category not found</CategoryNotFound>;
-  }
-
-  if (!blogs.length) {
-    return <CategoryNotFound>No blogs found in this category.</CategoryNotFound>;
-  }
+  if (!name) return <CategoryNotFound>Category not found</CategoryNotFound>;
 
   return (
-    <Wrapper>
-      <Grid>
-        <IntroCommunitiesTile />
-        <CreateBlogCTATile categoryName={decodedName} />
-        <BlogsTile />
-      </Grid>
-    </Wrapper>
+    <S.Wrapper>
+      <S.BackButton onClick={() => navigate(RouteManager.getShowcaseRoot())}>
+        <span>← Back to showcase</span>
+      </S.BackButton>
+      <S.Grid>
+        <AuthorBlogsTile />
+      </S.Grid>
+    </S.Wrapper>
   );
 };
 

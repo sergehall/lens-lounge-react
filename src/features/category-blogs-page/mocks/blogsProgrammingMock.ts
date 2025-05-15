@@ -1,6 +1,6 @@
 import { BlogPreview } from '../types/blogs.types';
 
-export const blogProgrammingMock: Record<string, BlogPreview[]> = {
+export const blogsProgrammingMock: Record<string, BlogPreview[]> = {
   programming: [
     {
       id: '1',
@@ -39,7 +39,7 @@ export const blogProgrammingMock: Record<string, BlogPreview[]> = {
       imageUrl:
         'https://www.docker.com/app/uploads/2024/12/1300x1300_docker-evergreen_logo_blog_D-1-980x980.png',
       tags: ['docker', 'kubernetes', 'devops'],
-      author: 'devopsguru',
+      author: 'sergehall',
       lastPosted: '1 day ago',
     },
     {

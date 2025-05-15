@@ -4,6 +4,7 @@ import React from 'react';
 import { UnauthLandingProps } from '../unauthContent';
 
 export interface PageConfig {
+  path?: string;
   bannerImage: React.FC;
   pageContentSummarize: React.FC;
   component: React.FC;

@@ -3,7 +3,7 @@ import React from 'react';
 
 import Sidebar from './components/sidebar/Sidebar';
 import Header from './components/header/Header';
-import { AppContainer, AppHeader, AppSidebar, AppContent } from './styles/app.styles';
+import * as S from './styles/app.styles';
 import GlobalStyles from './styles/globalStyles';
 import AppRoutes from './routes/AppRoutes';
 
@@ -11,22 +11,22 @@ const App: React.FC = () => {
   return (
     <>
       <GlobalStyles />
-      <AppContainer>
+      <S.AppContainer>
         {/* Header */}
-        <AppHeader data-testid="app-header">
+        <S.AppHeader data-testid="app-header">
           <Header />
-        </AppHeader>
+        </S.AppHeader>
 
         {/* Sidebar */}
-        <AppSidebar data-testid="app-sidebar">
+        <S.AppSidebar data-testid="app-sidebar">
           <Sidebar />
-        </AppSidebar>
+        </S.AppSidebar>
 
         {/* Content */}
-        <AppContent data-testid="app-content">
+        <S.AppContent data-testid="app-content">
           <AppRoutes />
-        </AppContent>
-      </AppContainer>
+        </S.AppContent>
+      </S.AppContainer>
     </>
   );
 };

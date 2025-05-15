@@ -36,3 +36,32 @@ export const IconWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
 `;
+
+export const BackButton = styled.button`
+  width: 100%;
+  padding: 12px 24px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text.white};
+  background-color: ${({ theme }) => theme.global.backgroundColor};
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+
+  span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover span {
+    transform: scale(1.05); /* enlarges only text */
+    color: ${({ theme }) => theme.links.hoverColor};
+  }
+
+  &:active span {
+    transform: scale(1);
+  }
+`;

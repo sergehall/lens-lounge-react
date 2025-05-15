@@ -34,17 +34,23 @@ export const store = configureStore({
     // AI Features
     pageInsight: pageInsightReducer,
 
-    // Pages
+    // Home
     homePage: homePageReducer,
-    showcasePage: showcasePageReducer,
-    newsPage: newsPageReducer,
-    whisperPage: whisperPageReducer,
-    technologiesPage: technologiesReducer,
-
-    // Categories
     categories: categoriesReducer,
     myCategories: myCategoriesReducer,
     categoryBlogs: categoryBlogsReducer,
+
+    // Showcase
+    showcasePage: showcasePageReducer,
+
+    // Whisper
+    whisperPage: whisperPageReducer,
+
+    // Technologies
+    technologiesPage: technologiesReducer,
+
+    // News
+    newsPage: newsPageReducer,
 
     // Posts
     posts: postsReducer,

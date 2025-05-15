@@ -1,10 +1,12 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+// src/features/showcase/user-blogs/userBlogsSlice.ts
 
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { fetchUserBlogsAPI } from './api/fetchUserBlogsAPI';
 import { BlogPreview } from './types/blogs.types';
-import { fetchMyBlogsAPI } from './api/fetchMyBlogsAPI';
 
 // Define the state structure
-export interface MyBlogsState {
+export interface UserBlogsState {
   blogsByCategory: {
     [categoryName: string]: BlogPreview[];
   };
@@ -13,25 +15,24 @@ export interface MyBlogsState {
   };
 }
 
-const initialState: MyBlogsState = {
+const initialState: UserBlogsState = {
   blogsByCategory: {},
   loading: {},
 };
 
 // typed createAsyncThunk
-export const loadCategoryBlogs = createAsyncThunk<
-  { category: string; blogs: BlogPreview[] }, // Return type
-  string, // Argument type (categoryName)
-  { rejectValue: string } // ThunkAPI type
->('categoryBlogs/loadCategoryBlogs', async (categoryName, { rejectWithValue }) => {
+export const loadUserBlogs = createAsyncThunk<
+  Record<string, BlogPreview[]>, // весь blogsByCategory
+  string, // username
+  { rejectValue: string }
+>('userBlogs/loadUserBlogs', async (username, { rejectWithValue }) => {
   try {
-    const blogs = await fetchMyBlogsAPI(categoryName);
-    return { category: categoryName, blogs };
+    return await fetchUserBlogsAPI(username);
   } catch (error: unknown) {
     if (error instanceof Error) {
       return rejectWithValue(error.message);
     }
-    return rejectWithValue('Failed to load category blogs');
+    return rejectWithValue('Failed to load user blogs');
   }
 });
 
@@ -46,15 +47,17 @@ const userBlogsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(loadCategoryBlogs.pending, (state, action) => {
+      .addCase(loadUserBlogs.pending, (state, action) => {
         const categoryName = action.meta.arg;
         state.loading[categoryName] = true;
       })
-      .addCase(loadCategoryBlogs.fulfilled, (state, action) => {
-        state.blogsByCategory[action.payload.category] = action.payload.blogs;
-        state.loading[action.payload.category] = false;
+      .addCase(loadUserBlogs.fulfilled, (state, action) => {
+        Object.entries(action.payload).forEach(([category, blogs]) => {
+          state.blogsByCategory[category] = blogs;
+          state.loading[category] = false;
+        });
       })
-      .addCase(loadCategoryBlogs.rejected, (state, action) => {
+      .addCase(loadUserBlogs.rejected, (state, action) => {
         const categoryName = action.meta.arg;
         state.loading[categoryName] = false;
       });

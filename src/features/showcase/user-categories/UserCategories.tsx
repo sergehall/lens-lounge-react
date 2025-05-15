@@ -1,49 +1,36 @@
-// src/features/showcase/user-categories/UserCategories.tsx
-import React, { useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppSelector } from '../../../hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
+import { selectProfile } from '../../auth/authSlice';
 import { Category } from '../../categories/types/category.types';
 import CreateNewBlogTile from '../create-blog-tile/CreateNewBlogTile';
 import { slugify } from '../../../utils/slugify';
 import { RouteManager } from '../../../utils/routes/routeManager';
-import { categoriesMock } from '../../categories/mock/categoriesMock';
-import placeholderImageDefault from '../../../assets/images/placeholderImageDefault.png';
-import { getUserBlogsByCategory } from '../user-blogs/mocks/getUserBlogsByCategory';
-import { selectProfile } from '../../auth/authSlice';
+import { loadUserBlogs } from '../user-blogs/userBlogsSlice';
 import * as S from '../showcasePage.styles';
+
+import { makeSelectUserCategoriesFromBlogs } from './selectors';
 
 const UserCategories: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
-  // Get profile from Redux
   const profile = useAppSelector(selectProfile);
+  const username = profile?.username || '';
 
-  const userBlogsByCategory = useMemo(() => {
-    if (!profile || !profile.username) {
-      return {};
+  // Load all the user's blogs
+  useEffect(() => {
+    if (username) {
+      dispatch(loadUserBlogs(username));
     }
-    // Compute userBlogsByCategory based on profile.username === blog.author
-    return getUserBlogsByCategory(profile.username);
-  }, [profile]);
+  }, [username, dispatch]);
 
-  // Build user-categories based on blog
-  const categories: Category[] = useMemo(() => {
-    return Object.keys(userBlogsByCategory).map((categoryName) => {
-      const found = categoriesMock.find(
-        (cat) => cat.name.toLowerCase() === categoryName.toLowerCase()
-      );
-      return {
-        name: found?.name || categoryName,
-        imageUrl: found?.imageUrl || placeholderImageDefault,
-        featured: false,
-      };
-    });
-  }, [userBlogsByCategory]);
+  const categories: Category[] = useAppSelector(makeSelectUserCategoriesFromBlogs(username));
 
-  const handleCategoryClick = (category: Category) => {
+  const handleCategoryClick = (category: { name: string }) => {
     const slug = slugify(category.name);
-    navigate(RouteManager.getShowcaseCategoryPathBySlug(slug)); // use /showcase/:name
+    navigate(RouteManager.getShowcaseCategoryPathBySlug(slug));
   };
 
   return (

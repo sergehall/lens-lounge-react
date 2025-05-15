@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 
 import { Grid, Wrapper } from './categoryBlogsPage.styles';
 import IntroCommunitiesTile from './tiles/intro-tile/IntroCommunitiesTile';
-import BlogsTile from './tiles/blogs-tile/BlogsTile';
+import CategoryBlogsTile from './tiles/category-blogs-tile/CategoryBlogsTile';
 import CreateBlogCTATile from './tiles/create-blog-tile/CreateBlogCTATile';
 import { selectCategoryBlogsLoading } from './selectors';
 import { loadCategoryBlogs } from './categoryBlogsPageSlice';
@@ -37,7 +37,7 @@ const CategoryBlogsPage: React.FC = () => {
       <Grid>
         <IntroCommunitiesTile />
         <CreateBlogCTATile categoryName={decodedName} />
-        <BlogsTile />
+        <CategoryBlogsTile />
       </Grid>
     </Wrapper>
   );

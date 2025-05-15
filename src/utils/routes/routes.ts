@@ -21,8 +21,10 @@ export const ROUTES = {
   },
   showcase: {
     root: '/showcase',
-    categories: 'showcase/categories',
-    name: 'showcase/categories/:name',
+  },
+  showcaseCategory: {
+    root: '/showcase/category',
+    name: '/showcase/category/:name',
   },
   whisper: {
     root: '/whisper',

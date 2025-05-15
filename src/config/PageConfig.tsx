@@ -14,6 +14,7 @@ import PageContentSummarize from '../features/page-insight/PageInsight';
 import TechnologiesPage from '../features/technologies/TechnologiesPage';
 import NewsPage from '../features/news/NewsPage';
 import EmptyLayout from '../layouts/EmptyLayout';
+import { RouteManager } from '../utils/routes/routeManager';
 
 import { PageConfig } from './types/types';
 import { unauthContent } from './unauthContent';
@@ -52,16 +53,18 @@ export const pageConfig: Record<string, PageConfig> = {
     component: ShowcasePage,
     isProtected: true,
     layoutType: 'default',
-    children: {
-      'categories/:name': {
-        bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-        pageContentSummarize: PageContentSummarize,
-        component: UserBlogs,
-        isProtected: true,
-        layoutType: 'default',
-        children: {},
-      },
-    },
+    children: {},
+    unauthLandingProps: unauthContent.showcase,
+  },
+
+  showcaseCategory: {
+    path: RouteManager.getShowcaseCategoryName(),
+    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
+    pageContentSummarize: PageContentSummarize,
+    component: UserBlogs,
+    isProtected: true,
+    layoutType: 'default',
+    children: {},
     unauthLandingProps: unauthContent.showcase,
   },
 
