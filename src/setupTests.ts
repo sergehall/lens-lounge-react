@@ -7,21 +7,18 @@ console.log('✅ setupTests.ts loaded');
 // Polyfill: matchMedia
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: (query: string): MediaQueryList => {
-    return {
-      matches: false,
-      media: query,
-      onchange: null,
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-
-      //  mandatory deprecated methods (so that TypeScript doesn't swear)
-      addListener: jest.fn(), // deprecated
-      removeListener: jest.fn(), // deprecated
-    };
-  },
+  value: (query: string): MediaQueryList => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+    addListener: jest.fn(), // deprecated
+    removeListener: jest.fn(), // deprecated
+  }),
 });
+
 // Polyfill: scrollTo
 window.scrollTo = jest.fn();
 
@@ -36,26 +33,21 @@ class IntersectionObserverMock implements IntersectionObserver {
   disconnect = jest.fn();
   takeRecords = jest.fn(() => []);
 
-  constructor(_: IntersectionObserverCallback, __?: IntersectionObserverInit) {
-    // Params intentionally unused
-  }
+  constructor(_: IntersectionObserverCallback, __?: IntersectionObserverInit) {}
 }
 
 window.IntersectionObserver = IntersectionObserverMock;
 
-// Polyfill: global.fetch
+// Polyfill: global.fetch (RTK Query compatible)
 global.fetch = jest.fn(() =>
   Promise.resolve({
+    ok: true,
+    status: 200,
     json: () => Promise.resolve({}),
+    clone: () => ({
+      ok: true,
+      status: 200,
+      json: () => Promise.resolve({}),
+    }),
   })
 ) as jest.Mock;
-
-// Polyfill: global.Request
-global.Request = class {
-  constructor() {
-    // You can extend this mock if needed
-  }
-} as unknown as typeof Request;
-
-// // If you need to inspect how many times it was instantiated in a test:
-// jest.mocks('./path/to/observer', () => IntersectionObserverMock);

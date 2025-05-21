@@ -1,5 +1,4 @@
-import React from 'react';
-
+import { ROUTES } from '../utils/routes/routes';
 import CategoryBlogsPage from '../features/category-blogs-page/CategoryBlogsPage';
 import HomePage from '../features/home-page/HomePage';
 import ShowcasePage from '../features/showcase/ShowcasePage';
@@ -8,117 +7,54 @@ import WhisperPage from '../features/whisper/WhisperPage';
 import Contacts from '../features/whisper/contacts/Contacts';
 import PortfolioIntro from '../features/about/About';
 import Contact from '../features/contact/Contact';
-import BannerImage from '../features/banner-image/bannerImage';
-import defaultImageBanner from '../assets/images/defaultImageBanner.png';
-import PageContentSummarize from '../features/page-insight/PageInsight';
 import TechnologiesPage from '../features/technologies/TechnologiesPage';
 import NewsPage from '../features/news/NewsPage';
-import EmptyLayout from '../layouts/EmptyLayout';
-import { RouteManager } from '../utils/routes/routeManager';
 
-import { PageConfig } from './types/types';
 import { unauthContent } from './unauthContent';
+import { createPageConfig } from './PageConfigFactory';
 
-export const pageConfig: Record<string, PageConfig> = {
-  home: {
-    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-    pageContentSummarize: PageContentSummarize,
-    component: HomePage,
-    isProtected: false,
-    layoutType: 'default',
-    children: {},
-  },
+export const pageConfig = {
+  [ROUTES.home.root]: createPageConfig({ component: HomePage }),
 
-  categories: {
-    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-    pageContentSummarize: PageContentSummarize,
-    component: EmptyLayout,
-    isProtected: false,
-    layoutType: 'none',
-    children: {
-      ':name': {
-        bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-        pageContentSummarize: PageContentSummarize,
-        component: CategoryBlogsPage,
-        isProtected: false,
-        layoutType: 'default',
-        children: {},
-      },
-    },
-  },
+  [ROUTES.home.dynamic]: createPageConfig({
+    component: CategoryBlogsPage,
+  }),
 
-  showcase: {
-    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-    pageContentSummarize: PageContentSummarize,
+  [ROUTES.showcase.root]: createPageConfig({
     component: ShowcasePage,
     isProtected: true,
-    layoutType: 'default',
-    children: {},
     unauthLandingProps: unauthContent.showcase,
-  },
+  }),
 
-  showcaseCategory: {
-    path: RouteManager.getShowcaseCategoryName(),
-    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-    pageContentSummarize: PageContentSummarize,
+  [ROUTES.showcaseCategory.name]: createPageConfig({
     component: UserBlogs,
     isProtected: true,
-    layoutType: 'default',
-    children: {},
     unauthLandingProps: unauthContent.showcase,
-  },
+  }),
 
-  whisperDialogs: {
-    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-    pageContentSummarize: PageContentSummarize,
+  [ROUTES.whisper.chat]: createPageConfig({
     component: WhisperPage,
     isProtected: true,
-    layoutType: 'default',
-    children: {},
-  },
+  }),
 
-  whisperContacts: {
-    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-    pageContentSummarize: PageContentSummarize,
+  [ROUTES.whisper.contacts]: createPageConfig({
     component: Contacts,
     isProtected: true,
-    layoutType: 'default',
-    children: {},
-  },
+  }),
 
-  news: {
-    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-    pageContentSummarize: PageContentSummarize,
-    component: NewsPage,
-    isProtected: false,
-    layoutType: 'default',
-    children: {},
-  },
-
-  technologies: {
-    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-    pageContentSummarize: PageContentSummarize,
+  [ROUTES.technologies.root]: createPageConfig({
     component: TechnologiesPage,
-    isProtected: false,
-    layoutType: 'default',
-    children: {},
-  },
+  }),
 
-  about: {
-    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-    pageContentSummarize: PageContentSummarize,
+  [ROUTES.news.root]: createPageConfig({
+    component: NewsPage,
+  }),
+
+  [ROUTES.about.root]: createPageConfig({
     component: PortfolioIntro,
-    isProtected: false,
-    layoutType: 'default',
-    children: {},
-  },
+  }),
 
-  contact: {
-    bannerImage: () => <BannerImage imageUrl={defaultImageBanner} />,
-    pageContentSummarize: PageContentSummarize,
+  [ROUTES.contact.root]: createPageConfig({
     component: Contact,
-    isProtected: false,
-    layoutType: 'default',
-    children: {},
-  },
+  }),
 };

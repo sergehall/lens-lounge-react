@@ -1,4 +1,4 @@
-// src/config/types/types.ts
+// src/config/types/pageConfig.types.ts
 import React from 'react';
 
 import { UnauthLandingProps } from '../unauthContent';
@@ -10,6 +10,5 @@ export interface PageConfig {
   component: React.FC;
   isProtected: boolean;
   layoutType: 'default' | 'fullWidth' | 'none';
-  children: Record<string, PageConfig>;
   unauthLandingProps?: UnauthLandingProps;
 }
