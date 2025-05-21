@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { RouteManager } from '../../utils/routes/routeManager';
+import { RouteManager } from '../../routes/utils/routeManager';
 
 import { ButtonSegment } from './navigationButtons.styles';
 

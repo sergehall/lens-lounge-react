@@ -1,6 +1,5 @@
 // src/components/HomePage/HomePage.tsx
 import React from 'react';
-import { Outlet } from 'react-router-dom';
 
 import { RootState } from '../../app/store';
 import Categories from '../categories/Categories';
@@ -16,12 +15,7 @@ const HomePage: React.FC = () => {
     return <Loader />;
   }
 
-  return (
-    <>
-      <Categories />
-      <Outlet />
-    </>
-  );
+  return <Categories />;
 };
 
 export default HomePage;

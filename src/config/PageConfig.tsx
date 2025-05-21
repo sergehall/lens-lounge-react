@@ -1,4 +1,4 @@
-import { ROUTES } from '../utils/routes/routes';
+import { ROUTES } from '../routes/routes';
 import CategoryBlogsPage from '../features/category-blogs-page/CategoryBlogsPage';
 import HomePage from '../features/home-page/HomePage';
 import ShowcasePage from '../features/showcase/ShowcasePage';
@@ -16,7 +16,7 @@ import { createPageConfig } from './PageConfigFactory';
 export const pageConfig = {
   [ROUTES.home.root]: createPageConfig({ component: HomePage }),
 
-  [ROUTES.home.dynamic]: createPageConfig({
+  [ROUTES.home.categoryBySlug]: createPageConfig({
     component: CategoryBlogsPage,
   }),
 
@@ -26,18 +26,29 @@ export const pageConfig = {
     unauthLandingProps: unauthContent.showcase,
   }),
 
-  [ROUTES.showcaseCategory.name]: createPageConfig({
+  [ROUTES.showcase.categoryByName]: createPageConfig({
     component: UserBlogs,
     isProtected: true,
     unauthLandingProps: unauthContent.showcase,
   }),
 
-  [ROUTES.whisper.chat]: createPageConfig({
+  [ROUTES.whisper.root]: createPageConfig({
+    component: WhisperPage,
+    isProtected: true,
+    unauthLandingProps: unauthContent.whisper,
+  }),
+
+  [ROUTES.whisper.chatId]: createPageConfig({
     component: WhisperPage,
     isProtected: true,
   }),
 
-  [ROUTES.whisper.contacts]: createPageConfig({
+  [ROUTES.whisper.contactsRoot]: createPageConfig({
+    component: Contacts,
+    isProtected: true,
+  }),
+
+  [ROUTES.whisper.contactId]: createPageConfig({
     component: Contacts,
     isProtected: true,
   }),

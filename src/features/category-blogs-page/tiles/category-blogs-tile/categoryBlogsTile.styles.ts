@@ -10,7 +10,7 @@ export const BlogTile = styled(Tile)`
 
   img {
     width: 100%;
-    height: 66.66%; /* 2/3 of the tile */
+    height: 66.66%;
     object-fit: cover;
     display: block;
   }
@@ -46,5 +46,40 @@ export const Content = styled.div`
   span {
     font-size: 0.7rem;
     color: #888;
+  }
+`;
+
+export const BackButton = styled.button`
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+
+  color: ${({ theme }) => theme.text.white};
+  background-color: ${({ theme }) => theme.global.backgroundColor};
+
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+
+  span {
+    display: inline-block;
+    transition:
+      transform 0.2s ease,
+      color 0.2s ease;
+  }
+
+  &:hover span {
+    transform: scale(1.05); /* enlarge only text */
+    color: ${({ theme }) => theme.links.hoverColor};
+  }
+
+  &:active span {
+    transform: scale(1);
   }
 `;

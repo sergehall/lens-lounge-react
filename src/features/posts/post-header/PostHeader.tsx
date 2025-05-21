@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import { Icons } from '../../../utils/icons';
-import { RouteManager } from '../../../utils/routes/routeManager';
+import { RouteManager } from '../../../routes/utils/routeManager';
 import { timeAgo } from '../../../utils/timeAgo';
 
 import {

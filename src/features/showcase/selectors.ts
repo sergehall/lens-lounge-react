@@ -2,6 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import placeholderImageDefault from '../../assets/images/placeholderImageDefault.png';
 import { RootState } from '../../app/store';
+import { isCategoryName } from '../../utils/guards/isCategoryName';
 import { categoriesMock } from '../categories/mock/categoriesMock';
 import { Category } from '../categories/types/category.types';
 
@@ -18,18 +19,18 @@ export const makeSelectUserCategoriesFromBlogs = (username: string) =>
         (blog) => blog.author.toLowerCase() === username.toLowerCase()
       );
 
-      if (hasUserBlogs) {
-        const matchedCategory = categoriesMock.find(
-          (cat) => cat.name.toLowerCase() === categoryName.toLowerCase()
-        );
+      if (hasUserBlogs && isCategoryName(categoryName)) {
+        const matchedCategory = categoriesMock.find((cat) => cat.name === categoryName);
 
         categories.push({
-          name: matchedCategory?.name || categoryName,
+          name: categoryName,
           imageUrl: matchedCategory?.imageUrl || placeholderImageDefault,
           featured: false,
         });
+      } else if (hasUserBlogs) {
+        console.warn(`❗️Unknown category "${categoryName}" — skipping`);
       }
     });
-    console.log(categories, 'categories1111 UserCategories');
+
     return categories;
   });

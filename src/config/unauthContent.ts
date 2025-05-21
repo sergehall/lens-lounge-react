@@ -14,7 +14,7 @@ export const unauthContent: Record<string, UnauthLandingProps> = {
     warning: 'Only registered users can publish or manage blog content.',
   },
 
-  whisperDialogs: {
+  whisper: {
     title: 'Welcome to Whisper',
     description: 'Please sign in or create an account to start chatting with the community.',
     warning: 'Only registered users can join and participate in real-time conversations.',

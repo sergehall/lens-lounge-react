@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
-import { RouteManager } from '../../../utils/routes/routeManager';
+import { RouteManager } from '../../../routes/utils/routeManager';
 import * as S from '../../category-blogs-page/categoryBlogsPage.styles';
 import { selectProfile } from '../../auth/authSlice';
 

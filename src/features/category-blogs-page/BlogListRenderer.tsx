@@ -8,10 +8,6 @@ interface BlogListRendererProps {
 }
 
 const BlogListRenderer: React.FC<BlogListRendererProps> = ({ blogs }) => {
-  if (blogs.length === 0) {
-    return <div>No blogs found for this category.</div>;
-  }
-
   return (
     <>
       {blogs.map((blog) => (

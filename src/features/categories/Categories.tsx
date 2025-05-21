@@ -4,8 +4,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import * as S from '../home-page/homePage.styles';
-import { slugify } from '../../utils/slugify';
-import { RouteManager } from '../../utils/routes/routeManager';
+import { RouteManager } from '../../routes/utils/routeManager';
 import { useAppSelector } from '../../hooks/reduxHooks';
 
 import { selectCategories } from './selectors';
@@ -13,13 +12,10 @@ import { Category } from './types/category.types';
 
 const Categories: React.FC = () => {
   const navigate = useNavigate();
-
-  // Pull default user-categories from Redux
   const categories = useAppSelector(selectCategories);
 
   const handleCategoryClick = (category: Category) => {
-    const slug = slugify(category.name);
-    navigate(RouteManager.getCategoryPathBySlug(slug));
+    navigate(RouteManager.getCategoryPathByName(category.name));
   };
 
   return (

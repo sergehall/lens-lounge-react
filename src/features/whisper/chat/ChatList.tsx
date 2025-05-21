@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppSelector } from '../../../hooks/reduxHooks';
-import { RouteManager } from '../../../utils/routes/routeManager';
+import { RouteManager } from '../../../routes/utils/routeManager';
 import { User } from '../../users/types/user.type';
 import { selectAllUsers } from '../../users/userSlice';
 import { selectProfile } from '../../auth/authSlice';

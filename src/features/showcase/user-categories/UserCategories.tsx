@@ -5,8 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { selectProfile } from '../../auth/authSlice';
 import { Category } from '../../categories/types/category.types';
 import CreateNewBlogTile from '../create-blog-tile/CreateNewBlogTile';
-import { slugify } from '../../../utils/slugify';
-import { RouteManager } from '../../../utils/routes/routeManager';
+import { RouteManager } from '../../../routes/utils/routeManager';
 import { loadUserBlogs } from '../user-blogs/userBlogsSlice';
 import * as S from '../showcasePage.styles';
 
@@ -28,9 +27,8 @@ const UserCategories: React.FC = () => {
 
   const categories: Category[] = useAppSelector(makeSelectUserCategoriesFromBlogs(username));
 
-  const handleCategoryClick = (category: { name: string }) => {
-    const slug = slugify(category.name);
-    navigate(RouteManager.getShowcaseCategoryPathBySlug(slug));
+  const handleCategoryClick = (category: Category) => {
+    navigate(RouteManager.getShowcaseCategoryPathByName(category.name));
   };
 
   return (

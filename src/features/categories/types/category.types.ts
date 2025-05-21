@@ -1,5 +1,7 @@
+import { CategoryName } from '../../../config/categorySlugs';
+
 export interface Category {
-  name: string;
+  name: CategoryName;
   imageUrl: string;
   featured: boolean;
 }
