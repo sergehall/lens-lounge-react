@@ -26,13 +26,13 @@ export const pageConfig = {
     unauthLandingProps: unauthContent.showcase,
   }),
 
-  [ROUTES.showcase.categoryByName]: createPageConfig({
+  [ROUTES.showcase.categoryBySlug]: createPageConfig({
     component: UserBlogs,
     isProtected: true,
     unauthLandingProps: unauthContent.showcase,
   }),
 
-  [ROUTES.whisper.root]: createPageConfig({
+  [ROUTES.whisper.chatsRoot]: createPageConfig({
     component: WhisperPage,
     isProtected: true,
     unauthLandingProps: unauthContent.whisper,
@@ -41,16 +41,19 @@ export const pageConfig = {
   [ROUTES.whisper.chatId]: createPageConfig({
     component: WhisperPage,
     isProtected: true,
+    unauthLandingProps: unauthContent.whisper,
   }),
 
   [ROUTES.whisper.contactsRoot]: createPageConfig({
     component: Contacts,
     isProtected: true,
+    unauthLandingProps: unauthContent.whisper,
   }),
 
   [ROUTES.whisper.contactId]: createPageConfig({
     component: Contacts,
     isProtected: true,
+    unauthLandingProps: unauthContent.whisper,
   }),
 
   [ROUTES.technologies.root]: createPageConfig({

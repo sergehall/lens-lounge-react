@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppSelector } from '../../../hooks/reduxHooks';
-import { RouteManager } from '../../../routes/utils/routeManager';
+import { WHISPER_ROUTES } from '../../../routes/route-definitions/whisper.routes';
 import { User } from '../../users/types/user.type';
 import { selectAllUsers } from '../../users/userSlice';
 import { selectProfile } from '../../auth/authSlice';
@@ -29,7 +29,7 @@ const ChatList: React.FC = () => {
   };
 
   const handleDialogSelect = (chatId: string) => {
-    navigate(RouteManager.getWhisperChatPath(chatId));
+    navigate(WHISPER_ROUTES.build.chatId(chatId));
   };
 
   return (
@@ -42,9 +42,7 @@ const ChatList: React.FC = () => {
         return (
           <S.UserItem
             key={chat.id}
-            onClick={() => {
-              handleDialogSelect(chat.id);
-            }}
+            onClick={() => handleDialogSelect(chat.id)}
             $isActive={selectedChatId === chat.id}
           >
             <S.Avatar

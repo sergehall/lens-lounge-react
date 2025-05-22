@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
-import { RouteManager } from '../../../routes/utils/routeManager';
+import { SHOWCASE_ROUTES } from '../../../routes/route-definitions/showcase.routes';
 import * as S from '../../category-blogs-page/categoryBlogsPage.styles';
 import { selectProfile } from '../../auth/authSlice';
 
@@ -28,7 +28,7 @@ const UserBlogs: React.FC = () => {
 
   return (
     <S.Wrapper>
-      <S.BackButton onClick={() => navigate(RouteManager.getShowcaseRoot())}>
+      <S.BackButton onClick={() => navigate(SHOWCASE_ROUTES.root)}>
         <span>← Back to showcase</span>
       </S.BackButton>
       <S.Grid>

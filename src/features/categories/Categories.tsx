@@ -3,8 +3,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { HOME_ROUTES } from '../../routes/route-definitions/home.routes';
 import * as S from '../home-page/homePage.styles';
-import { RouteManager } from '../../routes/utils/routeManager';
 import { useAppSelector } from '../../hooks/reduxHooks';
 
 import { selectCategories } from './selectors';
@@ -15,7 +15,7 @@ const Categories: React.FC = () => {
   const categories = useAppSelector(selectCategories);
 
   const handleCategoryClick = (category: Category) => {
-    navigate(RouteManager.getCategoryPathByName(category.name));
+    navigate(HOME_ROUTES.build.categoryByName(category.name));
   };
 
   return (

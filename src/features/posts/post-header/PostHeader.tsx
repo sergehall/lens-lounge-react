@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+import { WHISPER_ROUTES } from '../../../routes/route-definitions/whisper.routes';
 import { Icons } from '../../../utils/icons';
-import { RouteManager } from '../../../routes/utils/routeManager';
 import { timeAgo } from '../../../utils/timeAgo';
 
 import {
@@ -29,8 +29,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({ username, postId, createdAt }) 
     setMenuVisible((prev) => !prev);
   };
 
-  // const path = `/${RouteManager.getNestedPaths().post}/${postId}`;
-  const path = RouteManager.getPostPath(postId);
+  const path = WHISPER_ROUTES.build.postId(postId);
 
   // Optional: Close menu when clicking outside
   useEffect(() => {

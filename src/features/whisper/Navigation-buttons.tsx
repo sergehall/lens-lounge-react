@@ -1,29 +1,26 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { RouteManager } from '../../routes/utils/routeManager';
+import { WHISPER_ROUTES } from '../../routes/route-definitions/whisper.routes';
 
 import { ButtonSegment } from './navigationButtons.styles';
 
 const NavigationButtons: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // Get the current route
+  const location = useLocation();
 
-  // const chat = RouteManager.getSidebarPaths().whisper + '/' + RouteManager.getNestedPaths().chat
-  // const contacts = RouteManager.getSidebarPaths().whisper + '/' + RouteManager.getNestedPaths().contacts
+  const chatsPath = WHISPER_ROUTES.chatsRoot;
+  const contactsPath = WHISPER_ROUTES.contactsRoot;
 
-  const chats = RouteManager.getWhisperChatsRoot();
-  const contacts = RouteManager.getWhisperContactsRoot();
-
-  const isChatsActive = location.pathname.startsWith(chats);
-  const isContactsActive = location.pathname.startsWith(contacts);
+  const isChatsActive = location.pathname.startsWith(chatsPath);
+  const isContactsActive = location.pathname.startsWith(contactsPath);
 
   return (
     <ButtonSegment>
-      <button onClick={() => navigate(chats)} className={isChatsActive ? 'active' : ''}>
+      <button onClick={() => navigate(chatsPath)} className={isChatsActive ? 'active' : ''}>
         Chats
       </button>
-      <button onClick={() => navigate(contacts)} className={isContactsActive ? 'active' : ''}>
+      <button onClick={() => navigate(contactsPath)} className={isContactsActive ? 'active' : ''}>
         Contacts
       </button>
     </ButtonSegment>

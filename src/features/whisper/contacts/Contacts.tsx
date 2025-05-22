@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppSelector } from '../../../hooks/reduxHooks';
+import { WHISPER_ROUTES } from '../../../routes/route-definitions/whisper.routes';
 import * as S from '../ContactsList.styles';
-import { RouteManager } from '../../../routes/utils/routeManager';
 import NavigationButtons from '../Navigation-buttons';
 
 import ContactDetails from './ContactDetails';
@@ -17,7 +17,7 @@ const Contacts: React.FC = () => {
   const selectedContact = contacts.find((c) => c.userId === contactId) || null;
 
   const handleContactSelect = (contactId: string) => {
-    navigate(RouteManager.getWhisperContactsPath(contactId));
+    navigate(WHISPER_ROUTES.build.contactId(contactId));
   };
 
   return (
