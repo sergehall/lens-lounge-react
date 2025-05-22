@@ -160,6 +160,7 @@ const theme = {
 
   // Chat and messaging components
   dialogs: {
+    buttonHoverColor: '#175C80',
     userListBorderColor: 'rgba(255, 255, 255, 0.1)',
     userBgActiveColor: '#1C6F99',
     userItemActiveColor: '#282c34',
