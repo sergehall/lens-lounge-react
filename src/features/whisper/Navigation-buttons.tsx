@@ -1,8 +1,9 @@
+// src/features/whisper/Navigation-buttons.tsx
+
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { WHISPER_ROUTES } from '../../routes/route-definitions/whisper.routes';
-import { ButtonSegment } from './navigationButtons.styles';
+import { ButtonSegment, TabButton, ActiveIndicator } from './navigationButtons.styles';
 
 const tabs = [
   { label: 'Chats', path: WHISPER_ROUTES.chatsRoot },
@@ -12,7 +13,6 @@ const tabs = [
 const NavigationButtons: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const currentPath = location.pathname;
 
   return (
@@ -21,20 +21,15 @@ const NavigationButtons: React.FC = () => {
         const isActive = currentPath.startsWith(path);
 
         return (
-          <button
-            key={path}
-            onClick={() => navigate(path)}
-            className={`tab-button ${isActive ? 'active' : ''}`}
-          >
+          <TabButton key={path} onClick={() => navigate(path)} $active={isActive}>
             {label}
             {isActive && (
-              <motion.div
+              <ActiveIndicator
                 layoutId="tab-indicator"
-                className="active-indicator"
                 transition={{ type: 'spring', stiffness: 500, damping: 30 }}
               />
             )}
-          </button>
+          </TabButton>
         );
       })}
     </ButtonSegment>
