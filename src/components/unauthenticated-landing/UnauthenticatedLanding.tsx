@@ -15,8 +15,8 @@ interface Props {
  * visiting features like Whisper or Showcase. Encourages SIGN IN or CREATE ACCOUNT to proceed.
  */
 const UnauthenticatedLanding: React.FC<Props> = ({
-  title = 'Welcome to Lens Lounge',
-  description = 'Please register or sign in to complete your profile and join the community!',
+  title,
+  description,
   warning,
   onSignIn,
   onCreateAccount,

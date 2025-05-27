@@ -2,7 +2,9 @@
 
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+
 import { WHISPER_ROUTES } from '../../routes/route-definitions/whisper.routes';
+
 import { ButtonSegment, TabButton, ActiveIndicator } from './navigationButtons.styles';
 
 const tabs = [

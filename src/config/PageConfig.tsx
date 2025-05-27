@@ -1,3 +1,4 @@
+import Chat from '../features/whisper/chat/Chat';
 import { ROUTES } from '../routes/routes';
 import CategoryBlogsPage from '../features/category-blogs-page/CategoryBlogsPage';
 import HomePage from '../features/home-page/HomePage';
@@ -32,14 +33,20 @@ export const pageConfig = {
     unauthLandingProps: unauthContent.showcase,
   }),
 
-  [ROUTES.whisper.chatsRoot]: createPageConfig({
+  [ROUTES.whisper.root]: createPageConfig({
     component: WhisperPage,
     isProtected: true,
     unauthLandingProps: unauthContent.whisper,
   }),
 
+  [ROUTES.whisper.chatsRoot]: createPageConfig({
+    component: Chat,
+    isProtected: true,
+    unauthLandingProps: unauthContent.whisper,
+  }),
+
   [ROUTES.whisper.chatId]: createPageConfig({
-    component: WhisperPage,
+    component: Chat,
     isProtected: true,
     unauthLandingProps: unauthContent.whisper,
   }),

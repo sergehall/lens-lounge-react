@@ -3,7 +3,7 @@
 import { CATEGORY_SLUGS, CategoryName } from '../../config/categorySlugs';
 import { buildRoute } from '../utils/buildRoute';
 
-// Step 1–2: Static base + dynamic builders with strong types
+// Static base + dynamic builders with strong types
 const SHOWCASE_ROUTES_BASE = {
   root: '/showcase',
   category: '/showcase/category',

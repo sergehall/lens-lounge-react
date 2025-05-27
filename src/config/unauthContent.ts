@@ -22,8 +22,8 @@ export const unauthContent: Record<string, UnauthLandingProps> = {
 
   // Default fallback if a route doesn't specify unauthLandingProps
   default: {
-    title: 'Restricted',
-    description: 'Please log in to continue.',
+    title: 'Welcome to Lens Lounge',
+    description: 'Please register or sign in to complete your profile and join the community!',
     warning: 'Only registered users can view this content.',
   },
 };

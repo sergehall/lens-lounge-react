@@ -1,30 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useAppSelector } from '../../hooks/reduxHooks';
+import { WHISPER_ROUTES } from '../../routes/route-definitions/whisper.routes';
 import { selectIsAuthenticated } from '../auth/authSlice';
-import useAuthNavigation from '../../hooks/useAuthNavigation';
-import UnauthenticatedLanding from '../../components/unauthenticated-landing/UnauthenticatedLanding';
-
-import Chat from './chat/Chat';
 
 const WhisperPage: React.FC = () => {
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const navigate = useNavigate();
 
-  const { handleSignInClick, handleCreateAccountClick } = useAuthNavigation();
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate(WHISPER_ROUTES.chatsRoot);
+    }
+  }, [isAuthenticated, navigate]);
 
-  if (isAuthenticated) {
-    return <Chat />;
-  }
-
-  return (
-    <UnauthenticatedLanding
-      title="Welcome to Whisper"
-      description="Please sign in or create an account to start chatting with the community."
-      warning="Only registered users can join and participate in real-time conversations."
-      onSignIn={handleSignInClick}
-      onCreateAccount={handleCreateAccountClick}
-    />
-  );
+  return null; // We don't render anything, since we only redirect it
 };
 
 export default WhisperPage;

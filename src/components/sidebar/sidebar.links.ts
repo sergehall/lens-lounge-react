@@ -4,7 +4,7 @@ import { ROUTES } from '../../routes/routes';
 export const sidebarLinks = [
   { name: 'Home', url: ROUTES.home.root },
   { name: 'Showcase', url: ROUTES.showcase.root },
-  { name: 'Whisper', url: ROUTES.whisper.chatsRoot },
+  { name: 'Whisper', url: ROUTES.whisper.root },
   { name: 'Technologies', url: ROUTES.technologies.root },
   { name: 'News', url: ROUTES.news.root },
   { name: 'About', url: ROUTES.about.root },
