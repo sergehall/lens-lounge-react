@@ -48,12 +48,17 @@ export const MessageItem = styled.div<{ $isMine: boolean }>`
                     clip-path: polygon(0 0, 100% 0, 100% 100%);
                 `}
   }
+`;
+// Timestamp style component
+export const Timestamp = styled.div`
+  font-size: 12px;
+  color: ${({ theme }) => theme.text.slateGray};
+  margin-bottom: 4px;
+`;
 
-  .timestamp {
-    font-size: 12px;
-    color: ${({ theme }) => theme.text.slateGray};
-    margin-bottom: 4px;
-  }
+// Message text wrapper
+export const MessageText = styled.div`
+  word-wrap: break-word;
 `;
 
 export const InputSectionChat = styled.div`

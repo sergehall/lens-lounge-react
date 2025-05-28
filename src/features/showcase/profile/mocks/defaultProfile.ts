@@ -1,11 +1,12 @@
 import { usersMock } from '../../../users/mocks/usersMock';
 
-export interface Profile {
+export interface ProfileType {
   userId: string;
   photoUrl: string;
   firstName: string;
   lastName: string;
   username: string;
+  email: string;
   birthday: string;
   education: string;
   website: string;
@@ -19,12 +20,13 @@ if (!defaultUser) {
 }
 
 // Generate the default profile from that user
-export const DEFAULT_PROFILE: Profile = {
+export const DEFAULT_PROFILE: ProfileType = {
   userId: defaultUser.userId,
   photoUrl: defaultUser.photoUrl,
   firstName: defaultUser.firstName,
   lastName: defaultUser.lastName,
   username: defaultUser.username,
+  email: defaultUser.email,
   birthday: defaultUser.birthday,
   education: defaultUser.education,
   website: defaultUser.website,

@@ -1,4 +1,4 @@
-import Chat from '../features/whisper/chat/Chat';
+import Chat from '../features/whisper/chat/ChatPanel';
 import { ROUTES } from '../routes/routes';
 import CategoryBlogsPage from '../features/category-blogs-page/CategoryBlogsPage';
 import HomePage from '../features/home-page/HomePage';

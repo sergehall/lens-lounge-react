@@ -25,6 +25,7 @@ export const DropdownContainer = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
+  width: 100%;
   background-color: #282c34;
   border: 1px solid ${({ theme }) => theme.global.secondaryColor};
   border-radius: 8px;

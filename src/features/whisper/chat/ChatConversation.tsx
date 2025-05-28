@@ -1,23 +1,22 @@
+// ChatConversation.tsx
 import React, { useEffect, useRef } from 'react';
-
 import { useAppSelector } from '../../../hooks/reduxHooks';
-import { selectProfile } from '../../auth/authSlice';
-
-import { MessageItem, MessagesContainer } from './chat.styles';
 import { selectMessagesByChatId } from './chatSlice';
 import { Message } from './types/message.type';
 
-interface ChatMessagesProps {
+// Styled components
+import * as S from './chat.styles';
+
+interface ChatConversationProps {
   chatId: string;
+  currentUserId: string;
 }
 
-const ChatMessages: React.FC<ChatMessagesProps> = ({ chatId }) => {
+const ChatConversation: React.FC<ChatConversationProps> = ({ chatId, currentUserId }) => {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const messagesContainerRef = useRef<HTMLDivElement | null>(null);
 
   const messages: Message[] = useAppSelector(selectMessagesByChatId(chatId));
-  const profile = useAppSelector(selectProfile);
-  const currentUserId: string = profile?.userId || '0'; // Safe fallback
 
   useEffect(() => {
     const container = messagesContainerRef.current;
@@ -38,21 +37,21 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({ chatId }) => {
   }
 
   return (
-    <MessagesContainer ref={messagesContainerRef}>
+    <S.MessagesContainer ref={messagesContainerRef}>
       {messages.map((message: Message) => (
-        <MessageItem key={message.id} $isMine={message.senderId === currentUserId}>
-          <div className="timestamp">
+        <S.MessageItem key={message.id} $isMine={message.senderId === currentUserId}>
+          <S.Timestamp>
             {new Date(message.createdAt).toLocaleTimeString([], {
               hour: '2-digit',
               minute: '2-digit',
             })}
-          </div>
-          <div className="message">{message.message}</div>
-        </MessageItem>
+          </S.Timestamp>
+          <S.MessageText>{message.message}</S.MessageText>
+        </S.MessageItem>
       ))}
       <div ref={messagesEndRef} />
-    </MessagesContainer>
+    </S.MessagesContainer>
   );
 };
 
-export default ChatMessages;
+export default ChatConversation;

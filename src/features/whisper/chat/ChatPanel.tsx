@@ -1,27 +1,32 @@
+// /src/features/chat/ChatPanel.tsx
 import React from 'react';
+import { useCurrentUserConfig } from '../../../hooks/useCurrentUser';
 
 import NavigationButtons from '../Navigation-buttons';
 import * as S from '../ContactsList.styles';
 
-import ChasList from './ChatList';
-import ChatMessages from './ChatMessages';
-import { useChatLogic } from './hooks/useChatLogic';
+import ChatList from './ChatList';
+import ChatConversation from './ChatConversation';
 import InputSection from './InputSection';
+import { useChatLogic } from './hooks/useChatLogic';
 
-const Chat: React.FC = () => {
+const ChatPanel: React.FC = () => {
   const { message, setMessage, selectedDialog, handleSendMessage, handleUploadFile } =
     useChatLogic();
+
+  // Get full user profile
+  const userId = useCurrentUserConfig('userId');
 
   return (
     <S.WhisperChatContainer>
       <S.UserListWrapper>
-        <ChasList />
+        <ChatList />
         <NavigationButtons />
       </S.UserListWrapper>
       <S.ChatsOrContactsInfoSection>
         {selectedDialog ? (
           <>
-            <ChatMessages chatId={selectedDialog.id} />
+            <ChatConversation chatId={selectedDialog.id} currentUserId={userId} />
             <InputSection
               message={message}
               setMessage={setMessage}
@@ -37,4 +42,4 @@ const Chat: React.FC = () => {
   );
 };
 
-export default Chat;
+export default ChatPanel;

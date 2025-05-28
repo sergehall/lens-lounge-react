@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 import { useAuth } from '../../../api/services/authService';
+import { isProfileValid } from '../../../utils/guards/isProfileValid';
 
 import {
   AuthButton,
   DropdownContainer,
-  DropdownTitle,
   InputField,
   DropdownButton,
   ForgotPasswordLink,
@@ -16,6 +16,7 @@ import {
   SignInWithAppleButton,
   SignInWithGoogleButton,
   ContinueWithFacebookButton,
+  DropdownTitle,
 } from './authorization.styles';
 
 export interface AuthorizationProps {
@@ -35,7 +36,6 @@ const Authorization: React.FC<AuthorizationProps> = ({
   const handleSignInClick = () => {
     setShowSignInField(true);
   };
-
   return (
     <div
       style={{ position: 'relative' }}
@@ -44,17 +44,23 @@ const Authorization: React.FC<AuthorizationProps> = ({
     >
       {/* Authorization Button */}
       <AuthButton $isActive={isDropdownVisible}>
-        {user ? `Welcome, ${user.name}` : 'Authorization'}
+        {isProfileValid(user) ? `Welcome, ${user.firstName}` : 'Authorization'}
       </AuthButton>
 
       {/* Dropdown Content */}
       {isDropdownVisible && (
         <DropdownContainer>
           {/* If user is already signed in, show Sign Out */}
-          {user ? (
+          {isProfileValid(user) ? (
             <>
-              <DropdownTitle>WELCOME, {user.name.toUpperCase()}</DropdownTitle>
               <DropdownButton onClick={handleSignOut}>SIGN OUT</DropdownButton>
+              {signInState.error && (
+                <p style={{ color: 'red', marginTop: '0.5rem' }}>
+                  {'status' in signInState.error
+                    ? ((signInState.error.data as { error: string })?.error ?? 'Sign-in failed')
+                    : signInState.error.message}
+                </p>
+              )}
             </>
           ) : (
             <>

@@ -42,6 +42,33 @@ export interface AddressData {
 
 export const usersMock: User[] = [
   {
+    userId: '0',
+    username: 'sergehall',
+    avatarUrl:
+      'https://avatars.githubusercontent.com/u/60080971?s=400&u=142534052d9a95da0103bb0094b44d5202f90a21&v=4',
+    email: 'sergehall@example.com',
+    isOnline: true,
+    lastActive: new Date().toISOString(),
+    firstName: 'Serge',
+    lastName: 'Hall',
+    login: 'sergehall@example.com'.toLowerCase(),
+    passwordHash: 'hashedPasswordsergehall',
+    createdAt: new Date().toISOString(),
+    orgId: OrgIdEnums.IT_INCUBATOR,
+    roles: [UserRolesEnums.USER, UserRolesEnums.SA],
+    isBanned: false,
+    banDate: null,
+    banReason: null,
+    confirmationCode: v4(),
+    expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+    isConfirmed: false,
+    birthday: 'January 31, 1991',
+    education: "Bachelor's in Computer Science",
+    website: 'https://sergioartg.com',
+    photoUrl:
+      'https://avatars.githubusercontent.com/u/60080971?s=400&u=142534052d9a95da0103bb0094b44d5202f90a21&v=4',
+  },
+  {
     userId: '1',
     username: 'EmmyMax',
     avatarUrl:
@@ -247,33 +274,6 @@ export const usersMock: User[] = [
     education: "Bachelor's in Computer Science",
     website: 'https://defaultwebsite.com',
     photoUrl: 'https://defaultavatar.com/avatar.jpg',
-  },
-  {
-    userId: '0',
-    username: 'SergeHall',
-    avatarUrl:
-      'https://avatars.githubusercontent.com/u/60080971?s=400&u=142534052d9a95da0103bb0094b44d5202f90a21&v=4',
-    email: 'sergehall@example.com',
-    isOnline: true,
-    lastActive: new Date().toISOString(),
-    firstName: 'Serge',
-    lastName: 'Hall',
-    login: 'emmymax@example.com'.toLowerCase(),
-    passwordHash: 'hashedPassword1',
-    createdAt: new Date().toISOString(),
-    orgId: OrgIdEnums.IT_INCUBATOR,
-    roles: [UserRolesEnums.USER, UserRolesEnums.SA],
-    isBanned: false,
-    banDate: null,
-    banReason: null,
-    confirmationCode: v4(),
-    expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
-    isConfirmed: false,
-    birthday: 'January 31, 1991',
-    education: "Bachelor's in Computer Science",
-    website: 'https://sergioartg.com',
-    photoUrl:
-      'https://avatars.githubusercontent.com/u/60080971?s=400&u=142534052d9a95da0103bb0094b44d5202f90a21&v=4',
   },
 ];
 
