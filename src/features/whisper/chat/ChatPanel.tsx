@@ -1,7 +1,7 @@
 // /src/features/chat/ChatPanel.tsx
 import React from 'react';
-import { useCurrentUserConfig } from '../../../hooks/useCurrentUser';
 
+import { useCurrentUserConfig } from '../../../hooks/useCurrentUser';
 import NavigationButtons from '../Navigation-buttons';
 import * as S from '../ContactsList.styles';
 

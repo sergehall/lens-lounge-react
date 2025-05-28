@@ -1,5 +1,6 @@
 // src/features/api/apiSlice.ts
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import { ProfileType } from '../features/showcase/profile/mocks/defaultProfile';
 
 const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';

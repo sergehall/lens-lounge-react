@@ -1,10 +1,10 @@
 // ChatConversation.tsx
 import React, { useEffect, useRef } from 'react';
+
 import { useAppSelector } from '../../../hooks/reduxHooks';
+
 import { selectMessagesByChatId } from './chatSlice';
 import { Message } from './types/message.type';
-
-// Styled components
 import * as S from './chat.styles';
 
 interface ChatConversationProps {

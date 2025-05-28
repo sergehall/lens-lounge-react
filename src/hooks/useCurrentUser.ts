@@ -1,8 +1,9 @@
 //  src/hooks/useCurrentUser.ts
 
-import { useAppSelector } from './reduxHooks';
 import { selectProfile } from '../features/auth/authSlice';
 import { ProfileType } from '../features/showcase/profile/mocks/defaultProfile';
+
+import { useAppSelector } from './reduxHooks';
 
 /**
  * Hook: useCurrentUserConfig

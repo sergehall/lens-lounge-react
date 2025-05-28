@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import jwt from 'jsonwebtoken';
+
 import { DEFAULT_PROFILE } from '../../features/showcase/profile/mocks/defaultProfile';
 import { usersMock } from '../../features/users/mocks/usersMock';
 
@@ -67,6 +68,7 @@ app.get('/api/profile', (req, res) => {
 
     return res.json(DEFAULT_PROFILE);
   } catch (err) {
+    console.error('JWT verification failed:', err);
     return res.status(401).json({ error: 'Invalid token' });
   }
 });
